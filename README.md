@@ -43,8 +43,11 @@ Vehiculo:
 cuenta en GitHub:
 
 -Cristian Velázquez Sánchez // c.velzquezs@alumnos.urjc.es // cvs4190
+
 -Carlos Santos Morales // c.santosmo@alumnos.urjc.es // CSantosM
+
 -David Villatobas Fernandez // d.villatobas@alumnos.urjc.es // dvillatobas
+
 -Jorge Rodríguez Barreno // j.rodriguezbarr@alumnos.urjc.es // Naugh
 
 
