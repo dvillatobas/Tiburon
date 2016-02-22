@@ -1,6 +1,6 @@
 
 
-• Nombre de la aplicación web:
+• Nombre de la aplicación web: Vehiculos y Recambios el tiburón S.A.
 
 • Descripción de la temática de la web, indicando qué funcionalidad es pública y cual es
 privada y diferente para cada usuario:
@@ -12,9 +12,7 @@ privada y diferente para cada usuario:
 
 	parte privada:
 		-vista previa del vehiculo (vender,comprar, pujar)
-		-vista previa de vehículos registrados, (añadir, editar, borrar)
-		-vista previa de vehículos comprados, (pendientes por pagar)
-		-vista previa de vehículos pujados, (aumentar puja, dejar de pujar)
+		-vista previa de vehículos registrados(añadir, editar, borrar), comprados(pendientes por pagar), pujados(aumentar puja, dejar de pujar)
 
 
 
@@ -47,8 +45,24 @@ Vehiculo:
 	Color: rojo, blanco, negro….
 	
 	Extras(si/no):
-		D.asistida, abs, esp, A.Acondicionado,climatizador(¿bizona?), Elevalunas eléctricos, cierre centralizado, 
+		D.asistida, abs, esp, A.Acondicionado,climatizador(¿bizona?), Elevalunas eléctricos, cierre centralizado,
+	
+	Precio:
+	
+Piezas:
+	
+	Nombre:
+	
+	Marca:
+	
+	Ref:
+	
+	Vehiculo compatible:
+	
+	Precio:
 
+	¿Es nueva? ¿o de 2ª?
+	
 
 • Integrantes del equipo de desarrollo: Nombre, Apellidos, correo oficial de la universidad y
 cuenta en GitHub:
