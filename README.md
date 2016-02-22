@@ -22,19 +22,30 @@ privada y diferente para cada usuario:
 • Nombre y descripción de cada una de las 5 entidades principales.
 
 Cliente:
+
 	Nombre:
+
 	Apellidos: 
+
 	correo:
+
 	nºtarjeta crédito:
 
+
 Vehiculo:
-	Campos:
+
 	Estado:venta / subasta?fecha fin
+	
 	Tipo: moto, turismo, furgón
+	
 	NºPuertas: 3, 4, 5
+	
 	Combustible: diésel,biodiesel, gasolina, hibrido, eléctrico
+	
 	Cambio: manual, automatico
+	
 	Color: rojo, blanco, negro….
+	
 	Extras(si/no):
 		D.asistida, abs, esp, A.Acondicionado,climatizador(¿bizona?), Elevalunas eléctricos, cierre centralizado, 
 
