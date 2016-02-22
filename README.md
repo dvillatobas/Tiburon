@@ -44,6 +44,10 @@ cuenta en GitHub:
 
 -Cristian Velázquez Sánchez // c.velzquezs@alumnos.urjc.es // cvs4190
 -Carlos Santos Morales // c.santosmo@alumnos.urjc.es // CSantosM
+<<<<<<< HEAD
 -David Villatobas Fernandez // d.villatobas@alumnos.urjc.es // dvillatobas
+=======
+-Jorge Rodríguez Barreno // j.rodriguezbarr@alumnos.urjc.es // Naugh
+>>>>>>> e7a79f55c470dd74cf49d470ae5ea0a0d9222e00
 
 
