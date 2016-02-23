@@ -1,14 +1,14 @@
 
 
-• Nombre de la aplicación web: Vehiculos y Recambios el tiburón S.A.
+Vehiculos y Recambios el Tiburón 
+================================
 
-• Descripción de la temática de la web, indicando qué funcionalidad es pública y cual es
-privada y diferente para cada usuario:
+Descripción
+-----------
 
-	Descripcion:Se trata de una aplicación web, en que se realizan compra/venta y subasta de vehiculos.
+###Es una aplicación web que permite anunciar la compra/venta de vehículos y piezas de automóvil para particulares y empresas.
 
-	parte publica:
-		-Visualizar el listado de disponibles(busqueda)
+La parte pública consiste en la búsqueda y visualización de los diferentes anuncios
 
 	parte privada:
 		-vista previa del vehiculo (vender,comprar, pujar)
@@ -27,7 +27,9 @@ Cliente:
 
 	correo:
 
-	nºtarjeta crédito:
+	telefono:
+    
+    Profesional/Particular
 
 
 Vehiculo:
@@ -62,6 +64,20 @@ Piezas:
 	Precio:
 
 	¿Es nueva? ¿o de 2ª?
+
+Mensajeria:
+
+    id
+    
+    Emisor
+    
+    Receptor
+    
+    Producto (id)
+    
+    Estado (no_leido | leido)
+
+    
 	
 
 • Integrantes del equipo de desarrollo: Nombre, Apellidos, correo oficial de la universidad y
