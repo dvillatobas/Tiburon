@@ -79,7 +79,18 @@ Mensajeria:
     
 >Estado (no_leido | leido)
 
-    
+Compra/venta (valoraciones)
+
+>Vendedor
+
+>Comprador
+
+>Producto
+
+>Comentario
+
+>Nota
+
 	
 
 Integrantes del equipo de desarrollo: Nombre, Apellidos, correo oficial de la universidad y
