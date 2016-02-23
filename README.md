@@ -20,9 +20,13 @@ recibo de mensajes referentes a un anuncio en concreto.
 Usuario:
 
 >Nombre
+
 >Apellidos 
+
 >Correo
+
 >Telefono
+
 >Tipo de Usuario
 
 
