@@ -32,61 +32,65 @@ Usuario:
 
 Vehiculo:
 
-	Estado:venta / subasta?fecha fin
+>Estado
 	
-	Tipo: moto, turismo, furgón
+>Tipo: moto, turismo, furgón
 	
-	NºPuertas: 3, 4, 5
+>NºPuertas: 3, 4, 5
 	
-	Combustible: diésel,biodiesel, gasolina, hibrido, eléctrico
+>Combustible: diésel,biodiesel, gasolina, hibrido, eléctrico
 	
-	Cambio: manual, automatico
+>Cambio: manual, automatico
 	
-	Color: rojo, blanco, negro….
+>Color: rojo, blanco, negro….
 	
-	Extras(si/no):
-		D.asistida, abs, esp, A.Acondicionado,climatizador(¿bizona?), Elevalunas eléctricos, cierre centralizado,
+>Extras(si/no): (D.asistida, abs, esp, A.Acondicionado,climatizador(¿bizona?), 
+Elevalunas eléctricos, cierre centralizado)
 	
-	Precio:
+>Precio:
+
+>Fecha publicación
 	
 Piezas:
 	
-	Nombre:
+>Nombre
 	
-	Marca:
+>Marca
 	
-	Ref:
+>Ref
 	
-	Vehiculo compatible:
+>Vehiculo compatible
 	
-	Precio:
+>Precio
 
-	¿Es nueva? ¿o de 2ª?
+>Nuevo/2ªmano
+
+>Fecha publicación
 
 Mensajeria:
 
-    id
+>Fecha
+
+>Emisor
     
-    Emisor
+>Receptor
     
-    Receptor
+>Producto (id)
     
-    Producto (id)
-    
-    Estado (no_leido | leido)
+>Estado (no_leido | leido)
 
     
 	
 
-• Integrantes del equipo de desarrollo: Nombre, Apellidos, correo oficial de la universidad y
+Integrantes del equipo de desarrollo: Nombre, Apellidos, correo oficial de la universidad y
 cuenta en GitHub:
 
--Cristian Velázquez Sánchez // c.velzquezs@alumnos.urjc.es // cvs4190
+>Cristian Velázquez Sánchez // c.velzquezs@alumnos.urjc.es // cvs4190
 
--Carlos Santos Morales // c.santosmo@alumnos.urjc.es // CSantosM
+>Carlos Santos Morales // c.santosmo@alumnos.urjc.es // CSantosM
 
--David Villatobas Fernandez // d.villatobas@alumnos.urjc.es // dvillatobas
+>David Villatobas Fernandez // d.villatobas@alumnos.urjc.es // dvillatobas
 
--Jorge Rodríguez Barreno // j.rodriguezbarr@alumnos.urjc.es // Naugh
+>Jorge Rodríguez Barreno // j.rodriguezbarr@alumnos.urjc.es // Naugh
 
 
