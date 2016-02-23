@@ -3,33 +3,27 @@
 Vehiculos y Recambios el Tiburón 
 ================================
 
-Descripción
------------
+###Descripción
 
-###Es una aplicación web que permite anunciar la compra/venta de vehículos y piezas de automóvil para particulares y empresas.
+Es una aplicación web que permite anunciar la compra/venta de vehículos y piezas de automóvil para 
+particulares y empresas.
 
-La parte pública consiste en la búsqueda y visualización de los diferentes anuncios
+La parte pública consiste en la búsqueda y visualización de los diferentes anuncios.
 
-	parte privada:
-		-vista previa del vehiculo (vender,comprar, pujar)
-		-vista previa de vehículos registrados(añadir, editar, borrar), comprados(pendientes por pagar), pujados(aumentar puja, dejar de pujar)
-
+La parte privada permitirá crear y editar anuncios, crear y editar vehiculos y piezas y el envío y 
+recibo de mensajes referentes a un anuncio en concreto.
 
 
 
-• Nombre y descripción de cada una de las 5 entidades principales.
+###Entidades principales
 
-Cliente:
+Usuario:
 
-	Nombre:
-
-	Apellidos: 
-
-	correo:
-
-	telefono:
-    
-    Profesional/Particular
+	>Nombre
+    >Apellidos 
+	>Correo
+	>Telefono
+    >Tipo de Usuario
 
 
 Vehiculo:
