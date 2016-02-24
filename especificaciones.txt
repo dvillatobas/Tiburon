@@ -1,0 +1,110 @@
+Especificaciones detalladas de la web
+
+La pantalla principal tendrá un menu:
+	- posicion: parte superior (por debajo de la cabecera donde ira el logo)
+	- elementos(publico): Inicio | Novedades | Registrarse | Iniciar sesion
+	- elementos(registrado): Inicio | Novedades | Mensajes | Mis productos | Salir
+
+El formulario de buscar estara siempre visible en la parte posterior al menu
+
+Se mostran los 10 ultimos productos registrados en forma de lista:
+	- Foto | marca-modelo | km/nuevo | año | ubicación | precio (para coches)
+	- Foto | nombre pieza | marca-modelo | uso | ubicación | precio (para piezas)
+
+En la parte superior derecha se ubicara un botón para ordenar por precio (asc/desc) o 
+por fecha (asc/desc)
+
+En el lateral izq apareceran opciones para filtrar la busqueda:
+	- Precio: desde - hasta
+	- Tipo anuncio: coche - pieza - ambos
+	- Ubicación: (listado provincias)
+	- Anunciante: particular - profesional
+		(si da tiempo se podria filtrar por nuevo - usado(km:desde-hasta | solo usado))
+
+El footer sera un recuadro con lo del copyrigth nombre año y un par de enlaces si eso
+
+
+-------------------------------------------------------------------------------------
+
+Al visualizar un producto se mostrara conforme al tipo de articulo:
+
+	- Foto en lado izquierdo (60%)
+	- Descripcion en la parte inferior (60%) debajo de la foto
+	- Al final de la parte derecha (40%) "enviar mensaje" si es usuario registrado
+	- Al final de la parte derecha (40%) ver más anuncios de ese usuario
+
+Coche: 
+	- Datos lado derecho (40%)
+		- marca-modelo
+		- nuevo/km
+		- año
+		- ubicación
+		- precio
+Piezas:
+	- Datos lado derecho (40%)
+		- nombre pieza
+		- marca-modelo
+		- nuevo/usado
+		- ubicación
+		- precio
+
+
+Existira una vista de perfil de usuario, que podra verse de modo publico al acceder 
+a uno de sus productos en "ver más anuncios de ese usuario". Dicha pantalla mostrara
+una lista de articulos que oferta con los siguientes botones en cada uno de los mismos
+(solo mostrara los botones si se esta registrado):
+	contactar, valorar compra
+
+Al acceder a valorar la transaccion de un producto mostrara un formulario a rellenar:
+	comentario, nota
+
+Al pulsar en contactar se accede a una pantalla que mostrara un formulario:
+	mensaje
+
+
+-------------------------------------------------------------------------------------
+El formulario de registro tendra los recuadros correspondientes a rellenar los campos 
+de un usuario:
+		id, nombre, apellidos, nick, password, email, telefono, tipo
+Al aceptar guarda el usuario, si el nick o el email no existen ya. Una vez creado, podrá logearse
+
+-------------------------------------------------------------------------------------
+El formulario de inicio de sesion pedira dos datos, usuario y contraseña y un boton para 
+entrar. Una vez logueado cambiara el menu y tendra acceso a las caracteristicas privadas.
+
+-------------------------------------------------------------------------------------
+La interfaz de mensajería constará de una lista de usuarios, ordenados por fecha, que 
+han establecido contacto y al clickar en uno de ellos, se mostraran los mensajes 
+correspondientes a ese usuario como si se tratara de un chat, ordenados por fecha 
+de modificacion.
+
+--------------------------------------------------------------------------------------
+La interfaz de mis productos mostrara una lista de los productos introducidos por ese
+usuario con botones para añadir coche, añadir pieza, modificar o borrar el producto 
+correspondiente.
+
+Al borrar un producto se pedira confirmacion.
+
+La interfaz de añadir y modificar sera la misma, pero habra 2, una para coches y otra 
+para piezas. Al añadir, los campos estaran en blanco.
+Al modificar los campos estaran rellenos y se podran modificar y guardar los cambios.
+
+
+
+
+USUARIO (id, nombre, apellidos, nick, password, email, telefono, tipo)
+VEHICULO (id, marca-modelo, km/nuevo, año, ubicación, precio, foto, descripcion)
+PIEZA (id, nombre-pieza, marca-modelo, uso, ubicación, precio, foto, descripcion)
+MENSAJE (id, fecha-hora, id_usuario_emisor, id_usuario_receptor, id_producto, mensaje, estado)
+VALORACION (id, id_usuario_vendedor, id_usuario_comprador, id_producto, comentario, nota)
+
+
+
+he tomado como referencia principal http://www.vibbo.com/motor-de-segunda-mano/
+
+
+
+
+
+
+
