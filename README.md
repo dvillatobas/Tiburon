@@ -1,78 +1,107 @@
 
 
-• Nombre de la aplicación web: Vehiculos y Recambios el tiburón S.A.
+Vehiculos y Recambios el Tiburón 
+================================
 
-• Descripción de la temática de la web, indicando qué funcionalidad es pública y cual es
-privada y diferente para cada usuario:
+###Descripción
 
-	Descripcion:Se trata de una aplicación web, en que se realizan compra/venta y subasta de vehiculos.
+Es una aplicación web que permite anunciar la compra/venta de vehículos y piezas de automóvil para 
+particulares y empresas.
 
-	parte publica:
-		-Visualizar el listado de disponibles(busqueda)
+La parte pública consiste en la búsqueda y visualización de los diferentes anuncios.
 
-	parte privada:
-		-vista previa del vehiculo (vender,comprar, pujar)
-		-vista previa de vehículos registrados(añadir, editar, borrar), comprados(pendientes por pagar), pujados(aumentar puja, dejar de pujar)
-
+La parte privada permitirá crear y editar anuncios, crear y editar vehiculos y piezas y el envío y 
+recibo de mensajes referentes a un anuncio en concreto.
 
 
 
-• Nombre y descripción de cada una de las 5 entidades principales.
+###Entidades principales
 
-Cliente:
+Usuario:
 
-	Nombre:
+>Nombre
 
-	Apellidos: 
+>Apellidos 
 
-	correo:
+>Correo
 
-	nºtarjeta crédito:
+>Telefono
+
+>Tipo de Usuario
 
 
 Vehiculo:
 
-	Estado:venta / subasta?fecha fin
+>Estado
 	
-	Tipo: moto, turismo, furgón
+>Tipo: moto, turismo, furgón
 	
-	NºPuertas: 3, 4, 5
+>NºPuertas: 3, 4, 5
 	
-	Combustible: diésel,biodiesel, gasolina, hibrido, eléctrico
+>Combustible: diésel,biodiesel, gasolina, hibrido, eléctrico
 	
-	Cambio: manual, automatico
+>Cambio: manual, automatico
 	
-	Color: rojo, blanco, negro….
+>Color: rojo, blanco, negro….
 	
-	Extras(si/no):
-		D.asistida, abs, esp, A.Acondicionado,climatizador(¿bizona?), Elevalunas eléctricos, cierre centralizado,
+>Extras(si/no): (D.asistida, abs, esp, A.Acondicionado,climatizador(¿bizona?), 
+Elevalunas eléctricos, cierre centralizado)
 	
-	Precio:
+>Precio:
+
+>Fecha publicación
 	
 Piezas:
 	
-	Nombre:
+>Nombre
 	
-	Marca:
+>Marca
 	
-	Ref:
+>Ref
 	
-	Vehiculo compatible:
+>Vehiculo compatible
 	
-	Precio:
+>Precio
 
-	¿Es nueva? ¿o de 2ª?
+>Nuevo/2ªmano
+
+>Fecha publicación
+
+Mensajeria:
+
+>Fecha
+
+>Emisor
+    
+>Receptor
+    
+>Producto (id)
+    
+>Estado (no_leido | leido)
+
+Compra/venta (valoraciones)
+
+>Vendedor
+
+>Comprador
+
+>Producto
+
+>Comentario
+
+>Nota
+
 	
 
-• Integrantes del equipo de desarrollo: Nombre, Apellidos, correo oficial de la universidad y
+Integrantes del equipo de desarrollo: Nombre, Apellidos, correo oficial de la universidad y
 cuenta en GitHub:
 
--Cristian Velázquez Sánchez // c.velzquezs@alumnos.urjc.es // cvs4190
+>Cristian Velázquez Sánchez // c.velzquezs@alumnos.urjc.es // cvs4190
 
--Carlos Santos Morales // c.santosmo@alumnos.urjc.es // CSantosM
+>Carlos Santos Morales // c.santosmo@alumnos.urjc.es // CSantosM
 
--David Villatobas Fernandez // d.villatobas@alumnos.urjc.es // dvillatobas
+>David Villatobas Fernandez // d.villatobas@alumnos.urjc.es // dvillatobas
 
--Jorge Rodríguez Barreno // j.rodriguezbarr@alumnos.urjc.es // Naugh
+>Jorge Rodríguez Barreno // j.rodriguezbarr@alumnos.urjc.es // Naugh
 
 
