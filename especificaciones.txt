@@ -2,10 +2,10 @@ Especificaciones detalladas de la web
 
 La pantalla principal tendrá un menu:
 	- posicion: parte superior (por debajo de la cabecera donde ira el logo)
-	- elementos(publico): Inicio | Novedades | Registrarse | Iniciar sesion
-	- elementos(registrado): Inicio | Novedades | Mensajes | Mis productos | Salir
+	- elementos(publico): Inicio | Novedades(anuncios nuevos) | Registrarse | Iniciar sesion
+	- elementos(registrado): Inicio | Novedades(anuncios nuevos) | Mensajes | Mis productos | Salir
 
-El formulario de buscar estara siempre visible en la parte posterior al menu
+El formulario de buscar estara siempre visible en la izquierda
 
 Se mostran los 10 ultimos productos registrados en forma de lista:
 	- Foto | marca-modelo | km/nuevo | año | ubicación | precio (para coches)
@@ -15,6 +15,7 @@ En la parte superior derecha se ubicara un botón para ordenar por precio (asc/d
 por fecha (asc/desc)
 
 En el lateral izq apareceran opciones para filtrar la busqueda:
+	- buscar:
 	- Precio: desde - hasta
 	- Tipo anuncio: coche - pieza - ambos
 	- Ubicación: (listado provincias)
@@ -30,8 +31,11 @@ Al visualizar un producto se mostrara conforme al tipo de articulo:
 
 	- Foto en lado izquierdo (60%)
 	- Descripcion en la parte inferior (60%) debajo de la foto
-	- Al final de la parte derecha (40%) "enviar mensaje" si es usuario registrado
+	- Al final de la parte derecha (40%) "enviar mensaje". Si no esta 
+		registrado mostrara un mensaje diciendo que te registres o inicies sesion.
 	- Al final de la parte derecha (40%) ver más anuncios de ese usuario
+	- debajo de la descripcion aparecen los comentarios. el boton estara al lado del
+		nombre de usuario con su nota
 
 Coche: 
 	- Datos lado derecho (40%)
