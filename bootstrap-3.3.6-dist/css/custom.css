@@ -4,3 +4,21 @@ body{
 }
 
 
+
+
+
+/*this part is of borderline ;) */
+
+.imgListado{
+	height: 100px;
+}
+
+
+.table>thead>tr>th {
+	text-align: center;	
+}
+
+.table>tbody>tr>th {	
+	vertical-align:middle;
+	text-align: center;	
+}
