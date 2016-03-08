@@ -1,7 +1,12 @@
+@@ -0,
+0 +1,
+8064 @@
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+
+ MI CSS MODIFICADO
  */
 
 
@@ -319,8 +324,13 @@ th {
     font-style: normal;
     font-weight: 400;
     line-height: 1;
+    text-align: center;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale
+}
+
+li>.glyphicon {
+    font-size: 17px;
 }
 
 .glyphicon-asterisk:before {
@@ -1429,7 +1439,8 @@ figure {
 }
 
 img {
-    vertical-align: middle
+    vertical-align: middle;
+    margin: auto;
 }
 
 .carousel-inner>.item>a>img,
@@ -3149,7 +3160,7 @@ output {
     background-color: #fff;
     background-image: none;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 0px;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
     -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
@@ -3160,7 +3171,7 @@ output {
 .form-control:focus {
     border-color: #66afe9;
     outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgb(102, 175, 233);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6)
 }
 
@@ -3232,7 +3243,7 @@ input[type=search] {
 }
 
 .form-group {
-    margin-bottom: 15px
+    margin-bottom: 15px;
 }
 
 .checkbox,
@@ -3679,7 +3690,6 @@ textarea.input-lg {
     user-select: none;
     background-image: none;
     border: 1px solid transparent;
-    border-radius: 4px
 }
 
 .btn.active.focus,
@@ -3726,7 +3736,11 @@ fieldset[disabled] a.btn {
 .btn-default {
     color: #333;
     background-color: #fff;
-    border-color: #ccc
+}
+
+.btn-default.join {
+    background: #C10536;
+    color: #ffffff;
 }
 
 .btn-default.focus,
@@ -3737,9 +3751,10 @@ fieldset[disabled] a.btn {
 }
 
 .btn-default:hover {
-    color: #333;
-    background-color: #e6e6e6;
-    border-color: #adadad
+    color: #fff;
+    background-color: #C10536;
+    border-color: #000000;
+    border: 1px solid;
 }
 
 .btn-default.active,
@@ -4803,7 +4818,8 @@ textarea.input-group-sm>.input-group-btn>.btn {
 .nav>li>a {
     position: relative;
     display: block;
-    padding: 10px 15px
+    padding: 10px 15px;
+    ;
 }
 
 .nav>li>a:focus,
@@ -5023,7 +5039,7 @@ textarea.input-group-sm>.input-group-btn>.btn {
 
 .navbar {
     position: relative;
-    min-height: 50px;
+    min-height: 30px;
     margin-bottom: 20px;
     border: 1px solid transparent
 }
@@ -5047,7 +5063,7 @@ textarea.input-group-sm>.input-group-btn>.btn {
     -webkit-overflow-scrolling: touch;
     border-top: 1px solid transparent;
     -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1)
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1);
 }
 
 .navbar-collapse.in {
@@ -5150,7 +5166,7 @@ textarea.input-group-sm>.input-group-btn>.btn {
     height: 50px;
     padding: 15px 15px;
     font-size: 18px;
-    line-height: 20px
+    line-height: 20px;
 }
 
 .navbar-brand:focus,
@@ -5253,7 +5269,7 @@ textarea.input-group-sm>.input-group-btn>.btn {
 
 .navbar-form {
     padding: 10px 15px;
-    margin-top: 8px;
+    margin-top: 15px;
     margin-right: -15px;
     margin-bottom: 8px;
     margin-left: -15px;
@@ -5392,32 +5408,41 @@ textarea.input-group-sm>.input-group-btn>.btn {
 }
 
 .navbar-default {
-    background-color: #f8f8f8;
-    border-color: #e7e7e7
+    background-color: #432143;
+    border-color: #000;
+    border-bottom: 2px solid;
+}
+
+.navbar-foot {
+    background-color: rgba(67, 33, 67, 0.79);
+    color: white;
 }
 
 .navbar-default .navbar-brand {
-    color: #777
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
 }
 
 .navbar-default .navbar-brand:focus,
 .navbar-default .navbar-brand:hover {
-    color: #5e5e5e;
-    background-color: transparent
+    color: #fff;
+    background-color: transparent;
 }
 
 .navbar-default .navbar-text {
-    color: #777
+    color: #777;
 }
 
 .navbar-default .navbar-nav>li>a {
-    color: #777
+    color: #fff;
+    border-left: 1px solid;
+    border-color: rgba(163, 163, 163, 0.49);
 }
 
 .navbar-default .navbar-nav>li>a:focus,
 .navbar-default .navbar-nav>li>a:hover {
-    color: #333;
-    background-color: transparent
+    background-color: #5A2F5A;
 }
 
 .navbar-default .navbar-nav>.active>a,
@@ -5435,16 +5460,16 @@ textarea.input-group-sm>.input-group-btn>.btn {
 }
 
 .navbar-default .navbar-toggle {
-    border-color: #ddd
+    border-color: #fff;
 }
 
 .navbar-default .navbar-toggle:focus,
 .navbar-default .navbar-toggle:hover {
-    background-color: #ddd
+    background-color: #5A2F5A
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-    background-color: #888
+    background-color: #fff
 }
 
 .navbar-default .navbar-collapse,
@@ -8039,6 +8064,3 @@ button.close {
         display: none!important
     }
 }
-
-
-/*# sourceMappingURL=bootstrap.min.css.map */
