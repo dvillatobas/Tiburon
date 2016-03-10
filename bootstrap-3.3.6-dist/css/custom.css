@@ -106,6 +106,35 @@ aside h3{
     font-weight: bold;
 }
 
+.chat{
+    background: #e4c7f8;
+    border-radius: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.received, .sent{
+    border-radius: 5px;
+    max-width: 80%;
+    margin-bottom: 10px;
+}
+.received{
+    background: #cfeeff;
+    float: left;
+}
+.sent{
+    background: #b0ffa6;
+    float: right;
+    
+}
+.sent .list-group-item-heading{
+    text-align: right;
+}
+
+.escritura{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
 /***********************FIN MENSAJERIA**************************/
 
 /*this part is of borderline ;) */
