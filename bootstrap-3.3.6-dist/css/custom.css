@@ -67,10 +67,46 @@ aside h3{
 }
 /***************FIN FORMULARIO BUSQUEDA*************************/
 
+/**************************MENSAJERIA***************************/
+.list-mens{
+    text-align: center;
+}
+
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+    z-index: 2;
+    color: #4e4e4e;
+    background-color: #c98af7;
+    border-color: #ae52f0;
+}
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+    text-shadow: 0 -1px 0 #e4c7f8;
+    background-image: -webkit-linear-gradient(top,#e4c7f8 0,#dbaaff 100%);
+    background-image: -o-linear-gradient(top,#e4c7f8 0,#dbaaff 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#e4c7f8),to(#dbaaff));
+    background-image: linear-gradient(to bottom,#e4c7f8 0,#dbaaff 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe4c7f8', endColorstr='#ffdbaaff', GradientType=0);
+    background-repeat: repeat-x;
+    border-color: #ae52f0;
+}
 
 
+.list-group-item.list-head, .list-group-item.list-head:focus, .list-group-item.list-head:hover {
+    text-shadow: 0 -1px 0 #c98af7;
+    background-image: -webkit-linear-gradient(top,#c98af7 0,#b65df7 100%);
+    background-image: -o-linear-gradient(top,#c98af7 0,#b65df7 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#c98af7),to(#b65df7));
+    background-image: linear-gradient(to bottom,#c98af7 0,#b65df7 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc98af7', endColorstr='#ffb65df7', GradientType=0);
+    background-repeat: repeat-x;
+    border-color: #ae52f0;
+}
 
+.list-head *{
+    color: #fff;
+    font-weight: bold;
+}
 
+/***********************FIN MENSAJERIA**************************/
 
 /*this part is of borderline ;) */
 
