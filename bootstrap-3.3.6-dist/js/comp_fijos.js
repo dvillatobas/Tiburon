@@ -6,6 +6,7 @@ $(document).ready(function () {
 
 });
 
+
 $('#toggle-busq').click(function () {
     $('#filtros').toggleClass();
     if ($('#toggle-busq-span1').hasClass('glyphicon-chevron-down')) {
