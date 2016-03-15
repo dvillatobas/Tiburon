@@ -6,43 +6,78 @@
     <title>El Tiburón</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/custom.css">
     <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="js/comp_fijos.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Candal' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
     <script src="js/mensajeria.js"></script>
 </head>
 
 <body>
-    <header></header>
+    <nav class="navbar navbar-default"></nav>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
             <div class="list-group list-mens" id="lista-conv">
-               <div class="list-group-item list-head">
+               <div class="list-group-item list-head" id="toggle-contactos">
                    <h4>Contactos</h4>
                </div>
-                <button class="list-group-item active" id="user-id">
-                    <span class="badge" id="unread">3</span>
-                    <h4 class="list-group-item-heading" id="user-name">Alberto Rodriguez</h4>
-                    <p class="list-group-item-text" id="product-name">307 HDI1.6</p>
-                </button>
-                <button class="list-group-item" id="user-id">
-                    <span class="badge" id="unread">5</span>
-                    <h4 class="list-group-item-heading" id="user-name">Luis Camilo</h4>
-                    <p class="list-group-item-text" id="product-name">Carburador 2514</p>
-                </button>
-                <button class="list-group-item" id="user-id">
-                    <span class="badge" id="unread">2</span>
-                    <h4 class="list-group-item-heading" id="user-name">Lucia Ruiz</h4>
-                    <p class="list-group-item-text" id="product-name">Xara Picasso</p>
-                </button>
-
+               <div id="toggle-lista-contactos" class="hidden-xs hidden-sm">
+                    <button class="list-group-item active" id="user-id">
+                        <span class="badge" id="unread">3</span>
+                        <h4 class="list-group-item-heading" id="user-name">Alberto Rodriguez</h4>
+                        <p class="list-group-item-text" id="product-name">307 HDI1.6</p>
+                    </button>
+                    <button class="list-group-item" id="user-id">
+                        <span class="badge" id="unread">5</span>
+                        <h4 class="list-group-item-heading" id="user-name">Luis Camilo</h4>
+                        <p class="list-group-item-text" id="product-name">Carburador 2514</p>
+                    </button>
+                    <button class="list-group-item" id="user-id">
+                        <span class="badge" id="unread">2</span>
+                        <h4 class="list-group-item-heading" id="user-name">Lucia Ruiz</h4>
+                        <p class="list-group-item-text" id="product-name">Xara Picasso</p>
+                    </button>
+                </div>
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
             <div class="grid">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 chat">
-                    <div class="list-group">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 chat" id="div-chat">
+                    <div class="list-group" >
+                       <!-- MENSAJES -->
+                        <div class="list-group-item received">
+                           
+                            <h4 class="list-group-item-heading">
+                                Alberto Rodriguez
+                            </h4>
+                            <p class="list-group-item-text">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis laudantium nihil voluptatum architecto corrupti, rerum ad hic voluptates tempore tempora at possimus dolores illum et nam molestias necessitatibus fugiat magnam.
+                            </p>
+                            <span class="badge">15:23 15/2/16</span>
+                        </div>
+                        <div class="list-group-item sent">
+                            
+                            <h4 class="list-group-item-heading">
+                                User Name
+                            </h4>
+                            <p class="list-group-item-text">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis laudantium nihil voluptatum architecto corrupti, rerum ad hic voluptates tempore tempora at possimus dolores illum et nam molestias necessitatibus fugiat magnam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque asperiores, sed odio sequi ea accusantium minus doloribus, maxime expedita temporibus deleniti architecto explicabo, dolorem officiis facilis dolore voluptas, ex magni.
+                            </p>
+                            <span class="badge">15:23 15/2/16</span>
+                        </div>
+                        <div class="list-group-item sent">
+                            
+                            <h4 class="list-group-item-heading">
+                                User Name
+                            </h4>
+                            <p class="list-group-item-text">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis laudantium nihil voluptatum architecto corrupti, rerum ad hic voluptates tempore tempora at possimus dolores illum et nam molestias necessitatibus fugiat magnam.
+                            </p>
+                            <span class="badge">15:23 15/2/16</span>
+                        </div>
                         <div class="list-group-item received">
                            
                             <h4 class="list-group-item-heading">
@@ -63,6 +98,7 @@
                             </p>
                             <span class="badge">15:23 15/2/16</span>
                         </div>
+                        <!-- FIN MENSAJES -->
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 escritura">
@@ -82,8 +118,8 @@
     </div>
 
 
-    <footer></footer>
-    <script src="js/comp_fijos.js"></script>
+    <div class="navbar navbar-foot navbar-fixed-bottom text-center"></div>
+    
 </body>
 
 </html>

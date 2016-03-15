@@ -22,12 +22,12 @@
     <div class="row">
         <div class="col-md-3">
             <aside class="">
-                <h3 id="toggle-busq"><span id="toggle-busq-span1" class="pull-left hidden-md hidden-lg glyphicon glyphicon-chevron-down"></span>Búsqueda<span id="toggle-busq-span2" class="pull-right hidden-md hidden-lg glyphicon glyphicon-chevron-down"></span></h3>
+                <h3 id="toggle-busq">Búsqueda</h3>
                 <form id="filtros" class="hidden-xs hidden-sm row">
                     <div class="">
                         <input type="text" id="busqueda" class="form-control" placeholder="Introduzca su búsqueda">
                     </div>
-                    <div class="form-group form-inline col-xs-12 col-sm-6 col-md-12 col-lg-12">
+                    <div class="form-group form-group-height form-inline col-xs-12 col-sm-6 col-md-12 col-lg-12">
                         <h4>Precio:</h4>
 
 
@@ -37,21 +37,21 @@
                         <input type="text" id="hasta" class="form-control form-small" placeholder="Hasta...">
 
                     </div>
-                    <div class="form-group col-xs-12 col-sm-6 col-md-12 col-lg-12">
+                    <div class="form-group form-group-height col-xs-12 col-sm-6 col-md-12 col-lg-12">
                         <h4>Tipo de anuncio:</h4>
-                        <div class="radio radio-inline">
+                        <div class="radio">
                             <label>
-                                <input type="radio" id="ambos" value="ambos" checked> Ambos
+                                <input type="radio" name="tipo-anuncio" id="ambos" value="ambos" checked> Ambos
                             </label>
                             <label>
-                                <input type="radio" id="vehiculo" value="vehiculo"> Vehiculo
+                                <input type="radio" name="tipo-anuncio" id="vehiculo" value="vehiculo"> Vehiculo
                             </label>
                             <label>
-                                <input type="radio" id="pieza" value="pieza"> Pieza
+                                <input type="radio" name="tipo-anuncio" id="pieza" value="pieza"> Pieza
                             </label>
                         </div>
                     </div>
-                    <div class="form-group col-xs-12 col-sm-6 col-md-12 col-lg-12">
+                    <div class="form-group form-group-height col-xs-12 col-sm-6 col-md-12 col-lg-12">
                         <h4>Provincia:</h4>
                         <select class="form-control" name="provincia" id="provincias">
                             <option value='0'>(Seleccionar)</option>
@@ -109,7 +109,7 @@
                             <option value='53'>Zaragoza</option>
                         </select>
                     </div>
-                    <div class="form-group col-xs-12 col-sm-6 col-md-12 col-lg-12">
+                    <div class="form-group form-group-height col-xs-12 col-sm-6 col-md-12 col-lg-12">
                         <h4>Tipo de vendedor</h4>
                         <div class="checkbox checkbox-inline">
                             <label>
