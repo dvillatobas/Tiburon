@@ -211,3 +211,90 @@ li>.glyphicon {
 #back {
     padding: 15px;
 }
+
+.img-circle {
+    border: 2px solid;
+}
+
+.prize {
+    font-size: 40px;
+    vertical-align: middle;
+    color:
+}
+
+.seller {
+    text-align: center;
+}
+
+.btn-message {
+    margin-top: 5px;
+}
+
+.message-form {
+    display: none;
+}
+
+.panel-default>.panel-heading {
+    background-color: rgba(67, 33, 67, 0.53);
+    font-size: bold;
+    color: #000;
+    text-align: center;
+}
+
+
+/*--- STAR RATING ---*/
+
+div.stars {
+    width: 270px;
+    display: inline-block;
+}
+
+.stars>form {
+    float: left;
+}
+
+input.star {
+    display: none;
+}
+
+label.star {
+    float: right;
+    padding: 10px;
+    font-size: 26px;
+    color: #444;
+    transition: all .2s;
+}
+
+input.star:checked ~ label.star:before {
+    content: '\f005';
+    color: #5A2F5A;
+    transition: all .25s;
+}
+
+input.star-1:checked ~ label.star:before {
+    color: #ff0404;
+}
+
+input.star-3:checked ~ label.star:before {
+    color: #fa9306;
+}
+
+input.star-2:checked ~ label.star:before {
+    color: #F62;
+}
+
+input.star-4:checked ~ label.star:before {
+    color: #258900;
+}
+
+label.star:hover {
+    transform: rotate(-15deg) scale(1.3);
+}
+
+label.star:before {
+    content: '\f006';
+    font-family: FontAwesome;
+}
+
+
+/* FIN STAR RATING ---*/
