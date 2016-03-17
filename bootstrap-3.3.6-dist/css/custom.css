@@ -80,7 +80,7 @@ aside h3 {
 /* --- CSS HEADER --- */
 
 .navbar {
-    min-height: 30px;
+    min-height: 0px;
     border-radius: 0px;
 }
 
@@ -198,6 +198,10 @@ li>.glyphicon {
 
 /* --- VISTA ANUNCIO --- */
 
+.cont {
+    margin-bottom: 30px;
+}
+
 .button-back:hover {
     border: 1px solid;
     background: transparent;
@@ -239,6 +243,10 @@ li>.glyphicon {
     font-size: bold;
     color: #000;
     text-align: center;
+}
+
+.comment {
+    display: none;
 }
 
 
