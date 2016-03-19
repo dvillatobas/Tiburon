@@ -5,11 +5,11 @@ $(document).ready(function () {
     });
 
     $(".btn-comment").click(function () {
-        $(".comment").slideToggle("slow", function () {
+        $(".comment").slideToggle("normal", function () {
             var position = $(".stars").offset().top;
             $("html,body").animate({
                 scrollTop: position
-            }, 2000);
+            }, 1000);
         });
 
 
