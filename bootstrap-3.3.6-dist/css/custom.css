@@ -4,76 +4,59 @@ body {
     font-family: 'Ubuntu', sans-serif;
 }
 
-label {
+label{
     font-weight: normal;
 }
 
-
 /***************FORMULARIO BUSQUEDA*************************/
-
-.form-small {
+.form-small{
     width: 80px !important;
     margin-left: 2px;
     margin-right: 2px;
     display: inline-block;
 }
 
-#busqueda,
-#provincias {
+#busqueda,#provincias{
     margin-left: 20px;
     max-width: 85%;
 }
 
-.radio label {
+.radio label{
     margin-right: 10px;
 }
-
-
-aside {
-    background: #c98af7;
-
-
+aside{
     background: rgba(67, 33, 67, 0.79);
-
     margin: 5px;
     border-radius: 5px;
     padding-top: 1px;
     padding-bottom: 1px;
-
-}
-
-aside h3 {
-
     color: #fff;
 }
 
 
 aside h3{
-
     text-align: center;
 }
 
-.row {
+.row{
     margin: 0;
 }
 
 
-.form-group {
-
-
+.form-group-height{
     height: 100px;
 }
 
-#lanzar_busqueda {
+#lanzar_busqueda{
     margin: 10px;
 }
 
-#toggle-busq {
+#toggle-busq{
     margin-left: 10px;
     margin-right: 10px;
 }
-
 /***************FIN FORMULARIO BUSQUEDA*************************/
+
 
 /**************************MENSAJERIA***************************/
 .list-mens{
@@ -139,30 +122,30 @@ aside h3{
 
 
 
-/***************FIN FORMULARIO BUSQUEDA*************************/
-
 /***********************FIN MENSAJERIA**************************/
 
 /*this part is of borderline ;) */
 
-.imgListado {
+.imgListado{
     height: 100px;
 }
 
+
 .table>thead>tr>th {
-    text-align: center;
+    text-align: center; 
 }
 
-.table>tbody>tr>th {
-    vertical-align: middle;
-    text-align: center;
+.table>tbody>tr>th {    
+    vertical-align:middle;
+    text-align: center; 
 }
+
 
 
 /* --- CSS HEADER --- */
 
 .navbar {
-    min-height: 0px;
+    min-height: 30px;
     border-radius: 0px;
 }
 
