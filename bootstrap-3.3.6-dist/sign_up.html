@@ -14,15 +14,53 @@
 
 <body>
     <header></header>
-    <div class="row">
-        <div class="col-md-3">
+    <div id=form-signUp>
+        <form action="POST">
+            <div class="form-group">
+                <label for=formNick>Nick</label>
+                <input type="text" class="form-control" id="formNick">
+            </div>
+            <div class="form-group">
+                <label for=formName>Nombre</label>
+                <input type="text" class="form-control" id="formName">
+            </div>
+            <div class="form-group">
+                <label for=formLastname>Apellidos</label>
+                <input type="text" class="form-control" id="formLastname">
+            </div>
+            <div class="form-group">
+                <label for=formPhone>Telefono</label>
+                <input type="tel" class="form-control" id="formPhone">
+            </div>
+            <div class="form-group">
+                <label for=formEmail>Email</label>
+                <input type="email" class="form-control" id="formEmail">
+            </div>
+            <div class="form-group">
+                <label for=formEmailR>Repetir email</label>
+                <input type="email" class="form-control" id="formEmailR">
+            </div>
+            <div class="form-group">
+                <label for="formPassword">Contraseña</label>
+                <input type="password" class="form-control" id="formPassword">
+            </div>
+            <div class="form-group">
+                <label for="formPasswordR">Repetir contraseña</label>
+                <input type="password" class="form-control" id="formPasswordR">
+            </div>
 
-        </div>
-        <div class="col-md-9">
-            <div id="contenido"></div>
-        </div>
+            <div class="form-group">
+                <label for="formType">Tipo de usuario:</label>
+                <select name="Tipo" id="formType">
+                    <option value="0">(Seleccionar)</option>
+                    <option value="1">Particular</option>
+                    <option value="2">Profesional</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
     </div>
-    <footer></footer>
+    </div <footer></footer>
     <script src="js/comp_fijos.js"></script>
 </body>
 

@@ -1,92 +1,87 @@
-body{
+body {
     max-width: 1200px;
     margin: auto;
 }
 
-label{
+label {
     font-weight: normal;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 /***************FORMULARIO BUSQUEDA*************************/
-.form-small{
+
+.form-small {
     width: 80px !important;
     margin-left: 2px;
     margin-right: 2px;
     display: inline-block;
 }
 
-#busqueda,#provincias{
+#busqueda,
+#provincias {
     margin-left: 20px;
     max-width: 90%;
 }
 
-.radio label{
+.radio label {
     margin-right: 10px;
 }
-aside{
+
+aside {
     background: #c98af7;
     margin: 5px;
     border-radius: 5px;
     padding-top: 1px;
     padding-bottom: 1px;
-    
 }
-aside h3{
+
+aside h3 {
     text-align: center;
 }
 
-.row{
+.row {
     margin: 0;
 }
 
-
-.form-group{
+.form-group {
     height: 100px;
 }
 
-#lanzar_busqueda{
+#lanzar_busqueda {
     margin: 10px;
 }
 
-#toggle-busq{
+#toggle-busq {
     margin-left: 10px;
     margin-right: 10px;
 }
+
+
 /***************FIN FORMULARIO BUSQUEDA*************************/
 
 
+/*******************FORMULARIO REGISTRO*************************/
+
+#form-signUp .form-group {
+    height: auto;
+    width: 20em;
+}
 
 
+/***************FIN FORMULARIO REGISTRO*************************/
 
 
 /*this part is of borderline ;) */
 
-.imgListado{
-	height: 100px;
+.imgListado {
+    height: 100px;
 }
-
 
 .table>thead>tr>th {
-	text-align: center;	
+    text-align: center;
 }
 
-.table>tbody>tr>th {	
-	vertical-align:middle;
-	text-align: center;	
+.table>tbody>tr>th {
+    vertical-align: middle;
+    text-align: center;
 }
-
-
-
