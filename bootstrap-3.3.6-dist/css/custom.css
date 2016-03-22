@@ -65,6 +65,16 @@ aside h3 {
 #form-signUp .form-group {
     height: auto;
     width: 20em;
+    margin-left: 15em;
+}
+
+#form-signUp .btn-default {
+    margin-left: 22em;
+}
+
+#form-signUp hr {
+    width: 20em;
+    margin-left: 15em;
 }
 
 
