@@ -24,14 +24,20 @@
 				<div class="container">
 				<div class="row">
 					<div class='col-md-3'>
-						<label for="InputMarcaModelo">Producto : </label>
-						<div class="checkbox">
-						  <label><input type="checkbox" value="">Vehiculo</label>
-						</div>
-						<div class="checkbox">
-						  <label><input type="checkbox" value="">Recambio</label>
-						</div>
+						<label for="InputTipoProducto">Producto : </label>
 					</div>
+				</div>
+				<div class="row">
+					<div class='col-md-1'>
+							<div class="checkbox">
+							  <label><input type="checkbox" value="">Vehiculo</label>
+							</div>
+						</div>
+						<div class='col-md-1'>
+							<div class="checkbox">
+							  <label><input type="checkbox" value="">Recambio</label>
+							</div>
+						</div>
 				</div>
 				<div class="row">
 					<div class='col-md-3'>
@@ -78,13 +84,44 @@
   						<textarea class="form-control" rows="5" id="descripcion"></textarea>
 					</div>
 				</div>
+				
+				<div class="row">
+					<div class='col-md-4'>
+						<label for="InputPrecio">Imagen : </label>
+						<div class="input-group image-preview">
+						<!--
+							<input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
+							<span class="input-group-btn">
+								<!-- image-preview-clear button -->
+								<button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+									<span class="glyphicon glyphicon-remove"></span> Clear
+								</button>
+								<!-- image-preview-input -->
+								<div class="btn btn-default image-preview-input">
+									<span class="glyphicon glyphicon-folder-open"></span>
+									<span class="image-preview-input-title">Browse</span>
+									<input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it -->
+								</div>
+							</span>
+						</div><!-- /input-group image-preview [TO HERE]-->
+					</div>
+				</div>
+				
+				 
+				
+				
+				
+				
+				
 				</div>
 				<br>
 				<div class="row">
-        			<div class='col-md-4'>
+        			<div class='col-md-3'>
 						<buton type="submit" class="btn btn-default join">
 							Aceptar
 						</buton>
+					</div>
+					<div class='col-md-3'>
 						<buton type="submit" class="btn btn-default join">
 							Cancelar
 						</buton>	
