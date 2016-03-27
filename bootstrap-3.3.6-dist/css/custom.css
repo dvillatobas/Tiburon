@@ -362,6 +362,26 @@ li>.glyphicon {
 /***************FIN FORMULARIO REGISTRO*************************/
 
 
+/*******************PERFIL PUBLICO USUARIO*************************/
+
+#form-prof .form-group {
+    height: auto;
+    width: 20em;
+    margin: auto;
+}
+
+#form-prof .btn-default {
+    margin-top: 2em;
+}
+
+#form-prof hr {
+    width: 20em;
+}
+
+
+/***************FIN PERFIL PUBLICO USUARIO*************************/
+
+
 /*--- STAR RATING ---*/
 
 div.stars {
