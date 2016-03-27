@@ -364,18 +364,23 @@ li>.glyphicon {
 
 /*******************PERFIL PUBLICO USUARIO*************************/
 
-#form-prof .form-group {
-    height: auto;
-    width: 20em;
-    margin: auto;
-}
-
-#form-prof .btn-default {
-    margin-top: 2em;
-}
+#form-prof .btn-default {}
 
 #form-prof hr {
-    width: 20em;
+    width: 33em;
+}
+
+#list-prof {
+    margin-left: 4em;
+}
+
+#list-prof .profData {
+    float: right;
+    font-weight: normal;
+}
+
+#list-prof .profShow {
+    font-weight: bold;
 }
 
 
