@@ -367,7 +367,7 @@ li>.glyphicon {
 #form-prof .btn-default {}
 
 #form-prof hr {
-    width: 33em;
+    width: auto;
 }
 
 #list-prof {
@@ -385,6 +385,12 @@ li>.glyphicon {
 
 #profAdvList {
     margin-top: 2em;
+}
+
+#profAdvTitle {
+    background-color: #432143;
+    color: white;
+    text-transform: uppercase;
 }
 
 
