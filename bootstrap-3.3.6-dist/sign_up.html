@@ -6,20 +6,24 @@
     <title>El Tiburón</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/custom.css">
     <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="js/comp_fijos.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Candal' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
 
 </head>
 
 <body>
-    <header></header>
+    <nav class="navbar navbar-default"></nav>
     <div id=form-signUp>
         <form action="POST">
             <div class="form-group">
-                <label for=formNick>Nick</label>
+                <label for=formNick>Nick/Usuario</label>
                 <input type="text" class="form-control" id="formNick">
             </div>
+            <br>
             <div class="form-group">
                 <label for=formName>Nombre</label>
                 <input type="text" class="form-control" id="formName">
@@ -32,6 +36,7 @@
                 <label for=formPhone>Telefono</label>
                 <input type="tel" class="form-control" id="formPhone">
             </div>
+            <hr>
             <div class="form-group">
                 <label for="formType">Tipo de usuario:</label>
                 <select name="Tipo" id="formType">
@@ -58,13 +63,15 @@
                 <label for="formPasswordR">Repetir contraseña</label>
                 <input type="password" class="form-control" id="formPasswordR">
             </div>
-
-
-            <button type="submit" class="btn btn-default">Registrar</button>
+            <button id="form-button" type="submit" class="btn btn-default singin center-block">Registrar</button>
         </form>
     </div>
-    </div <footer></footer>
-    <script src="js/comp_fijos.js"></script>
+    </div>
+    <footer>
+        <script src="js/comp_fijos.js"></script>
+        <div class="navbar navbar-foot navbar-fixed-bottom text-center"></div>
+    </footer>
+
 </body>
 
 </html>

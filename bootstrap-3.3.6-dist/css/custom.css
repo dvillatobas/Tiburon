@@ -4,27 +4,31 @@ body {
     font-family: 'Ubuntu', sans-serif;
 }
 
-label{
+label {
     font-weight: normal;
 }
 
+
 /***************FORMULARIO BUSQUEDA*************************/
-.form-small{
+
+.form-small {
     width: 80px !important;
     margin-left: 2px;
     margin-right: 2px;
     display: inline-block;
 }
 
-#busqueda,#provincias{
+#busqueda,
+#provincias {
     margin-left: 20px;
     max-width: 85%;
 }
 
-.radio label{
+.radio label {
     margin-right: 10px;
 }
-aside{
+
+aside {
     background: rgba(67, 33, 67, 0.79);
     margin: 5px;
     border-radius: 5px;
@@ -33,63 +37,67 @@ aside{
     color: #fff;
 }
 
-
-aside h3{
+aside h3 {
     text-align: center;
 }
 
-.row{
+.row {
     margin: 0;
 }
 
-
-.form-group-height{
+.form-group-height {
     height: 100px;
 }
 
-#lanzar_busqueda{
+#lanzar_busqueda {
     margin: 10px;
 }
 
-#toggle-busq{
+#toggle-busq {
     margin-left: 10px;
     margin-right: 10px;
 }
+
+
 /***************FIN FORMULARIO BUSQUEDA*************************/
 
 
 /**************************MENSAJERIA***************************/
-.list-mens{
+
+.list-mens {
     text-align: center;
 }
 
-.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+.list-group-item.active,
+.list-group-item.active:focus,
+.list-group-item.active:hover {
     text-shadow: 0 -1px 0 #e4c7f8;
     background-image: none;
-    background:  rgba(67, 33, 67, 0.79);
+    background: rgba(67, 33, 67, 0.79);
     background-repeat: repeat-x;
     border-color: #432143;
-    color:#fff;
+    color: #fff;
 }
 
-
-.list-group-item.list-head, .list-group-item.list-head:focus, .list-group-item.list-head:hover {
+.list-group-item.list-head,
+.list-group-item.list-head:focus,
+.list-group-item.list-head:hover {
     text-shadow: 0 -1px 0 #432143;
-    background-image: -webkit-linear-gradient(top,#432143 0,#2e122e 100%);
-    background-image: -o-linear-gradient(top,#432143 0,#2e122e 100%);
-    background-image: -webkit-gradient(linear,left top,left bottom,from(#432143),to(#2e122e));
-    background-image: linear-gradient(to bottom,#432143 0,#2e122e 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff432143', endColorstr='#ff2e122e', GradientType=0);
+    background-image: -webkit-linear-gradient(top, #432143 0, #2e122e 100%);
+    background-image: -o-linear-gradient(top, #432143 0, #2e122e 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#432143), to(#2e122e));
+    background-image: linear-gradient(to bottom, #432143 0, #2e122e 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ff432143', endColorstr='#ff2e122e', GradientType=0);
     background-repeat: repeat-x;
     border-color: #432143;
 }
 
-.list-head *{
+.list-head * {
     color: #fff;
     font-weight: bold;
 }
 
-.chat{
+.chat {
     background: #432143;
     border-radius: 5px;
     padding-top: 15px;
@@ -97,49 +105,51 @@ aside h3{
     max-height: 600px;
     overflow: auto;
 }
-.received, .sent{
+
+.received,
+.sent {
     border-radius: 5px;
     max-width: 80%;
     margin-bottom: 10px;
 }
-.received{
+
+.received {
     background: #cfeeff;
     float: left;
 }
-.sent{
+
+.sent {
     background: #b0ffa6;
     float: right;
-    
 }
-.sent .list-group-item-heading{
+
+.sent .list-group-item-heading {
     text-align: right;
 }
 
-.escritura{
+.escritura {
     padding-top: 15px;
     padding-bottom: 40px;
 }
 
 
-
 /***********************FIN MENSAJERIA**************************/
+
 
 /*this part is of borderline ;) */
 
-.imgListado{
+.imgListado {
     height: 100px;
 }
 
-
 .table>thead>tr>th {
-    text-align: center; 
+    text-align: center;
 }
 
-.table>tbody>tr>th {    
-    vertical-align:middle;
-    text-align: center; 
+.table>tbody>tr>th {
+    vertical-align: middle;
+    text-align: center;
 }
-
 
 
 /* --- CSS HEADER --- */
@@ -246,12 +256,11 @@ li>.glyphicon {
     align-content: center;
 }
 
-
-
-#logout{
+#logout {
     margin-top: 15px;
     margin-right: 5px;
 }
+
 
 /* --- FIN HEADER --- */
 
@@ -320,25 +329,26 @@ li>.glyphicon {
     display: none;
 }
 
+
 /*******************FORMULARIO REGISTRO*************************/
 
 #form-signUp .form-group {
     height: auto;
     width: 20em;
-    margin-left: 15em;
+    margin: auto;
 }
 
 #form-signUp .btn-default {
-    margin-left: 22em;
+    margin-top: 2em;
 }
 
 #form-signUp hr {
     width: 20em;
-    margin-left: 15em;
 }
 
 
 /***************FIN FORMULARIO REGISTRO*************************/
+
 
 /*--- STAR RATING ---*/
 
