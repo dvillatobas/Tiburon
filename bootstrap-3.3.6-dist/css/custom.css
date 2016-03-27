@@ -342,6 +342,26 @@ li>.glyphicon {
 }
 
 
+/*******************FORMULARIO REGISTRO*************************/
+
+#form-signUp .form-group {
+    height: auto;
+    width: 20em;
+    margin: auto;
+}
+
+#form-signUp .btn-default {
+    margin-top: 2em;
+}
+
+#form-signUp hr {
+    width: 20em;
+}
+
+
+/***************FIN FORMULARIO REGISTRO*************************/
+
+
 /*--- STAR RATING ---*/
 
 div.stars {
