@@ -108,3 +108,18 @@ cuenta en GitHub:
 ###Información necesaria para descargar y ejecutar el último tag del repositorio:
 
 El software que se deberá tener instalado es Brackets, desde ahi, con el proyecto importado, se podrá visualizar el index.html
+
+![](capturas_pantalla/index.JPG "Index")
+
+![](capturas_pantalla/vista_articulo.JPG "Articulo")
+
+![](capturas_pantalla/mis_mensajes.JPG "Mensajes")
+
+![](capturas_pantalla/perfil_publico.JPG "Perfil Publico")
+
+![](capturas_pantalla/nuevo_perfil.JPG "Nuevo perfil")
+
+
+
+
+
