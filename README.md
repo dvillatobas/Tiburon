@@ -105,3 +105,6 @@ cuenta en GitHub:
 >Jorge Rodríguez Barreno // j.rodriguezbarr@alumnos.urjc.es // Naugh
 
 
+###Información necesaria para descargar y ejecutar el último tag del repositorio:
+
+El software que se deberá tener instalado es Brackets, desde ahi, con el proyecto importado, se podrá visualizar el index.html
