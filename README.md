@@ -109,6 +109,12 @@ cuenta en GitHub:
 
 El software que se deberá tener instalado es Brackets, desde ahi, con el proyecto importado, se podrá visualizar el index.html
 
+Este es el diagrama de navegación de la aplicación:
+
+![](capturas_pantalla/diagrama.png)
+
+Estas son algunas capturas de las principales pantallas de la aplicación: 
+
 ![](capturas_pantalla/Index.JPG "Index")
 
 ![](capturas_pantalla/vista_articulo.JPG "Articulo")
