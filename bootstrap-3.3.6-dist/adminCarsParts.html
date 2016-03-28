@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>El Tiburón</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="js/comp_fijos.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Candal' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+	
+</head>
+
+<body>
+    <nav class="navbar navbar-default"></nav>
+    <div class="row">
+    	 <div class="col-md-4 col-md-offset-4">
+    	 	<div class="row" id="listaVehiculos">
+			  <div class="row">
+				  <div class="col-md-12 pull-right">
+					<div class="btn-group " role="group" aria-label="...">
+					  <div class="col-md-4">
+						  <button type="button" class="btn btn-default">
+							<span class="glyphicon glyphicon-plus" aria-hidden="true">Añadir</span>
+						  </button>
+					  </div>
+					  <div class="col-md-4 ">
+						  <button type="button" class="btn btn-default">
+							<span class="glyphicon glyphicon-pencil" aria-hidden="true">Editar</span>
+						  </button>
+					  </div>
+					  <div class="col-md-4 ">
+						  <button type="button" class="btn btn-default">
+							<span class="glyphicon glyphicon-remove" aria-hidden="true">Eliminar</span>
+						  </button>
+					  </div>
+					</div>
+				  </div>	
+			  </div>
+
+
+			  <div class="col-md-12">
+				<table class="table table-hover" id="t" data-search="true" data-show-toggle="true" 
+			   data-show-columns="true"   data-mobile-responsive="true">
+					<thead>
+					  <tr>
+						<th>Foto</th>
+						<th>Marca/Modelo</th>
+						<th>Ubicacion</th>
+						<th>Precio</th>
+
+					  </tr>
+					</thead>
+					<tbody>
+
+						<tr id="coche" onclick="window.document.location='#';">
+
+							<th><img src="imagenes/coches/IMG_20130319_170123_HDR.jpg" alt="..." class="img-rounded imgListado" ></th>
+							<th class="camposListado">Ford Mustang</th>
+							<th>Mostoles</th>
+							<th>54000</th>
+
+
+						</tr>	
+
+
+					  <tr id="coche" onclick="window.document.location='#';">
+						<th ><img src="imagenes/coches/body%20shop%20and%20body%20work.jpg" alt="..." class="img-rounded imgListado" ></th>
+						<th>Dodge Charguer</th>
+						<th>Alcorcon</th>
+						<th>48000</th>
+					  </tr>
+					  <tr id="coche" onclick="window.document.location='#';">
+						<th ><img src="imagenes/coches/857376chevrolet_camaro_ss_1967.jpg" alt="..." class="img-rounded imgListado" ></th>
+						<th>Chevrolet camaro</th>
+						<th>Illescas</th>
+						<th>45500</th>
+					  </tr>
+					  <tr id="pieza" onclick="window.document.location='#';">
+						<th ><img src="imagenes/piezas/turbocompresor-garret.jpg" alt="..." class="img-rounded imgListado" ></th>
+						<th>Turbo Garret 3245</th>
+						<th>Mostoles</th>
+						<th>550</th>
+					  </tr>
+					  <tr id="pieza" onclick="window.document.location='#';">
+						<th><img src="imagenes/piezas/llantas-oz-15-4x108_1.jpg" alt="..." class="img-rounded imgListado" width="120px"></th>
+						<th>Llantas Aluminio 16" 4x108</th>
+						<th>Alcorcon</th>
+						<th>400</th>
+					  </tr>
+					  <tr id="pieza" onclick="window.document.location='#';">
+						<th><img src="imagenes/piezas/fk_daylight_scheinwerfer_renault_laguna_fkfsrn010023.jpg" alt="..." class="img-rounded imgListado" ></th>
+						<th>Faros delanteros Renault Laguna 2</th>
+						<th>Illescas</th>
+						<th>150</th>
+					  </tr>
+					</tbody>
+				</table>
+
+			  </div>
+
+			</div>
+    	 	
+    	 		
+    	 </div>
+		
+			
+    </div>
+
+    <div class="navbar navbar-foot navbar-fixed-bottom text-center"></div>
+
+</body>
+
+</html>
