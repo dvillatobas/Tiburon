@@ -108,7 +108,14 @@ he tomado como referencia principal http://www.vibbo.com/motor-de-segunda-mano/
 
 
 
+- hay que añadir sistema de seguimiento de usuarios (y seguimientos de productos?)
+- vehiculo o pieza sera producto
+- rediseñar la interfaz:
+	-poner la misma fuente de texto en las páginas
+	-rellenar un poco los espacios vacios (la lista de los productos, poner algo mas de informacion por ejemplo)
+	-el precio más grande o vistoso
 
+me he cargado sin querer lo que apuntamos de la revision del otro dia, si recordais lo que falta añadirlo (que liante... eso por no saber usar el kraken como debe)
 
 
 
