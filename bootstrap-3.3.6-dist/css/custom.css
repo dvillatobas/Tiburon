@@ -281,6 +281,7 @@ li>.glyphicon {
 }
 
 
+
 /* --- FIN HEADER --- */
 
 
@@ -413,6 +414,46 @@ li>.glyphicon {
     text-transform: uppercase;
 }
 
+/*perfil publico alternativo*/
+.perf-head{
+    background: rgba(67, 33, 67, 0.79);
+    color: #fff;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.perf-head a{
+    color: rgb(255, 130, 162);
+}
+
+.perf-icon{
+    margin-right: 10px;
+}
+
+.nick-name{
+    margin-top: 30px;
+}
+
+.perf-cont{
+    color: #432143 !important;
+    margin-bottom: 30px;
+}
+
+.img-list{
+}
+
+.elem-list{
+    color: #432143;
+    
+}
+
+.elem-desp{
+    margin-top: 20px;
+}
+.follow{
+    float: left;
+    margin-left: 35%;
+}
 
 /***************FIN PERFIL PUBLICO USUARIO*************************/
 
