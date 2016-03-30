@@ -149,9 +149,13 @@ aside h3 {
 .table>tbody>tr>th {
     vertical-align: middle;
     text-align: center;
+	margin-left: 30px;
+    margin-right: 30px;
 }
 
-
+#letraPrecio{
+	font-size: 30px;
+}
 /* --- CSS HEADER --- */
 
 .navbar {
