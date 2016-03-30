@@ -108,7 +108,11 @@ he tomado como referencia principal http://www.vibbo.com/motor-de-segunda-mano/
 
 
 
+- hay que añadir sistema de seguimiento de usuarios
+- vehiculo o pieza sera producto
+- rediseñar la interfaz
 
+me he cargado sin querer lo que apuntamos de la revision del otro dia, si recordais lo que falta añadirlo
 
 
 
