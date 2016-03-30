@@ -265,6 +265,21 @@ li>.glyphicon {
     margin-right: 5px;
 }
 
+.elem-list{
+    color: #432143;
+    
+}
+
+.elem-desp{
+    margin-top: 20px;
+}
+
+@media screen and (min-width: 991px) {
+    .elem-list img{
+        height: 120px;
+    }
+}
+
 
 /* --- FIN HEADER --- */
 
