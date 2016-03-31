@@ -12,15 +12,18 @@ $(document).ready(function(){
         $('#cruz-roja').toggle();
     });
     $('#cruz-roja').click(function(){
+        $('#follow').toggle();
+        $('#tick-verde').toggle();
+        
         $('#following').toggle();
         $('#cruz-roja').toggle();
         
-        $('#follow').toggle();
-        $('#tick-verde').toggle();
+        
     });
-    $('#cruz-roja').hover(function(){
-        $('#following').toggle();
+ /*   $('#cruz-roja').hover(function(){
         $('#do-unfollow').toggle();
+        $('#following').toggle();
+        
     });
-    
+    */
 });

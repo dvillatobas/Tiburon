@@ -46,7 +46,7 @@ aside h3 {
 }
 
 .form-group-height {
-    height: 100px;
+    height: 80px;
 }
 
 #lanzar_busqueda {
@@ -450,10 +450,7 @@ li>.glyphicon {
 .elem-desp{
     margin-top: 20px;
 }
-.follow{
-    float: left;
-    margin-left: 35%;
-}
+
 
 /***************FIN PERFIL PUBLICO USUARIO*************************/
 

@@ -13,7 +13,7 @@
         <a class="navbar-brand" href="index.html">
             <div id="navbar-brand">
                 <img src="img/logo.png" id="logo" alt="logo">
-                <span>EL TIBURÓN</span>
+                <span class="hidden-sm hidden-md">EL TIBURÓN</span>
             </div>
         </a>
     </div>
@@ -45,18 +45,30 @@
                     <div class="text-center">Mis mensajes</div>
                 </a>
             </li>
+            <li class="unlogged">
+                <a href="sign_up.html" id="login-nav" aria-hidden="true">
+                    <p class="glyphicon glyphicon-user center-block"></p>
+                    <div class="text-center">Iniciar sesión</div>
+                </a>
+            </li>
+            <li class="logged">
+                <a href="sign_up.html" id="logout-nav" aria-hidden="true">
+                    <p class="glyphicon glyphicon-user center-block"></p>
+                    <div class="text-center">Cerrar sesión</div>
+                </a>
+            </li>
         </ul>
 
-        <form class="navbar-form navbar-right unlogged">
-            <button class="btn btn-default join">Registrarse</button>
+        <form class="navbar-form navbar-right hidden-sm">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Usuario">
-                <input type="password" class="form-control" placeholder="Contraseña">
+                
+                <input type="text" class="form-control" placeholder="Búsqueda">
+                <button  id="buscar-nav" class="btn btn-default singin">Buscar</button>
             </div>
-            <button id="login" class="btn btn-default singin">Iniciar Sesión</button>
+            
 
         </form>
-        <button id="logout" class="navbar-right btn btn-default singin logged">Cerrar Sesión</button>
+        
     </div>
     <!-- /.navbar-collapse -->
 </div>
