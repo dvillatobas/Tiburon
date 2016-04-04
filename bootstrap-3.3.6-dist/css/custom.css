@@ -9,6 +9,7 @@ label {
 }
 
 
+
 /***************FORMULARIO BUSQUEDA*************************/
 
 .form-small {
@@ -347,7 +348,8 @@ li>.glyphicon {
 #form-signUp .form-group {
     height: auto;
     width: 20em;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #form-signUp .btn-default {
@@ -357,6 +359,10 @@ li>.glyphicon {
 
 #form-signUp hr {
     width: 20em;
+}
+
+#form-signUp #sign_up_colCent > * {
+    margin-top: 4em;
 }
 
 
