@@ -1,12 +1,12 @@
 $(document).ready(function(){
     $('.logged').toggle();
-    $('#login').click(function(event){
+    $('#login-nav').click(function(event){
         event.preventDefault();
         $('.logged').toggle();
         $('.unlogged').toggle();
         
     });
-    $('#logout').click(function(event){
+    $('#logout-nav').click(function(event){
         event.preventDefault();
         $('.logged').toggle();
         $('.unlogged').toggle();

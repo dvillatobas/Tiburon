@@ -8,6 +8,15 @@ label {
     font-weight: normal;
 }
 
+a{
+    color: #432143;
+}
+
+a:hover{
+    color: #432143;
+    text-decoration: underline;
+}
+
 
 
 /***************FORMULARIO BUSQUEDA*************************/
@@ -29,14 +38,19 @@ label {
     margin-right: 10px;
 }
 
-aside {
+aside, .cuadro {
     background: rgba(67, 33, 67, 0.79);
-    margin: 5px;
     border-radius: 5px;
     padding-top: 1px;
     padding-bottom: 1px;
+    margin-bottom: 25px;
     color: #fff;
 }
+.cuadro-ancho{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 
 aside h3 {
     text-align: center;
@@ -47,7 +61,7 @@ aside h3 {
 }
 
 .form-group-height {
-    height: 100px;
+    height: 80px;
 }
 
 #lanzar_busqueda {
@@ -156,6 +170,11 @@ aside h3 {
 
 #letraPrecio{
 	font-size: 30px;
+}
+
+.botones-prod button{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 /* --- CSS HEADER --- */
 
@@ -266,6 +285,22 @@ li>.glyphicon {
     margin-right: 5px;
 }
 
+.elem-list{
+    color: #432143;
+    
+}
+
+.elem-desp{
+    margin-top: 20px;
+}
+
+@media screen and (min-width: 991px) {
+    .elem-list img{
+        height: 120px;
+    }
+}
+
+
 
 /* --- FIN HEADER --- */
 
@@ -365,8 +400,22 @@ li>.glyphicon {
     width: 20em;
 }
 
+
 #form-signUp #sign_up_colCent > * {
     margin-top: 4em;
+}
+.login{
+    margin-bottom: 30px;
+}
+
+.input-group{
+    width: 60%;
+    margin: auto;
+    margin-top: 30px;
+}
+.glyphicon{
+    top: 0;
+
 }
 
 
@@ -402,6 +451,43 @@ li>.glyphicon {
     background-color: #432143;
     color: white;
     text-transform: uppercase;
+}
+
+/*perfil publico alternativo*/
+.perf-head{
+    background: rgba(67, 33, 67, 0.79);
+    color: #fff;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.perf-head a{
+    color: rgb(255, 130, 162);
+}
+
+.perf-icon{
+    margin-right: 10px;
+}
+
+.nick-name{
+    margin-top: 30px;
+}
+
+.perf-cont{
+    color: #432143 !important;
+    margin-bottom: 30px;
+}
+
+.img-list{
+}
+
+.elem-list{
+    color: #432143;
+    
+}
+
+.elem-desp{
+    margin-top: 20px;
 }
 
 
@@ -464,3 +550,125 @@ label.star:before {
 
 
 /* FIN STAR RATING ---*/
+
+/*    portfolio    */
+
+.portfolio-box {
+        display: block;
+        position: relative;
+        margin: 0 auto;
+        max-width: 650px;
+    
+        border: 1px solid #fff ;
+    }
+    
+    .port {
+        padding-bottom: 15px;
+    }
+    
+    .portfolio-box .portfolio-box-caption {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        color: #fff;
+        opacity: 0;
+        background: rgba(67, 33, 67, 0.79);
+        -webkit-transition: all .35s;
+        -moz-transition: all .35s;
+        transition: all .35s;
+    }
+    
+    .portfolio-box .portfolio-box-caption .portfolio-box-caption-content {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+        transform: translateY(-50%);
+    }
+    
+    .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    
+    .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
+        font-size: 18px;
+    }
+    
+    .portfolio-box:hover .portfolio-box-caption {
+        opacity: 1;
+    }
+    
+    @media(min-width:768px) {
+        .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {
+            font-size: 16px;
+        }
+        .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
+            font-size: 22px;
+        }
+    }
+
+
+/*** fin portfolio ******/
+
+/**************index ****************/
+
+
+h5 a{
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
