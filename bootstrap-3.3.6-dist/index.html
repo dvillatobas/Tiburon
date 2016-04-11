@@ -20,117 +20,391 @@
 
 <body>
     <nav class="navbar navbar-default"></nav>
-    <div class="row">
-        <div class="col-md-3">
-            <aside class="">
-                <h3 id="toggle-busq">Búsqueda</h3>
-                <form id="filtros" class="hidden-xs hidden-sm row">
-                    <div class="">
-                        <input type="text" id="busqueda" class="form-control" placeholder="Introduzca su búsqueda">
-                    </div>
-                    <div class="form-group form-group-height form-inline col-xs-12 col-sm-6 col-md-12 col-lg-12">
-                        <h4>Precio:</h4>
+    <div class="alert alert-warning alert-dismissible text-center unlogged" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+        </button>
+        Si quieres acceder a todo el contenido <a href="sign_up.html">¡¡regístrate!!</a>
+    </div>
+    <div class="row unlogged">
+        <div class="novedades">
+            <div class="col-sm-12 col-md-12 cuadro">
+                <h2 class="text-center">Nuevos productos</h2>
+                <div class="row no-gutter">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 port">
+                        <a href="vista_articulo.html" class="portfolio-box">
+                            <img src="imagenes/coches/IMG_20130319_170123_HDR.jpg" class="img-responsive">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Camaro
+                                    </div>
 
-
-                        <input type="text" id="desde" class="form-control form-small" placeholder="Desde...">
-
-
-                        <input type="text" id="hasta" class="form-control form-small" placeholder="Hasta...">
-
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                    <div class="form-group form-group-height col-xs-12 col-sm-6 col-md-12 col-lg-12">
-                        <h4>Tipo de anuncio:</h4>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="tipo-anuncio" id="ambos" value="ambos" checked> Ambos
-                            </label>
-                            <label>
-                                <input type="radio" name="tipo-anuncio" id="vehiculo" value="vehiculo"> Vehiculo
-                            </label>
-                            <label>
-                                <input type="radio" name="tipo-anuncio" id="pieza" value="pieza"> Pieza
-                            </label>
-                        </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 port">
+                        <a href="vista_articulo.html" class="portfolio-box">
+                            <img src="imagenes/coches/body%20shop%20and%20body%20work.jpg" class="img-responsive portcentro">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Mustang
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                    <div class="form-group form-group-height col-xs-12 col-sm-6 col-md-12 col-lg-12">
-                        <h4>Provincia:</h4>
-                        <select class="form-control" name="provincia" id="provincias">
-                            <option value='0'>(Seleccionar)</option>
-                            <option value='2'>Álava</option>
-                            <option value='3'>Albacete</option>
-                            <option value='4'>Alicante/Alacant</option>
-                            <option value='5'>Almería</option>
-                            <option value='6'>Asturias</option>
-                            <option value='7'>Ávila</option>
-                            <option value='8'>Badajoz</option>
-                            <option value='9'>Barcelona</option>
-                            <option value='10'>Burgos</option>
-                            <option value='11'>Cáceres</option>
-                            <option value='12'>Cádiz</option>
-                            <option value='13'>Cantabria</option>
-                            <option value='14'>Castellón/Castelló</option>
-                            <option value='15'>Ceuta</option>
-                            <option value='16'>Ciudad Real</option>
-                            <option value='17'>Córdoba</option>
-                            <option value='18'>Cuenca</option>
-                            <option value='19'>Girona</option>
-                            <option value='20'>Las Palmas</option>
-                            <option value='21'>Granada</option>
-                            <option value='22'>Guadalajara</option>
-                            <option value='23'>Guipúzcoa</option>
-                            <option value='24'>Huelva</option>
-                            <option value='25'>Huesca</option>
-                            <option value='26'>Illes Balears</option>
-                            <option value='27'>Jaén</option>
-                            <option value='28'>A Coruña</option>
-                            <option value='29'>La Rioja</option>
-                            <option value='30'>León</option>
-                            <option value='31'>Lleida</option>
-                            <option value='32'>Lugo</option>
-                            <option value='33'>Madrid</option>
-                            <option value='34'>Málaga</option>
-                            <option value='35'>Melilla</option>
-                            <option value='36'>Murcia</option>
-                            <option value='37'>Navarra</option>
-                            <option value='38'>Ourense</option>
-                            <option value='39'>Palencia</option>
-                            <option value='40'>Pontevedra</option>
-                            <option value='41'>Salamanca</option>
-                            <option value='42'>Segovia</option>
-                            <option value='43'>Sevilla</option>
-                            <option value='44'>Soria</option>
-                            <option value='45'>Tarragona</option>
-                            <option value='46'>Santa Cruz de Tenerife</option>
-                            <option value='47'>Teruel</option>
-                            <option value='48'>Toledo</option>
-                            <option value='49'>Valencia/Valéncia</option>
-                            <option value='50'>Valladolid</option>
-                            <option value='51'>Vizcaya</option>
-                            <option value='52'>Zamora</option>
-                            <option value='53'>Zaragoza</option>
-                        </select>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 port">
+                        <a href="vista_articulo.html" class="portfolio-box">
+                            <img src="imagenes/coches/body%20shop%20and%20body%20work.jpg" class="img-responsive portcentro">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Ferrari
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                    <div class="form-group form-group-height col-xs-12 col-sm-6 col-md-12 col-lg-12">
-                        <h4>Tipo de vendedor</h4>
-                        <div class="checkbox checkbox-inline">
-                            <label>
-                                <input type="checkbox" id="vend-part" checked>Particular</label>
-                            <label>
-                                <input type="checkbox" id="vend-emp" checked>Empresa</label>
-                        </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 port">
+                        <a href="vista_articulo.html" class="portfolio-box">
+                            <img src="imagenes/piezas/llantas-oz-15-4x108_1.jpg" class="img-responsive" alt="">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Audi
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                    <div class="row">
-                        <button id="lanzar_busqueda" class="btn btn-default pull-right">Buscar</button>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 port">
+                        <a href="vista_articulo.html" class="portfolio-box portcentro">
+                            <img src="imagenes/piezas/fk_daylight_scheinwerfer_renault_laguna_fkfsrn010023.jpg" class="img-responsive">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        BMW
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 port">
+                        <a href="vista_articulo.html" class="portfolio-box portcentro">
+                            <img src="imagenes/piezas/llantas-oz-15-4x108_1.jpg" class="img-responsive">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        OTRO
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
                     </div>
 
-                </form>
-            </aside>
+                </div>
+                <div class="pull-right ver-mas"><h5><a href="busqueda.html">Ver mas...</a></h5></div>
+            </div>
         </div>
-        <div class="col-md-9">
-            <div id="contenido"></div>
+        <div class="usuarios_top">
+            <div class="col-sm-12 col-md-12 cuadro">
+                <h2 class="text-center">Usuarios mejor valorados</h2>
+                <div class="row no-gutter">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 port">
+                        <a href="vista_articulo.html" class="portfolio-box">
+                            <img src="imagenes/coches/IMG_20130319_170123_HDR.jpg" class="img-responsive">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Camaro
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 port">
+                        <a href="vista_articulo.html" class="portfolio-box">
+                            <img src="imagenes/coches/body%20shop%20and%20body%20work.jpg" class="img-responsive portcentro">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Mustang
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 port">
+                        <a href="vista_articulo.html" class="portfolio-box">
+                            <img src="imagenes/coches/body%20shop%20and%20body%20work.jpg" class="img-responsive portcentro">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Ferrari
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 port">
+                        <a href="vista_articulo.html" class="portfolio-box">
+                            <img src="imagenes/piezas/llantas-oz-15-4x108_1.jpg" class="img-responsive" alt="">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Audi
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 port">
+                        <a href="vista_articulo.html" class="portfolio-box portcentro">
+                            <img src="imagenes/piezas/fk_daylight_scheinwerfer_renault_laguna_fkfsrn010023.jpg" class="img-responsive">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        BMW
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 port">
+                        <a href="vista_articulo.html" class="portfolio-box portcentro">
+                            <img src="imagenes/piezas/llantas-oz-15-4x108_1.jpg" class="img-responsive">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        OTRO
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="pull-right ver-mas"><h5><a href="busqueda.html">Ver mas...</a></h5></div>
+            </div>
         </div>
     </div>
+    <div class="row logged">
+       
+        <div class="col-sm-4 col-md-3 user">
+                <div class="thumbnail">
+                    <img src="img/perfil.jpg" alt="perfil">
+                    <div class="caption text-center">
+                        <h3>NickName</h3>
+                        <h4>
+                            <div class="row">
+                               <a href="#">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                       <p>Siguiendo</p>
+                                        <p>67</p>
+                                    </div>
+                                </a>
+                                <a href="#">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                       <p>Seguidores</p>
+                                        <p>50</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </h4>
 
+                        
+
+                    </div>
+                </div>
+            </div>
+
+            <!--ANUNCIOS -->
+            <div class="col-sm-8 col-md-9 cuadro">
+                <h2 class="text-center">Novedades de tus contactos</h2>
+                <div class="row no-gutter">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 port">
+                        <a href="vista_articulo.html" class="portfolio-box">
+                            <img src="imagenes/coches/IMG_20130319_170123_HDR.jpg" class="img-responsive">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Camaro
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 port">
+                        <a href="vista_articulo.html" class="portfolio-box">
+                            <img src="imagenes/coches/body%20shop%20and%20body%20work.jpg" class="img-responsive portcentro">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Mustang
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 port">
+                        <a href="vista_articulo.html" class="portfolio-box">
+                            <img src="imagenes/coches/body%20shop%20and%20body%20work.jpg" class="img-responsive portcentro">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Ferrari
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 port">
+                        <a href="vista_articulo.html" class="portfolio-box">
+                            <img src="imagenes/piezas/llantas-oz-15-4x108_1.jpg" class="img-responsive" alt="">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Audi
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 port">
+                        <a href="vista_articulo.html" class="portfolio-box portcentro">
+                            <img src="imagenes/piezas/fk_daylight_scheinwerfer_renault_laguna_fkfsrn010023.jpg" class="img-responsive">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        BMW
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 port">
+                        <a href="vista_articulo.html" class="portfolio-box portcentro">
+                            <img src="imagenes/piezas/llantas-oz-15-4x108_1.jpg" class="img-responsive">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        OTRO
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-sm-8 col-md-9 pull-right cuadro">
+                <h2 class="text-center">Anuncios Favoritos</h2>
+                <div class="row no-gutter">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 port">
+                        <a href="vista_articulo.html" class="portfolio-box">
+                            <img src="imagenes/coches/IMG_20130319_170123_HDR.jpg" class="img-responsive">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Camaro
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 port">
+                        <a href="vista_articulo.html" class="portfolio-box">
+                            <img src="imagenes/coches/body%20shop%20and%20body%20work.jpg" class="img-responsive portcentro">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Mustang
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 port">
+                        <a href="vista_articulo.html" class="portfolio-box">
+                            <img src="imagenes/coches/body%20shop%20and%20body%20work.jpg" class="img-responsive portcentro">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Ferrari
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 port">
+                        <a href="vista_articulo.html" class="portfolio-box">
+                            <img src="imagenes/piezas/llantas-oz-15-4x108_1.jpg" class="img-responsive" alt="">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Audi
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 port">
+                        <a href="vista_articulo.html" class="portfolio-box portcentro">
+                            <img src="imagenes/piezas/fk_daylight_scheinwerfer_renault_laguna_fkfsrn010023.jpg" class="img-responsive">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        BMW
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 port">
+                        <a href="vista_articulo.html" class="portfolio-box portcentro">
+                            <img src="imagenes/piezas/llantas-oz-15-4x108_1.jpg" class="img-responsive">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        OTRO
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        
+
+    </div>
 
     <div class="navbar navbar-foot navbar-fixed-bottom text-center"></div>
 
