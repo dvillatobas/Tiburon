@@ -392,6 +392,19 @@ li>.glyphicon {
     width: 20em;
 }
 
+.login{
+    margin-bottom: 30px;
+}
+
+.input-group{
+    width: 60%;
+    margin: auto;
+    margin-top: 30px;
+}
+.glyphicon{
+    top: 0;
+}
+
 
 /***************FIN FORMULARIO REGISTRO*************************/
 
