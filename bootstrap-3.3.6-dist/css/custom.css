@@ -45,8 +45,9 @@ aside, .cuadro {
     margin-bottom: 25px;
     color: #fff;
 }
-.aside{
-    
+.cuadro-ancho{
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 
@@ -168,6 +169,11 @@ aside h3 {
 
 #letraPrecio{
 	font-size: 30px;
+}
+
+.botones-prod button{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 /* --- CSS HEADER --- */
 
