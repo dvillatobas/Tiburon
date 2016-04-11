@@ -115,6 +115,8 @@ he tomado como referencia principal http://www.vibbo.com/motor-de-segunda-mano/
 	-rellenar un poco los espacios vacios (la lista de los productos, poner algo mas de informacion por ejemplo)
 	-el precio más grande o vistoso
 
+	Añadir sistema de favoritos
+
 me he cargado sin querer lo que apuntamos de la revision del otro dia, si recordais lo que falta añadirlo (que liante... eso por no saber usar el kraken como debe)
 
 
