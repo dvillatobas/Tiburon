@@ -1,0 +1,234 @@
+<div class="row">
+        <div class="col-md-3">
+            <aside class="">
+                <h3 id="toggle-busq">Búsqueda</h3>
+                <form id="filtros" class="hidden-xs hidden-sm row">
+                   <input type="text" id="busqueda" class="form-control form-group" placeholder="Introduzca su búsqueda">
+                    <div class="form-group  form-inline col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="usr-prod" value="producto" checked> Producto
+                            </label>
+                            <label>
+                                <input type="radio" name="usr-prod" value="usuario"> Usuario
+                            </label>
+                        </div>
+                    </div>
+                    <div id="form-precio" class="form-group form-group-height form-inline col-xs-12 col-sm-6 col-md-12 col-lg-12">
+                        <h4>Precio:</h4>
+                        <input type="text" id="desde" class="form-control form-small" placeholder="Desde...">
+                        <input type="text" id="hasta" class="form-control form-small" placeholder="Hasta...">
+                    </div>
+                    <div id="form-tipo-prod" class="form-group form-group-height col-xs-12 col-sm-6 col-md-12 col-lg-12">
+                        <h4>Tipo de anuncio:</h4>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="tipo-anuncio" id="ambos" value="ambos" checked> Ambos
+                            </label>
+                            <label>
+                                <input type="radio" name="tipo-anuncio" id="vehiculo" value="vehiculo"> Vehiculo
+                            </label>
+                            <label>
+                                <input type="radio" name="tipo-anuncio" id="pieza" value="pieza"> Pieza
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-height col-xs-12 col-sm-6 col-md-12 col-lg-12">
+                        <h4>Provincia:</h4>
+                        <select class="form-control" name="provincia" id="provincias">
+                            <option value='0'>(Seleccionar)</option>
+                            <option value='2'>Álava</option>
+                            <option value='3'>Albacete</option>
+                            <option value='4'>Alicante/Alacant</option>
+                            <option value='5'>Almería</option>
+                            <option value='6'>Asturias</option>
+                            <option value='7'>Ávila</option>
+                            <option value='8'>Badajoz</option>
+                            <option value='9'>Barcelona</option>
+                            <option value='10'>Burgos</option>
+                            <option value='11'>Cáceres</option>
+                            <option value='12'>Cádiz</option>
+                            <option value='13'>Cantabria</option>
+                            <option value='14'>Castellón/Castelló</option>
+                            <option value='15'>Ceuta</option>
+                            <option value='16'>Ciudad Real</option>
+                            <option value='17'>Córdoba</option>
+                            <option value='18'>Cuenca</option>
+                            <option value='19'>Girona</option>
+                            <option value='20'>Las Palmas</option>
+                            <option value='21'>Granada</option>
+                            <option value='22'>Guadalajara</option>
+                            <option value='23'>Guipúzcoa</option>
+                            <option value='24'>Huelva</option>
+                            <option value='25'>Huesca</option>
+                            <option value='26'>Illes Balears</option>
+                            <option value='27'>Jaén</option>
+                            <option value='28'>A Coruña</option>
+                            <option value='29'>La Rioja</option>
+                            <option value='30'>León</option>
+                            <option value='31'>Lleida</option>
+                            <option value='32'>Lugo</option>
+                            <option value='33'>Madrid</option>
+                            <option value='34'>Málaga</option>
+                            <option value='35'>Melilla</option>
+                            <option value='36'>Murcia</option>
+                            <option value='37'>Navarra</option>
+                            <option value='38'>Ourense</option>
+                            <option value='39'>Palencia</option>
+                            <option value='40'>Pontevedra</option>
+                            <option value='41'>Salamanca</option>
+                            <option value='42'>Segovia</option>
+                            <option value='43'>Sevilla</option>
+                            <option value='44'>Soria</option>
+                            <option value='45'>Tarragona</option>
+                            <option value='46'>Santa Cruz de Tenerife</option>
+                            <option value='47'>Teruel</option>
+                            <option value='48'>Toledo</option>
+                            <option value='49'>Valencia/Valéncia</option>
+                            <option value='50'>Valladolid</option>
+                            <option value='51'>Vizcaya</option>
+                            <option value='52'>Zamora</option>
+                            <option value='53'>Zaragoza</option>
+                        </select>
+                    </div>
+                    <div class="form-group form-group-height col-xs-12 col-sm-6 col-md-12 col-lg-12">
+                        <h4>Tipo de vendedor</h4>
+                        <div class="checkbox checkbox-inline">
+                            <label>
+                                <input type="checkbox" id="vend-part" checked>Particular</label>
+                            <label>
+                                <input type="checkbox" id="vend-emp" checked>Empresa</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button id="lanzar_busqueda" class="btn btn-default pull-right">Buscar</button>
+                    </div>
+
+                </form>
+            </aside>
+        </div>
+        <div class="col-md-9">
+            <div id="contenido">
+              <div class="row" id="listaVehiculos">
+                  <div class="row" id="filtro-productos">
+                      <div class="col-md-4 pull-center">
+                          <h3>Filtrar resultados por : </h3>
+                      </div>
+
+                      <div class="col-md-5 pull-right">
+                          <div class="btn-group " role="group" aria-label="...">
+                              <button type="button" class="btn btn-default">Precio</button>
+                              <button type="button" class="btn btn-default">Ubicacion</button>
+                              <button type="button" class="btn btn-default">Creacion</button>
+                          </div>
+                      </div>
+                  </div>
+
+
+                  <ul class="list-group">
+                      <a href="./vista_articulo.html">
+                          <div class="elem-list list-group-item">
+                              <div class="row">
+                                  <div class="col-sm-12 col-md-3">
+                                      <img src="imagenes/coches/IMG_20130319_170123_HDR.jpg" class="img-list img-responsive center-block" alt="">
+                                  </div>
+                                  <div class="col-sm-6 col-md-4">
+                                      <h3>Ford Mustang</h3>
+                                      <h5>20000km</h5>
+                                      <h5>1996</h5>
+                                  </div>
+                                  <div class="text-center elem-desp col-sm-6 col-md-2">
+                                      <h3>Mostoles</h3>
+                                  </div>
+                                  <div class="text-center elem-desp col-sm-6 col-md-3">
+                                      <h3>54000€</h3>
+                                  </div>
+                              </div>
+                          </div>
+                      </a>
+                      <a href="./vista_articulo.html">
+                          <div class="elem-list list-group-item">
+                              <div class="row">
+                                  <div class="col-sm-12 col-md-3">
+                                      <img src="imagenes/coches/857376chevrolet_camaro_ss_1967.jpg" class="img-list img-responsive center-block" alt="">
+                                  </div>
+                                  <div class="col-sm-6 col-md-4">
+                                      <h3>Chevrolet camaro</h3>
+                                      <h5>Nuevo</h5>
+                                      <h5>2003</h5>
+                                  </div>
+                                  <div class="text-center elem-desp col-sm-6 col-md-2">
+                                      <h3>Illescas</h3>
+                                  </div>
+                                  <div class="text-center elem-desp col-sm-6 col-md-3">
+                                      <h3>45500€</h3>
+                                  </div>
+                              </div>
+                          </div>
+                      </a>
+                      <a href="./vista_articulo.html">
+                          <div class="elem-list list-group-item">
+                              <div class="row">
+                                  <div class="col-sm-12 col-md-3">
+                                      <img src="imagenes/piezas/turbocompresor-garret.jpg" class="img-list img-responsive center-block" alt="">
+                                  </div>
+                                  <div class="col-sm-6 col-md-4">
+                                      <h3>Turbo Garret 3245</h3>
+                                      <h5>Usado</h5>
+                                      <h5></h5>
+                                  </div>
+                                  <div class="text-center elem-desp col-sm-6 col-md-2">
+                                      <h3>Mostoles</h3>
+                                  </div>
+                                  <div class="text-center elem-desp col-sm-6 col-md-3">
+                                      <h3>550€</h3>
+                                  </div>
+                              </div>
+                          </div>
+                      </a>
+                      <a href="./vista_articulo.html">
+                          <div class="elem-list list-group-item">
+                              <div class="row">
+                                  <div class="col-sm-12 col-md-3">
+                                      <img src="imagenes/piezas/llantas-oz-15-4x108_1.jpg" class="img-list img-responsive center-block" alt="">
+                                  </div>
+                                  <div class="col-sm-6 col-md-4">
+                                      <h3>Llantas Aluminio 16" 4x108</h3>
+                                      <h5>Usado</h5>
+                                      <h5></h5>
+                                  </div>
+                                  <div class="text-center elem-desp col-sm-6 col-md-2">
+                                      <h3>Alcorcon</h3>
+                                  </div>
+                                  <div class="text-center elem-desp col-sm-6 col-md-3">
+                                      <h3>400€</h3>
+                                  </div>
+                              </div>
+                          </div>
+                      </a>
+                      <a href="./vista_articulo.html">
+                          <div class="elem-list list-group-item">
+                              <div class="row">
+                                  <div class="col-sm-12 col-md-3">
+                                      <img src="imagenes/piezas/llantas-oz-15-4x108_1.jpg" class="img-list img-responsive center-block" alt="">
+                                  </div>
+                                  <div class="col-sm-6 col-md-4">
+                                      <h3>Nombre de producto</h3>
+                                      <h5>KM/Nuevo/Usado</h5>
+                                      <h5>[AÑO]</h5>
+                                  </div>
+                                  <div class="text-center elem-desp col-sm-6 col-md-2">
+                                      <h3>Localizacion</h3>
+                                  </div>
+                                  <div class="text-center elem-desp col-sm-6 col-md-3">
+                                      <h3>400€</h3>
+                                  </div>
+                              </div>
+                          </div>
+                      </a>
+                  </ul>
+
+              </div>
+            </div>
+        </div>
+    </div>

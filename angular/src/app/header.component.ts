@@ -9,6 +9,7 @@ import {Router} from 'angular2/router';
 
 export class HeaderComponent{
   private logueado : boolean = false;
+  private busqueda : string;
 
   constructor(private router:Router){}
   inicio(){
@@ -28,10 +29,10 @@ export class HeaderComponent{
     this.router.navigate(['Login']);
   }
   logout(){
-    this.logueado=!this.logueado;
     this.router.navigate(['Inicio']);
   }
   buscar(){
     this.router.navigate(['Buscar']);
   }
+
 }

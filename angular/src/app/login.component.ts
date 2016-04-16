@@ -4,10 +4,8 @@ import {ROUTER_DIRECTIVES,RouteParams, Router} from 'angular2/router';
 @Component({
   selector: 'main',
   directives: [ROUTER_DIRECTIVES],
-  templateUrl: 'app/main.component.html'
+  templateUrl: 'app/login.component.html'
 
 })
 
-export class MainComponent{
-  private logueado:boolean = false;
-}
+export class LoginComponent{}

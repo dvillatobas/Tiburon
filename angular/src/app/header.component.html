@@ -67,8 +67,8 @@
       <form class="navbar-form navbar-right hidden-sm">
         <div class="form-group">
 
-          <input type="text" class="form-control" placeholder="Búsqueda">
-          <button id="buscar-nav" class="btn btn-default singin">Buscar</button>
+          <input type="text" [(ngModel)]="busqueda" class="form-control" placeholder="Búsqueda">
+          <button (click)="buscar()" class="btn btn-default singin">Buscar</button>
         </div>
 
 
