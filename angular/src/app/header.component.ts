@@ -1,4 +1,5 @@
 import {Component} from 'angular2/core';
+import {Router} from 'angular2/router';
 
 @Component({
   selector: 'header',
@@ -7,5 +8,30 @@ import {Component} from 'angular2/core';
 })
 
 export class HeaderComponent{
-  
+  private logueado : boolean = false;
+
+  constructor(private router:Router){}
+  inicio(){
+    this.router.navigate(['Inicio']);
+  }
+  novedades(){
+    this.router.navigate(['Novedades']);
+  }
+  misprod(){
+    this.router.navigate(['MisProductos']);
+  }
+  mensajes(){
+    this.router.navigate(['Mensajes']);
+  }
+  login(){
+    this.logueado=!this.logueado;
+    this.router.navigate(['Login']);
+  }
+  logout(){
+    this.logueado=!this.logueado;
+    this.router.navigate(['Inicio']);
+  }
+  buscar(){
+    this.router.navigate(['Buscar']);
+  }
 }
