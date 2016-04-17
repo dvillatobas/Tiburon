@@ -14,5 +14,5 @@
     "sourceRoot": "/",
     "target": "es5"
   },
-  "compileOnSave": false
+  "compileOnSave": true
 }

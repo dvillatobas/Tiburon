@@ -1,5 +1,6 @@
 import {Component} from 'angular2/core';
 import {Router} from 'angular2/router';
+import {UserService} from './user.service';
 
 @Component({
   selector: 'header',
@@ -8,10 +9,13 @@ import {Router} from 'angular2/router';
 })
 
 export class HeaderComponent{
-  private logueado : boolean = false;
+
   private busqueda : string;
 
-  constructor(private router:Router){}
+  constructor(
+    private router:Router,
+    private service : UserService
+  ){}
   inicio(){
     this.router.navigate(['Inicio']);
   }
@@ -25,10 +29,10 @@ export class HeaderComponent{
     this.router.navigate(['Mensajes']);
   }
   login(){
-    this.logueado=!this.logueado;
     this.router.navigate(['Login']);
   }
   logout(){
+    this.service.login();
     this.router.navigate(['Inicio']);
   }
   buscar(){

@@ -32,31 +32,31 @@
             <div class="text-center">Novedades</div>
           </a>
         </li>
-        <li *ngIf="logueado">
+        <li *ngIf="service.logueado">
           <a (click)="misprod()" aria-hidden="true">
             <p class="glyphicon glyphicon-user center-block"></p>
             <div class="text-center">Mis productos</div>
           </a>
         </li>
-        <li  *ngIf="logueado">
+        <li  *ngIf="service.logueado">
           <a (click)="mensajes()" aria-hidden="true">
             <p class="glyphicon glyphicon-envelope center-block"></p>
             <div class="text-center">Mis mensajes</div>
           </a>
         </li>
-        <li *ngIf="logueado==false">
+        <li *ngIf="service.logueado==false">
           <a (click)="login()" aria-hidden="true">
             <p class="glyphicon glyphicon-plus center-block"></p>
             <div class="text-center">Registrarse</div>
           </a>
         </li>
-        <li *ngIf="logueado==false">
+        <li *ngIf="service.logueado==false">
           <a (click)="login()" id="login-nav" aria-hidden="true">
             <p class="glyphicon glyphicon-user center-block"></p>
             <div class="text-center">Iniciar sesión</div>
           </a>
         </li>
-        <li *ngIf="logueado">
+        <li *ngIf="service.logueado">
           <a (click)="logout()" id="logout-nav" aria-hidden="true">
             <p class="glyphicon glyphicon-user center-block"></p>
             <div class="text-center">Cerrar sesión</div>
@@ -79,7 +79,6 @@
   </div>
   <!-- /.container-fluid -->
 </nav>
-<input type="checkbox" [(ngModel)]="logueado">
 
 
 

@@ -1,5 +1,6 @@
 import {Component}   from 'angular2/core';
 import {ROUTER_DIRECTIVES,RouteParams, Router} from 'angular2/router';
+import {UserService} from './user.service';
 
 @Component({
   selector: 'main',
@@ -9,5 +10,10 @@ import {ROUTER_DIRECTIVES,RouteParams, Router} from 'angular2/router';
 })
 
 export class MainComponent{
-  private logueado:boolean = false;
+  constructor(
+    private router:Router,
+    private service : UserService
+  ){}
+  
+
 }

@@ -1,6 +1,4 @@
-
-<input type="checkbox" [(ngModel)]="logueado">
-<div class="row" *ngIf="logueado == false">
+<div class="row" *ngIf="service.logueado == false">
         <div class="novedades">
             <div class="col-sm-12 col-md-12 cuadro">
                 <h2 class="text-center">Nuevos productos</h2>
@@ -175,7 +173,7 @@
             </div>
         </div>
     </div>
-    <div class="row" *ngIf="logueado">
+    <div class="row" *ngIf="service.logueado">
 
         <div class="col-sm-4 col-md-3 user">
                 <div class="thumbnail">

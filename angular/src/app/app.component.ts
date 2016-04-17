@@ -8,14 +8,16 @@ import {MisProductosComponent} from './mis-productos.component';
 import {LoginComponent} from './login.component';
 import {MensajesComponent} from './mensajes.component';
 import {BuscarComponent} from './buscar.component';
+import {UserService} from './user.service';
 
 @Component({
   selector: 'app',
   templateUrl: 'app/app.component.html',
-  directives: [ROUTER_DIRECTIVES, Alert, HeaderComponent, FooterComponent]
+  directives: [ROUTER_DIRECTIVES, Alert, HeaderComponent, FooterComponent],
+  providers: [UserService]
 })
 @RouteConfig([
-  {path: '/', name: 'Inicio', component: MainComponent, useAsDefault:true},
+  {path: '/', name: 'Inicio', component: MainComponent},
   {path: '/novedades', name: 'Novedades', component: BuscarComponent},
   {path: '/mis-productos', name: 'MisProductos', component: MisProductosComponent},
   {path: '/mensajes', name: 'Mensajes', component: MensajesComponent},
