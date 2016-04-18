@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
 <head>
-    <title>El Tiburon</title>
-    <base href=".">
+  <meta charset="utf-8">
+  <title>El Tiburón</title>
+  <base href="/">
+  {{content-for 'head'}}
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <base href=".">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Latest compiled and minified CSS -->
@@ -48,14 +51,21 @@
     <link rel="stylesheet" href="css/custom.css">
     <link href='https://fonts.googleapis.com/css?family=Candal' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
-    <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
-
+  <!-- Service worker support is disabled by default.
+       Install the worker script and uncomment to enable.
+       Only enable service workers in production.
+  <script type="text/javascript">
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/worker.js').catch(function(err) {
+        console.log('Error installing service worker: ', err);
+      });
+    }
+  </script>
+  -->
 </head>
-
-<!-- 3. Display the application -->
-
 <body>
-    <app>Loading...</app>
-</body>
+  <app>Loading...</app>
 
+  
+</body>
 </html>
