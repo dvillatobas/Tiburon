@@ -1,15 +1,17 @@
 import {bootstrap} from 'angular2/platform/browser';
 import {AppComponent} from './app/app.component';
 import {provide} from 'angular2/core';
+import {UserService} from './app/user.service';
 import {
 	ROUTER_PROVIDERS,
-	RouteConfig,  
+	RouteConfig,
 	ROUTER_DIRECTIVES,
-	LocationStrategy, 
+	LocationStrategy,
 	HashLocationStrategy
 } from 'angular2/router';
 
 bootstrap(AppComponent, [
-  ROUTER_PROVIDERS, 
+  ROUTER_PROVIDERS,
+	UserService,
   provide(LocationStrategy, {useClass: HashLocationStrategy})
 ]);
