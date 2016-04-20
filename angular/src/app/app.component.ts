@@ -9,13 +9,14 @@ import {LoginComponent} from './login.component';
 import {MensajesComponent} from './mensajes.component';
 import {BuscarComponent} from './buscar.component';
 import {UserService} from './user.service';
+import {MensajesService} from './mensajes.service';
 import {ProductoComponent} from './producto.component';
 
 @Component({
   selector: 'app',
   templateUrl: 'app/app.component.html',
   directives: [ROUTER_DIRECTIVES, Alert, HeaderComponent, FooterComponent],
-  providers: [UserService]
+  providers: [UserService, MensajesService]
 })
 @RouteConfig([
   {path: '/', name: 'Inicio', component: MainComponent},
@@ -29,6 +30,7 @@ import {ProductoComponent} from './producto.component';
 export class AppComponent {
   constructor(
     private router:Router,
-    private service : UserService
+    private users : UserService,
+    private mensajes : MensajesService
   ){}
 }

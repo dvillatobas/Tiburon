@@ -18,17 +18,19 @@ export class Mensaje{
 @Injectable()
 export class MensajesService{
   private mensajes = [
-    new Mensaje(1,'1/5/6',1,2,1,'mensaje que seaaaaa','visto')
+    new Mensaje(1,Date.now(),1,2,1,'mensaje que seaaaaa',0),
+    new Mensaje(1,Date.now()+2,3,2,1,'mensaje que seaaaaa',1),
+    new Mensaje(1,Date.now()+4,4,1,1,'mensaje que seaaaaa',0)
   ];
   constructor(
     private usr : UserService
   ){}
 
-  getContact(id:string){
+  getContact(id:number){
     let contactos = [];
     for(let m of this.mensajes){
       if(id===m.idEmisor){
-        contactos.push(this.usr.getUser(m.idEmisor));
+        contactos.push(this.usr.getUser(m.idReceptor));
       }else if(id===m.idReceptor){
         contactos.push(this.usr.getUser(m.idEmisor));
       }

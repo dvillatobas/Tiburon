@@ -45,12 +45,12 @@ export class UserService{
       return false;
     }
   }
-  getUser(id){
+  getUser(id:number){
     for(let u of this.users){
       if(u.id===id){
         return u;
       }
-      return undefined;
     }
+    return undefined;
   }
 }
