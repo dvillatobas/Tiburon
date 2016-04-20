@@ -18,7 +18,6 @@ export class LoginComponent{
 
   entrar(nick:string,pass:string){
     if(this.service.isUserCorrect(nick,pass)){
-      this.service.login();
       this.router.navigate(['Inicio']);
     }
   }

@@ -15,6 +15,12 @@ export class User{
     public tipo,
     public rol
   ){}
+  getId(){
+    return this.id;
+  }
+  getNick(){
+    return this.nick;
+  }
 }
 
 @Injectable()
@@ -26,12 +32,12 @@ export class UserService{
     new User(4,'raul','raul','villatobas',653546977,'dvd1880@gmail.com','1234','/foto.png','prof','normal')
   ];
   private logueado:boolean = false;
-  private idUser:number = 0;
+  private idUserLogued:number = 1;
 
-  login(){
-    this.logueado = !this.logueado;
-    this.idUser = 2;
+  getIdUserLogued(){
+    return this.idUserLogued;
   }
+
   isUserCorrect(user:string, pass:string){
     let u:User = null;
     for(let us of this.users){
@@ -40,6 +46,9 @@ export class UserService{
       }
     }
     if (u!=null){
+      this.logueado = !this.logueado;
+      this.idUserLogued = u.id;
+      console.log(this.idUserLogued);
       return u.pass === pass;
     }else{
       return false;
@@ -52,5 +61,10 @@ export class UserService{
       }
     }
     return undefined;
+  }
+
+  logout(){
+    this.logueado = ! this.logueado;
+    this.idUserLogued = 0;
   }
 }

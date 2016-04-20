@@ -1,6 +1,7 @@
 import {Component} from 'angular2/core';
 import {Router} from 'angular2/router';
 import {UserService} from './user.service';
+import {MensajesService} from './mensajes.service';
 
 @Component({
   selector: 'header',
@@ -14,7 +15,8 @@ export class HeaderComponent{
 
   constructor(
     private router:Router,
-    private service : UserService
+    private usr : UserService,
+    private msj : MensajesService
   ){}
   inicio(){
     this.router.navigate(['Inicio']);
@@ -32,7 +34,7 @@ export class HeaderComponent{
     this.router.navigate(['Login']);
   }
   logout(){
-    this.service.login();
+    this.usr.logout();
     this.router.navigate(['Inicio']);
   }
   buscar(){

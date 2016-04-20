@@ -4,11 +4,11 @@
                <div class="list-group-item list-head" (click)="isCollapsed=!isCollapsed"  id="toggle-contactos">
                    <h4>Contactos</h4>
                </div>
-               <div id="toggle-lista-contactos" *ngFor="#contact of contact_list" [collapse]="isCollapsed">
-                    <button class="list-group-item"  id="user-id">
+               <div id="toggle-lista-contactos" *ngFor="#contact of contactList" [collapse]="isCollapsed">
+                    <button (click)="selectChat(contact.id)" class="list-group-item"  id="user-id">
                         <span class="badge" id="unread">3</span>
                         <h4 class="list-group-item-heading" id="user-name">{{contact.nick}}</h4>
-                        <p class="list-group-item-text" id="product-name">307 HDI1.6</p>
+
                     </button>
 
                 </div>
@@ -18,58 +18,19 @@
         <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
             <div class="grid">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 chat" id="div-chat">
-                    <div class="list-group" >
+                    <div class="list-group" *ngFor="#men of chatList">
                        <!-- MENSAJES -->
-                        <div class="list-group-item received">
-
+                        <div class="list-group-item" [class]="men.rem">
                             <h4 class="list-group-item-heading">
-                                Alberto Rodriguez
+                                {{men.nick}}
                             </h4>
                             <p class="list-group-item-text">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis laudantium nihil voluptatum architecto corrupti, rerum ad hic voluptates tempore tempora at possimus dolores illum et nam molestias necessitatibus fugiat magnam.
+                              {{men.mensaje}}
                             </p>
-                            <span class="badge">{{fecha | date:'yy/M/d Hm'}}</span>
+                            <span class="badge">{{men.date | date:'yy/M/d Hm'}}</span>
                         </div>
-                        <div class="list-group-item sent">
 
-                            <h4 class="list-group-item-heading">
-                                User Name
-                            </h4>
-                            <p class="list-group-item-text">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis laudantium nihil voluptatum architecto corrupti, rerum ad hic voluptates tempore tempora at possimus dolores illum et nam molestias necessitatibus fugiat magnam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque asperiores, sed odio sequi ea accusantium minus doloribus, maxime expedita temporibus deleniti architecto explicabo, dolorem officiis facilis dolore voluptas, ex magni.
-                            </p>
-                            <span class="badge">15:23 15/2/16</span>
-                        </div>
-                        <div class="list-group-item sent">
 
-                            <h4 class="list-group-item-heading">
-                                User Name
-                            </h4>
-                            <p class="list-group-item-text">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis laudantium nihil voluptatum architecto corrupti, rerum ad hic voluptates tempore tempora at possimus dolores illum et nam molestias necessitatibus fugiat magnam.
-                            </p>
-                            <span class="badge">15:23 15/2/16</span>
-                        </div>
-                        <div class="list-group-item received">
-
-                            <h4 class="list-group-item-heading">
-                                Alberto Rodriguez
-                            </h4>
-                            <p class="list-group-item-text">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis laudantium nihil voluptatum architecto corrupti, rerum ad hic voluptates tempore tempora at possimus dolores illum et nam molestias necessitatibus fugiat magnam.
-                            </p>
-                            <span class="badge">15:23 15/2/16</span>
-                        </div>
-                        <div class="list-group-item sent">
-
-                            <h4 class="list-group-item-heading">
-                                User Name
-                            </h4>
-                            <p class="list-group-item-text">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis laudantium nihil voluptatum architecto corrupti, rerum ad hic voluptates tempore tempora at possimus dolores illum et nam molestias necessitatibus fugiat magnam.
-                            </p>
-                            <span class="badge">15:23 15/2/16</span>
-                        </div>
                         <!-- FIN MENSAJES -->
                     </div>
                 </div>
@@ -77,10 +38,10 @@
                     <form>
                         <div class="row">
                               <div class="col-xs-9 col-sm-10 col-md-10 col-lg-10">
-                               <input type="text" class="form-control" id="mensaje" placeholder="Escribe tu mensaje...">
+                               <input [(ngModel)]="borrador" type="text" class="form-control" id="mensaje" placeholder="Escribe tu mensaje...">
                             </div>
                             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                            <button class="btn btn-success">Enviar</button>
+                            <button (click)="enviar()" class="btn btn-success">Enviar</button>
                             </div>
                         </div>
                     </form>

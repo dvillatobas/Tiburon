@@ -126,8 +126,9 @@ aside h3 {
 .received,
 .sent {
     border-radius: 5px;
-    max-width: 80%;
+    width: 80%;
     margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .received {
