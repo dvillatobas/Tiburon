@@ -39,11 +39,12 @@ export class MensajesComponent{
         this.chatList.push(new Wisp(this.yo.getNick(),w.mensaje,w.date,'list-group-item sent'));
       }
     }
+    console.log(this.chatList);
 
   }
   enviar(borrador){
     this.service.nuevo(this.usuario.getId(),borrador);
-    
+    this.selectChat(this.usuario.getId());
   }
 
   refreshContactList(){

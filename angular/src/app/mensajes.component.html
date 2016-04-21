@@ -17,9 +17,12 @@
 
         <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
             <div class="grid">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 chat" id="div-chat">
+              <h4 *ngIf="chatList.length==0">Selecciona un usuario</h4>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 chat" id="div-chat" *ngIf="chatList.length!=0">
+
                     <div class="list-group" *ngFor="#men of chatList">
                        <!-- MENSAJES -->
+
                         <div class="list-group-item" [class]="men.rem">
                             <h4 class="list-group-item-heading">
                                 {{men.nick}}
@@ -34,7 +37,7 @@
                         <!-- FIN MENSAJES -->
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 escritura">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 escritura" *ngIf="chatList.length!=0">
                     <form>
                         <div class="row">
                               <div class="col-xs-9 col-sm-10 col-md-10 col-lg-10">
