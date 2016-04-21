@@ -18,7 +18,6 @@ export class MensajesComponent{
   private chatList = [];
   private usuario : User;
   private yo : User;
-  private borrador : string;
   private contactList = this.service.getContactList(this.usr.getIdUserLogued()).reverse();
   constructor(
     private router:Router,
@@ -42,8 +41,9 @@ export class MensajesComponent{
     }
 
   }
-  enviar(){
-    this.service.nuevo(this.usuario.getId(),this.borrador);
+  enviar(borrador){
+    this.service.nuevo(this.usuario.getId(),borrador);
+    
   }
 
   refreshContactList(){

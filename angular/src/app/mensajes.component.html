@@ -38,10 +38,10 @@
                     <form>
                         <div class="row">
                               <div class="col-xs-9 col-sm-10 col-md-10 col-lg-10">
-                               <input [(ngModel)]="borrador" type="text" class="form-control" id="mensaje" placeholder="Escribe tu mensaje...">
+                               <input #borrador type="text" class="form-control" id="mensaje" placeholder="Escribe tu mensaje...">
                             </div>
                             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                            <button (click)="enviar()" class="btn btn-success">Enviar</button>
+                            <button (click)="enviar(borrador.value);borrador.value=''" class="btn btn-success">Enviar</button>
                             </div>
                         </div>
                     </form>

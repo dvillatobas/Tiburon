@@ -19,8 +19,8 @@ export class Mensaje{
 export class MensajesService{
   private mensajes = [
     new Mensaje(1,Date.now(),1,2,'mensaje 1',0),
-    new Mensaje(2,Date.now()+2,2,1,'mensaje 1.2',1),
     new Mensaje(3,Date.now()+3,3,2,'mensaje 2',1),
+    new Mensaje(2,Date.now()+2,2,1,'mensaje 1.2',1),
     new Mensaje(4,Date.now()+4,4,1,'mensaje 3',0)
   ];
   //sin inicializar seria un 0
@@ -35,22 +35,23 @@ export class MensajesService{
   }
 
   getContactList(id:number){
+    console.log(this.mensajes);
     let contactos  = [];
-    for(let m of this.mensajes){
-      if(id===m.idEmisor){
-        contactos.push(this.usr.getUser(m.idReceptor));
-      }else if(id===m.idReceptor){
-        contactos.push(this.usr.getUser(m.idEmisor));
+    for(let i=0;i<this.mensajes.length;i++){
+      if(id===this.mensajes[i].idEmisor && !this.estaContenido(this.mensajes[i].idReceptor,contactos)){
+        contactos.push(this.usr.getUser(this.mensajes[i].idReceptor));
+      }else if(id===this.mensajes[i].idReceptor && !this.estaContenido(this.mensajes[i].idEmisor,contactos)){
+        contactos.push(this.usr.getUser(this.mensajes[i].idEmisor));
       }
     }
-    contactos.sort();
-    let aux = 0;
-    for(let c of contactos){
-      if(c.getId()===aux){
-        contactos.splice(contactos.indexOf(c),1);
+    contactos.sort(
+      (n1,n2) => {
+        if (n1.id > n2.id) {  return -1;  }
+        if (n1.id < n2.id) {  return 1;   }
+        return 0;
       }
-      aux = c.getId();
-    }
+    );
+
     return contactos;
   }
 
@@ -64,6 +65,15 @@ export class MensajesService{
       }
     }
     return messages;
+  }
+
+  estaContenido(id:number,lista=[]){
+    for (let u of lista){
+      if (id===u.id){
+        return true;
+      }
+    }
+    return false;
   }
 
   nuevo(destino:number,mensaje:string){
