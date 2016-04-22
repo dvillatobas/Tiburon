@@ -1,82 +1,93 @@
 <div class="row login">
-       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pull-right">
-           <h3 class="text-center">Inicia sesión</h3>
-              <form action="">
-                <div class="input-group">
-                  <span class="input-group-addon glyphicon glyphicon-user" id="basic-addon1"></span>
-                  <input type="text" #nick class="form-control" placeholder="Usuario" aria-describedby="basic-addon1">
-                </div>
-                <div class="input-group">
-                  <span class="input-group-addon glyphicon glyphicon-lock" id="basic-addon1"></span>
-                  <input type="password" #pass class="form-control" placeholder="Contraseña" aria-describedby="basic-addon1">
-                </div>
-                <div class="input-group">
-                    <div (click)="entrar(nick.value,pass.value)" class="div-btn btn btn-default center-block">Entrar</div>
-                </div>
-              </form>
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pull-right">
+    <h3 class="text-center">Inicia sesión</h3>
+    <form action="">
+      <div class="input-group">
+        <span class="input-group-addon glyphicon glyphicon-user" id="basic-addon1"></span>
+        <input type="text" #nick class="form-control" placeholder="Usuario" aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon glyphicon glyphicon-lock" id="basic-addon1"></span>
+        <input type="password" #pass class="form-control" placeholder="Contraseña" aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group">
+        <div (click)="entrar(nick.value,pass.value)" class="div-btn btn btn-default center-block">Entrar</div>
+      </div>
+    </form>
 
-           <hr class="hidden-lg hidden-md">
-       </div>
-       <div id="registro" class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-       <h3 class="text-center">Crea un nuevo usuario</h3>
-        <form>
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="form-group">
-                        <label for=formNick>Nick/Usuario</label>
-                        <input type="text" class="form-control" id="formNick">
-                    </div>
-                    <div class="form-group">
-                        <label for=formName>Nombre</label>
-                        <input type="text" class="form-control" id="formName">
-                    </div>
-                    <div class="form-group">
-                        <label for=formLastname>Apellidos</label>
-                        <input type="text" class="form-control" id="formLastname">
-                    </div>
-                    <div class="form-group">
-                        <label for=formPhone>Telefono</label>
-                        <input type="tel" class="form-control" id="formPhone">
-                    </div>
-                    <hr>
-                    <div class="form-group">
-                        <label for="formPhoto">Foto de perfil</label>
-                        <input type="file" id="formPhoto">
-                    </div>
-                    <hr>
-                    <div class="form-group">
-                        <label for="formType">Tipo de usuario:</label>
-                        <select name="Tipo" id="formType">
-                            <option value="0">(Seleccionar)</option>
-                            <option value="1">Particular</option>
-                            <option value="2">Profesional</option>
-                        </select>
-                    </div>
-                    <hr>
-                </div>
-
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="form-group">
-                        <label for=formEmail>Email</label>
-                        <input type="email" class="form-control" id="formEmail">
-                    </div>
-                    <div class="form-group">
-                        <label for=formEmailR>Repetir email</label>
-                        <input type="email" class="form-control" id="formEmailR">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="formPassword">Contraseña</label>
-                        <input type="password" class="form-control" id="formPassword">
-                    </div>
-                    <div class="form-group">
-                        <label for="formPasswordR">Repetir contraseña</label>
-                        <input type="password" class="form-control" id="formPasswordR">
-                    </div>
-
-                </div>
-            </div>
-            <button id="form-button" type="submit" class="btn btn-default singin center-block">Registrar</button>
-        </form>
+    <hr class="hidden-lg hidden-md">
+  </div>
+  <div id="registro" class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+    <h3 class="text-center">Crea un nuevo usuario</h3>
+    <form>
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <label for=formNick>Nick/Usuario</label>
+            <input #newNick type="text" class="form-control" id="formNick">
+            <alert class="alert alert-danger alert-register" *ngIf="failNick">Nick demasiado corto</alert>
+            <alert class="alert alert-danger alert-register" *ngIf="failNickExist">Este nick ya existe</alert>
+          </div>
+          <div class="form-group">
+            <label for=formName>Nombre</label>
+            <input type="text" class="form-control" id="formName">
+          </div>
+          <div class="form-group">
+            <label for=formLastname>Apellidos</label>
+            <input type="text" class="form-control" id="formLastname">
+          </div>
+          <div class="form-group">
+            <label for=formPhone>Telefono</label>
+            <input type="tel" class="form-control" id="formPhone">
+          </div>
+          <hr>
+          <div class="form-group form-inline">
+            <label for="formPhoto">Foto de perfil</label>
+            <input type="text" id="formPhoto" value="imagenes/">
+          </div>
+          <hr>
+          <div class="form-group">
+            <label for="formType">Tipo de usuario:</label>
+            <select name="Tipo" id="formType">
+              <option value="0">(Seleccionar)</option>
+              <option value="particular">Particular</option>
+              <option value="profesional">Profesional</option>
+            </select>
+            <alert class="alert alert-danger alert-register" *ngIf="failType">Selecciona una opción</alert>
+          </div>
+          <hr>
         </div>
-    </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <label for=formEmail>Email</label>
+            <input type="email" class="form-control" id="formEmail">
+            <alert class="alert alert-danger alert-register" *ngIf="failEmailExist">Este email ya existe</alert>
+          </div>
+
+          <div class="form-group">
+            <label for=formEmailR>Repetir email</label>
+            <input type="email" class="form-control" id="formEmailR">
+            <alert class="alert alert-danger alert-register" *ngIf="failEmailEquals">Los emails no coinciden</alert>
+
+          </div>
+
+          <div class="form-group">
+            <label for="formPassword">Contraseña</label>
+            <input type="password" class="form-control" id="formPassword">
+            <alert class="alert alert-danger alert-register" *ngIf="failPassFormat">Formato de contraseña incorrecto</alert>
+
+          </div>
+          <div class="form-group">
+            <label for="formPasswordR">Repetir contraseña</label>
+            <input type="password" class="form-control" id="formPasswordR">
+            <alert class="alert alert-danger alert-register" *ngIf="failPassEquals">Las contraseñas no coinciden</alert>
+
+          </div>
+
+        </div>
+      </div>
+      <button id="form-button" type="submit" class="btn btn-default singin center-block">Registrar</button>
+    </form>
+  </div>
+</div>

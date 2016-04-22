@@ -11,6 +11,15 @@ import {UserService} from './user.service';
 
 export class LoginComponent{
 
+  private failNick:boolean=false;
+  private failNickExist:boolean=false;
+  private failEmailEquals:boolean=false;
+  private failEmailExist:boolean=false;
+  private failPassFormat:boolean=false;
+  private failPassEquals:boolean=false;
+  private failType:boolean=false;
+
+
   constructor(
     private router:Router,
     private service : UserService
