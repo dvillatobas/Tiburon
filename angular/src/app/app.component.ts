@@ -10,27 +10,30 @@ import {MensajesComponent} from './mensajes.component';
 import {BuscarComponent} from './buscar.component';
 import {UserService} from './user.service';
 import {MensajesService} from './mensajes.service';
+import {ProductService} from './product.service';
 import {ProductoComponent} from './producto.component';
 
 @Component({
   selector: 'app',
   templateUrl: 'app/app.component.html',
   directives: [ROUTER_DIRECTIVES, Alert, HeaderComponent, FooterComponent],
-  providers: [UserService, MensajesService]
+  providers: [UserService, MensajesService, ProductService]
 })
 @RouteConfig([
-  {path: '/', name: 'Inicio', component: MainComponent},
+  {path: '/', name: 'Inicio', component: MainComponent, useAsDefault:true},
   {path: '/novedades', name: 'Novedades', component: BuscarComponent},
   {path: '/mis-productos', name: 'MisProductos', component: MisProductosComponent},
   {path: '/mensajes', name: 'Mensajes', component: MensajesComponent},
   {path: '/login', name: 'Login', component: LoginComponent},
   {path: '/busqueda', name: 'Buscar', component: BuscarComponent},
-  {path: '/producto', name: 'Producto', component: ProductoComponent}
+  {path: '/producto', name: 'Producto', component: ProductoComponent},
+  {path: '/producto/edit', name: 'EditarProducto', component: ProductoComponent}
 ])
 export class AppComponent {
   constructor(
     private router:Router,
     private users : UserService,
-    private mensajes : MensajesService
+    private mensajes : MensajesService,
+    private products : ProductService
   ){}
 }

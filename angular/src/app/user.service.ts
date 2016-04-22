@@ -32,7 +32,7 @@ export class UserService{
     new User(4,'raul','raul','villatobas',653546977,'dvd1880@gmail.com','1234','/foto.png','prof','normal')
   ];
   private logueado:boolean = false;
-  private idUserLogued:number = 1;
+  private idUserLogued:number = 0;
 
   getIdUserLogued(){
     return this.idUserLogued;
