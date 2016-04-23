@@ -34,9 +34,7 @@ export class ProductService{
   private newestProducts = this.getNewestList();
   constructor(
     private usr: UserService
-  ){
-    console.log(this.newestProducts);
-  }
+  ){}
 
   setId(){
     this.lastId++;

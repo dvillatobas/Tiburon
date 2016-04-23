@@ -19,36 +19,37 @@
   </div>
   <div id="registro" class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
     <h3 class="text-center">Crea un nuevo usuario</h3>
+    <alert *ngIf="userCreated" class="alert alert-success alert-register center-block text-center">Usuario creado correctamente</alert>
     <form>
       <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
           <div class="form-group">
             <label for=formNick>Nick/Usuario</label>
-            <input #newNick type="text" class="form-control" id="formNick">
-            <alert class="alert alert-danger alert-register" *ngIf="failNick">Nick demasiado corto</alert>
+            <input #nickR type="text" class="form-control" id="formNick">
+            <alert class="alert alert-danger alert-register" *ngIf="failNickFormat">Nick demasiado corto</alert>
             <alert class="alert alert-danger alert-register" *ngIf="failNickExist">Este nick ya existe</alert>
           </div>
           <div class="form-group">
             <label for=formName>Nombre</label>
-            <input type="text" class="form-control" id="formName">
+            <input #nombreR type="text" class="form-control" id="formName">
           </div>
           <div class="form-group">
             <label for=formLastname>Apellidos</label>
-            <input type="text" class="form-control" id="formLastname">
+            <input #apellidosR type="text" class="form-control" id="formLastname">
           </div>
           <div class="form-group">
             <label for=formPhone>Telefono</label>
-            <input type="tel" class="form-control" id="formPhone">
+            <input #telR type="tel" class="form-control" id="formPhone">
           </div>
           <hr>
           <div class="form-group form-inline">
             <label for="formPhoto">Foto de perfil</label>
-            <input type="text" id="formPhoto" value="imagenes/">
+            <input #imgR type="text" id="formPhoto" value="imagenes/">
           </div>
           <hr>
           <div class="form-group">
             <label for="formType">Tipo de usuario:</label>
-            <select name="Tipo" id="formType">
+            <select #typeR name="Tipo" id="formType">
               <option value="0">(Seleccionar)</option>
               <option value="particular">Particular</option>
               <option value="profesional">Profesional</option>
@@ -61,33 +62,34 @@
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
           <div class="form-group">
             <label for=formEmail>Email</label>
-            <input type="email" class="form-control" id="formEmail">
+            <input #emailR type="email" class="form-control" id="formEmail">
             <alert class="alert alert-danger alert-register" *ngIf="failEmailExist">Este email ya existe</alert>
+            <alert class="alert alert-danger alert-register" *ngIf="failEmailFormat">Formato incorrecto</alert>
           </div>
 
           <div class="form-group">
             <label for=formEmailR>Repetir email</label>
-            <input type="email" class="form-control" id="formEmailR">
+            <input #email2R type="email" class="form-control" id="formEmailR">
             <alert class="alert alert-danger alert-register" *ngIf="failEmailEquals">Los emails no coinciden</alert>
 
           </div>
 
           <div class="form-group">
             <label for="formPassword">Contraseña</label>
-            <input type="password" class="form-control" id="formPassword">
+            <input #passR type="password" class="form-control" id="formPassword">
             <alert class="alert alert-danger alert-register" *ngIf="failPassFormat">Formato de contraseña incorrecto</alert>
 
           </div>
           <div class="form-group">
             <label for="formPasswordR">Repetir contraseña</label>
-            <input type="password" class="form-control" id="formPasswordR">
+            <input #pass2R type="password" class="form-control" id="formPasswordR">
             <alert class="alert alert-danger alert-register" *ngIf="failPassEquals">Las contraseñas no coinciden</alert>
 
           </div>
 
         </div>
       </div>
-      <button id="form-button" type="submit" class="btn btn-default singin center-block">Registrar</button>
+      <button id="form-button" (click)="registrar(nickR.value,nombreR.value,apellidosR.value,telR.value,imgR.value,typeR.value,emailR.value,email2R.value,passR.value,pass2R.value)" class="btn btn-default singin center-block">Registrar</button>
     </form>
   </div>
 </div>

@@ -39,7 +39,6 @@ export class MensajesComponent{
         this.chatList.push(new Wisp(this.yo.getNick(),w.mensaje,w.date,'list-group-item sent'));
       }
     }
-    console.log(this.chatList);
 
   }
   enviar(borrador){

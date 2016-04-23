@@ -33,9 +33,15 @@ export class UserService{
   ];
   private logueado:boolean = false;
   private idUserLogued:number = 0;
+  private lastId:number = 4;
 
   getIdUserLogued(){
     return this.idUserLogued;
+  }
+
+  setId(){
+    this.lastId++;
+    return this.lastId;
   }
 
   isUserCorrect(user:string, pass:string){
@@ -66,5 +72,34 @@ export class UserService{
   logout(){
     this.logueado = ! this.logueado;
     this.idUserLogued = 0;
+  }
+
+  nickExist(nick){
+    for(let u of this.users){
+      if(u.nick === nick){
+        return true;
+      }
+    }
+    return false;
+  }
+
+  emailExist(mail){
+    for(let u of this.users){
+      if(u.email === mail){
+        return true;
+      }
+    }
+    return false;
+  }
+
+  newUser(u:User){
+    if(this.nickExist(u.nick)){
+      return 1;
+    }else if(this.emailExist(u.email)){
+      return 2;
+    }else{
+      this.users.push(u);
+      return 0;
+    }
   }
 }

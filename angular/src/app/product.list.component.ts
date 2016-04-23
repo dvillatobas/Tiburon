@@ -21,7 +21,6 @@ export class ProductListComponent{
     private router : Router,
     private mService : MensajesService
   ){
-    console.log(this.router.hostComponent.name);
     if(this.router.hostComponent.name === 'BuscarComponent'){
       this.edit = false;
       this.contact = true;

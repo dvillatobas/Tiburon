@@ -35,7 +35,6 @@ export class MensajesService{
   }
 
   getContactList(id:number){
-    console.log(this.mensajes);
     let contactos  = [];
     for(let i=0;i<this.mensajes.length;i++){
       if(id===this.mensajes[i].idEmisor && !this.estaContenido(this.mensajes[i].idReceptor,contactos)){
