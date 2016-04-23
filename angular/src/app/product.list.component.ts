@@ -11,7 +11,7 @@ import {MensajesService} from './mensajes.service';
 })
 
 export class ProductListComponent{
-  private products = this.pService.getProductList();
+  private products = [];
   private edit : boolean;
   private contact : boolean;
 
@@ -22,9 +22,12 @@ export class ProductListComponent{
     private mService : MensajesService
   ){
     if(this.router.hostComponent.name === 'BuscarComponent'){
+      this.products = this.pService.getProductList();
       this.edit = false;
       this.contact = true;
     }else if(this.router.hostComponent.name === 'MisProductosComponent'){
+      this.products = this.pService.getProductListUser(this.uService.getIdUserLogued());
+      console.log(this.products , this.uService.getIdUserLogued());
       this.edit = true;
       this.contact = false;
     }

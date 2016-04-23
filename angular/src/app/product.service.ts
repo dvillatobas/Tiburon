@@ -54,7 +54,17 @@ export class ProductService{
     return this.products;
   }
 
-
+  getProductListUser(id:number){
+    let list = [];
+    for(let p of this.products){
+      console.log(id);
+      if(p.id===id){
+        list.push(p);
+      }
+    }
+    console.log(list);
+    return list;
+  }
 
 
 
