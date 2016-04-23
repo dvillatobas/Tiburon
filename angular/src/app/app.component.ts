@@ -12,6 +12,7 @@ import {UserService} from './user.service';
 import {MensajesService} from './mensajes.service';
 import {ProductService} from './product.service';
 import {ProductoComponent} from './producto.component';
+import {ProductModComponent} from './product.mod.component';
 
 @Component({
   selector: 'app',
@@ -27,7 +28,7 @@ import {ProductoComponent} from './producto.component';
   {path: '/login', name: 'Login', component: LoginComponent},
   {path: '/busqueda', name: 'Buscar', component: BuscarComponent},
   {path: '/producto', name: 'Producto', component: ProductoComponent},
-  {path: '/producto/edit', name: 'EditarProducto', component: ProductoComponent}
+  {path: '/producto/edit', name: 'EditarProducto', component: ProductModComponent}
 ])
 export class AppComponent {
   constructor(

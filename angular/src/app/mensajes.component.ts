@@ -18,20 +18,24 @@ export class MensajesComponent{
   private chatList = [];
   private usuario : User;
   private yo : User;
-  private contactList = this.service.getContactList(this.usr.getIdUserLogued()).reverse();
+  private contactList = this.mService.getContactList(this.uService.getIdUserLogued()).reverse();
   constructor(
     private router:Router,
-    private service : MensajesService,
-    private usr : UserService
+    private mService : MensajesService,
+    private uService : UserService
 
-  ){}
+  ){
+    if(this.uService.getIdUserLogued()===0){
+      this.router.navigate(['Login']);
+    }
+  }
 
 
   selectChat(id:number){
     this.chatList = [];
-    this.usuario = this.usr.getUser(id);
-    this.yo = this.usr.getUser(this.usr.getIdUserLogued());
-    let lista = this.service.getChatList(id);
+    this.usuario = this.uService.getUser(id);
+    this.yo = this.uService.getUser(this.uService.getIdUserLogued());
+    let lista = this.mService.getChatList(id);
     for(let w of lista){
       if(w.idEmisor === id){
         this.chatList.push(new Wisp(this.usuario.getNick(),w.mensaje,w.date,'list-group-item received'));
@@ -42,13 +46,13 @@ export class MensajesComponent{
 
   }
   enviar(borrador){
-    this.service.nuevo(this.usuario.getId(),borrador);
+    this.mService.nuevo(this.usuario.getId(),borrador);
     this.selectChat(this.usuario.getId());
   }
 
   refreshContactList(){
     this.contactList = [];
-    this.contactList = this.service.getContactList(this.usr.getIdUserLogued()).reverse();
+    this.contactList = this.mService.getContactList(this.uService.getIdUserLogued()).reverse();
   }
 
 }

@@ -27,7 +27,6 @@ export class ProductListComponent{
       this.contact = true;
     }else if(this.router.hostComponent.name === 'MisProductosComponent'){
       this.products = this.pService.getProductListUser(this.uService.getIdUserLogued());
-      console.log(this.products , this.uService.getIdUserLogued());
       this.edit = true;
       this.contact = false;
     }
