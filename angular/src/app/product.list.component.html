@@ -42,7 +42,7 @@
                 </div>
                 <div class="col-sm-6 col-md-3">
                     <a *ngIf="contact" [routerLink]="['Producto']"><h3>{{p.name}}</h3></a>
-                    <a *ngIf="edit" [routerLink]="['EditarProducto',{id: p.id}]"><h3>{{p.name}}</h3></a>
+                    <a *ngIf="edit" [routerLink]="['EditarProducto',{id:  p.id}]"><h3>{{p.name}}</h3></a>
                     <h5 *ngIf="p.used!=0">{{p.used}} Km</h5>
                     <h5 *ngIf="p.used===0">Nuevo</h5>
                     <h5 *ngIf="p.year!=0">Año {{p.year}}</h5>
@@ -54,11 +54,11 @@
                     <h3>{{p.price}}€</h3>
                 </div>
                 <div class="text-center col-md-1 botones-prod" *ngIf="edit">
-                    <button [routerLink]="['EditarProducto', {id: p.id}]" class="btn btn-default glyphicon glyphicon-edit"></button>
+                    <button class="btn btn-default glyphicon glyphicon-edit"></button>
                     <button class="btn btn-default glyphicon glyphicon-remove"></button>
                 </div>
                 <div class="text-center col-md-1 botones-prod" *ngIf="contact">
-                    <button (click)="mensaje()" class="btn btn-defaultglyphicon glyphicon-trash"></button>
+                    <button (click)="mensaje()" class="btn btn-default glyphicon glyphicon-envelope"></button>
 
                 </div>
             </div>
