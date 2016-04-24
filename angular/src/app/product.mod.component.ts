@@ -35,7 +35,7 @@ export class ProductModComponent{
   }
 
   guardar(){
-    this.pservice.save(this.product);
+    this.pservice.saveProduct(this.product);
     window.history.back();
   }
 

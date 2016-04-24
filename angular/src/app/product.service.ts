@@ -71,7 +71,7 @@ export class ProductService{
     return list;
   }
 
-save(product: Product){
+saveProduct(product: Product){
   if(product.id){
     let oldProduct = this.products.filter(c => c.id === product.id)[0];
     oldProduct.name = product.name;
@@ -89,6 +89,15 @@ save(product: Product){
   return withObserver(product);
 }
 
+deleteProduct(idProduct: number | string){
+  for(let i=0; i<this.products.length;i++){
+    if(this.products[i].id === idProduct){
+      this.products.splice(i,1);
+      break;
+    }
+  }
+return withObserver(undefined);
+}
 
 
 

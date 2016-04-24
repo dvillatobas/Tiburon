@@ -41,8 +41,19 @@ export class ProductListComponent{
     }
   }
 
-  editar(idProduct:number){
+  editar(idProduct:number | string){
 
     this.router.navigate(['EditarProducto',{id: idProduct}]);
+  }
+
+  borrar(idProduct:number | string){
+    let confirm = window.confirm("¿Estas seguro de que deseas borrar este producto?");
+    if (confirm){
+      this.pService.deleteProduct(idProduct).subscribe(
+        _ => this.router.navigate(['MisProductos']),
+        error => console.log(error)
+      )
+    }
+
   }
 }
