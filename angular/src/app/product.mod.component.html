@@ -1,123 +1,69 @@
-<div class="row">
-    	 <div class="col-md-12 ">
-    	 	<form action="		">
-			<div class="form-group">
-				<div class="container">
-				<div class="col-md-6 ">
-					<div class="row">
-						<div class='col-md-6'>
-							<label for="InputTipoProducto">Producto : </label>
-						</div>
-					</div>
-					<div class="row">
-						<div class='col-md-6'>
-								<div class="radio">
-									<label class="radio-inline"><input type="radio" name="optradio1">Vehiculo</label>
-									<label class="radio-inline"><input type="radio" name="optradio2">Recambio</label>
-								</div>
-							</div>
-					</div>
-					<div class="row">
-						<div class='col-md-6'>
-							<label for="InputMarcaModelo">Marca/Modelo</label>
-
-							<input type="text" class="form-control" id="InputMarcaModelo" placeholder="Ford  Focus .. turbo garret...ruedas michelin...">
-						</div>
-					</div>
-
-					<div class="row">
-						<div class='col-md-6'>
-							<label for="InputKmsNuevo">Kms/nuevo</label>
-							<input type="text" class="form-control" id="InputKmsNuevo" placeholder="32.000 / nuevo">
-						</div>
-					</div>
-					<div class="row">
-						<div class='col-md-6'>
-							<label for="InputUbicacion">Ubicacion</label>
-
-							<input type="text" class="form-control" id="InputInputUbicacion" placeholder="Mostoles">
-						</div>
-					</div>
-					<div class="row">
-						<div class='col-md-6'>
-							<label for="InputAño">Año</label>
-							<div class='input-group date' id='datetimepicker1'>
-								<input type='text' class="form-control" />
-								<span class="input-group-addon">
-									<span class="glyphicon glyphicon-calendar"></span>
-								</span>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class='col-md-6'>
-							<label for="InputPrecio">Precio</label>
-
-							<input type="text" class="form-control" id="InputPrecio" placeholder="300.00">
-						</div>
-					</div>
-					<div class="row">
-						<div class='col-md-6'>
-							<label for="comment">Descripción:</label>
-							<textarea class="form-control" rows="5" id="descripcion"></textarea>
-						</div>
-					</div>
+<div class="text-center"><h2>Producto {{product.id}} - {{product.name}}</h2></div>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-1">
+		</div>
+		<div class="col-md-7">
+      <div class="radio">
+          <label class="radio-inline"><input type="radio" name="optradio1">Vehiculo</label>
+          <label class="radio-inline"><input type="radio" name="optradio2">Recambio</label>
+      </div>
+			<form role="form">
+				<div class="form-group">
+					<label for="Nombre">Nombre:</label>
+					<input [(ngModel)]="product.name" class="form-control" id="Nombre" />
 				</div>
-
-				<div class="col-md-6 ">
-				<!-- mirar rename ithttp://dairdev.blogspot.com.es/2014/04/tip-agregar-vista-preliminar-en-subida.html -->
-				http://dairdev.blogspot.com.es/2014/04/tip-agregar-vista-preliminar-en-subida.html
-					<div class="row">
-						<div class='col-md-6'>
-							<label for="InputPrecio">Imagen : </label>
-							<div class="input-group image-preview">
-							<!--
-								<input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
-								<span class="input-group-btn">
-									<!-- image-preview-clear button -->
-									<button type="button" class="btn btn-default image-preview-clear" style="display:none;">
-										<span class="glyphicon glyphicon-remove"></span> Clear
-									</button>
-									<!-- image-preview-input -->
-									<div class="btn btn-default image-preview-input">
-										<span class="glyphicon glyphicon-folder-open"></span>
-										<span class="image-preview-input-title">Browse</span>
-										<input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it -->
-									</div>
-								</span>
-							</div><!-- /input-group image-preview [TO HERE]-->
-						</div>
-					</div>
+				<div class="form-group">
+					<label for="km">Km / nuevo</label>
+					<input [(ngModel)]="product.used" class="form-control" id="km" />
 				</div>
-				
-
-
-
-
-
-
-
-
-
+        <div class="form-group">
+					<label for="Ubicacion">Ubicación</label>
+					<input [(ngModel)]="product.location" class="form-control" id="Ubicacion" />
 				</div>
-				<br>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="precio">Precio</label>
+      					<input [(ngModel)]="product.price" class="form-control" id="precio" />
+              </div>
+              <div class="col-md-6">
+                <label for="year">Año</label>
+                  <input [(ngModel)]="product.year" id="year" class="form-control" />
+              </div>
+
+            </div>
+
+          </div>
+          <div class="form-group">
+            <label for="comment">Descripción:</label>
+            <textarea [(ngModel)]="product.description" class="form-control" rows="5" id="descripcion"></textarea>
+
+          </div>
 				<div class="row">
-        			<div class="btn-group btn-group-lg">
-						<buton type="submit" class="btn btn-default join">
-							Aceptar
-						</buton>
-						<buton type="submit" class="btn btn-default join">
-							Cancelar
-						</buton>
-					</div>
+          <div class="col-md-6">
+
+          </div>
+          <div class="col-md-6">
+
+          </div>
 				</div>
-
-			</div>
-
-		</form>
-
-
-    	 </div>
-
-
-    </div>
+			</form>
+		</div>
+		<div class="col-md-4">
+			<img [(ngModel)]="product.img" alt="imagen" src="http://lorempixel.com/350/200/" />
+      <div class="form-group">
+        <br>
+        <input type="file" id="exampleInputFile" />
+      </div>
+      <br>
+      <div>
+        <button (click)="guardar()" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span>Guardar</button>
+        <br>
+        <button (click)="cancel()" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-remove"></span>Cancelar</button>
+      </div>
+		</div>
+	</div>
+  <br>
+  <br>
+</div>

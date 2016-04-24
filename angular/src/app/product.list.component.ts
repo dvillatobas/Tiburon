@@ -1,6 +1,6 @@
 import {Component}   from 'angular2/core';
 import {ROUTER_DIRECTIVES,RouteParams, Router} from 'angular2/router';
-import {ProductService} from './product.service';
+import {Product,ProductService} from './product.service';
 import {UserService} from './user.service';
 import {MensajesService} from './mensajes.service';
 
@@ -11,7 +11,7 @@ import {MensajesService} from './mensajes.service';
 })
 
 export class ProductListComponent{
-  private products = [];
+  private products: Product[];
   private edit : boolean;
   private contact : boolean;
 
@@ -19,6 +19,7 @@ export class ProductListComponent{
     private pService : ProductService,
     private uService : UserService,
     private router : Router,
+    routeParams: RouteParams,
     private mService : MensajesService
   ){
     if(this.router.hostComponent.name === 'BuscarComponent'){
@@ -38,5 +39,10 @@ export class ProductListComponent{
     }else{
       this.router.navigate(['Login']);
     }
+  }
+
+  editar(idProduct:number){
+
+    this.router.navigate(['EditarProducto',{id: idProduct}]);
   }
 }

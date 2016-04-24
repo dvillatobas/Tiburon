@@ -28,7 +28,7 @@ import {ProductModComponent} from './product.mod.component';
   {path: '/login', name: 'Login', component: LoginComponent},
   {path: '/busqueda', name: 'Buscar', component: BuscarComponent},
   {path: '/producto', name: 'Producto', component: ProductoComponent},
-  {path: '/producto/edit', name: 'EditarProducto', component: ProductModComponent}
+  {path: '/producto/edit/:id', name: 'EditarProducto', component: ProductModComponent}
 ])
 export class AppComponent {
   constructor(

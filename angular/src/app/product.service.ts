@@ -54,6 +54,13 @@ export class ProductService{
     return this.products;
   }
 
+  getProductById(id:number | string){
+    let product = this.products.filter(c => c.id === +id)[0];
+    return withObserver(new Product(product.id, product.publicDate, product.name, product.used, product.year, product.location, product.img,
+      product.price, product.idUser, product.type,product.description));
+
+  }
+
   getProductListUser(id:number){
     let list = [];
     for(let p of this.products){
@@ -63,6 +70,24 @@ export class ProductService{
     }
     return list;
   }
+
+save(product: Product){
+  if(product.id){
+    let oldProduct = this.products.filter(c => c.id === product.id)[0];
+    oldProduct.name = product.name;
+    oldProduct.used = product.used;
+    oldProduct.location = product.location;
+    oldProduct.price = product.price;
+    oldProduct.year = product.year;
+    oldProduct.description = product.description;
+    oldProduct.img = product.img;
+  }
+  else{
+    product.id = this.products.length+1;
+    this.products.push(product);
+  }
+  return withObserver(product);
+}
 
 
 
