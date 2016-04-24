@@ -54,6 +54,7 @@ aside, .cuadro {
 }
 
 
+
 aside h3 {
     text-align: center;
 }
@@ -562,7 +563,7 @@ label.star:before {
         margin: 0 auto;
         max-width: 650px;
 
-        border: 1px solid #fff ;
+        border: 1px solid #432143 ;
     }
 
     .port {

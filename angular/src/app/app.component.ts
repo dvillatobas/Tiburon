@@ -13,6 +13,7 @@ import {MensajesService} from './mensajes.service';
 import {ProductService} from './product.service';
 import {ProductoComponent} from './producto.component';
 import {ProductModComponent} from './product.mod.component';
+import {PublicProfileComponent} from './public.profile.component';
 
 @Component({
   selector: 'app',
@@ -28,7 +29,8 @@ import {ProductModComponent} from './product.mod.component';
   {path: '/login', name: 'Login', component: LoginComponent},
   {path: '/busqueda', name: 'Buscar', component: BuscarComponent},
   {path: '/producto', name: 'Producto', component: ProductoComponent},
-  {path: '/producto/edit', name: 'EditarProducto', component: ProductModComponent}
+  {path: '/producto/edit', name: 'EditarProducto', component: ProductModComponent},
+  {path: '/profile/:id', name: 'Profile', component: PublicProfileComponent}
 ])
 export class AppComponent {
   constructor(

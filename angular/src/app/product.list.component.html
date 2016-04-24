@@ -38,7 +38,7 @@
         <div class="elem-list list-group-item" *ngFor="#p of products">
             <div class="row">
                 <div class="col-sm-12 col-md-3">
-                    <a [routerLink]="['Producto']"><img src="imagenes/1.jpg" class="img-list img-responsive center-block" alt=""></a>
+                    <a [routerLink]="['Producto']"><img [src]="p.img" class="img-list img-responsive center-block" alt=""></a>
                 </div>
                 <div class="col-sm-6 col-md-3">
                     <a *ngIf="contact" [routerLink]="['Producto']"><h3>{{p.name}}</h3></a>

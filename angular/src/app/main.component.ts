@@ -1,6 +1,6 @@
 import {Component}   from 'angular2/core';
 import {ROUTER_DIRECTIVES,RouteParams, Router} from 'angular2/router';
-import {UserService} from './user.service';
+import {UserService, User} from './user.service';
 
 @Component({
   selector: 'main',
@@ -10,10 +10,16 @@ import {UserService} from './user.service';
 })
 
 export class MainComponent{
+  private user : User;
   constructor(
     private router:Router,
-    private service : UserService
-  ){}
-  
+    private uService : UserService
+  ){
+    let id = this.uService.getIdUserLogued();
+    if(id!=0){
+      this.user=this.uService.getUser(id);
+    }
+  }
+
 
 }
