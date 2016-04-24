@@ -50,9 +50,10 @@ export class ProductListComponent{
     let confirm = window.confirm("¿Estas seguro de que deseas borrar este producto?");
     if (confirm){
       this.pService.deleteProduct(idProduct).subscribe(
-        _ => this.router.navigate(['MisProductos']),
+        _ => this.router.navigate(['MisProductos']), //no refresca la pagina porque ya está en esa direccion!!!!!
         error => console.log(error)
       )
+
     }
 
   }

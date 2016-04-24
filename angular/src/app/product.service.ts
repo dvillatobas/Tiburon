@@ -84,12 +84,9 @@ saveProduct(product: Product){
     oldProduct.img = product.img;
   }
   else{
-    console.log("tamaño"+this.products.length);
     product.id = this.products.length+1;
     product.idUser = this.uService.getIdUserLogued();
     this.products.push(product);
-    console.log("eeeeeeeeeeeeeeeeeeeee");
-    console.log("tamaño"+this.products.length);
   }
   return withObserver(product);
 }
