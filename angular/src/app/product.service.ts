@@ -26,14 +26,14 @@ export class ProductService{
   private products = [
     new Product(1,Date.now(),'camaro',20000, 2000,'Madrid','/imagenes/1.jpg',54000, 1,'particular', 'descripcion: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
     new Product(2,Date.now()+2,'peugueot',10000, 2010,'Madrid','/imagenes/1.jpg',54000, 2,'particular', 'descripcion: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
-    new Product(3,Date.now(),'ford',0, 0,'Madrid','/imagenes/1.jpg',54000, 3,'profesional', 'descripcion: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
-    new Product(4,Date.now()+5,'pieza',0, 0,'Madrid','/imagenes/1.jpg',54000, 4,'particular', 'descripcion: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
-    new Product(5,Date.now(),'fiat',20000, 2000,'Madrid','/imagenes/1.jpg',54000, 2,'particular', 'descripcion: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
+    new Product(3,Date.now(),'ford',20000, 1990,'Madrid','/imagenes/1.jpg',54000, 3,'profesional', 'descripcion: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
+    new Product(4,Date.now()+5,'pieza',20000, 2004,'Madrid','/imagenes/1.jpg',54000, 4,'particular', 'descripcion: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
+    new Product(5,Date.now(),'fiat',2000, 2000,'Madrid','/imagenes/1.jpg',54000, 1,'particular', 'descripcion: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
   ];
   private lastId:number=5;
   private newestProducts = this.getNewestList();
   constructor(
-    private usr: UserService
+    private uService: UserService
   ){}
 
   setId(){
@@ -63,11 +63,12 @@ export class ProductService{
 
   getProductListUser(id:number){
     let list = [];
-    for(let p of this.products){
-      if(p.id===id){
-        list.push(p);
+    for(let i=0;i<this.products.length;i++){
+      if(this.products[i].idUser == id){
+        list.push(this.products[i]);
       }
     }
+    console.log(list.length);
     return list;
   }
 
@@ -83,8 +84,12 @@ saveProduct(product: Product){
     oldProduct.img = product.img;
   }
   else{
+    console.log("tamaño"+this.products.length);
     product.id = this.products.length+1;
+    product.idUser = this.uService.getIdUserLogued();
     this.products.push(product);
+    console.log("eeeeeeeeeeeeeeeeeeeee");
+    console.log("tamaño"+this.products.length);
   }
   return withObserver(product);
 }

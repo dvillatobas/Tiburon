@@ -51,7 +51,7 @@
 			</form>
 		</div>
 		<div class="col-md-4">
-			<img [(ngModel)]="product.img" alt="imagen" src="http://lorempixel.com/350/200/" />
+			<img alt="imagen" src="http://lorempixel.com/350/200/" />
       <div class="form-group">
         <br>
         <input type="file" id="exampleInputFile" />
@@ -59,8 +59,9 @@
       <br>
       <div>
         <button (click)="guardar()" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span>Guardar</button>
+
         <br>
-        <button (click)="cancel()" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-remove"></span>Cancelar</button>
+        <button (click)="cancelar()" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-remove"></span>Cancelar</button>
       </div>
 		</div>
 	</div>

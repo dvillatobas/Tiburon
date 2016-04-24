@@ -15,7 +15,15 @@ export class MisProductosComponent{
     private router : Router
   ){
     if(this.uService.getIdUserLogued()===0){
-      this.router.navigate(['Login']); 
+      this.router.navigate(['Login']);
     }
   }
+
+  nuevoProducto(){
+    this.router.navigate(['NuevoProducto']);
+  }
+
+
+
+
 }

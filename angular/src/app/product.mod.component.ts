@@ -30,12 +30,15 @@ export class ProductModComponent{
     }
   }
 
-  cancel(){
-    this.router.navigate(['MisProductos']);
+  cancelar(){
+    //this.router.navigate(['MisProductos']);
+    window.history.back();
+
   }
 
   guardar(){
     this.pservice.saveProduct(this.product);
+    //this.router.navigate(['Inicio']);
     window.history.back();
   }
 
