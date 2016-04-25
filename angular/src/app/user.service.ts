@@ -26,6 +26,7 @@ export class UserList{
     public followers,
     public img
   ){}
+
 }
 
 @Injectable()
@@ -42,6 +43,9 @@ export class UserService{
 
   getIdUserLogued(){
     return this.idUserLogued;
+  }
+  getLogueado(){
+    return this.logueado;
   }
 
   setId(){

@@ -49,16 +49,33 @@
     </div>
     <div class="row">
       <div class="col-lg-7 col-md-7">
+        <div class="valoraciones">
+          <h4 class="text-center">Comentarios</h4>
+          <valoration *ngFor="#comment of comments" [comment]="comment">
+          </valoration>
+          <div class="form-group">
+            <label for="valoracion">Valoracion:</label>
+  					<input #valoracion class="form-control" id="valoracion" placeholder="Bueno, Malo o Regular"/>
+            <label for="comment">Descripción:</label>
+            <textarea #descripcion class="form-control" rows="5" id="descripcion"></textarea>
+          </div>
+          <button type="button" (click)="addValoration(valoracion.value,descripcion.value)">Agregar comentario</button>
+        </div>
         <div>
           <h3>Descripción</h3>
           <p>{{product.description}}</p>
         </div>
         <hr>
 
+
         <button class="btn bt-default glyphicon glyphicon-chevron-down center-block btn-comment">Valorar</button>
 
 
         <div class="comment">
+
+          <!-- Valoracion-->
+
+
           <div class="stars">
 
             <h3>Valoracion</h3>
