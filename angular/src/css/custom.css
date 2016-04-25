@@ -636,10 +636,19 @@ h5 a{
   padding-bottom: 5px;
 }
 
+
 .panel-title{
   text-transform: uppercase;
 }
 
 .seller img {
   height: 80px;
+}
+
+.formValoracion{
+  background-color: #EAEDED;
+}
+.formUser{
+  background-color: #CCD1D1;
+
 }
