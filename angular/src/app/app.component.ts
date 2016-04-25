@@ -30,7 +30,7 @@ import {UserListComponent} from './user.list.component';
   {path: '/mensajes', name: 'Mensajes', component: MensajesComponent},
   {path: '/login', name: 'Login', component: LoginComponent},
   {path: '/busqueda/:palabra', name: 'Buscar', component: BuscarComponent},
-  {path: '/producto', name: 'Producto', component: ProductoComponent},
+  {path: '/producto/:id', name: 'Producto', component: ProductoComponent},
   {path: '/producto/edit/:id', name: 'EditarProducto', component: ProductModComponent},
   {path: '/producto/nuevo', name: 'NuevoProducto', component: ProductModComponent},
   {path: '/profile/:id', name: 'Profile', component: PublicProfileComponent},
