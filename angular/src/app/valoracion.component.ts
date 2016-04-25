@@ -17,7 +17,4 @@ export class ValorationComponent{
   @Output()
   private remove = new EventEmitter<any>();
 
-  fireRemove(){
-    this.remove.next(undefined);
-  }
 }

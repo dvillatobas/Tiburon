@@ -15,9 +15,10 @@ import {Valoration, ValorationService} from './valoracion.service';
 export class ProductoComponent implements OnInit{
 
   private comments: Valoration[] = [];
-  private uService: UserService;
 
-  constructor(private vService: ValorationService, private router:Router//private service : UserService
+
+  constructor(private vService: ValorationService, private router:Router,private uService : UserService
+
   ){}
 
   ngOnInit(){
@@ -29,9 +30,19 @@ export class ProductoComponent implements OnInit{
   }
 
   addValoration(valoracion: string,description: string){
-    let comment = new Valoration(1,valoracion,description);
-    this.vService.addComment(comment);
-    this.ngOnInit();
+
+    console.log(this.uService.getLogueado());
+    //  this.router.navigate(['Login']);
+
+      if((valoracion == '') || (description == '')){
+        window.confirm("Debes rellenar todos los campos");
+      }
+      else{
+        let comment = new Valoration(this.uService.getIdUserLogued(),valoracion,description);
+        this.vService.addComment(comment);
+        this.ngOnInit();
+      }
+
 
     //this.comments.push(new Valoration(1,valoracion,description));
   }
