@@ -28,8 +28,12 @@ export class ProductListComponent{
 
   ngOnInit(){
     if(this.router.hostComponent.name === 'BuscarComponent'){
-      console.log("product list component");
-      this.products = this.pService.getProductListSearch(this.word);
+      if(this.word!=null){
+        this.products = this.pService.getProductListSearch(this.word);
+      }
+      else{
+        this.products = this.pService.getProductList();
+      }
       this.edit = false;
       this.contact = true;
     }else if(this.router.hostComponent.name === 'MisProductosComponent'){

@@ -77,7 +77,7 @@ export class ProductService{
     let listFiltrada = [];
 
     for(let i=0; i<this.products.length;i++){
-      console.log("for");
+      
       if((this.products[i].name.indexOf(palabra)) > -1){
         listFiltrada.push(this.products[i]);
 
