@@ -62,7 +62,7 @@ export class ProductoComponent implements OnInit {
   }
   addValoration(valoracion: string, description: string) {
 
-    console.log(this.uService.getIdUserLogued());
+    console.log(this.uService.getLogueado());
     //  this.router.navigate(['Login']);
 
     if ((valoracion == '') || (description == '')) {
