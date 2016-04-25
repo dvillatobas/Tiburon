@@ -39,19 +39,21 @@ export class UserListComponent{
         error => console.log(error)
       );
     }
-
+    let u : User;
+    let followers;
+    let follow;
     for(let id of list){
-      let u : User;
+
       this.uService.getUser(id).subscribe(
         usr => u = usr,
         error => console.log(error)
       );
-      let follow;
+
       this.fService.getListFollow(id).subscribe(
         l => follow = l.length,
         error => console.log(error)
       );
-      let followers;
+
       this.fService.getListFollowers(id).subscribe(
         l => followers = l.length,
         error => console.log(error)

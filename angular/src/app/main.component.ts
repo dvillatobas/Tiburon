@@ -44,8 +44,9 @@ export class MainComponent{
         list => userlist = list,
         error => console.log(error)
       );
+      let plist = [];
       for(let u of userlist){
-        let plist = [];
+
         this.pService.getProductListUser(u).subscribe(
           list => plist = list,
           error => console.log(error)
