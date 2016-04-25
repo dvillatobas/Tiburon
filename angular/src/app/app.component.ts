@@ -16,12 +16,13 @@ import {ProductoComponent} from './producto.component';
 import {ProductModComponent} from './product.mod.component';
 import {PublicProfileComponent} from './public.profile.component';
 import {UserListComponent} from './user.list.component';
+import {ValorationService} from './valoracion.service';
 
 @Component({
   selector: 'app',
   templateUrl: 'app/app.component.html',
   directives: [ROUTER_DIRECTIVES, Alert, HeaderComponent, FooterComponent],
-  providers: [UserService, MensajesService, ProductService, FollowService]
+  providers: [UserService, MensajesService, ProductService, FollowService,ValorationService]
 })
 @RouteConfig([
   {path: '/', name: 'Inicio', component: MainComponent, useAsDefault:true},

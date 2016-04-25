@@ -77,6 +77,14 @@ export class UserService{
     }
   }
 
+  getNick(id:number | string){
+    for(let u of this.users){
+      if(u.id === id){
+        return u.nick;
+      }
+    }
+  }
+
   logout(){
     this.logueado = false;
     this.idUserLogued = 0;

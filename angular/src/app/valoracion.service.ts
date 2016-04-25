@@ -15,9 +15,10 @@ export class Valoration{
 
 @Injectable()
 export class ValorationService{
+
   private comments = [
-    new Valoration(1,"prueba comentario 1","blalbalba"),
-    new Valoration(1,"prueba comentario 2","blalbalba")
+    new Valoration("raul","Muy bueno","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat."),
+    new Valoration("david","Buenisimo","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.")
   ];
 
   constructor(private uService: UserService){}

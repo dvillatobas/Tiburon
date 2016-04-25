@@ -8,8 +8,8 @@ import {Valoration, ValorationService} from './valoracion.service';
 @Component({
   selector: 'main',
   directives: [ROUTER_DIRECTIVES, ValorationComponent],
-  templateUrl: 'app/producto.component.html',
-  providers: [ValorationService, UserService]
+  templateUrl: 'app/producto.component.html'
+
 
 })
 
@@ -62,17 +62,21 @@ export class ProductoComponent implements OnInit {
   }
   addValoration(valoracion: string, description: string) {
 
-    console.log(this.uService.getLogueado());
+    if(this.uService.getLogueado()){
     //  this.router.navigate(['Login']);
 
-    if ((valoracion == '') || (description == '')) {
-      window.confirm("Debes rellenar todos los campos");
-    }
-    else {
-      let comment = new Valoration(this.uService.getIdUserLogued(), valoracion, description);
-      this.vService.addComment(comment);
-      this.ngOnInit();
-    }
+      if ((valoracion == '') || (description == '')) {
+        window.confirm("Debes rellenar todos los campos");
+      }
+      else {
+        let comment = new Valoration(this.uService.getNick(this.uService.getIdUserLogued()), valoracion, description);
+        this.vService.addComment(comment);
+        this.ngOnInit();
+      }
+  }
+  else{
+    this.router.navigate(['Login']);
+  }
 
 
     //this.comments.push(new Valoration(1,valoracion,description));
