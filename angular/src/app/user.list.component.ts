@@ -1,7 +1,7 @@
 import {Component}   from 'angular2/core';
 import {ROUTER_DIRECTIVES,RouteParams, Router} from 'angular2/router';
-import {UserService, User} from './user.service';
-import {FollowService} from './follow.service';
+import {UserService, User } from './user.service';
+import {FollowService, UserList} from './follow.service';
 
 @Component({
   selector: 'user-list',
@@ -11,19 +11,27 @@ import {FollowService} from './follow.service';
 
 export class UserListComponent{
   private userList = [];
+  private type : string;
+  private id : number;
   constructor(
     private uService : UserService,
     private router : Router,
     private routeParams: RouteParams,
     private fService : FollowService
   ){
-    let tipo = this.routeParams.get('type');
-    let id = +this.routeParams.get('id');
+    this.type = this.routeParams.get('type');
+    this.id = +this.routeParams.get('id');
+    this.refreshList();
+
+  }
+
+  refreshList(){
     let list = []
-    if(tipo === 'follow'){
-      list = this.fService.getListFollow(id);
-    }else if(tipo === 'following'){
-      list = this.fService.getListFollowers(id);
+    this.userList = [];
+    if(this.type === 'follow'){
+      list = this.fService.getListFollow(this.id);
+    }else if(this.type === 'following'){
+      list = this.fService.getListFollowers(this.id);
     }
 
     for(let id of list){
@@ -36,17 +44,15 @@ export class UserListComponent{
         this.uService.getUser(id).img
       ));
     }
-
   }
-}
 
-export class UserList{
-  constructor(
-    public id,
-    public following:boolean,
-    public nick,
-    public follow,
-    public followers,
-    public img
-  ){}
+  seguir(id){
+    this.fService.addFollow(this.uService.getIdUserLogued(),id);
+    this.refreshList();
+  }
+  noSeguir(id){
+    this.fService.deleteFollow(this.uService.getIdUserLogued(),id);
+    this.refreshList();
+  }
+
 }
