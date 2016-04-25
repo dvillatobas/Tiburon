@@ -84,7 +84,7 @@ export class ProductService{
       }
     }
     if(listFiltrada.length == 0){
-      //window.confirm("no se han encontrado resultados");
+      window.confirm("No se han encontrado resultados");
       listFiltrada = this.getProductList();
 
     }
