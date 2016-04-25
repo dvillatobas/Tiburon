@@ -16,6 +16,7 @@ import {ProductoComponent} from './producto.component';
 import {ProductModComponent} from './product.mod.component';
 import {PublicProfileComponent} from './public.profile.component';
 import {UserListComponent} from './user.list.component';
+import {ProductListComponent} from './product.list.component';
 
 @Component({
   selector: 'app',

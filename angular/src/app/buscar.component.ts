@@ -19,10 +19,17 @@ export class BuscarComponent{
   constructor(
     private pService : ProductService,
     private router : Router,
-    routeParams: RouteParams
+    private routeParams: RouteParams
   ){
-      this.palabra = routeParams.get('palabra');
+      // this.palabra = this.routeParams.get('palabra');
       //this.products = this.pService.getProductListSearch(this.palabra);
+  }
+
+
+  buscar(busqueda,produser,desde,hasta,tipo,ubicacion,vendedorP,vendedorE){
+    let palabra = busqueda + '/' + produser+ '/' +desde+ '/' +hasta+ '/' +tipo+ '/' +ubicacion+ '/' +vendedorP+ '/' +vendedorE
+    this.router.navigate(['Buscar',{palabra: palabra}]);
+
   }
 
 
