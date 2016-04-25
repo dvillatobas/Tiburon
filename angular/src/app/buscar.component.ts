@@ -13,11 +13,15 @@ import {ProductListComponent} from './product.list.component';
 
 export class BuscarComponent{
 
-  private products: Product[];
+  private products=[];
   private palabra: string;
 
-  constructor(private pService : ProductService,private router : Router, routeParams: RouteParams){
-      //this.palabra = routeParams.get('palabra');
+  constructor(
+    private pService : ProductService,
+    private router : Router,
+    routeParams: RouteParams
+  ){
+      this.palabra = routeParams.get('palabra');
       //this.products = this.pService.getProductListSearch(this.palabra);
   }
 

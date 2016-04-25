@@ -51,7 +51,6 @@ export class ProductService {
         return 0;
       }
     );
-    console.log(list);
     return withObserver(list);
   }
   getProductList() {
