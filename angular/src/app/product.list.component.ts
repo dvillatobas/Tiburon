@@ -14,6 +14,7 @@ export class ProductListComponent{
   private products: Product[];
   private edit : boolean;
   private contact : boolean;
+  private word = '';
 
   constructor(
     private pService : ProductService,
@@ -22,13 +23,13 @@ export class ProductListComponent{
     routeParams: RouteParams,
     private mService : MensajesService
   ){
-
+    this.word = routeParams.get('palabra');
   }
 
   ngOnInit(){
     if(this.router.hostComponent.name === 'BuscarComponent'){
       console.log("product list component");
-      this.products = this.pService.getProductList();
+      this.products = this.pService.getProductListSearch(this.word);
       this.edit = false;
       this.contact = true;
     }else if(this.router.hostComponent.name === 'MisProductosComponent'){
