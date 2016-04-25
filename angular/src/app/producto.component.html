@@ -3,7 +3,7 @@
     <div class="col-md-12">
       <div class="row">
         <div class="col-md-12" id="back">
-          <a href="index.html">
+          <a [routerLink]="['Inicio']">
             <button class="btn btn-default button-back glyphicon glyphicon-chevron-left" aria-label="Left Align">Volver
 
             </button>
@@ -26,7 +26,7 @@
             <div class="row">
               <div class="col-lg-6 col-md-6">
                 <div class="seller">
-                  <a href="perfil_publico.html">
+                  <a [routerLink]="['Profile',{id:2}]">
                     <img src="img/logo.png" class="img-responsive img-circle center-block" alt="perfilVendedor"> Vendedor
                   </a>
                 </div>
