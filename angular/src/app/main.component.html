@@ -3,85 +3,19 @@
             <div class="col-sm-12 col-md-12">
                 <h2 class="text-center">Nuevos productos</h2>
                 <div class="row no-gutter">
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 port">
-                        <a [routerLink]="['Producto',{id:1}]" class="portfolio-box">
-                            <img src="imagenes/coches/IMG_20130319_170123_HDR.jpg" class="img-responsive">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        Camaro
-                                    </div>
-
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 port">
-                        <a href="vista_articulo.html" class="portfolio-box">
-                            <img src="imagenes/coches/body%20shop%20and%20body%20work.jpg" class="img-responsive portcentro">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        Mustang
-                                    </div>
-
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 port">
-                        <a href="vista_articulo.html" class="portfolio-box">
-                            <img src="imagenes/coches/body%20shop%20and%20body%20work.jpg" class="img-responsive portcentro">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        Ferrari
-                                    </div>
-
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 port">
-                        <a href="vista_articulo.html" class="portfolio-box">
-                            <img src="imagenes/piezas/llantas-oz-15-4x108_1.jpg" class="img-responsive" alt="">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        Audi
-                                    </div>
-
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 port">
-                        <a href="vista_articulo.html" class="portfolio-box portcentro">
-                            <img src="imagenes/piezas/fk_daylight_scheinwerfer_renault_laguna_fkfsrn010023.jpg" class="img-responsive">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        BMW
-                                    </div>
-
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 port">
-                        <a href="vista_articulo.html" class="portfolio-box portcentro">
-                            <img src="imagenes/piezas/llantas-oz-15-4x108_1.jpg" class="img-responsive">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        OTRO
-                                    </div>
-
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 port" *ngFor="#p of newProducts">
+                    <a [routerLink]="['Producto',{id:p.id}]" class="portfolio-box">
+                      <img [src]="p.img" class="img-responsive">
+                      <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                          <div class="project-category text-faded">
+                            <p>{{p.name}}</p>
+                            <p>{{p.price}} €</p>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
                 </div>
                 <div class="pull-right ver-mas"><h5><a href="busqueda.html">Ver mas...</a></h5></div>
             </div>
@@ -227,91 +161,13 @@
                       </div>
                     </a>
                   </div>
-
                 </div>
 
             </div>
             <div class="col-sm-8 col-md-9 pull-right">
                 <h2 class="text-center">Anuncios Favoritos</h2>
                 <div class="row no-gutter">
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 port">
-                        <a href="vista_articulo.html" class="portfolio-box">
-                            <img src="imagenes/coches/IMG_20130319_170123_HDR.jpg" class="img-responsive">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        Camaro
-                                    </div>
-
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 port">
-                        <a href="vista_articulo.html" class="portfolio-box">
-                            <img src="imagenes/coches/body%20shop%20and%20body%20work.jpg" class="img-responsive portcentro">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        Mustang
-                                    </div>
-
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 port">
-                        <a href="vista_articulo.html" class="portfolio-box">
-                            <img src="imagenes/coches/body%20shop%20and%20body%20work.jpg" class="img-responsive portcentro">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        Ferrari
-                                    </div>
-
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 port">
-                        <a href="vista_articulo.html" class="portfolio-box">
-                            <img src="imagenes/piezas/llantas-oz-15-4x108_1.jpg" class="img-responsive" alt="">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        Audi
-                                    </div>
-
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 port">
-                        <a href="vista_articulo.html" class="portfolio-box portcentro">
-                            <img src="imagenes/piezas/fk_daylight_scheinwerfer_renault_laguna_fkfsrn010023.jpg" class="img-responsive">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        BMW
-                                    </div>
-
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 port">
-                        <a href="vista_articulo.html" class="portfolio-box portcentro">
-                            <img src="imagenes/piezas/llantas-oz-15-4x108_1.jpg" class="img-responsive">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        OTRO
-                                    </div>
-
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    <product-list-img></product-list-img>
 
                 </div>
 

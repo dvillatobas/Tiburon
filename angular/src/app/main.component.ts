@@ -14,6 +14,7 @@ import {ProductService} from './product.service';
 export class MainComponent{
   private user : User;
   private followProducts = [];
+  private newProducts = [];
   private follow : number;
   private following : number;
   constructor(
@@ -51,6 +52,11 @@ export class MainComponent{
         );
         this.followProducts = this.followProducts.concat((plist));
       }
+    }else{
+      this.pService.getNewestList().subscribe(
+        list => this.newProducts = list,
+        error => console.log
+      );
     }
 
 

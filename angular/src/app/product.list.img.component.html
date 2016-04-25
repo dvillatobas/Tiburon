@@ -1,5 +1,19 @@
 <div class="row no-gutter">
-  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 port" *ngFor="#p of products">
+  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 port" *ngFor="#p of products1">
+    <a [routerLink]="['Producto',{id:p.id}]" class="portfolio-box">
+      <img [src]="p.img" class="img-responsive">
+      <div class="portfolio-box-caption">
+        <div class="portfolio-box-caption-content">
+          <div class="project-category text-faded">
+            <p>{{p.name}}</p>
+            <p>{{p.price}} €</p>
+          </div>
+
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 port" *ngFor="#p of products2">
     <a [routerLink]="['Producto',{id:p.id}]" class="portfolio-box">
       <img [src]="p.img" class="img-responsive">
       <div class="portfolio-box-caption">

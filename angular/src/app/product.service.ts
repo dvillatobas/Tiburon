@@ -44,13 +44,15 @@ export class ProductService {
 
 
   getNewestList() {
-    return withObserver(this.products.sort(
+    let list = this.products.sort(
       (n1, n2) => {
         if (n1.publicDate > n2.publicDate) { return 1; }
         if (n1.publicDate < n2.publicDate) { return -1; }
         return 0;
       }
-      ));
+    );
+    console.log(list);
+    return withObserver(list);
   }
   getProductList() {
     return withObserver(this.products);

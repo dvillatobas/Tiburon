@@ -12,24 +12,25 @@ import {ProductService, Product} from './product.service';;
 
 
 export class ProductListImg{
-  private products= [this.pService.getProductListUser(1)];
-
+  private products1= [];
+  private products2= [];
   constructor(
     private uService:UserService,
     private pService:ProductService,
     private routeParams:RouteParams,
     private router : Router
   ){
-    let id = +this.routeParams.get('id')
+    let id = +this.routeParams.get('id');
     if(this.uService.getLastId()>=id){
       this.pService.getProductListUser(id).subscribe(
-        list => this.products = list,
+        list => this.products1 = list,
         error => console.log(error)
       );
 
     }else{
       this.router.navigate(['Inicio']);
     }
+
   }
 
 }
