@@ -28,6 +28,7 @@ import {UserListComponent} from './user.list.component';
   {path: '/novedades', name: 'Novedades', component: BuscarComponent},
   {path: '/mis-productos', name: 'MisProductos', component: MisProductosComponent},
   {path: '/mensajes', name: 'Mensajes', component: MensajesComponent},
+  {path: '/mensajes/:id', name: 'MensajesUser', component: MensajesComponent},
   {path: '/login', name: 'Login', component: LoginComponent},
   {path: '/busqueda/:palabra', name: 'Buscar', component: BuscarComponent},
   {path: '/producto/:id', name: 'Producto', component: ProductoComponent},

@@ -24,7 +24,10 @@ export class PublicProfileComponent{
     private fService : FollowService
   ){
 
-    this.user=this.uService.getUser(+this.routeParams.get('id'));
+    this.uService.getUser(+this.routeParams.get('id')).subscribe(
+      u => this.user = u,
+      error => console.log(error)
+    );
     if(this.user.id === this.uService.getIdUserLogued()){
       this.showFollow = false;
     }

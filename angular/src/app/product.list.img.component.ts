@@ -22,7 +22,10 @@ export class ProductListImg{
   ){
     let id = +this.routeParams.get('id')
     if(this.uService.getLastId()>=id){
-      this.products=this.pService.getProductListUser(id);
+      this.pService.getProductListUser(id).subscribe(
+        list => this.products = list,
+        error => console.log(error)
+      );
 
     }else{
       this.router.navigate(['Inicio']);

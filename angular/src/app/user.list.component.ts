@@ -35,13 +35,18 @@ export class UserListComponent{
     }
 
     for(let id of list){
+      let u : User;
+      this.uService.getUser(id).subscribe(
+        usr => u = usr,
+        error => console.log(error)
+      );
       this.userList.push(new UserList(
         id,
         this.fService.isFollowing(this.uService.getIdUserLogued(),id),
-        this.uService.getUser(id).nick,
+        u.nick,
         this.fService.getListFollow(id).length,
         this.fService.getListFollowers(id).length,
-        this.uService.getUser(id).img
+        u.img
       ));
     }
   }

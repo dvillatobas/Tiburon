@@ -41,35 +41,31 @@ export class ProductService {
     return this.lastId;
   }
 
-  getProduct(id) {
-    for (let p of this.products) {
-      if (p.id === id) {
-        return p;
-      }
-    }
-    return undefined;
-  }
+
 
   getNewestList() {
-    return this.products.sort(
+    return withObserver(this.products.sort(
       (n1, n2) => {
         if (n1.publicDate > n2.publicDate) { return 1; }
         if (n1.publicDate < n2.publicDate) { return -1; }
         return 0;
       }
-      );
+      ));
   }
   getProductList() {
-    return this.products;
+    return withObserver(this.products);
   }
 
   exist(id){
-    for(let p of this.products){
-      if(p.id === id){
-        return true;
+    if(id<=this.lastId){
+      for(let p of this.products){
+        if(p.id === id){
+          return true;
+        }
       }
     }
     return false;
+
   }
 
   getProductById(id: number | string) {
@@ -87,7 +83,7 @@ export class ProductService {
         list.push(p);
       }
     }
-    return list;
+    return withObserver(list);
   }
 
   getProductListSearch(palabra: string) {
@@ -102,7 +98,10 @@ export class ProductService {
     }
     if (listFiltrada.length == 0) {
       window.confirm("No se han encontrado resultados");
-      listFiltrada = this.getProductList();
+      this.getProductList().subscribe(
+          lista => listFiltrada = lista,
+          error => console.log(error)
+      );
 
     }
 

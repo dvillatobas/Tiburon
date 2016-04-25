@@ -15,12 +15,6 @@ export class User{
     public tipo,
     public rol
   ){}
-  getId(){
-    return this.id;
-  }
-  getNick(){
-    return this.nick;
-  }
 }
 
 export class UserList{
@@ -32,8 +26,6 @@ export class UserList{
     public followers,
     public img
   ){}
-
-  
 }
 
 @Injectable()
@@ -60,35 +52,29 @@ export class UserService{
     return this.lastId;
   }
   getUserList(){
-    return this.users;
+    return withObserver(this.users);
   }
 
-  isUserCorrect(user:string, pass:string){
-    let u:User = null;
-    for(let us of this.users){
-      if (us.nick === user) {
-        u=us;
-      }
-    }
-    if (u!=null){
-      this.logueado = !this.logueado;
-      this.idUserLogued = u.id;
-      return u.pass === pass;
-    }else{
-      return false;
-    }
+  getUserByNick(nick){
+    let user = this.users.filter(u => u.nick === nick)[0]
+    return withObserver(user);
   }
+
+  login(id){
+    this.logueado = true;
+    this.idUserLogued = id;
+  }
+
   getUser(id:number){
     for(let u of this.users){
       if(u.id===id){
-        return u;
+        return withObserver(u);
       }
     }
-    return undefined;
   }
 
   logout(){
-    this.logueado = ! this.logueado;
+    this.logueado = false;
     this.idUserLogued = 0;
   }
 

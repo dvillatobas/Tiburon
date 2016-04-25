@@ -20,6 +20,7 @@ export class LoginComponent{
   private failPassEquals:boolean=false;
   private failType:boolean=false;
   private userCreated:boolean = false;
+  private failLogin:boolean = false;
 
 
   constructor(
@@ -28,9 +29,20 @@ export class LoginComponent{
   ){}
 
   entrar(nick:string,pass:string){
-    if(this.uService.isUserCorrect(nick,pass)){
-      this.router.navigate(['Inicio']);
-    }
+    this.resetAlarms();
+    this.uService.getUserByNick(nick).subscribe(
+      user => {
+        if (user != undefined && user.nick === nick && user.pass === pass){
+          this.uService.login(user.id);
+          this.router.navigate(['Inicio']);
+        }else{
+          this.failLogin = true;
+        }
+      },
+      error => {
+        console.log(error)
+      }
+    );
   }
   resetAlarms(){
      this.failNickFormat=false;
@@ -42,7 +54,11 @@ export class LoginComponent{
      this.failPassEquals=false;
      this.failType=false;
      this.userCreated= false;
+     this.failLogin = false;
   }
+
+
+
   registrar(nickR:string,nombreR:string,apellidosR:string,telR:string,imgR:string,typeR:string,emailR:string,email2R:string,passR:string,pass2R:string){
     this.resetAlarms();
     if(nickR.length<3){

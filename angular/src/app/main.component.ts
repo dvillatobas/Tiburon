@@ -24,7 +24,10 @@ export class MainComponent{
   ){
     let id = this.uService.getIdUserLogued();
     if(id!=0){
-      this.user=this.uService.getUser(id);
+      this.uService.getUser(id).subscribe(
+        u => this.user = u,
+        error => console.log(error)
+      );
       this.follow = this.fService.getListFollow(id).length;
       this.following = this.fService.getListFollowers(id).length;
       let userlist = this.fService.getListFollow(id);

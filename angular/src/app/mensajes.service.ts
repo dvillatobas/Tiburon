@@ -37,10 +37,21 @@ export class MensajesService{
   getContactList(id:number){
     let contactos  = [];
     for(let i=0;i<this.mensajes.length;i++){
+
       if(id===this.mensajes[i].idEmisor && !this.estaContenido(this.mensajes[i].idReceptor,contactos)){
-        contactos.push(this.usr.getUser(this.mensajes[i].idReceptor));
+        let u;
+        this.usr.getUser(this.mensajes[i].idReceptor).subscribe(
+          user => u = user,
+          error => console.log(error)
+        );
+        contactos.push(u);
       }else if(id===this.mensajes[i].idReceptor && !this.estaContenido(this.mensajes[i].idEmisor,contactos)){
-        contactos.push(this.usr.getUser(this.mensajes[i].idEmisor));
+        let u;
+        this.usr.getUser(this.mensajes[i].idEmisor).subscribe(
+          user => u = user,
+          error => console.log(error)
+        );
+        contactos.push(u);
       }
     }
     contactos.sort(
@@ -50,8 +61,8 @@ export class MensajesService{
         return 0;
       }
     );
-
-    return contactos;
+    console.log(contactos);
+    return withObserver(contactos);
   }
 
   getChatList(id:number){
@@ -63,7 +74,7 @@ export class MensajesService{
         messages.push(m);
       }
     }
-    return messages;
+    return withObserver(messages);
   }
 
   estaContenido(id:number,lista=[]){
@@ -76,12 +87,14 @@ export class MensajesService{
   }
 
   nuevo(destino:number,mensaje:string){
-    this.mensajes.push(new Mensaje(
+    let m = new Mensaje(
       this.setId(),
       Date.now(),
       this.usr.getIdUserLogued(),
       destino,
       mensaje,
-      0));
+      0);
+    this.mensajes.push(m);
+    return withObserver(m);
   }
 }

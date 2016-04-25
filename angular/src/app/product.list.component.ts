@@ -32,12 +32,18 @@ export class ProductListComponent{
         this.products = this.pService.getProductListSearch(this.word);
       }
       else{
-        this.products = this.pService.getProductList();
+        this.pService.getProductList().subscribe(
+          list => this.products = list,
+          error => console.log(error)
+        );
       }
       this.edit = false;
       this.contact = true;
     }else if(this.router.hostComponent.name === 'MisProductosComponent'){
-      this.products = this.pService.getProductListUser(this.uService.getIdUserLogued());
+      this.pService.getProductListUser(this.uService.getIdUserLogued()).subscribe(
+        list => this.products = list,
+        error => console.log(error)
+      );
       this.edit = true;
       this.contact = false;
     }

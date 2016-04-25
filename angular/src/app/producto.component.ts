@@ -22,8 +22,18 @@ export class ProductoComponent{
   ){
     let id = +this.routeParams.get('id');
     if(this.pService.exist(id)){
-      this.product = this.pService.getProduct(+this.routeParams.get('id'));
-      this.user = this.uService.getUser(this.product.idUser);
+      this.pService.getProductById(+this.routeParams.get('id')).subscribe(
+        prod => {
+          this.product = prod
+        },
+        error => {
+          console.log(error);
+        }
+      );
+      this.uService.getUser(this.product.idUser).subscribe(
+        usr => this.user = usr,
+        error => console.log(error)
+      );
     }else{
       this.error = true;
     }
@@ -35,6 +45,8 @@ export class ProductoComponent{
     window.history.back();
   }
   mensaje(){
-    this.router.navigate(['Mensajes']);
+    if(this.uService.getIdUserLogued()!=this.user.id){
+      this.router.navigate(['Mensajes', {id:this.user.id}]);
+    }
   }
 }
