@@ -17,6 +17,7 @@ import {ProductModComponent} from './product.mod.component';
 import {PublicProfileComponent} from './public.profile.component';
 import {UserListComponent} from './user.list.component';
 import {ValorationService} from './valoracion.service';
+import {ProductListComponent} from './product.list.component';
 
 @Component({
   selector: 'app',

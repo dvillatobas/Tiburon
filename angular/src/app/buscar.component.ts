@@ -13,12 +13,23 @@ import {ProductListComponent} from './product.list.component';
 
 export class BuscarComponent{
 
-  private products: Product[];
+  private products=[];
   private palabra: string;
 
-  constructor(private pService : ProductService,private router : Router, routeParams: RouteParams){
-      //this.palabra = routeParams.get('palabra');
+  constructor(
+    private pService : ProductService,
+    private router : Router,
+    private routeParams: RouteParams
+  ){
+      // this.palabra = this.routeParams.get('palabra');
       //this.products = this.pService.getProductListSearch(this.palabra);
+  }
+
+
+  buscar(busqueda,produser,desde,hasta,tipo,ubicacion,vendedorP,vendedorE){
+    let palabra = busqueda + '/' + produser+ '/' +desde+ '/' +hasta+ '/' +tipo+ '/' +ubicacion+ '/' +vendedorP+ '/' +vendedorE
+    this.router.navigate(['Buscar',{palabra: palabra}]);
+
   }
 
 

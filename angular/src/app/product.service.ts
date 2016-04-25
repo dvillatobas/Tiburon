@@ -51,7 +51,6 @@ export class ProductService {
         return 0;
       }
     );
-    console.log(list);
     return withObserver(list);
   }
   getProductList() {
@@ -89,15 +88,19 @@ export class ProductService {
   }
 
   getProductListSearch(palabra: string) {
+    let busq = palabra.split('/');
+    console.log(busq[0]);
+
     let listFiltrada = [];
 
     for (let i = 0; i < this.products.length; i++) {
 
-      if ((this.products[i].name.indexOf(palabra)) > -1) {
+      if ((this.products[i].name.indexOf(busq[0])) > -1) {
         listFiltrada.push(this.products[i]);
 
       }
     }
+    console.log(listFiltrada);
     if (listFiltrada.length == 0) {
       window.confirm("No se han encontrado resultados");
       this.getProductList().subscribe(
@@ -106,6 +109,38 @@ export class ProductService {
       );
 
     }
+    if(busq[2] != ''){
+      let aux = [];
+      for(let p of listFiltrada){
+        if(p.price >= +busq[2]){
+          aux.push(p);
+        }
+      }
+      listFiltrada = [];
+      listFiltrada = aux;
+    }
+    if(busq[3] != ''){
+      let aux = [];
+      for(let p of listFiltrada){
+        if(p.price <= +busq[3]){
+          aux.push(p);
+        }
+      }
+      listFiltrada = [];
+      listFiltrada = aux;
+    }
+    if(busq[4] != 'ambos'){
+      let aux = [];
+      for(let p of listFiltrada){
+        if(p.tipo == busq[4]){
+          aux.push(p);
+        }
+      }
+      listFiltrada = [];
+      listFiltrada = aux;
+    }
+    
+
 
     return listFiltrada;
 

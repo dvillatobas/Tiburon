@@ -20,7 +20,7 @@ export class ProductListComponent{
     private pService : ProductService,
     private uService : UserService,
     private router : Router,
-    routeParams: RouteParams,
+    private routeParams: RouteParams,
     private mService : MensajesService
   ){
     this.word = routeParams.get('palabra');
@@ -48,6 +48,8 @@ export class ProductListComponent{
       this.contact = false;
     }
   }
+
+
 
   mensaje(){
     if(this.uService.getIdUserLogued()){
