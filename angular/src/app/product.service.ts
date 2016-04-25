@@ -63,9 +63,10 @@ export class ProductService{
 
   getProductListUser(id:number){
     let list = [];
-    for(let i=0;i<this.products.length;i++){
-      if(this.products[i].idUser == id){
-        list.push(this.products[i]);
+
+    for(let p of this.products){
+      if(p.idUser===id){
+        list.push(p);
       }
     }
     console.log(list.length);
