@@ -22,6 +22,10 @@ export class ProductListComponent{
     routeParams: RouteParams,
     private mService : MensajesService
   ){
+
+  }
+
+  ngOnInit(){
     if(this.router.hostComponent.name === 'BuscarComponent'){
       this.products = this.pService.getProductList();
       this.edit = false;
@@ -50,7 +54,7 @@ export class ProductListComponent{
     let confirm = window.confirm("¿Estas seguro de que deseas borrar este producto?");
     if (confirm){
       this.pService.deleteProduct(idProduct).subscribe(
-        _ => this.router.navigate(['MisProductos']), //no refresca la pagina porque ya está en esa direccion!!!!!
+        _ => this.ngOnInit(),
         error => console.log(error)
       )
 
