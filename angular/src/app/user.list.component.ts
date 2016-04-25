@@ -39,9 +39,9 @@ export class UserListComponent{
         error => console.log(error)
       );
     }
-
+    let u : User;
     for(let id of list){
-      let u : User;
+
       this.uService.getUser(id).subscribe(
         usr => u = usr,
         error => console.log(error)
