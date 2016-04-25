@@ -12,29 +12,6 @@
         </div>
     </div>
     <ul class="list-group">
-        <!--
-        <a [routerLink]="['Producto']"  *ngFor="#p of products">
-            <div class="elem-list list-group-item">
-                <div class="row">
-                    <div class="col-sm-12 col-md-3">
-                        <img [src]="p.img" class="img-list img-responsive center-block" alt="">
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <h3>{{p.name}}</h3>
-                        <h5 *ngIf="p.used!=0">{{p.used}} Km</h5>
-                        <h5 *ngIf="p.used===0">Nuevo</h5>
-                        <h5 *ngIf="p.year!=0">Año {{p.year}}</h5>
-                    </div>
-                    <div class="text-center elem-desp col-sm-6 col-md-2">
-                        <h3>{{p.location}}</h3>
-                    </div>
-                    <div class="text-center elem-desp col-sm-6 col-md-3">
-                        <h3>{{p.price}}€</h3>
-                    </div>
-                </div>
-            </div>
-        </a>
-        -->
         <div class="elem-list list-group-item" *ngFor="#p of products">
             <div class="row">
                 <div class="col-sm-12 col-md-3">

@@ -69,7 +69,6 @@ export class ProductService{
         list.push(p);
       }
     }
-    console.log(list.length);
     return list;
   }
 

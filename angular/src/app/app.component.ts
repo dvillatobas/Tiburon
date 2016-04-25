@@ -11,15 +11,17 @@ import {BuscarComponent} from './buscar.component';
 import {UserService} from './user.service';
 import {MensajesService} from './mensajes.service';
 import {ProductService} from './product.service';
+import {FollowService} from './follow.service';
 import {ProductoComponent} from './producto.component';
 import {ProductModComponent} from './product.mod.component';
 import {PublicProfileComponent} from './public.profile.component';
+import {UserListComponent} from './user.list.component';
 
 @Component({
   selector: 'app',
   templateUrl: 'app/app.component.html',
   directives: [ROUTER_DIRECTIVES, Alert, HeaderComponent, FooterComponent],
-  providers: [UserService, MensajesService, ProductService]
+  providers: [UserService, MensajesService, ProductService, FollowService]
 })
 @RouteConfig([
   {path: '/', name: 'Inicio', component: MainComponent, useAsDefault:true},
@@ -29,17 +31,17 @@ import {PublicProfileComponent} from './public.profile.component';
   {path: '/login', name: 'Login', component: LoginComponent},
   {path: '/busqueda/:palabra', name: 'Buscar', component: BuscarComponent},
   {path: '/producto', name: 'Producto', component: ProductoComponent},
-
   {path: '/producto/edit/:id', name: 'EditarProducto', component: ProductModComponent},
   {path: '/producto/nuevo', name: 'NuevoProducto', component: ProductModComponent},
-  {path: '/profile/:id', name: 'Profile', component: PublicProfileComponent}
-
+  {path: '/profile/:id', name: 'Profile', component: PublicProfileComponent},
+  {path: '/follow/:type/:id', name: 'Follow', component: UserListComponent}
 ])
 export class AppComponent {
   constructor(
     private router:Router,
     private users : UserService,
     private mensajes : MensajesService,
-    private products : ProductService
+    private products : ProductService,
+    private follows : FollowService
   ){}
 }

@@ -46,6 +46,9 @@ export class UserService{
   getLastId(){
     return this.lastId;
   }
+  getUserList(){
+    return this.users;
+  }
 
   isUserCorrect(user:string, pass:string){
     let u:User = null;
