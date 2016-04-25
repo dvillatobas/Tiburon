@@ -635,3 +635,11 @@ h5 a{
   padding-top: 5px;
   padding-bottom: 5px;
 }
+
+
+.formValoracion{
+  background-color: #EAEDED;
+}
+.formUser{
+  background-color: #CCD1D1;
+}
