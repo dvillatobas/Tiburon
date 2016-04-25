@@ -42,7 +42,6 @@ export class MensajesComponent{
 
   selectChat(id:number){
     this.chatList = [];
-    console.log(id);
     this.uService.getUser(id).subscribe(
       user => this.usuario = user,
       error => console.log()
@@ -63,12 +62,9 @@ export class MensajesComponent{
         this.chatList.push(new Wisp(this.yo.nick,w.mensaje,w.date,'list-group-item sent'));
       }
     }
-    console.log(lista.length)
     if(lista.length === 0){
       this.chatList.push(new Wisp('','Nuevo chat con '+ this.usuario.nick,Date.now(),'list-group-item center-block'));
     }
-    console.log(this.chatList);
-
     this.refreshContactList();
 
   }

@@ -28,11 +28,28 @@ export class MainComponent{
         u => this.user = u,
         error => console.log(error)
       );
-      this.follow = this.fService.getListFollow(id).length;
-      this.following = this.fService.getListFollowers(id).length;
-      let userlist = this.fService.getListFollow(id);
+      let list = [];
+      this.fService.getListFollow(id).subscribe(
+        l => this.follow = l.length,
+        error => console.log(error)
+      );
+
+      this.fService.getListFollowers(id).subscribe(
+        l => this.following = l.length,
+        error => console.log(error)
+      );
+      let userlist =[];
+      this.fService.getListFollow(id).subscribe(
+        list => userlist = list,
+        error => console.log(error)
+      );
       for(let u of userlist){
-        this.followProducts = this.followProducts.concat((this.pService.getProductListUser(u)));
+        let plist = [];
+        this.pService.getProductListUser(u).subscribe(
+          list => plist = list,
+          error => console.log(error)
+        );
+        this.followProducts = this.followProducts.concat((plist));
       }
     }
 

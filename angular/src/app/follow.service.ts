@@ -43,7 +43,7 @@ export class FollowService{
         list.push(f.idSeguido);
       }
     }
-    return list;
+    return withObserver(list);
   }
 
   getListFollowers(id:number){
@@ -53,7 +53,7 @@ export class FollowService{
         list.push(f.idSeguidor);
       }
     }
-    return list;
+    return withObserver(list);
   }
   isFollowing(id1,id2){
     for(let f of this.follows){

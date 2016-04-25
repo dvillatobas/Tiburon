@@ -29,9 +29,15 @@ export class UserListComponent{
     let list = []
     this.userList = [];
     if(this.type === 'follow'){
-      list = this.fService.getListFollow(this.id);
+      this.fService.getListFollow(this.id).subscribe(
+        l => list = l,
+        error => console.log(error)
+      );
     }else if(this.type === 'following'){
-      list = this.fService.getListFollowers(this.id);
+      this.fService.getListFollowers(this.id).subscribe(
+        l => list = l,
+        error => console.log(error)
+      );
     }
 
     for(let id of list){
@@ -40,12 +46,22 @@ export class UserListComponent{
         usr => u = usr,
         error => console.log(error)
       );
+      let follow;
+      this.fService.getListFollow(id).subscribe(
+        l => follow = l.length,
+        error => console.log(error)
+      );
+      let followers;
+      this.fService.getListFollowers(id).subscribe(
+        l => followers = l.length,
+        error => console.log(error)
+      );
       this.userList.push(new UserList(
         id,
         this.fService.isFollowing(this.uService.getIdUserLogued(),id),
         u.nick,
-        this.fService.getListFollow(id).length,
-        this.fService.getListFollowers(id).length,
+        follow,
+        followers,
         u.img
       ));
     }

@@ -61,7 +61,6 @@ export class MensajesService{
         return 0;
       }
     );
-    console.log(contactos);
     return withObserver(contactos);
   }
 
