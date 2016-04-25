@@ -2,6 +2,7 @@ import {Injectable} from 'angular2/core';
 import {Observable} from 'rxjs/Observable';
 import {withObserver} from './utils';
 import {UserService} from './user.service';
+import 'rxjs/Rx';
 
 
 export class Valoration{
@@ -22,7 +23,11 @@ export class ValorationService{
   constructor(private uService: UserService){}
 
   getComments(){
-    return this.comments;
+    return withObserver(this.comments);
+  }
+
+  addComment(comment: Valoration){
+    this.comments.push(comment);
   }
 
 
