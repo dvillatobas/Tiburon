@@ -27,6 +27,7 @@ export class ProductListComponent{
 
   ngOnInit(){
     if(this.router.hostComponent.name === 'BuscarComponent'){
+      console.log("product list component");
       this.products = this.pService.getProductList();
       this.edit = false;
       this.contact = true;

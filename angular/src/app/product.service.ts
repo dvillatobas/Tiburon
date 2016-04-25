@@ -73,6 +73,26 @@ export class ProductService{
     return list;
   }
 
+  getProductListSearch(palabra: string){
+    let listFiltrada = [];
+    console.log("entra a pService");
+    for(let i=0; i<this.products.length;i++){
+      console.log("for");
+      if(this.products[i].name == palabra){
+        listFiltrada.push(this.products[i]);
+      }
+    }
+    if(listFiltrada.length == 0){
+      //window.confirm("no se han encontrado resultados");
+      listFiltrada = this.getProductList();
+      return this.products;
+    }
+      console.log(listFiltrada);
+      return listFiltrada;
+
+
+  }
+
 saveProduct(product: Product){
   if(product.id){
     let oldProduct = this.products.filter(c => c.id === product.id)[0];

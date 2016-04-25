@@ -37,8 +37,8 @@ export class HeaderComponent{
     this.usr.logout();
     this.router.navigate(['Inicio']);
   }
-  buscar(){
-    this.router.navigate(['Buscar']);
+  buscar(palabra: string){
+    this.router.navigate(['Buscar',{palabra: palabra}]);
   }
 
 }

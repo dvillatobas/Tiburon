@@ -27,7 +27,7 @@ import {PublicProfileComponent} from './public.profile.component';
   {path: '/mis-productos', name: 'MisProductos', component: MisProductosComponent},
   {path: '/mensajes', name: 'Mensajes', component: MensajesComponent},
   {path: '/login', name: 'Login', component: LoginComponent},
-  {path: '/busqueda', name: 'Buscar', component: BuscarComponent},
+  {path: '/busqueda/:palabra', name: 'Buscar', component: BuscarComponent},
   {path: '/producto', name: 'Producto', component: ProductoComponent},
 
   {path: '/producto/edit/:id', name: 'EditarProducto', component: ProductModComponent},
