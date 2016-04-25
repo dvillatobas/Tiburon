@@ -23,7 +23,7 @@ export class UserList{
 
 @Injectable()
 export class FollowService{
-  
+
   private follows = [
     new Follow(1,2,1),
     new Follow(2,3,1),
@@ -64,7 +64,9 @@ export class FollowService{
     return false;
   }
   addFollow(id1,id2){
-    this.follows.push(new Follow(this.setId(),id1,id2));
+    if(id1!=id2){
+      this.follows.push(new Follow(this.setId(),id1,id2));
+    }
   }
   deleteFollow(id1,id2){
     for(let f of this.follows){

@@ -16,6 +16,7 @@ export class PublicProfileComponent{
 
   private user : User;
   private follow : boolean;
+  private showFollow : boolean = true;
 
   constructor(
     private uService:UserService,
@@ -24,6 +25,22 @@ export class PublicProfileComponent{
   ){
 
     this.user=this.uService.getUser(+this.routeParams.get('id'));
+    if(this.user.id === this.uService.getIdUserLogued()){
+      this.showFollow = false;
+    }
+    this.refreshFollow();
+  }
+
+  refreshFollow(){
     this.follow = this.fService.isFollowing(this.uService.getIdUserLogued(),this.user.id);
+  }
+
+  noSeguir(id){
+    this.fService.deleteFollow(this.uService.getIdUserLogued(),id);
+    this.refreshFollow();
+  }
+  seguir(id){
+    this.fService.addFollow(this.uService.getIdUserLogued(),id);
+    this.refreshFollow();
   }
 }
