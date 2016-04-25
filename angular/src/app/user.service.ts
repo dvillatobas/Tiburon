@@ -23,6 +23,19 @@ export class User{
   }
 }
 
+export class UserList{
+  constructor(
+    public id,
+    public following:boolean,
+    public nick,
+    public follow,
+    public followers,
+    public img
+  ){}
+
+  
+}
+
 @Injectable()
 export class UserService{
   private users = [
@@ -60,7 +73,6 @@ export class UserService{
     if (u!=null){
       this.logueado = !this.logueado;
       this.idUserLogued = u.id;
-      console.log(this.idUserLogued);
       return u.pass === pass;
     }else{
       return false;
@@ -108,4 +120,6 @@ export class UserService{
       return 0;
     }
   }
+
+
 }

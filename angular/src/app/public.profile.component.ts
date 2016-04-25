@@ -3,6 +3,7 @@ import {ROUTER_DIRECTIVES,RouteParams, Router} from 'angular2/router';
 import {UserService, User} from './user.service';
 import {ProductService, Product} from './product.service';
 import {ProductListImg} from './product.list.img.component';
+import {FollowService} from './follow.service';
 
 @Component({
   selector: 'main',
@@ -18,9 +19,11 @@ export class PublicProfileComponent{
 
   constructor(
     private uService:UserService,
-    private routeParams:RouteParams
+    private routeParams:RouteParams,
+    private fService : FollowService
   ){
-    this.user=this.uService.getUser(+this.routeParams.get('id'));
 
+    this.user=this.uService.getUser(+this.routeParams.get('id'));
+    this.follow = this.fService.isFollowing(this.uService.getIdUserLogued(),this.user.id);
   }
 }

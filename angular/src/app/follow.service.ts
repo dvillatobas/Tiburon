@@ -10,14 +10,31 @@ export class Follow{
   ){}
 }
 
+export class UserList{
+  constructor(
+    public id,
+    public following:boolean,
+    public nick,
+    public follow,
+    public followers,
+    public img
+  ){}
+}
+
 @Injectable()
 export class FollowService{
-  constructor(){}
+  
   private follows = [
     new Follow(1,2,1),
-    new Follow(1,3,1),
-    new Follow(1,1,2)
+    new Follow(2,3,1),
+    new Follow(3,1,2)
   ];
+  private lastId : number = 3;
+
+  setId(){
+    this.lastId++;
+    return this.lastId;
+  }
 
   getListFollow(id:number){
     let list=[];
@@ -46,6 +63,18 @@ export class FollowService{
     }
     return false;
   }
+  addFollow(id1,id2){
+    this.follows.push(new Follow(this.setId(),id1,id2));
+  }
+  deleteFollow(id1,id2){
+    for(let f of this.follows){
+      if(f.idSeguidor === id1 && f.idSeguido === id2){
+        this.follows.splice(this.follows.indexOf(f),1);
+      }
+    }
+  }
+
+
 
 
 }
