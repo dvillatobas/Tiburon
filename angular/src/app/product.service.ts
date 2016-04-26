@@ -24,11 +24,12 @@ export class Product {
 @Injectable()
 export class ProductService {
   private products = [
-    new Product(1, Date.now(), 'camaro', 20000, 2000, 'Madrid', '/imagenes/1.jpg', 54000, 1, 'particular', 'descripcion: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
-    new Product(2, Date.now() + 2, 'peugueot', 10000, 2010, 'Madrid', '/imagenes/1.jpg', 54000, 2, 'particular', 'descripcion: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
-    new Product(3, Date.now(), 'ford', 20000, 1990, 'Madrid', '/imagenes/1.jpg', 54000, 3, 'profesional', 'descripcion: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
-    new Product(4, Date.now() + 5, 'fiat', 0, 2004, 'Madrid', '/imagenes/1.jpg', 54000, 4, 'particular', 'descripcion: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
-    new Product(5, Date.now(), 'fiat', 2000, 2000, 'Madrid', '/imagenes/1.jpg', 54000, 1, 'particular', 'descripcion: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
+    new Product(1, Date.now(), 'dodge charger', 20000, 1969, 'Burgos', '/imagenes/1.jpg', 54000, 1, 'particular', 'Utilizado en la pelicula "fast and furious", no ha tenido ningún golpe, tiene barras antivuelco, asientos deportivos, escape remux, frenos brembo competicion SX, amortiguadores blistein sport de dureza regulable, todo homologado para calle .'),
+    new Product(2, Date.now() + 2, 'chevrolet camaro', 155879, 2001, 'Badajoz', '/imagenes/coches/857376chevrolet_camaro_ss_1967.jpg', 65000, 2, 'particular', 'De importación, recien matriculado en España, un solo propietario, kms certificados, correas recien cambiadas, neumaticos nuevos .'),
+    new Product(3, Date.now(), 'ford mustang', 15400, 1971, 'Madrid', '/imagenes/coches/IMG_20130319_170123_HDR.jpg', 35500, 3, 'profesional', 'Tapicería de cuero, llantas originales, sin dirección asistida, repintado hace un mes incluido transferencia en el precio, no negociable.'),
+    new Product(4, Date.now() + 5, 'turbocompresor-garret g-234', 254675, 2004, 'Mostoles', '/imagenes/piezas/turbocompresor-garret.jpg', 600, 4, 'particular', 'Presión mínima 0.5 Bar, max 1.8 Bar,no tiene garantía, entrega en mano, precio no negociable.'),
+    new Product(5, Date.now(), 'faros delanteros R laguna', 0, 2003, 'Leganes', '/imagenes/piezas/fk_daylight_scheinwerfer_renault_laguna_fkfsrn010023.jpg', 240, 1, 'particular', 'descripcion: Antinieblas no incorporado, bombillas H7, luces de posición led, homologado para uso de calle, sin problemas para ITV, motores de regulación en altura no incluidos.'),
+
   ];
   private lastId: number = 5;
   private newestProducts = this.getNewestList();
@@ -139,7 +140,7 @@ export class ProductService {
       listFiltrada = [];
       listFiltrada = aux;
     }
-    
+
 
 
     return listFiltrada;
