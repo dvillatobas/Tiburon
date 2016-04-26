@@ -20,7 +20,7 @@ export class MensajesService {
   private mensajes = [
     new Mensaje(1, Date.now(), 1, 2, '¿aceptas cambio por una moto + dinero?', 0),
     new Mensaje(3, Date.now() + 3, 3, 2, '¿Puedes quedar el viernes por la tarde?', 1),
-    new Mensaje(2, Date.now() + 2, 2, 1, '¿Es negociable?', 1),
+    new Mensaje(2, Date.now() + 2, 2, 1, 'No, gracias por tu interes', 1),
     new Mensaje(4, Date.now() + 4, 4, 1, '¿Cuanto pide por él?', 0)
   ];
   //sin inicializar seria un 0
