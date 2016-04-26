@@ -1,0 +1,19 @@
+unificar estilos
+
+sin loguear:
+	inicio: cuadro busqueda con productos.img
+	quitar novedades y quitar boton busqueda
+
+busqueda hacerla bien
+	que se queden los campos marcados
+
+logueado: 
+	cambiar novedades por busqueda y quitar boton busqueda
+	quitar boton favoritos
+	añadir control de formulario, cambiar select ubicacion
+	mensajeria: indicador de nuevos mensajes
+	comentarios de productos independientes
+	en lista de productos enlazar bien a mensajes/id
+
+por amor al arte:
+	añadir animaciones
