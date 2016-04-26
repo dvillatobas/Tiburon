@@ -17,9 +17,10 @@ export class Valoration{
 export class ValorationService{
 
   private comments = [
+    new Valoration("Raul","vendedor 100% fiable","Muy puntual y amable."),
     new Valoration("Raul","No está mal","Tiene buen aspecto, pero me parece un precio excesivo."),
     new Valoration("David","Buenisimo","¡Me encanta este coche!"),
-    new Valoration("Juan","Buen motor","Nunca había visto este modelo de peugueot, es increíble.")
+    new Valoration("Juan","Buen motor","Nunca había visto este modelo, es increíble.")
   ];
 
   constructor(private uService: UserService){}
