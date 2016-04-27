@@ -1,4 +1,4 @@
-import {Component}   from 'angular2/core';
+import {Component, Input}   from 'angular2/core';
 import {ROUTER_DIRECTIVES,RouteParams, Router} from 'angular2/router';
 import {UserService, User} from './user.service';
 import {ProductService, Product} from './product.service';;
@@ -12,25 +12,18 @@ import {ProductService, Product} from './product.service';;
 
 
 export class ProductListImg{
-  private products1= [];
-  private products2= [];
+  @Input()
+  private products= [];
+  @Input()
+  private titulo;
+
   constructor(
     private uService:UserService,
     private pService:ProductService,
     private routeParams:RouteParams,
     private router : Router
   ){
-    let id = +this.routeParams.get('id');
-    if(this.uService.getLastId()>=id){
-      this.pService.getProductListUser(id).subscribe(
-        list => this.products1 = list,
-        error => console.log(error)
-      );
-
-    }else{
-      this.router.navigate(['Inicio']);
-    }
-
+    console.log(this.products);
   }
 
 }

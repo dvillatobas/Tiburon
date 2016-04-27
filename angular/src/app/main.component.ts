@@ -3,10 +3,11 @@ import {ROUTER_DIRECTIVES,RouteParams, Router} from 'angular2/router';
 import {UserService, User} from './user.service';
 import {FollowService} from './follow.service';
 import {ProductService} from './product.service';
+import {ProductListImg} from './product.list.img.component';
 
 @Component({
   selector: 'main' ,
-  directives: [ROUTER_DIRECTIVES],
+  directives: [ROUTER_DIRECTIVES, ProductListImg],
   templateUrl: 'app/main.component.html'
 
 })
@@ -59,7 +60,7 @@ export class MainComponent{
         error => console.log
       );
     }
-
+    
 
   }
 

@@ -17,17 +17,26 @@ export class PublicProfileComponent{
   private user : User;
   private follow : boolean;
   private showFollow : boolean = true;
+  private productsUser = [];
+  private titulo : string;
 
   constructor(
     private uService:UserService,
     private routeParams:RouteParams,
-    private fService : FollowService
+    private fService : FollowService,
+    private pService : ProductService
   ){
 
     this.uService.getUser(+this.routeParams.get('id')).subscribe(
       u => this.user = u,
       error => console.log(error)
     );
+    this.pService.getProductListUser(this.user.id).subscribe(
+      l => this.productsUser = l,
+      error => console.log(error)
+    );
+
+    this.titulo = 'Anuncios de ' + this.user.nick;
     if(this.user.id === this.uService.getIdUserLogued()){
       this.showFollow = false;
     }
