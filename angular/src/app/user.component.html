@@ -1,5 +1,7 @@
 <div class="thumbnail">
-  <img [src]="user.img" alt="perfil">
+  <a [routerLink]="['Profile',{type:'profile',id:user.id}]">
+    <img [src]="user.img" alt="perfil">
+  </a>
   <div class="caption text-center">
     <h3>{{user.nick}}</h3>
     <div *ngIf="!main">
@@ -12,13 +14,13 @@
 
     <h4>
       <div class="row">
-         <a [routerLink]="['Follow',{type:'following',id:user.id}]">
+         <a [routerLink]="['Profile',{type:'following',id:user.id}]">
               <div class="col-md-6 col-sm-6 col-xs-6">
                  <p>Siguiendo</p>
                   <p>{{nFollows}}</p>
               </div>
           </a>
-          <a [routerLink]="['Follow',{type:'followers',id:user.id}]">
+          <a [routerLink]="['Profile',{type:'followers',id:user.id}]">
               <div class="col-md-6 col-sm-6 col-xs-6">
                  <p>Seguidores</p>
                   <p>{{nFollowers}}</p>

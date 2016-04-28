@@ -22,6 +22,7 @@ export class PublicProfileComponent implements OnInit{
   private titulo : string;
   private userList = [];
 
+
   constructor(
     private uService:UserService,
     private routeParams:RouteParams,
@@ -30,6 +31,11 @@ export class PublicProfileComponent implements OnInit{
   ){}
 
   ngOnInit(){
+    this.refreshList(true);
+
+  }
+
+  refreshList(r:boolean){
     let tipo = this.routeParams.get('type');
     let id = this.routeParams.get('id');
 
@@ -56,10 +62,8 @@ export class PublicProfileComponent implements OnInit{
         l => this.userList = l,
         error => console.log(error)
       );
-      console.log(this.userList);
       this.showFollowers = true;
     }
-
   }
 
 

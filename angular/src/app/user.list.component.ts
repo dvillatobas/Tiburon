@@ -1,4 +1,4 @@
-import {Component,Input, OnInit}   from 'angular2/core';
+import {Component,Input, OnInit, Output, EventEmitter}   from 'angular2/core';
 import {ROUTER_DIRECTIVES,RouteParams, Router} from 'angular2/router';
 import {UserService, User } from './user.service';
 import {FollowService, UserList} from './follow.service';
@@ -14,6 +14,8 @@ export class UserListComponent implements OnInit{
   private userList;
   @Input()
   private type : string;
+  @Output()
+  private refresh = new EventEmitter<boolean>();
   private id : number;
   private
   constructor(
@@ -30,17 +32,22 @@ export class UserListComponent implements OnInit{
 
   }
 
-  refreshList(){
-    this.router.navigate(['Profile',this.routeParams.params]);
+  refreshList(b:boolean){
+    this.refresh.next(true);
   }
 
   seguir(id){
-    this.fService.addFollow(this.uService.getIdUserLogued(),id);
-    this.refreshList();
+    if(this.uService.getIdUserLogued()!=0){
+      this.fService.addFollow(this.uService.getIdUserLogued(),id);
+      this.refreshList(true);
+    }else{
+      this.router.navigate(['Login']);
+    }
+
   }
   noSeguir(id){
     this.fService.deleteFollow(this.uService.getIdUserLogued(),id);
-    this.refreshList();
+    this.refreshList(true);
   }
 
 }
