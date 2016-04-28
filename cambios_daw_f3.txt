@@ -4,7 +4,7 @@ sin loguear:
 	inicio: cuadro busqueda con productos.img
 	quitar novedades y quitar boton busqueda
 
-busqueda hacerla bien
+busqueda hacerla bien <= DAVID
 	que se queden los campos marcados
 
 logueado: 
