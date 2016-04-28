@@ -32,7 +32,7 @@ export class UserList{
 @Injectable()
 export class UserService{
   private users = [
-    new User(1,'david','david','villatobas',653546977,'dvd1880@gmail.com','1234','/imagenes/users/foto2.jpg','profesional','admin'),
+    new User(1,'david','david','villatobas',666888999,'dvd1880@gmail.com','1234','/imagenes/users/foto2.jpg','profesional','admin'),
     new User(2,'juan','juan','villatobas',653546977,'dvd1880@gmail.com','1234','/imagenes/users/foto1.jpg','particular','normal'),
     new User(3,'luis','luis','villatobas',653546977,'dvd1880@gmail.com','1234','/imagenes/users/foto1.jpg','profesional','normal'),
     new User(4,'raul','raul','villatobas',653546977,'dvd1880@gmail.com','1234','/imagenes/users/foto2.jpg','particular','normal')

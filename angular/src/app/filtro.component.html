@@ -93,9 +93,9 @@
             <h4>Tipo de vendedor</h4>
             <div class="checkbox checkbox-inline">
                 <label>
-                    <input ([ngModel])="vendedorP" type="checkbox" id="vend-part">Particular</label>
+                    <input ([ngModel])="vendedorP" [checked]="vendedorP" type="checkbox" id="vend-part">Particular</label>
                 <label>
-                    <input ([ngModel])="vendedorE" type="checkbox" id="vend-emp">Empresa</label>
+                    <input ([ngModel])="vendedorE" [checked]="vendedorP" type="checkbox" id="vend-emp">Empresa</label>
             </div>
         </div>
         <div class="row">

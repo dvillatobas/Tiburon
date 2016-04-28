@@ -1,6 +1,7 @@
 import {Injectable} from 'angular2/core';
 import {Observable} from 'rxjs/Observable';
 import {withObserver} from './utils';
+import {UserService, User} from './user.service';
 
 export class Follow{
   constructor(
@@ -24,6 +25,10 @@ export class UserList{
 @Injectable()
 export class FollowService{
 
+  constructor(
+    private uService: UserService
+  ){}
+
   private follows = [
     new Follow(1,2,1),
     new Follow(2,3,1),
@@ -46,6 +51,41 @@ export class FollowService{
     return withObserver(list);
   }
 
+  getUserListFollows(id:number){
+    let list=[];
+    let u:User;
+    let follows;
+    let followers;
+    let follow = [];
+    this.getListFollow(id).subscribe(
+      l => follow = l,
+      error => console.log(error)
+    );
+    for(let f of follow){
+        this.uService.getUser(f).subscribe(
+          user => u = user,
+          error => console.log(error)
+        );
+        this.getListFollow(+f).subscribe(
+          l => follows = l.length,
+          error => console.log(error)
+        );
+        this.getListFollowers(+f).subscribe(
+          l => followers = l.length,
+          error => console.log(error)
+        );
+        list.push(new UserList(
+          u.id,
+          this.isFollowing(this.uService.getIdUserLogued(),u.id),
+          u.nick,
+          follows,
+          followers,
+          u.img
+        ));
+    }
+    return withObserver(list);
+  }
+
   getListFollowers(id:number){
     let list=[];
     for(let f of this.follows){
@@ -55,6 +95,44 @@ export class FollowService{
     }
     return withObserver(list);
   }
+
+  getUserListFollowers(id:number){
+    let list=[];
+    let u:User;
+    let follows;
+    let followers;
+    let follow = [];
+    this.getListFollowers(id).subscribe(
+      l => follow = l,
+      error => console.log(error)
+    );
+    for(let f of follow){
+        this.uService.getUser(f).subscribe(
+          user => u = user,
+          error => console.log(error)
+        );
+        this.getListFollow(+f).subscribe(
+          l => follows = l.length,
+          error => console.log(error)
+        );
+        this.getListFollowers(+f).subscribe(
+          l => followers = l.length,
+          error => console.log(error)
+        );
+        list.push(new UserList(
+          u.id,
+          this.isFollowing(this.uService.getIdUserLogued(),u.id),
+          u.nick,
+          follows,
+          followers,
+          u.img
+        ));
+    }
+    return withObserver(list);
+  }
+
+
+
   isFollowing(id1,id2){
     for(let f of this.follows){
       if(id1 === f.idSeguidor && id2 === f.idSeguido){

@@ -89,8 +89,8 @@ export class ProductService {
   }
 
   getProductListSearch(palabra: string) {
-    let busq = palabra.split('/');
-    console.log(busq[0]);
+    let busq = palabra.split('+');
+
 
     let listFiltrada = [];
 
@@ -101,15 +101,15 @@ export class ProductService {
 
       }
     }
-    console.log(listFiltrada);
+
     if (listFiltrada.length == 0) {
-      window.confirm("No se han encontrado resultados");
       this.getProductList().subscribe(
           lista => listFiltrada = lista,
           error => console.log(error)
       );
+      return ;
 
-    }
+    }/*
     if(busq[2] != ''){
       let aux = [];
       for(let p of listFiltrada){
@@ -139,8 +139,8 @@ export class ProductService {
       }
       listFiltrada = [];
       listFiltrada = aux;
-    }
-
+    }*/
+    console.log(listFiltrada);
 
 
     return listFiltrada;

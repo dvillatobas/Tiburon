@@ -5,10 +5,11 @@ import {FollowService} from './follow.service';
 import {ProductService} from './product.service';
 import {ProductListImg} from './product.list.img.component';
 import {FiltroComponent} from './filtro.component';
+import {UserComponent} from './user.component';
 
 @Component({
   selector: 'main' ,
-  directives: [ROUTER_DIRECTIVES, ProductListImg, FiltroComponent],
+  directives: [ROUTER_DIRECTIVES, ProductListImg, FiltroComponent,UserComponent],
   templateUrl: 'app/main.component.html'
 
 })
@@ -63,8 +64,6 @@ export class MainComponent{
         error => console.log
       );
     }
-
-
   }
 
 

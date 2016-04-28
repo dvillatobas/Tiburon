@@ -1,4 +1,4 @@
-import {Component}   from 'angular2/core';
+import {Component,Input, OnInit}   from 'angular2/core';
 import {ROUTER_DIRECTIVES,RouteParams, Router} from 'angular2/router';
 import {UserService, User } from './user.service';
 import {FollowService, UserList} from './follow.service';
@@ -9,64 +9,29 @@ import {FollowService, UserList} from './follow.service';
   templateUrl: 'app/user.list.component.html'
 })
 
-export class UserListComponent{
-  private userList = [];
+export class UserListComponent implements OnInit{
+  @Input()
+  private userList;
+  @Input()
   private type : string;
   private id : number;
+  private
   constructor(
     private uService : UserService,
     private router : Router,
     private routeParams: RouteParams,
     private fService : FollowService
   ){
-    this.type = this.routeParams.get('type');
-    this.id = +this.routeParams.get('id');
-    this.refreshList();
+
+
+  }
+
+  ngOnInit(){
 
   }
 
   refreshList(){
-    let list = []
-    this.userList = [];
-    if(this.type === 'follow'){
-      this.fService.getListFollow(this.id).subscribe(
-        l => list = l,
-        error => console.log(error)
-      );
-    }else if(this.type === 'following'){
-      this.fService.getListFollowers(this.id).subscribe(
-        l => list = l,
-        error => console.log(error)
-      );
-    }
-    let u : User;
-    let followers;
-    let follow;
-    for(let id of list){
-
-      this.uService.getUser(id).subscribe(
-        usr => u = usr,
-        error => console.log(error)
-      );
-
-      this.fService.getListFollow(id).subscribe(
-        l => follow = l.length,
-        error => console.log(error)
-      );
-
-      this.fService.getListFollowers(id).subscribe(
-        l => followers = l.length,
-        error => console.log(error)
-      );
-      this.userList.push(new UserList(
-        id,
-        this.fService.isFollowing(this.uService.getIdUserLogued(),id),
-        u.nick,
-        follow,
-        followers,
-        u.img
-      ));
-    }
+    this.router.navigate(['Profile',this.routeParams.params]);
   }
 
   seguir(id){
