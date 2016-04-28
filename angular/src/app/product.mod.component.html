@@ -12,24 +12,29 @@
 				<div class="form-group">
 					<label for="Nombre">Nombre:</label>
 					<input [(ngModel)]="product.name" class="form-control" id="Nombre" />
+					<alert class="alert alert-danger alert-register" *ngIf="emptyName">Debes rellenar este campo</alert>
 				</div>
 				<div class="form-group">
 					<label for="km">Km / nuevo</label>
 					<input [(ngModel)]="product.used" class="form-control" id="km" />
+					<alert class="alert alert-danger alert-register" *ngIf="emptyUsed">Debes rellenar este campo</alert>
 				</div>
         <div class="form-group">
 					<label for="Ubicacion">Ubicación</label>
 					<input [(ngModel)]="product.location" class="form-control" id="Ubicacion" />
+					<alert class="alert alert-danger alert-register" *ngIf="emptyLocation">Debes rellenar este campo</alert>
 				</div>
           <div class="form-group">
             <div class="row">
               <div class="col-md-6">
                 <label for="precio">Precio</label>
       					<input [(ngModel)]="product.price" class="form-control" id="precio" />
+								<alert class="alert alert-danger alert-register" *ngIf="emptyPrice">Debes rellenar este campo</alert>
               </div>
               <div class="col-md-6">
                 <label for="year">Año</label>
                   <input [(ngModel)]="product.year" id="year" class="form-control" />
+									<alert class="alert alert-danger alert-register" *ngIf="emptyYear">Debes rellenar este campo</alert>
               </div>
 
             </div>
@@ -38,6 +43,7 @@
           <div class="form-group">
             <label for="comment">Descripción:</label>
             <textarea [(ngModel)]="product.description" class="form-control" rows="5" id="descripcion"></textarea>
+						<alert class="alert alert-danger alert-register" *ngIf="emptyDescription">Debes contener al menos 10 palabras</alert>
 
           </div>
 				<div class="row">
@@ -58,7 +64,7 @@
       </div>
       <br>
       <div>
-        <button (click)="guardar()" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span>Guardar</button>
+        <button (click)="comprobarGuardar()" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span>Guardar</button>
 
         <br>
         <button (click)="cancelar()" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-remove"></span>Cancelar</button>
