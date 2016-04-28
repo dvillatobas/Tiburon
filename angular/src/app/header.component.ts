@@ -35,6 +35,7 @@ export class HeaderComponent{
   }
   logout(){
     this.usr.logout();
+    this.router.navigate(['Login']);
     this.router.navigate(['Inicio']);
   }
   buscar(palabra: string){

@@ -4,18 +4,21 @@ import {UserService, User} from './user.service';
 import {FollowService} from './follow.service';
 import {ProductService} from './product.service';
 import {ProductListImg} from './product.list.img.component';
+import {FiltroComponent} from './filtro.component';
 
 @Component({
   selector: 'main' ,
-  directives: [ROUTER_DIRECTIVES, ProductListImg],
+  directives: [ROUTER_DIRECTIVES, ProductListImg, FiltroComponent],
   templateUrl: 'app/main.component.html'
 
 })
 
 export class MainComponent{
+  private newProducts = [];
+
+
   private user : User;
   private followProducts = [];
-  private newProducts = [];
   private follow : number;
   private following : number;
   constructor(
@@ -60,7 +63,7 @@ export class MainComponent{
         error => console.log
       );
     }
-    
+
 
   }
 
