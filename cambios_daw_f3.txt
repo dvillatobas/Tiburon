@@ -1,14 +1,14 @@
-unificar estilos <= CARLOS
+﻿unificar estilos <= CARLOS
 
 sin loguear:
 	inicio: cuadro busqueda con productos.img
 	quitar novedades y quitar boton busqueda
 
-busqueda hacerla bien <= DAVID
+<=cristian busqueda hacerla bien <= DAVID
 	que se queden los campos marcados
 
 logueado: 
-	cambiar novedades por busqueda y quitar boton busqueda
+	cambiar novedades por busqueda y quitar boton busqueda<=cristian
 	quitar boton favoritos <= CARLOS
 	añadir control de formulario, cambiar select ubicacion <= CARLOS
 	mensajeria: indicador de nuevos mensajes
