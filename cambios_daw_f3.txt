@@ -1,4 +1,4 @@
-unificar estilos
+unificar estilos <= CARLOS
 
 sin loguear:
 	inicio: cuadro busqueda con productos.img
@@ -9,11 +9,11 @@ busqueda hacerla bien
 
 logueado: 
 	cambiar novedades por busqueda y quitar boton busqueda
-	quitar boton favoritos
-	añadir control de formulario, cambiar select ubicacion
+	quitar boton favoritos <= CARLOS
+	añadir control de formulario, cambiar select ubicacion <= CARLOS
 	mensajeria: indicador de nuevos mensajes
-	comentarios de productos independientes
+	comentarios de productos independientes <= CARLOS
 	en lista de productos enlazar bien a mensajes/id
 
 por amor al arte:
-	añadir animaciones
+	añadir animaciones <= CARLOS
