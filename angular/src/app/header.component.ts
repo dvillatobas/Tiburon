@@ -21,9 +21,7 @@ export class HeaderComponent{
   inicio(){
     this.router.navigate(['Inicio']);
   }
-  novedades(){
-    this.router.navigate(['Novedades']);
-  }
+  
   misprod(){
     this.router.navigate(['MisProductos']);
   }

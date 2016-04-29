@@ -17,7 +17,7 @@ export class UserListComponent implements OnInit{
   @Output()
   private refresh = new EventEmitter<boolean>();
   private id : number;
-  private
+  private vacio : boolean = false;
   constructor(
     private uService : UserService,
     private router : Router,
@@ -29,7 +29,9 @@ export class UserListComponent implements OnInit{
   }
 
   ngOnInit(){
-
+    if(this.userList===undefined){
+      this.vacio = true;
+    }
   }
 
   refreshList(b:boolean){
