@@ -8,12 +8,12 @@ busqueda hacerla bien <= DAVID
 	que se queden los campos marcados
 
 logueado: 
-	cambiar novedades por busqueda y quitar boton busqueda
+	cambiar novedades por busqueda y quitar boton busqueda <= TERMINADO
 	quitar boton favoritos <= CARLOS
 	añadir control de formulario, cambiar select ubicacion <= CARLOS
 	mensajeria: indicador de nuevos mensajes
 	comentarios de productos independientes <= CARLOS
-	en lista de productos enlazar bien a mensajes/id
+	en lista de productos enlazar bien a mensajes/id <= JORGE
 
 por amor al arte:
 	añadir animaciones <= CARLOS
