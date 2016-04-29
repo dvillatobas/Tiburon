@@ -8,7 +8,7 @@ busqueda hacerla bien <= DAVID
 	que se queden los campos marcados
 
 logueado: 
-	cambiar novedades por busqueda y quitar boton busqueda <= JORGE
+	cambiar novedades por busqueda y quitar boton busqueda
 	quitar boton favoritos <= CARLOS
 	añadir control de formulario, cambiar select ubicacion <= CARLOS
 	mensajeria: indicador de nuevos mensajes
