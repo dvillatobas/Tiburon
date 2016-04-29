@@ -22,8 +22,6 @@ export class ProductListImg{
     private pService:ProductService,
     private routeParams:RouteParams,
     private router : Router
-  ){
-    console.log(this.products);
-  }
+  ){}
 
 }

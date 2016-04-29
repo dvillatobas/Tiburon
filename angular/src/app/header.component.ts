@@ -21,9 +21,7 @@ export class HeaderComponent{
   inicio(){
     this.router.navigate(['Inicio']);
   }
-  novedades(){
-    this.router.navigate(['Novedades']);
-  }
+  
   misprod(){
     this.router.navigate(['MisProductos']);
   }
@@ -35,6 +33,7 @@ export class HeaderComponent{
   }
   logout(){
     this.usr.logout();
+    this.router.navigate(['Login']);
     this.router.navigate(['Inicio']);
   }
   buscar(palabra: string){
