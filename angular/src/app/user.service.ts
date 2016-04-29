@@ -118,6 +118,48 @@ export class UserService{
       return 0;
     }
   }
+  getUserListSearch(palabra:string){
+    let busq = palabra.split('+');
+    let listFiltrada = [];
+    for (let i = 0; i < this.users.length; i++) {
+      if ((this.users[i].nick.indexOf(busq[0])) > -1) {
+        listFiltrada.push(this.users[i]);
+      }
+    }
+    if(listFiltrada.length===0){
+      return withObserver([]);
+    }
+    if(busq[6] === 'true' && busq[7] === 'false'){
+      let aux = [];
+      let u : User;
+      for(let u of listFiltrada){
+
+        if(u.tipo == 'particular'){
+          aux.push(u);
+        }
+      }
+      listFiltrada = [];
+      listFiltrada = aux;
+    }
+    if(busq[7] === 'true' && busq[6] === 'false'){
+      let aux = [];
+      let u : User;
+      for(let u of listFiltrada){
+
+        if(u.tipo == 'profesional'){
+          aux.push(u);
+        }
+      }
+      listFiltrada = [];
+      listFiltrada = aux;
+    }
+    if(busq[7] === 'false' && busq[6] === 'false'){
+      return withObserver([]);
+    }
+
+
+    return withObserver(listFiltrada);
+  }
 
 
 }

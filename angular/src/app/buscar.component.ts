@@ -43,7 +43,7 @@ export class BuscarComponent implements OnInit{
     }else if(p[1]==='user'){
       this.prods = false;
       let ulist = [];
-      this.uService.getUserList().subscribe(
+      this.uService.getUserListSearch(this.palabra).subscribe(
         l => ulist = l,
         error => console.log(error)
       );

@@ -101,7 +101,7 @@ export class ProductService {
       }
     }
     if(listFiltrada.length===0){
-      return withObserver(listFiltrada);
+      return withObserver([]);
     }
     if(busq[2] != ''){
       let aux = [];
