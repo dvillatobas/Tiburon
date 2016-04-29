@@ -14,8 +14,8 @@
         </div>
         <div id="form-precio" class="form-group form-group-height form-inline col-xs-12 col-sm-6 col-md-12 col-lg-12">
             <h4>Precio:</h4>
-            <input type="text" ([ngModel])="desde" id="desde" class="form-control form-small" placeholder="Desde...">
-            <input type="text" ([ngModel])="hasta" id="hasta" class="form-control form-small" placeholder="Hasta...">
+            <input type="text" [(ngModel)]="desde" id="desde" class="form-control form-small" placeholder="Desde...">
+            <input type="text" [(ngModel)]="hasta" id="hasta" class="form-control form-small" placeholder="Hasta...">
         </div>
         <div id="form-tipo-prod" class="form-group form-group-height col-xs-12 col-sm-6 col-md-12 col-lg-12">
             <h4>Tipo de anuncio:</h4>
@@ -33,7 +33,7 @@
         </div>
         <div class="form-group form-group-height col-xs-12 col-sm-6 col-md-12 col-lg-12">
             <h4>Provincia:</h4>
-            <select class="form-control" ([ngModel])="ubicacion" name="provincia" id="provincias">
+            <select class="form-control" [(ngModel)]="ubicacion" name="provincia" id="provincias">
                 <option value='0'>(Seleccionar)</option>
                 <option value='Álava'>Álava</option>
                 <option value='Albacete'>Albacete</option>
@@ -93,9 +93,9 @@
             <h4>Tipo de vendedor</h4>
             <div class="checkbox checkbox-inline">
                 <label>
-                    <input ([ngModel])="vendedorP" [checked]="vendedorP" type="checkbox" id="vend-part">Particular</label>
+                    <input [(ngModel)]="vendedorP" [checked]="vendedorP" type="checkbox" id="vend-part">Particular</label>
                 <label>
-                    <input ([ngModel])="vendedorE" [checked]="vendedorP" type="checkbox" id="vend-emp">Empresa</label>
+                    <input [(ngModel)]="vendedorE" [checked]="vendedorE" type="checkbox" id="vend-emp">Empresa</label>
             </div>
         </div>
         <div class="row">

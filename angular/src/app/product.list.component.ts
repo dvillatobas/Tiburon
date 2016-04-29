@@ -26,13 +26,13 @@ export class ProductListComponent{
     private mService : MensajesService
   ){
     this.word = routeParams.get('palabra');
-    
+
   }
 
   ngOnInit(){
     if(this.router.hostComponent.name === 'BuscarComponent'){
       if(this.word!=null){
-        this.products = this.pService.getProductListSearch(this.word);
+    //    this.products = this.pService.getProductListSearch(this.word);
       }
       else{
         this.pService.getProductList().subscribe(

@@ -27,8 +27,12 @@ export class FiltroComponent {
     private rParams:RouteParams
   ){
     if(this.rParams.get('palabra')===null){
+      this.busqueda = '';
       this.userProd = 'product';
+      this.desde = '';
+      this.hasta = '';
       this.tipo = 'ambos';
+      this.ubicacion='';
       this.vendedorP = true;
       this.vendedorE = true;
     }else{
@@ -40,17 +44,12 @@ export class FiltroComponent {
       this.hasta = busq[3];
       this.tipo = busq[4];
       this.ubicacion = busq[5];
-      this.vendedorP = busq[6];
-      this.vendedorE = busq[7];
+      this.vendedorP = (busq[6]==='true');
+      this.vendedorE = (busq[7]==='true');
 
     }
 
   }
-
-
-
-
-
 
   buscar(){
     let palabra = this.busqueda + '+' + this.userProd+ '+' +this.desde+ '+' +this.hasta+ '+' +this.tipo+ '+' +this.ubicacion+ '+' +this.vendedorP+ '+' +this.vendedorE;

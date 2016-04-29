@@ -54,9 +54,8 @@ export class FollowService{
   getUserListFollows(id:number){
     let list=[];
     let u:User;
-    let follows;
-    let followers;
     let follow = [];
+    let ul : UserList;
     this.getListFollow(id).subscribe(
       l => follow = l,
       error => console.log(error)
@@ -66,22 +65,11 @@ export class FollowService{
           user => u = user,
           error => console.log(error)
         );
-        this.getListFollow(+f).subscribe(
-          l => follows = l.length,
+        this.getUserList(u).subscribe(
+          l => ul = l,
           error => console.log(error)
         );
-        this.getListFollowers(+f).subscribe(
-          l => followers = l.length,
-          error => console.log(error)
-        );
-        list.push(new UserList(
-          u.id,
-          this.isFollowing(this.uService.getIdUserLogued(),u.id),
-          u.nick,
-          follows,
-          followers,
-          u.img
-        ));
+        list.push(ul);
     }
     return withObserver(list);
   }
@@ -99,9 +87,8 @@ export class FollowService{
   getUserListFollowers(id:number){
     let list=[];
     let u:User;
-    let follows;
-    let followers;
     let follow = [];
+    let ul : UserList;
     this.getListFollowers(id).subscribe(
       l => follow = l,
       error => console.log(error)
@@ -111,27 +98,36 @@ export class FollowService{
           user => u = user,
           error => console.log(error)
         );
-        this.getListFollow(+f).subscribe(
-          l => follows = l.length,
+        this.getUserList(u).subscribe(
+          l => ul = l,
           error => console.log(error)
         );
-        this.getListFollowers(+f).subscribe(
-          l => followers = l.length,
-          error => console.log(error)
-        );
-        list.push(new UserList(
-          u.id,
-          this.isFollowing(this.uService.getIdUserLogued(),u.id),
-          u.nick,
-          follows,
-          followers,
-          u.img
-        ));
+        list.push(ul);
     }
     return withObserver(list);
   }
 
-
+  getUserList(u:User){
+    let follows;
+    let followers;
+    this.getListFollow(u.id).subscribe(
+      l => follows = l.length,
+      error => console.log(error)
+    );
+    this.getListFollowers(u.id).subscribe(
+      l => followers = l.length,
+      error => console.log(error)
+    );
+    let ul = new UserList(
+      u.id,
+      this.isFollowing(this.uService.getIdUserLogued(),u.id),
+      u.nick,
+      follows,
+      followers,
+      u.img
+    );
+    return withObserver(ul);
+  }
 
   isFollowing(id1,id2){
     for(let f of this.follows){
