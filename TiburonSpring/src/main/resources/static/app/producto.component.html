@@ -1,0 +1,74 @@
+<div class="container-fluid cont">
+  <h2 *ngIf="error" class="text-center center-block">Producto no encontrado</h2>
+  <div class="row" *ngIf="!error">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-12" id="back">
+          <a (click)="volver()">
+            <button class="btn btn-default button-back glyphicon glyphicon-chevron-left" aria-label="Left Align">Volver
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-7 col-md-7 col-sm-7">
+        <img [src]="product.img" class="img-responsive img-thumbnail img-rounded" alt="articulo">
+      </div>
+      <div class="col-lg-5 col-md-5 col-sm-5">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2 class="panel-title">{{product.name}}</h2>
+
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-lg-6 col-md-6">
+                <div class="seller">
+                  <a [routerLink]="['Profile',{type: 'profile', id:user.id}]">
+                    <img [src]="user.img"  class="img-responsive img-circle center-block" alt="perfilVendedor"> {{user.nick}}
+                  </a>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6">
+                <div class="seller prize">
+                  <span>{{product.price}} €</span>
+                </div>
+              </div>
+            </div>
+            <hr>
+
+            <div class="message">
+              <button (click)="mensaje()" class="btn btn-default center-block btn-message">Enviar Mensaje</button>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-7 col-md-7">
+
+        <div>
+          <h3>Descripción</h3>
+          <p>{{product.description}}</p>
+        </div>
+        <div class="valoraciones">
+          <h4 class="text-center">Comentarios</h4>
+          <valoration *ngFor="#comment of comments" [comment]="comment">
+          </valoration>
+          <div class="form-group">
+            <label for="valoracion">Valoracion:</label>
+  					<input #valoracion class="form-control" id="valoracion" placeholder="Bueno, Malo o Regular"/>
+            <label for="comment">Descripción:</label>
+            <textarea #descripcion class="form-control" rows="5" id="descripcion"></textarea>
+          </div>
+          <button type="button" (click)="addValoration(valoracion.value,descripcion.value)">Agregar comentario</button>
+        </div>
+        <hr>
+      </div>
+    </div>
+    <div class="col-lg-5 col-md-5"></div>
+  </div>
+</div>

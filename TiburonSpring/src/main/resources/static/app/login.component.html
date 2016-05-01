@@ -1,0 +1,90 @@
+
+<div class="row login">
+       <div class="col-md-2 text-center" id="registro">
+           <h4>Foto de perfil</h4>
+           <img #imgR alt="perfil" src="http://lorempixel.com/140/140" class="img-circle center-block" />
+           <br>
+           <button class="btn btn-default center-block" type="file">Seleccionar</button>
+           <br>
+       </div>
+       <div class="col-md-5" id="registro">
+           <h3 class="text-center">Crea un nuevo usuario</h3>
+           <alert *ngIf="userCreated" class="alert alert-success alert-register center-block text-center">Usuario creado correctamente</alert>
+           <form role="form">
+               <div class="form-group">
+                   <label for=formNick>Nick/Usuario</label>
+                   <input #nickR type="text" class="form-control" id="formNick">
+                   <alert class="alert alert-danger alert-register" *ngIf="failNickFormat">Nick demasiado corto</alert>
+                   <alert class="alert alert-danger alert-register" *ngIf="failNickExist">Este nick ya existe</alert>
+               </div>
+               <div class="form-group">
+                   <label for=formName>Nombre</label>
+                   <input #nombreR type="text" class="form-control" id="formName">
+               </div>
+               <div class="form-group">
+                   <label for=formLastname>Apellidos</label>
+                   <input #apellidosR type="text" class="form-control" id="formLastname">
+               </div>
+               <div class="form-group">
+                   <label for=formPhone>Telefono</label>
+                   <input #telR type="tel" class="form-control" id="formPhone">
+               </div>
+               <div class="form-group">
+                   <label for="formType">Tipo de usuario:</label>
+                   <select #typeR name="Tipo" id="formType">
+                       <option value="0">(Seleccionar)</option>
+                       <option value="particular">Particular</option>
+                       <option value="profesional">Profesional</option>
+                   </select>
+                   <alert class="alert alert-danger alert-register" *ngIf="failType">Selecciona una opción</alert>
+               </div>
+               <div class="form-group">
+                   <label for=formEmail>Email</label>
+                   <input #emailR type="email" class="form-control" id="formEmail">
+                   <alert class="alert alert-danger alert-register" *ngIf="failEmailExist">Este email ya existe</alert>
+                   <alert class="alert alert-danger alert-register" *ngIf="failEmailFormat">Formato incorrecto</alert>
+               </div>
+
+               <div class="form-group">
+                   <label for=formEmailR>Repetir email</label>
+                   <input #email2R type="email" class="form-control" id="formEmailR">
+                   <alert class="alert alert-danger alert-register" *ngIf="failEmailEquals">Los emails no coinciden</alert>
+
+               </div>
+
+               <div class="form-group">
+                   <label for="formPassword">Contraseña</label>
+                   <input #passR type="password" class="form-control" id="formPassword">
+                   <alert class="alert alert-danger alert-register" *ngIf="failPassFormat">Formato de contraseña incorrecto</alert>
+
+               </div>
+               <div class="form-group">
+                   <label for="formPasswordR">Repetir contraseña</label>
+                   <input #pass2R type="password" class="form-control" id="formPasswordR">
+                   <alert class="alert alert-danger alert-register" *ngIf="failPassEquals">Las contraseñas no coinciden</alert>
+
+               </div>
+               <button id="form-button" (click)="registrar(nickR.value,nombreR.value,apellidosR.value,telR.value,imgR.value,typeR.value,emailR.value,email2R.value,passR.value,pass2R.value)" class="btn btn-default singin center-block">Registrar</button>
+           </form>
+           <br>
+
+       </div>
+
+       <div class="col-md-5">
+           <h3 class="text-center">Inicia sesión</h3>
+           <form>
+               <div class="input-group">
+                   <span class="input-group-addon glyphicon glyphicon-user" id="basic-addon1"></span>
+                   <input type="text" #nick class="form-control" placeholder="Usuario" aria-describedby="basic-addon1">
+               </div>
+               <div class="input-group">
+                   <span class="input-group-addon glyphicon glyphicon-lock" id="basic-addon1"></span>
+                   <input type="password" #pass class="form-control" placeholder="Contraseña" aria-describedby="basic-addon1">
+               </div>
+               <div class="input-group">
+                   <alert class="alert alert-danger alert-register" *ngIf="failLogin">Usuario y/o contraseña incorrecta</alert>
+                   <div (click)="entrar(nick.value,pass.value)" class="div-btn btn btn-default center-block">Entrar</div>
+               </div>
+           </form>
+       </div>
+   </div>
