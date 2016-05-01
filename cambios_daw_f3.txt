@@ -27,7 +27,7 @@ por amor al arte:
 
  - En el formulario de nuevo/editar producto:
  	- select con ubicacion (se que lo pone arriba tb) <= HECHO
- 	- que al seleccionar el tipo de producto se tenga en cuenta al crearlo (ahora no lo hace)
+ 	- que al seleccionar el tipo de producto se tenga en cuenta al crearlo (ahora no lo hace) <= HECHO
  	- para asignar id al nuevo producto usar funcion setId ya que te da un id único (si no se hace asi, no se puede ver el producto) <= HECHO
  	- si el año queda vacio, no se mostrara año (la plantilla lo contempla) indicar que no es necesario rellenarlo <= HECHO
  	- si en km pones 0 la plantilla dira que es nuevo, indicarlo en el formulario

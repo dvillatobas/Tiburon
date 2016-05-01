@@ -14,6 +14,7 @@ export class ProductModComponent{
 
   private nuevo : boolean=true;
   product : Product;
+  private emptyType:boolean;
   private emptyName:boolean;
   private emptyUsed:boolean;
   private emptyLocation:boolean;
@@ -50,6 +51,11 @@ export class ProductModComponent{
 
   comprobarGuardar(){
     //this.resetEmpty();
+    console.log(this.product.type);
+    if(this.product.type == ''){
+      this.emptyType = true;
+      return 0;
+    }
     if(this.product.name === ''){
       this.emptyName=true;
       return 0;

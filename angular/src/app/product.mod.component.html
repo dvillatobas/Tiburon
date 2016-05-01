@@ -5,8 +5,9 @@
 		</div>
 		<div class="col-md-7">
       <div class="radio">
-          <label class="radio-inline"><input type="radio" name="optradio1">Vehiculo</label>
-          <label class="radio-inline"><input type="radio" name="optradio2">Recambio</label>
+          <label class="radio-inline"><input type="radio" name="car" (click)="product.type = 'car'" [checked]="product.type =='car'">Vehiculo</label>
+          <label class="radio-inline"><input type="radio" name="piece" (click)="product.type = 'piece'" [checked]="product.type == 'piece'">Recambio</label>
+					<alert class="alert alert-danger alert-register" *ngIf="emptyType">Debes rellenar este campo</alert>
       </div>
 			<form role="form">
 				<div class="form-group">

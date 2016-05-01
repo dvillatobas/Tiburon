@@ -202,6 +202,7 @@ export class ProductService {
         product.used = 'Nuevo';
       }
       product.idUser = this.uService.getIdUserLogued();
+      product.img = '/imagenes/1.jpg';
       this.products.push(product);
     }
     return withObserver(product);
