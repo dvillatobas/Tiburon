@@ -2,7 +2,7 @@
 <!-- SI NO ESTA LOGUEADO -->
 <div class="row" *ngIf="!uService.logueado">
   <div class="novedades">
-    <div class="col-md-3 busqueda">
+    <div class="col-md-3">
       <filtros-busqueda></filtros-busqueda>
     </div>
     <div class="col-sm-12 col-md-9">
@@ -15,30 +15,6 @@
 <div class="row" *ngIf="uService.logueado">
   <div class="col-sm-4 col-md-3 user">
     <user [user]="user" [uso]="'main'"></user>
-
-    <div class="thumbnail">
-      <img [src]="user.img" alt="perfil">
-      <div class="caption text-center">
-        <h3>{{user.nick}}</h3>
-        <h4>
-          <div class="row">
-             <a [routerLink]="['Follow',{type:'follow',id:user.id}]">
-                  <div class="col-md-6 col-sm-6 col-xs-6">
-                     <p>Siguiendo</p>
-                      <p>{{follow}}</p>
-                  </div>
-              </a>
-              <a [routerLink]="['Follow',{type:'following',id:user.id}]">
-                  <div class="col-md-6 col-sm-6 col-xs-6">
-                     <p>Seguidores</p>
-                      <p>{{following}}</p>
-                  </div>
-              </a>
-          </div>
-      </h4>
-      </div>
-    </div>
-
   </div>
   <!--ANUNCIOS -->
   <div class="col-sm-8 col-md-9">
