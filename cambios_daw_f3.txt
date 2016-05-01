@@ -9,8 +9,8 @@ busqueda hacerla bien <= DAVID
 
 logueado: 
 	cambiar novedades por busqueda y quitar boton busqueda <= TERMINADO
-	quitar boton favoritos <= CARLOS
-	añadir control de formulario, cambiar select ubicacion <= CARLOS
+	quitar boton favoritos <= TERMINADO
+	añadir control de formulario, cambiar select ubicacion <= TERMINADO
 	mensajeria: indicador de nuevos mensajes
 	comentarios de productos independientes <= CARLOS
 	en lista de productos enlazar bien a mensajes/id <= JORGE
@@ -26,10 +26,10 @@ por amor al arte:
 //////////////////////// ACTUALIZACION ///////////////////////////
 
  - En el formulario de nuevo/editar producto:
- 	- select con ubicacion (se que lo pone arriba tb)
+ 	- select con ubicacion (se que lo pone arriba tb) <= HECHO
  	- que al seleccionar el tipo de producto se tenga en cuenta al crearlo (ahora no lo hace)
- 	- para asignar id al nuevo producto usar funcion setId ya que te da un id único (si no se hace asi, no se puede ver el producto)
- 	- si el año queda vacio, no se mostrara año (la plantilla lo contempla) indicar que no es necesario rellenarlo
+ 	- para asignar id al nuevo producto usar funcion setId ya que te da un id único (si no se hace asi, no se puede ver el producto) <= HECHO
+ 	- si el año queda vacio, no se mostrara año (la plantilla lo contempla) indicar que no es necesario rellenarlo <= HECHO
  	- si en km pones 0 la plantilla dira que es nuevo, indicarlo en el formulario
 
   - En la vista de producto se muestra menos informacion que en el listado de productos de la busqueda

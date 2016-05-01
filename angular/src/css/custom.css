@@ -313,8 +313,8 @@ li>.glyphicon {
 /* --- CSS FOOTER --- */
 
 .navbar-foot {
-    background-color: rgba(67, 33, 67, 0.79);
-    color: white;
+    background: rgba(67, 33, 67, 0.15);
+    color: #000;
 }
 
 

@@ -20,7 +20,9 @@ export class ProductModComponent{
   private emptyPrice:boolean;
   private emptyYear:boolean;
   private emptyDescription:boolean;
-
+  private numericUsed:boolean;
+  private numericPrice:boolean;
+  private numericYear:boolean;
 
 
 
@@ -51,21 +53,42 @@ export class ProductModComponent{
     if(this.product.name === ''){
       this.emptyName=true;
       return 0;
-    }else if(this.product.used === undefined){
+    }
+    if(this.product.used === undefined){
       this.emptyUsed=true;
       return 0;
-    }else if(this.product.location === ''){
+      //this.product.used = "nuevo";
+    }
+    if(this.product.location === ''){
       this.emptyLocation=true;
       return 0;
-    }else if(this.product.price === undefined){
+    }
+    if(this.product.price === undefined){
       this.emptyPrice=true;
       return 0;
-    }else if(this.product.year === undefined){
-      this.emptyYear=true;
-      return 0;
-    }else if(this.product.description.length<=10){
+    }
+    if(this.product.year === undefined){
+      this.product.year = "Sin indicar";
+    }
+    if(this.product.description.length<=10){
       this.emptyDescription = true;
       return 0;
+    }
+
+    if(!this.isNumeric(this.product.used)){
+      this.numericUsed=true;
+      return 0;
+    }
+    if(!this.isNumeric(this.product.price)){
+      this.numericPrice=true;
+      return 0;
+    }
+
+    if(this.product.year != undefined){
+      if(!this.isNumeric(this.product.year)){
+        this.numericYear=true;
+        return 0;
+      }
     }
 
     this.pservice.saveProduct(this.product);
@@ -74,13 +97,10 @@ export class ProductModComponent{
 
   }
 
-  resetEmpty(){
-    this.emptyLocation = true;
-    this.emptyUsed = true;
-    this.emptyPrice = true;
-    this.emptyYear = true;
-    this.emptyDescription = true;
-  }
+  private isNumeric(num:any) {
+  return !isNaN(parseFloat(num)) && isFinite(num);
+}
+
 
 
 }

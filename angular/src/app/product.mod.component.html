@@ -11,18 +11,18 @@
 			<form role="form">
 				<div class="form-group">
 					<label for="Nombre">Nombre:</label>
-					<input [(ngModel)]="product.name" class="form-control" id="Nombre" />
+					<input [(ngModel)]="product.name" class="form-control" id="Nombre" placeholder="Nombre de tu producto" />
 					<alert class="alert alert-danger alert-register" *ngIf="emptyName">Debes rellenar este campo</alert>
 				</div>
 				<div class="form-group">
 					<label for="km">Km / nuevo</label>
-					<input [(ngModel)]="product.used" class="form-control" id="km" />
+					<input [(ngModel)]="product.used" class="form-control" id="km" placeHolder="Si indicas 0 Km tu producto se mostrará como nuevo"/>
 					<alert class="alert alert-danger alert-register" *ngIf="emptyUsed">Debes rellenar este campo</alert>
+					<alert class="alert alert-danger alert-register" *ngIf="numericUsed">Debe ser rellenado con datos numericos</alert>
 				</div>
         <div class="form-group">
-					<label for="Ubicacion">Ubicación</label>
-					<select class="form-control" #ubicacion [(ngModel)]="product.location" id="Ubicacion">
-							<option value='0'>(Seleccionar)</option>
+					<label for="Ubicacion" >Ubicación</label>
+					<select class="form-control" #ubicacion [(ngModel)]="product.location" id="Ubicacion" value="Selecciona tu provincia">
 							<option value='Álava'>Álava</option>
 							<option value='Albacete'>Albacete</option>
 							<option value='Alicante'>Alicante/Alacant</option>
@@ -82,13 +82,14 @@
             <div class="row">
               <div class="col-md-6">
                 <label for="precio">Precio</label>
-      					<input [(ngModel)]="product.price" class="form-control" id="precio" />
+      					<input [(ngModel)]="product.price" class="form-control" id="precio" placeHolder="Indica un precio de venta" />
 								<alert class="alert alert-danger alert-register" *ngIf="emptyPrice">Debes rellenar este campo</alert>
+								<alert class="alert alert-danger alert-register" *ngIf="numericPrice">Debes ser rellenado con datos numericos</alert>
               </div>
               <div class="col-md-6">
                 <label for="year">Año</label>
                   <input [(ngModel)]="product.year" id="year" class="form-control" />
-									<alert class="alert alert-danger alert-register" *ngIf="emptyYear">Debes rellenar este campo</alert>
+									<alert class="alert alert-danger alert-register" *ngIf="numericYear">Debes ser rellenado con datos numericos</alert>
               </div>
 
             </div>
@@ -96,7 +97,7 @@
           </div>
           <div class="form-group">
             <label for="comment">Descripción:</label>
-            <textarea [(ngModel)]="product.description" class="form-control" rows="5" id="descripcion"></textarea>
+            <textarea [(ngModel)]="product.description" class="form-control" rows="5" id="descripcion"placeHolder="Indica una descripcion para tu producto"></textarea>
 						<alert class="alert alert-danger alert-register" *ngIf="emptyDescription">Debes contener al menos 10 palabras</alert>
 
           </div>

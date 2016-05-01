@@ -189,7 +189,7 @@ export class ProductService {
     if (product.id) {
       let oldProduct = this.products.filter(c => c.id === product.id)[0];
       oldProduct.name = product.name;
-      oldProduct.used = product.used;
+        oldProduct.used = product.used;
       oldProduct.location = product.location;
       oldProduct.price = product.price;
       oldProduct.year = product.year;
@@ -197,7 +197,10 @@ export class ProductService {
       oldProduct.img = product.img;
     }
     else {
-      product.id = this.products.length + 1;
+      product.id = this.setId();
+      if((product.used == 0) ){
+        product.used = 'Nuevo';
+      }
       product.idUser = this.uService.getIdUserLogued();
       this.products.push(product);
     }
