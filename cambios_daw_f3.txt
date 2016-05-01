@@ -11,7 +11,7 @@ logueado:
 	cambiar novedades por busqueda y quitar boton busqueda <= TERMINADO
 	quitar boton favoritos <= TERMINADO
 	añadir control de formulario, cambiar select ubicacion <= TERMINADO
-	mensajeria: indicador de nuevos mensajes
+	mensajeria: indicador de nuevos mensajes <= TERMINADO
 	comentarios de productos independientes <= CARLOS
 	en lista de productos enlazar bien a mensajes/id <= JORGE
 
