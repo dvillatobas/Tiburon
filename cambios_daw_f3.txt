@@ -12,7 +12,7 @@ logueado:
 	quitar boton favoritos <= TERMINADO
 	añadir control de formulario, cambiar select ubicacion <= TERMINADO
 	mensajeria: indicador de nuevos mensajes
-	comentarios de productos independientes <= CARLOS
+	comentarios de productos independientes <= TERMINADO
 	en lista de productos enlazar bien a mensajes/id <= JORGE
 
 
