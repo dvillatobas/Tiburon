@@ -1,6 +1,6 @@
 CACHE MANIFEST
 # sw.bundle: ng-cli
-# sw.version: 8f5f89530127b12e0b6c00948d7edff9da18f581
+# sw.version: 3c0c2acda628e241a3e47fb0e1cdbb7279b0a501
 # sw.file.hash: f496adc80e711631a36a98b9c7092885200cb009
 /app/app.component.html
 # sw.file.hash: 00155a58bc716bdb6d30ea082d19fd49ca660b6c
@@ -47,13 +47,13 @@ CACHE MANIFEST
 /app/header.component.js.map
 # sw.file.hash: 258963c2e58631dab24a96d13d1cda57136e9393
 /app/header.component.ts
-# sw.file.hash: f5c2f8d94fe22a290c7af3b033780d4dea0e61f8
+# sw.file.hash: 5fe1c4309dfb8f98a705bbc9535db2fa7ddd0b4c
 /app/login.component.html
-# sw.file.hash: 21e31061553cb659a5c30e6ba1b64ea4d5a1c65f
+# sw.file.hash: a5f584a4ab8d8078451e0e680a19d22e72669b4d
 /app/login.component.js
-# sw.file.hash: 1576c193263eeca5dced32ab345276618f8dc447
+# sw.file.hash: b81644c481dd9adf6ce8ee71b57e03d4710b2cbe
 /app/login.component.js.map
-# sw.file.hash: 223535f0742a7f04342947099c6d09acb4ffb6f8
+# sw.file.hash: 979d6a1053c1c2741e3dc9b499ec29747f683104
 /app/login.component.ts
 # sw.file.hash: d36e3a0353e386dcf318c0b315b70608674be7db
 /app/main.component.html

@@ -39,8 +39,9 @@ System.register(['angular2/core', 'angular2/router', './user.service'], function
                     this.userCreated = false;
                     this.failLogin = false;
                 }
-                LoginComponent.prototype.entrar = function (nick, pass) {
+                LoginComponent.prototype.entrar = function (event, nick, pass) {
                     var _this = this;
+                    event.preventDefault();
                     this.resetAlarms();
                     this.uService.getUserByNick(nick).subscribe(function (user) {
                         if (user != undefined && user.nick === nick && user.pass === pass) {

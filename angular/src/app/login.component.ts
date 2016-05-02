@@ -28,7 +28,8 @@ export class LoginComponent{
     private uService : UserService
   ){}
 
-  entrar(nick:string,pass:string){
+  entrar(event:any,nick:string,pass:string){
+    event.preventDefault();
     this.resetAlarms();
     this.uService.getUserByNick(nick).subscribe(
       user => {

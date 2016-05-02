@@ -25,3 +25,5 @@
 /angular/e2e/*.map
 
 /angular/server.sh
+
+/TiburonSpring/src/main/resources/
