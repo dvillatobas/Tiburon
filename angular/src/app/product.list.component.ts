@@ -51,9 +51,9 @@ export class ProductListComponent{
 
 
 
-  mensaje(){
+  mensaje(idUser){
     if(this.uService.getIdUserLogued()){
-      this.router.navigate(['Mensajes']);
+      this.router.navigate(['Mensajes', { id: idUser }]);
     }else{
       this.router.navigate(['Login']);
     }
