@@ -1,11 +1,12 @@
 import {Component} from 'angular2/core';
-import {Router} from 'angular2/router';
+import {Router,ROUTER_DIRECTIVES} from 'angular2/router';
 import {UserService} from './user.service';
 import {MensajesService} from './mensajes.service';
 
 @Component({
   selector: 'header',
-  templateUrl: 'app/header.component.html'
+  templateUrl: 'app/header.component.html',
+  directives: [ROUTER_DIRECTIVES]
 
 })
 
@@ -21,9 +22,7 @@ export class HeaderComponent{
   inicio(){
     this.router.navigate(['Inicio']);
   }
-  novedades(){
-    this.router.navigate(['Novedades']);
-  }
+
   misprod(){
     this.router.navigate(['MisProductos']);
   }
@@ -35,10 +34,7 @@ export class HeaderComponent{
   }
   logout(){
     this.usr.logout();
-    this.router.navigate(['Inicio']);
   }
-  buscar(palabra: string){
-    this.router.navigate(['Buscar',{palabra: palabra}]);
-  }
+  
 
 }

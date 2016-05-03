@@ -1,4 +1,4 @@
-import {Component}   from 'angular2/core';
+import {Component,Input}   from 'angular2/core';
 import {ROUTER_DIRECTIVES,RouteParams, Router} from 'angular2/router';
 import {Product,ProductService} from './product.service';
 import {UserService} from './user.service';
@@ -11,7 +11,9 @@ import {MensajesService} from './mensajes.service';
 })
 
 export class ProductListComponent{
-  private products: Product[];
+  @Input()
+  private products = [];
+
   private edit : boolean;
   private contact : boolean;
   private word = '';
@@ -24,12 +26,13 @@ export class ProductListComponent{
     private mService : MensajesService
   ){
     this.word = routeParams.get('palabra');
+
   }
 
   ngOnInit(){
     if(this.router.hostComponent.name === 'BuscarComponent'){
       if(this.word!=null){
-        this.products = this.pService.getProductListSearch(this.word);
+    //    this.products = this.pService.getProductListSearch(this.word);
       }
       else{
         this.pService.getProductList().subscribe(

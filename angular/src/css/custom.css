@@ -29,6 +29,9 @@ a:hover{
     margin-right: 2px;
     display: inline-block;
 }
+.busqueda{
+  padding-left: 0px;
+}
 
 #busqueda,
 #provincias {
@@ -41,12 +44,10 @@ a:hover{
 }
 
 aside, .cuadro {
-    background: rgba(67, 33, 67, 0.59);
-    border-radius: 5px;
+    background: rgba(67, 33, 67, 0.15);
     padding-top: 1px;
     padding-bottom: 1px;
     margin-bottom: 25px;
-    color: #fff;
 }
 .cuadro-ancho{
     padding-top: 10px;
@@ -312,8 +313,8 @@ li>.glyphicon {
 /* --- CSS FOOTER --- */
 
 .navbar-foot {
-    background-color: rgba(67, 33, 67, 0.79);
-    color: white;
+    background: rgba(67, 33, 67, 0.15);
+    color: #000;
 }
 
 

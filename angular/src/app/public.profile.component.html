@@ -1,30 +1,13 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-4 col-md-3">
-      <div class="thumbnail">
-        <img [src]="user.img" alt="perfil">
-        <div class="caption text-center">
-          <h3>{{user.nick}}</h3>
-          <h4 *ngIf="user.tipo=='profesional'"><span class="perf-icon glyphicon glyphicon-briefcase"></span>Profesional</h4>
-          <h4 *ngIf="user.tipo=='particular'"><span class="perf-icon glyphicon glyphicon-home"></span>Particular</h4>
-          <h4><span class="perf-icon glyphicon glyphicon-earphone"></span>666 555 444</h4>
-          <h4><span class="perf-icon glyphicon glyphicon-envelope"></span><a href="mailto:{{user.email}}">{{user.email}}</a></h4>
-
-          <h4 class="" *ngIf="showFollow">
-            <button (click)="noSeguir(user.id)" *ngIf="follow" id="tick-verde" class="btn btn-success glyphicon glyphicon-ok"></button>
-            <button (click)="seguir(user.id)" *ngIf="!follow" id="cruz-roja" class="btn btn-primary glyphicon glyphicon-check"></button>
-
-            <span *ngIf="follow" id="following">Siguiendo</span>
-            <span *ngIf="!follow" id="follow">Seguir</span>
-          </h4>
-
-        </div>
-      </div>
+      <user [user]="user"></user>
     </div>
 
     <!--ANUNCIOS -->
     <div class="col-sm-8 col-md-9">
-      <product-list-img [titulo]="titulo" [products]="productsUser"></product-list-img>
+      <product-list-img *ngIf="!showFollowers" [titulo]="titulo" [products]="productsUser"></product-list-img>
+      <user-list *ngIf="showFollowers" [userList]="userList" (refresh)='refreshList($event)'></user-list>
     </div>
   </div>
 </div>

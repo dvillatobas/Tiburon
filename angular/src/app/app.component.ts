@@ -36,8 +36,7 @@ import {ProductListComponent} from './product.list.component';
   {path: '/producto/:id', name: 'Producto', component: ProductoComponent},
   {path: '/producto/edit/:id', name: 'EditarProducto', component: ProductModComponent},
   {path: '/producto/nuevo', name: 'NuevoProducto', component: ProductModComponent},
-  {path: '/profile/:id', name: 'Profile', component: PublicProfileComponent},
-  {path: '/follow/:type/:id', name: 'Follow', component: UserListComponent}
+  {path: '/profile/:type/:id', name: 'Profile', component: PublicProfileComponent}
 ])
 export class AppComponent {
   constructor(

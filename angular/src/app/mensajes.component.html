@@ -5,9 +5,9 @@
                    <h4>Contactos</h4>
                </div>
                <div id="toggle-lista-contactos" *ngFor="#contact of contactList" [collapse]="isCollapsed">
-                    <button (click)="selectChat(contact.id)" class="list-group-item"  id="user-id">
-                        <span class="badge" id="unread">3</span>
-                        <h4 class="list-group-item-heading" id="user-name">{{contact.nick}}</h4>
+                    <button (click)="selectChat(contact.user.id)" class="list-group-item"  id="user-id">
+                        <span *ngIf="contact.unread != 0" class="badge" id="unread">{{contact.unread}}</span>
+                        <h4 class="list-group-item-heading" id="user-name">{{contact.user.nick}}</h4>
 
                     </button>
 

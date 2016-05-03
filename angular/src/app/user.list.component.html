@@ -1,14 +1,14 @@
 <div class="row">
   <ul class="list-group">
-    <h2 class="text-center center-block" *ngIf="userList.length==0">No hay resultados que mostrar</h2>
+    <h2 class="text-center center-block" *ngIf="vacio">No hay resultados que mostrar</h2>
     <div class="elem-list list-group-item" *ngFor="#u of userList">
 
       <div class="row">
         <div class="col-sm-12 col-md-3">
-          <a [routerLink]="['Profile',{id:u.id}]"><img [src]="u.img" class="img-list img-responsive center-block" alt=""></a>
+          <a [routerLink]="['Profile',{type:'profile',id:u.id}]"><img [src]="u.img" class="img-list img-responsive center-block" alt=""></a>
         </div>
         <div class="col-sm-6 col-md-3 elem-desp">
-          <a [routerLink]="['Profile',{id:u.id}]"><h3>{{u.nick}}</h3></a>
+          <a [routerLink]="['Profile',{type:'profile',id:u.id}]"><h3>{{u.nick}}</h3></a>
 
         </div>
         <div class=" elem-desp col-sm-6 col-md-2">
