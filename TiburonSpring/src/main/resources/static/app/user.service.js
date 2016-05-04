@@ -1,6 +1,4 @@
-System.register(['angular2/core', './utils'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
+System.register(['angular2/core', './utils'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -35,7 +33,7 @@ System.register(['angular2/core', './utils'], function(exports_1, context_1) {
                     this.rol = rol;
                 }
                 return User;
-            }());
+            })();
             exports_1("User", User);
             UserList = (function () {
                 function UserList(id, following, nick, follow, followers, img) {
@@ -47,7 +45,7 @@ System.register(['angular2/core', './utils'], function(exports_1, context_1) {
                     this.img = img;
                 }
                 return UserList;
-            }());
+            })();
             exports_1("UserList", UserList);
             UserService = (function () {
                 function UserService() {
@@ -148,9 +146,9 @@ System.register(['angular2/core', './utils'], function(exports_1, context_1) {
                     }
                     if (busq[6] === 'true' && busq[7] === 'false') {
                         var aux = [];
-                        var u = void 0;
-                        for (var _i = 0, listFiltrada_1 = listFiltrada; _i < listFiltrada_1.length; _i++) {
-                            var u_1 = listFiltrada_1[_i];
+                        var u;
+                        for (var _i = 0; _i < listFiltrada.length; _i++) {
+                            var u_1 = listFiltrada[_i];
                             if (u_1.tipo == 'particular') {
                                 aux.push(u_1);
                             }
@@ -160,9 +158,9 @@ System.register(['angular2/core', './utils'], function(exports_1, context_1) {
                     }
                     if (busq[7] === 'true' && busq[6] === 'false') {
                         var aux = [];
-                        var u = void 0;
-                        for (var _a = 0, listFiltrada_2 = listFiltrada; _a < listFiltrada_2.length; _a++) {
-                            var u_2 = listFiltrada_2[_a];
+                        var u;
+                        for (var _a = 0; _a < listFiltrada.length; _a++) {
+                            var u_2 = listFiltrada[_a];
                             if (u_2.tipo == 'profesional') {
                                 aux.push(u_2);
                             }
@@ -180,7 +178,7 @@ System.register(['angular2/core', './utils'], function(exports_1, context_1) {
                     __metadata('design:paramtypes', [])
                 ], UserService);
                 return UserService;
-            }());
+            })();
             exports_1("UserService", UserService);
         }
     }

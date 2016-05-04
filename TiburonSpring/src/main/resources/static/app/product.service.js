@@ -1,6 +1,4 @@
-System.register(['angular2/core', './utils', './user.service'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
+System.register(['angular2/core', './utils', './user.service'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -39,7 +37,7 @@ System.register(['angular2/core', './utils', './user.service'], function(exports
                     this.description = description;
                 }
                 return Product;
-            }());
+            })();
             exports_1("Product", Product);
             ProductService = (function () {
                 function ProductService(uService) {
@@ -111,8 +109,8 @@ System.register(['angular2/core', './utils', './user.service'], function(exports
                     }
                     if (busq[2] != '') {
                         var aux = [];
-                        for (var _i = 0, listFiltrada_1 = listFiltrada; _i < listFiltrada_1.length; _i++) {
-                            var p = listFiltrada_1[_i];
+                        for (var _i = 0; _i < listFiltrada.length; _i++) {
+                            var p = listFiltrada[_i];
                             if (p.price >= +busq[2]) {
                                 aux.push(p);
                             }
@@ -122,8 +120,8 @@ System.register(['angular2/core', './utils', './user.service'], function(exports
                     }
                     if (busq[3] != '') {
                         var aux = [];
-                        for (var _a = 0, listFiltrada_2 = listFiltrada; _a < listFiltrada_2.length; _a++) {
-                            var p = listFiltrada_2[_a];
+                        for (var _a = 0; _a < listFiltrada.length; _a++) {
+                            var p = listFiltrada[_a];
                             if (p.price <= +busq[3]) {
                                 aux.push(p);
                             }
@@ -133,8 +131,8 @@ System.register(['angular2/core', './utils', './user.service'], function(exports
                     }
                     if (busq[4] != 'ambos') {
                         var aux = [];
-                        for (var _b = 0, listFiltrada_3 = listFiltrada; _b < listFiltrada_3.length; _b++) {
-                            var p = listFiltrada_3[_b];
+                        for (var _b = 0; _b < listFiltrada.length; _b++) {
+                            var p = listFiltrada[_b];
                             if (p.type == busq[4]) {
                                 aux.push(p);
                             }
@@ -144,8 +142,8 @@ System.register(['angular2/core', './utils', './user.service'], function(exports
                     }
                     if (busq[5] != '') {
                         var aux = [];
-                        for (var _c = 0, listFiltrada_4 = listFiltrada; _c < listFiltrada_4.length; _c++) {
-                            var p = listFiltrada_4[_c];
+                        for (var _c = 0; _c < listFiltrada.length; _c++) {
+                            var p = listFiltrada[_c];
                             if (p.location == busq[5]) {
                                 aux.push(p);
                             }
@@ -155,11 +153,11 @@ System.register(['angular2/core', './utils', './user.service'], function(exports
                     }
                     if (busq[6] === 'true' && busq[7] === 'false') {
                         var aux = [];
-                        var u_1;
-                        for (var _d = 0, listFiltrada_5 = listFiltrada; _d < listFiltrada_5.length; _d++) {
-                            var p = listFiltrada_5[_d];
-                            this.uService.getUser(p.idUser).subscribe(function (us) { return u_1 = us; }, function (error) { return console.log(error); });
-                            if (u_1.tipo == 'particular') {
+                        var u;
+                        for (var _d = 0; _d < listFiltrada.length; _d++) {
+                            var p = listFiltrada[_d];
+                            this.uService.getUser(p.idUser).subscribe(function (us) { return u = us; }, function (error) { return console.log(error); });
+                            if (u.tipo == 'particular') {
                                 aux.push(p);
                             }
                         }
@@ -168,11 +166,11 @@ System.register(['angular2/core', './utils', './user.service'], function(exports
                     }
                     if (busq[7] === 'true' && busq[6] === 'false') {
                         var aux = [];
-                        var u_2;
-                        for (var _e = 0, listFiltrada_6 = listFiltrada; _e < listFiltrada_6.length; _e++) {
-                            var p = listFiltrada_6[_e];
-                            this.uService.getUser(p.idUser).subscribe(function (us) { return u_2 = us; }, function (error) { return console.log(error); });
-                            if (u_2.tipo == 'profesional') {
+                        var u;
+                        for (var _e = 0; _e < listFiltrada.length; _e++) {
+                            var p = listFiltrada[_e];
+                            this.uService.getUser(p.idUser).subscribe(function (us) { return u = us; }, function (error) { return console.log(error); });
+                            if (u.tipo == 'profesional') {
                                 aux.push(p);
                             }
                         }
@@ -220,7 +218,7 @@ System.register(['angular2/core', './utils', './user.service'], function(exports
                     __metadata('design:paramtypes', [user_service_1.UserService])
                 ], ProductService);
                 return ProductService;
-            }());
+            })();
             exports_1("ProductService", ProductService);
         }
     }

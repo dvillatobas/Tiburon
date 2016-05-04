@@ -1,6 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './product.service', './product.list.component', './filtro.component', './user.service', './user.list.component', './follow.service'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
+System.register(['angular2/core', 'angular2/router', './product.service', './product.list.component', './filtro.component', './user.service', './user.list.component', './follow.service'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -60,10 +58,10 @@ System.register(['angular2/core', 'angular2/router', './product.service', './pro
                     }
                     else if (p[1] === 'user') {
                         this.prods = false;
-                        var ulist_1 = [];
-                        this.uService.getUserListSearch(this.palabra).subscribe(function (l) { return ulist_1 = l; }, function (error) { return console.log(error); });
-                        for (var _i = 0, ulist_2 = ulist_1; _i < ulist_2.length; _i++) {
-                            var u = ulist_2[_i];
+                        var ulist = [];
+                        this.uService.getUserListSearch(this.palabra).subscribe(function (l) { return ulist = l; }, function (error) { return console.log(error); });
+                        for (var _i = 0; _i < ulist.length; _i++) {
+                            var u = ulist[_i];
                             this.fService.getUserList(u).subscribe(function (ul) { return _this.users.push(ul); }, function (error) { return console.log(error); });
                         }
                     }
@@ -77,7 +75,7 @@ System.register(['angular2/core', 'angular2/router', './product.service', './pro
                     __metadata('design:paramtypes', [product_service_1.ProductService, router_1.Router, router_1.RouteParams, user_service_1.UserService, follow_service_1.FollowService])
                 ], BuscarComponent);
                 return BuscarComponent;
-            }());
+            })();
             exports_1("BuscarComponent", BuscarComponent);
         }
     }

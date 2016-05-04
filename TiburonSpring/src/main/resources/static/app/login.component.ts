@@ -22,6 +22,9 @@ export class LoginComponent{
   private userCreated:boolean = false;
   private failLogin:boolean = false;
 
+  private classInicio;
+  private classRegistro;
+
 
   constructor(
     private router:Router,
@@ -85,6 +88,8 @@ export class LoginComponent{
     let error = this.uService.newUser(new User(this.uService.setId,nickR,nombreR,apellidosR,telR,emailR,passR,imgR,typeR,'normal'));
     if(error===0){
       this.userCreated=true;
+      this.classInicio = 'inicioSesion';
+      this.classRegistro = 'registro';
     }else if(error === 1){
       this.failNickExist=true;
     }else if(error === 2){

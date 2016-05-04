@@ -1,6 +1,4 @@
-System.register(['angular2/core', './utils', './user.service'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
+System.register(['angular2/core', './utils', './user.service'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -31,7 +29,7 @@ System.register(['angular2/core', './utils', './user.service'], function(exports
                     this.idSeguido = idSeguido;
                 }
                 return Follow;
-            }());
+            })();
             exports_1("Follow", Follow);
             UserList = (function () {
                 function UserList(id, following, nick, follow, followers, img) {
@@ -43,7 +41,7 @@ System.register(['angular2/core', './utils', './user.service'], function(exports
                     this.img = img;
                 }
                 return UserList;
-            }());
+            })();
             exports_1("UserList", UserList);
             FollowService = (function () {
                 function FollowService(uService) {
@@ -75,8 +73,8 @@ System.register(['angular2/core', './utils', './user.service'], function(exports
                     var follow = [];
                     var ul;
                     this.getListFollow(id).subscribe(function (l) { return follow = l; }, function (error) { return console.log(error); });
-                    for (var _i = 0, follow_1 = follow; _i < follow_1.length; _i++) {
-                        var f = follow_1[_i];
+                    for (var _i = 0; _i < follow.length; _i++) {
+                        var f = follow[_i];
                         this.uService.getUser(f).subscribe(function (user) { return u = user; }, function (error) { return console.log(error); });
                         this.getUserList(u).subscribe(function (l) { return ul = l; }, function (error) { return console.log(error); });
                         list.push(ul);
@@ -99,8 +97,8 @@ System.register(['angular2/core', './utils', './user.service'], function(exports
                     var follow = [];
                     var ul;
                     this.getListFollowers(id).subscribe(function (l) { return follow = l; }, function (error) { return console.log(error); });
-                    for (var _i = 0, follow_2 = follow; _i < follow_2.length; _i++) {
-                        var f = follow_2[_i];
+                    for (var _i = 0; _i < follow.length; _i++) {
+                        var f = follow[_i];
                         this.uService.getUser(f).subscribe(function (user) { return u = user; }, function (error) { return console.log(error); });
                         this.getUserList(u).subscribe(function (l) { return ul = l; }, function (error) { return console.log(error); });
                         list.push(ul);
@@ -142,7 +140,7 @@ System.register(['angular2/core', './utils', './user.service'], function(exports
                     __metadata('design:paramtypes', [user_service_1.UserService])
                 ], FollowService);
                 return FollowService;
-            }());
+            })();
             exports_1("FollowService", FollowService);
         }
     }

@@ -1,6 +1,4 @@
-System.register(['angular2/core', './utils', './user.service'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
+System.register(['angular2/core', './utils', './user.service'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -34,7 +32,7 @@ System.register(['angular2/core', './utils', './user.service'], function(exports
                     this.estado = estado;
                 }
                 return Mensaje;
-            }());
+            })();
             exports_1("Mensaje", Mensaje);
             Contact = (function () {
                 function Contact(user, unread) {
@@ -42,7 +40,7 @@ System.register(['angular2/core', './utils', './user.service'], function(exports
                     this.unread = unread;
                 }
                 return Contact;
-            }());
+            })();
             exports_1("Contact", Contact);
             MensajesService = (function () {
                 function MensajesService(usr) {
@@ -116,8 +114,8 @@ System.register(['angular2/core', './utils', './user.service'], function(exports
                 };
                 MensajesService.prototype.estaContenido = function (id, lista) {
                     if (lista === void 0) { lista = []; }
-                    for (var _i = 0, lista_1 = lista; _i < lista_1.length; _i++) {
-                        var u = lista_1[_i];
+                    for (var _i = 0; _i < lista.length; _i++) {
+                        var u = lista[_i];
                         if (id === u.user.id) {
                             return true;
                         }
@@ -134,7 +132,7 @@ System.register(['angular2/core', './utils', './user.service'], function(exports
                     __metadata('design:paramtypes', [user_service_1.UserService])
                 ], MensajesService);
                 return MensajesService;
-            }());
+            })();
             exports_1("MensajesService", MensajesService);
         }
     }

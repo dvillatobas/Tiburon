@@ -1,6 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './user.service', './follow.service', './product.service', './product.list.img.component', './filtro.component', './user.component'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
+System.register(['angular2/core', 'angular2/router', './user.service', './follow.service', './product.service', './product.list.img.component', './filtro.component', './user.component'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -54,13 +52,13 @@ System.register(['angular2/core', 'angular2/router', './user.service', './follow
                         var list = [];
                         this.fService.getListFollow(id).subscribe(function (l) { return _this.follow = l.length; }, function (error) { return console.log(error); });
                         this.fService.getListFollowers(id).subscribe(function (l) { return _this.following = l.length; }, function (error) { return console.log(error); });
-                        var userlist_1 = [];
-                        this.fService.getListFollow(id).subscribe(function (list) { return userlist_1 = list; }, function (error) { return console.log(error); });
-                        var plist_1 = [];
-                        for (var _i = 0, userlist_2 = userlist_1; _i < userlist_2.length; _i++) {
-                            var u = userlist_2[_i];
-                            this.pService.getProductListUser(u).subscribe(function (list) { return plist_1 = list; }, function (error) { return console.log(error); });
-                            this.followProducts = this.followProducts.concat((plist_1));
+                        var userlist = [];
+                        this.fService.getListFollow(id).subscribe(function (list) { return userlist = list; }, function (error) { return console.log(error); });
+                        var plist = [];
+                        for (var _i = 0; _i < userlist.length; _i++) {
+                            var u = userlist[_i];
+                            this.pService.getProductListUser(u).subscribe(function (list) { return plist = list; }, function (error) { return console.log(error); });
+                            this.followProducts = this.followProducts.concat((plist));
                         }
                     }
                     else {
@@ -76,7 +74,7 @@ System.register(['angular2/core', 'angular2/router', './user.service', './follow
                     __metadata('design:paramtypes', [router_1.Router, user_service_1.UserService, follow_service_1.FollowService, product_service_1.ProductService])
                 ], MainComponent);
                 return MainComponent;
-            }());
+            })();
             exports_1("MainComponent", MainComponent);
         }
     }

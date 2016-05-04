@@ -1,6 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './user.service'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
+System.register(['angular2/core', 'angular2/router', './user.service'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -96,6 +94,8 @@ System.register(['angular2/core', 'angular2/router', './user.service'], function
                     var error = this.uService.newUser(new user_service_1.User(this.uService.setId, nickR, nombreR, apellidosR, telR, emailR, passR, imgR, typeR, 'normal'));
                     if (error === 0) {
                         this.userCreated = true;
+                        this.classInicio = 'inicioSesion';
+                        this.classRegistro = 'registro';
                     }
                     else if (error === 1) {
                         this.failNickExist = true;
@@ -113,7 +113,7 @@ System.register(['angular2/core', 'angular2/router', './user.service'], function
                     __metadata('design:paramtypes', [router_1.Router, user_service_1.UserService])
                 ], LoginComponent);
                 return LoginComponent;
-            }());
+            })();
             exports_1("LoginComponent", LoginComponent);
         }
     }

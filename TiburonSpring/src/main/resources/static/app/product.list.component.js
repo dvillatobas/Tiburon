@@ -1,6 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './product.service', './user.service', './mensajes.service'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
+System.register(['angular2/core', 'angular2/router', './product.service', './user.service', './mensajes.service'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -58,9 +56,9 @@ System.register(['angular2/core', 'angular2/router', './product.service', './use
                         this.contact = false;
                     }
                 };
-                ProductListComponent.prototype.mensaje = function () {
+                ProductListComponent.prototype.mensaje = function (idUser) {
                     if (this.uService.getIdUserLogued()) {
-                        this.router.navigate(['Mensajes']);
+                        this.router.navigate(['Mensajes', { id: idUser }]);
                     }
                     else {
                         this.router.navigate(['Login']);
@@ -89,7 +87,7 @@ System.register(['angular2/core', 'angular2/router', './product.service', './use
                     __metadata('design:paramtypes', [product_service_1.ProductService, user_service_1.UserService, router_1.Router, router_1.RouteParams, mensajes_service_1.MensajesService])
                 ], ProductListComponent);
                 return ProductListComponent;
-            }());
+            })();
             exports_1("ProductListComponent", ProductListComponent);
         }
     }

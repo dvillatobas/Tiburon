@@ -1,6 +1,4 @@
-System.register(['angular2/core', './utils', './user.service', 'rxjs/Rx'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
+System.register(['angular2/core', './utils', './user.service', 'rxjs/Rx'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -26,22 +24,23 @@ System.register(['angular2/core', './utils', './user.service', 'rxjs/Rx'], funct
             function (_1) {}],
         execute: function() {
             Valoration = (function () {
-                function Valoration(idUser, valoracion, description) {
+                function Valoration(idUser, valoracion, description, idProducto) {
                     this.idUser = idUser;
                     this.valoracion = valoracion;
                     this.description = description;
+                    this.idProducto = idProducto;
                 }
                 return Valoration;
-            }());
+            })();
             exports_1("Valoration", Valoration);
             ValorationService = (function () {
                 function ValorationService(uService) {
                     this.uService = uService;
                     this.comments = [
-                        new Valoration("Raul", "vendedor 100% fiable", "Muy puntual y amable."),
-                        new Valoration("Raul", "No está mal", "Tiene buen aspecto, pero me parece un precio excesivo."),
-                        new Valoration("David", "Buenisimo", "¡Me encanta este coche!"),
-                        new Valoration("Juan", "Buen motor", "Nunca había visto este modelo, es increíble.")
+                        new Valoration("Raul", "vendedor 100% fiable", "Muy puntual y amable.", 1),
+                        new Valoration("Raul", "No está mal", "Tiene buen aspecto, pero me parece un precio excesivo.", 2),
+                        new Valoration("David", "Buenisimo", "¡Me encanta este coche!", 1),
+                        new Valoration("Juan", "Buen motor", "Nunca había visto este modelo, es increíble.", 3)
                     ];
                 }
                 ValorationService.prototype.getComments = function () {
@@ -55,7 +54,7 @@ System.register(['angular2/core', './utils', './user.service', 'rxjs/Rx'], funct
                     __metadata('design:paramtypes', [user_service_1.UserService])
                 ], ValorationService);
                 return ValorationService;
-            }());
+            })();
             exports_1("ValorationService", ValorationService);
         }
     }

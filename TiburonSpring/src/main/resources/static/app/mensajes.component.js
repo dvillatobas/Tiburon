@@ -1,6 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './mensajes.service', './user.service', 'ng2-bootstrap/ng2-bootstrap'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
+System.register(['angular2/core', 'angular2/router', './mensajes.service', './user.service', 'ng2-bootstrap/ng2-bootstrap'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -57,8 +55,8 @@ System.register(['angular2/core', 'angular2/router', './mensajes.service', './us
                     this.uService.getUser(this.uService.getIdUserLogued()).subscribe(function (user) { return _this.yo = user; }, function (error) { return console.log(); });
                     var lista = [];
                     this.mService.getChatList(id).subscribe(function (list) { return lista = list; }, function (error) { return console.log(error); });
-                    for (var _i = 0, lista_1 = lista; _i < lista_1.length; _i++) {
-                        var w = lista_1[_i];
+                    for (var _i = 0; _i < lista.length; _i++) {
+                        var w = lista[_i];
                         if (w.idEmisor === id) {
                             this.chatList.push(new Wisp(this.usuario.nick, w.mensaje, w.date, 'list-group-item received'));
                         }
@@ -89,7 +87,7 @@ System.register(['angular2/core', 'angular2/router', './mensajes.service', './us
                     __metadata('design:paramtypes', [router_1.Router, router_1.RouteParams, mensajes_service_1.MensajesService, user_service_1.UserService])
                 ], MensajesComponent);
                 return MensajesComponent;
-            }());
+            })();
             exports_1("MensajesComponent", MensajesComponent);
             Wisp = (function () {
                 function Wisp(nick, mensaje, date, rem) {
@@ -99,7 +97,7 @@ System.register(['angular2/core', 'angular2/router', './mensajes.service', './us
                     this.rem = rem;
                 }
                 return Wisp;
-            }());
+            })();
             exports_1("Wisp", Wisp);
         }
     }

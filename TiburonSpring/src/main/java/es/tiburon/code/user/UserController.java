@@ -27,6 +27,18 @@ public class UserController {
 		return uRepo.findAll();
 	}
 	
+	@RequestMapping(value = "/", method = RequestMethod.POST)
+	public ResponseEntity<User> addUser(@PathVariable User u){
+		log.info("Add user {}", u);
+		
+		if(u!=null){
+			uRepo.save(u);
+			return new ResponseEntity<>(u,HttpStatus.OK);
+		}else{
+			return new ResponseEntity<>(HttpStatus.ACCEPTED);
+		}
+	}
+	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<User> getUser(@PathVariable long id){
 		log.info("Get user {}", id);

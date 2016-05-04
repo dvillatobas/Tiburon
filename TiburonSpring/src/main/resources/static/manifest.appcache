@@ -1,87 +1,87 @@
 CACHE MANIFEST
 # sw.bundle: ng-cli
-# sw.version: 3c0c2acda628e241a3e47fb0e1cdbb7279b0a501
+# sw.version: 44c397a4d3f47557dd6f1dd4b4b2e4109d21ab45
 # sw.file.hash: f496adc80e711631a36a98b9c7092885200cb009
 /app/app.component.html
-# sw.file.hash: 00155a58bc716bdb6d30ea082d19fd49ca660b6c
+# sw.file.hash: 0a51e5591f24eb7e61142e2813670dc5c195b081
 /app/app.component.js
-# sw.file.hash: 14ed8d4ea4d409cc7ca3106038acfa4afd558919
+# sw.file.hash: 3bb4fd9eab90f147ecdb2793a222b7c9e631e989
 /app/app.component.js.map
 # sw.file.hash: 09231795580c15c38ed1fbf5afa6febc27f8263f
 /app/app.component.ts
 # sw.file.hash: 158446e06aba06cad816b57825201e863515dd30
 /app/buscar.component.html
-# sw.file.hash: 6410858fe0470e26163dff9e0edb0211387f5882
+# sw.file.hash: a8b50407b54bb72923e0d13387c435fed5ec368b
 /app/buscar.component.js
-# sw.file.hash: 49292a78156cee243e12935d7d95b3b557a56453
+# sw.file.hash: 91eb13f2e55d0ad093da17b9ab20e7b25ec091a9
 /app/buscar.component.js.map
 # sw.file.hash: 6a58daa5e59e940e70b13faa229bd6499b62cb5d
 /app/buscar.component.ts
 # sw.file.hash: 09b28af691b29a5dc0a3bb151c14eb26495a0ee0
 /app/filtro.component.html
-# sw.file.hash: b030bd81806461e6298f7889f244e84fef1c82f2
+# sw.file.hash: 5b775aa6df6a35fc42b752a984189300d87d649b
 /app/filtro.component.js
-# sw.file.hash: 0332513a5de6947d088321b888eb9b8e2fe4313b
+# sw.file.hash: 35447ef259e0d6effaab620d16e2244738b238f1
 /app/filtro.component.js.map
 # sw.file.hash: cf55a846b15d982fdc028c6e036244d7b3bc2d0d
 /app/filtro.component.ts
-# sw.file.hash: fded892708e4c1c6c16a08e994338883f00d47ac
+# sw.file.hash: eb01b4be11e0acce397b830d2ddf17ff0d7c840d
 /app/follow.service.js
-# sw.file.hash: 42183dac1ac6995aa65d37423c410b0889324f51
+# sw.file.hash: 943e9ac8756508004042fd374718e6e7a5cf6927
 /app/follow.service.js.map
 # sw.file.hash: 7dd94c791804809176709a71382bf1584e66344e
 /app/follow.service.ts
 # sw.file.hash: de4cf118d5dd1de941dd915f4db30f7e1879921a
 /app/footer.component.html
-# sw.file.hash: 71e5dd33429517d47b52eeea379af2b3fadad190
+# sw.file.hash: 623cda23836381cf970697933109d1d119a1d718
 /app/footer.component.js
-# sw.file.hash: 62dfadadcc23017bc25243412771665392b86f44
+# sw.file.hash: 5c7969508b6e17f59391a51e046fa4b1bbe65d64
 /app/footer.component.js.map
 # sw.file.hash: 118e96c6c9a3a22c2a5a29f7405c1a1bdcb7059e
 /app/footer.component.ts
 # sw.file.hash: 654743f29941b3e25aa03da1ad5cd7690d81eae7
 /app/header.component.html
-# sw.file.hash: 4d2c2e9fa84939c491a895734b0196b53b5d93e3
+# sw.file.hash: 2b75bafdde0d8adc34ce97a5f1d1ec58c49d868c
 /app/header.component.js
-# sw.file.hash: 3b891f5b7efe33aae5e2d1857720365a0147d840
+# sw.file.hash: d2ef414ee934331351379d7507108ce2272e9bb4
 /app/header.component.js.map
 # sw.file.hash: 258963c2e58631dab24a96d13d1cda57136e9393
 /app/header.component.ts
-# sw.file.hash: 5fe1c4309dfb8f98a705bbc9535db2fa7ddd0b4c
+# sw.file.hash: 3019edc37ebedbb270f12caad63a73a381eb65e0
 /app/login.component.html
-# sw.file.hash: a5f584a4ab8d8078451e0e680a19d22e72669b4d
+# sw.file.hash: e0992ddfa12c1056c714377576ad86b71771632e
 /app/login.component.js
-# sw.file.hash: b81644c481dd9adf6ce8ee71b57e03d4710b2cbe
+# sw.file.hash: a479c29c8167c21b9c8f26ce3f9bf31303f7c8b7
 /app/login.component.js.map
-# sw.file.hash: 979d6a1053c1c2741e3dc9b499ec29747f683104
+# sw.file.hash: 477b276c1e609749bfdb7aee969cd4e3a2acb0ae
 /app/login.component.ts
 # sw.file.hash: d36e3a0353e386dcf318c0b315b70608674be7db
 /app/main.component.html
-# sw.file.hash: 8a2ccb05f9fc1ed178ed4c33379d123bb5441003
+# sw.file.hash: 7bcbf947fa6e71b7c6f56fde5b9014440681d999
 /app/main.component.js
-# sw.file.hash: 7f2f410afbb87a907f2a45792042cb560a11f031
+# sw.file.hash: 9719013bebfb98434008924657f3662501f3a2cd
 /app/main.component.js.map
 # sw.file.hash: 2c9c7398e0c22f5c1a94f8f95d52bc2c45eef801
 /app/main.component.ts
 # sw.file.hash: ae25fccf56e95f0608bd8a0e3b5ea83cd516ef6a
 /app/mensajes.component.html
-# sw.file.hash: 19bb112ef131846ea4f61418b2901bcb343ae388
+# sw.file.hash: 9ef69e527c099602f36291061b19d3c9b4a35796
 /app/mensajes.component.js
-# sw.file.hash: 0976f1ab813159163e9a418254b69930a9cda30f
+# sw.file.hash: 6bcc34561908478a0c3ea2ca5967031660cf34d0
 /app/mensajes.component.js.map
 # sw.file.hash: e8e8262883f673d0ae6bee0217079855a5376356
 /app/mensajes.component.ts
-# sw.file.hash: 7a6d62c26bed93565515c42e28e74f9f82b99557
+# sw.file.hash: 1e0709f94b4e7d5bdb359f6b04ea06e32f13eac4
 /app/mensajes.service.js
-# sw.file.hash: 2758a5b9ad82131223d88a2f8e03a18d281f0c69
+# sw.file.hash: bd4ba035e93e27dd0b71a4510e57eebc80606238
 /app/mensajes.service.js.map
 # sw.file.hash: 45af97896f41846a71c7058e6b8dbc2a7f626096
 /app/mensajes.service.ts
 # sw.file.hash: eb40595231b23de581b98e9c5f5db158c50bbf40
 /app/mis-productos.component.html
-# sw.file.hash: 82f5cefffb6487714be6f90a89640e057746479e
+# sw.file.hash: f29261f2de4254c606ddd73eb1ac6e18b7a82688
 /app/mis-productos.component.js
-# sw.file.hash: 3099ff486fa9cba6653c5cd601a164c8d0a04a97
+# sw.file.hash: 93639c45c5d417fa7a34fded37190d3776149f65
 /app/mis-productos.component.js.map
 # sw.file.hash: b006e53c9dcb1d183edce2c1a13bda000b78c34e
 /app/mis-productos.component.ts
@@ -93,93 +93,93 @@ CACHE MANIFEST
 /app/novedades.component.js.map
 # sw.file.hash: da39a3ee5e6b4b0d3255bfef95601890afd80709
 /app/novedades.component.ts
-# sw.file.hash: cbeadae060c26404cf5e26bee9e5a3a879338d6e
+# sw.file.hash: f2774631e649f32df908da5a275b75edbe2cbf74
 /app/product.list.component.html
-# sw.file.hash: e4c49ace9e4f0621183e47871caf36e45d1f6ff8
+# sw.file.hash: eb1d4a6fde9908903dde4a88137e7c0839ffcf5f
 /app/product.list.component.js
-# sw.file.hash: 60a0bda9268dd8eaab47004947424ebc5035f3e6
+# sw.file.hash: bb4328e3601839a47c95ee581d9dc2657b7eba9d
 /app/product.list.component.js.map
-# sw.file.hash: f25ace60bc75548f59c6e900b379a5a301d04460
+# sw.file.hash: afd07634401212480944375c09d8570b38e18d2e
 /app/product.list.component.ts
 # sw.file.hash: e6dc7aa1bfe501e8a5f5e7f6f9d7db042ce4330d
 /app/product.list.img.component.html
-# sw.file.hash: 5d2de3c7f1f2c0a73aa0b4e9496b8a1a796b607c
+# sw.file.hash: 50d36594f06ec808f658f2c4283b2106d01a502e
 /app/product.list.img.component.js
-# sw.file.hash: df33114598921aef681e654a89d1ef2d82da9226
+# sw.file.hash: 481058646c25a897c575495a1fdfc16ff0411c47
 /app/product.list.img.component.js.map
 # sw.file.hash: bbf9fec62298cc5372cdae828b64499f022c4de5
 /app/product.list.img.component.ts
 # sw.file.hash: 0a52cf004effa77128410a411ce77641c41c6848
 /app/product.mod.component.html
-# sw.file.hash: 4eda4191a7be19a2e31d2c9d2fb261703304e9ca
+# sw.file.hash: 774d8743b89a98a834187a09acaac95326d6cd61
 /app/product.mod.component.js
-# sw.file.hash: 066d5f1689e67151673c4bb47bba052ba3ec28dd
+# sw.file.hash: 3ead4a61fd2c899b9b14f525491450c3b62a6f1c
 /app/product.mod.component.js.map
 # sw.file.hash: 40babb8c1c8a91b43db4878c412626352d404c7b
 /app/product.mod.component.ts
-# sw.file.hash: 990371a6357e1a34b9d9a9769e61c133477f33f1
+# sw.file.hash: cb5f8bf7fcefce42c0003a3a030a1960ba81df86
 /app/product.service.js
-# sw.file.hash: 89ae317b9aa756838a87a845c267e03fcd59a72b
+# sw.file.hash: 9797cb6e1f9bc35b7eb61a26aa34340c1face7eb
 /app/product.service.js.map
 # sw.file.hash: 831fe31d40d09f635ace4bae2ae0cbf8c7e50904
 /app/product.service.ts
-# sw.file.hash: d81936d81ceacea212d07e40deb94d60542004e9
+# sw.file.hash: e985307f4e6ad3148a4f0351462597700b906774
 /app/producto.component.html
-# sw.file.hash: 53b3478b8e8f40e6e585996153f6176d107d6371
+# sw.file.hash: 698497fc4e8638c1cac4d15f7a4da21c53f89487
 /app/producto.component.js
-# sw.file.hash: 3f7feba0ec4e38db392bcec826e54de6e5522463
+# sw.file.hash: 3397cffb6823b0fb4d95725fcc4a552c9c83ca77
 /app/producto.component.js.map
-# sw.file.hash: 65ab9175ace44d36910c73fbdb834faa5cf29603
+# sw.file.hash: f3af4384ff198af4e23efbda0edadcd1a3e78498
 /app/producto.component.ts
 # sw.file.hash: 37c9f79c4882119349102edc020c2c073d812296
 /app/public.profile.component.html
-# sw.file.hash: ff4b688b6ecab5330437f40842d38d4ab7686d08
+# sw.file.hash: 808c93b2f457901d6a76a79fc43f40c36f0295e3
 /app/public.profile.component.js
-# sw.file.hash: cadf4f7ef35219c735a9cfc976508561a14fd5e2
+# sw.file.hash: f8b6b9059957b725dd9525202c056ad27ea06623
 /app/public.profile.component.js.map
 # sw.file.hash: b8e570e7ecc20f456774325b01c48a05facd6aec
 /app/public.profile.component.ts
 # sw.file.hash: 387fec27eb13c9bc3c5872f640fd80c67106839c
 /app/user.component.html
-# sw.file.hash: 8f8597d68b5cc89147e16f0d4de2cac3490f0535
+# sw.file.hash: 641f3b3d7c806abd7fc0b9747c95eec384dd8d6b
 /app/user.component.js
-# sw.file.hash: e060a1eb756bc7c00635eeb999e78565fc7d2356
+# sw.file.hash: 154f210f2077796fd2c9fe367d5cf2364b5c9fe4
 /app/user.component.js.map
 # sw.file.hash: 2266730660e24039dbe2bbc9fb698c7a167147ec
 /app/user.component.ts
 # sw.file.hash: 63bda2821b5b9722c555d5b1289dcb7836104180
 /app/user.list.component.html
-# sw.file.hash: b2c4b16c7e4d4aa7a389f8f86c35d818e87caac4
+# sw.file.hash: 3a2c8b0677b1c4f5702a417519aa6f3fca6c2ac2
 /app/user.list.component.js
-# sw.file.hash: d5c4fb67854b6a4407ae94dfc4ae66983a39c0e1
+# sw.file.hash: 5c37107746c5732682a159bc5f2ec2b377724ffa
 /app/user.list.component.js.map
 # sw.file.hash: 13af0e5bde3e2276277b33e21b7d15d3ab401909
 /app/user.list.component.ts
-# sw.file.hash: f50a44057ae6082ddf1c2103459bd5389bd335d1
+# sw.file.hash: 33c1763dfbd0b89da1ff959fa9319ac3cdca7475
 /app/user.service.js
-# sw.file.hash: f6b53c25f393cee5dac450181b129be9c3d0f58b
+# sw.file.hash: 957bbff414566eb3e86a45f971b651927597992c
 /app/user.service.js.map
 # sw.file.hash: 28530a1e8b3c35db1ce9a92445fc80bc4b69eefa
 /app/user.service.ts
-# sw.file.hash: 542f1062d180d0de0f0bf367c83f2f8d88f90a3f
+# sw.file.hash: ce736cbcb1d86342a2018f90a6deb9b3ece96bfc
 /app/utils.js
-# sw.file.hash: a8e80415d2937f30509695985e53535b9daa9521
+# sw.file.hash: a9e450c13fe95c7ed98c422838b9dff5534e2c39
 /app/utils.js.map
 # sw.file.hash: fb66aaf498f633dc2d6515873fffeb73ac938bca
 /app/utils.ts
-# sw.file.hash: 1c09cef9715906a9b0f728b47daa09ab5ce5d3bc
+# sw.file.hash: 32aa555f1463928e7a8248ec5cdde02f1576fa09
 /app/valoracion.component.html
-# sw.file.hash: 2792d69b1f5dbd16fd0d2aace4980aa7cf3dcb42
+# sw.file.hash: b97128a5d083bec44df5e7d7aa3e524c88d9c296
 /app/valoracion.component.js
-# sw.file.hash: 1510224e8c1940685bc243ede61e891791ec7078
+# sw.file.hash: 090bacbaa34c4608e257db41502561942cd15b1c
 /app/valoracion.component.js.map
 # sw.file.hash: b6e452d35a3c3180e0a3e9368a2e4ba6afa957a2
 /app/valoracion.component.ts
-# sw.file.hash: d52640a28c84231308db957c4a2831bf3b11d951
+# sw.file.hash: e1e229cc508028c0437eabb64a308c5ecce943ae
 /app/valoracion.service.js
-# sw.file.hash: b44e9d9e259c8f2b4b511a4cc3b5166daa142abe
+# sw.file.hash: 0700c1786e7e1add4903aa38e3e768481c2e79f2
 /app/valoracion.service.js.map
-# sw.file.hash: df2ce834215964dc9357535f9cc1f1f3533ba130
+# sw.file.hash: a58d88e37c9c6cc93b1a55d10ec308d8864dd474
 /app/valoracion.service.ts
 # sw.file.hash: a480ea99291d752765ad398a836949df87954273
 /componentes/aside.html
@@ -207,7 +207,7 @@ CACHE MANIFEST
 /css/bootstrap.min.css
 # sw.file.hash: 95fb9d7b83bebc9c37cefee87514f5979ee8785d
 /css/bootstrap.min.css.map
-# sw.file.hash: b445a090f022eb8b108da4ecf44487d03873eae1
+# sw.file.hash: 063f04c151b8deca973084858031b8d5b1e55885
 /css/custom.css
 # sw.file.hash: 84161b857f5c547e3699ddfbffc6d8d737542e01
 /favicon.ico
@@ -267,9 +267,9 @@ CACHE MANIFEST
 /js/npm.js
 # sw.file.hash: 7ce5bd9c94f3af394fe3f4ccd15da0842795f9b7
 /js/perfil_publico.js
-# sw.file.hash: 4f5248b6c42ad12eb11b8ef0dc65e5d2a2687cee
+# sw.file.hash: 079a0ef2eb08444b9de2f50a8590f9f558bc783e
 /main.js
-# sw.file.hash: 842e8f9cb80f6b1345c2a523058e985a75b20cb5
+# sw.file.hash: af0f8c6d078a0d38ae4b777f3943c21086115bf0
 /main.js.map
 # sw.file.hash: cfd53006203d96c81f74d91c333e952863d84d99
 /main.ts
