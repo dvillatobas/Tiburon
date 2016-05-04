@@ -69,7 +69,12 @@ export class ProductoComponent implements OnInit {
         window.confirm("Debes rellenar todos los campos");
       }
       else {
-        let comment = new Valoration(this.uService.getNick(this.uService.getIdUserLogued()), valoracion, description);
+<<<<<<< HEAD
+        let comment = new Valoration(this.uService.getNick(this.uService.getIdUserLogued()), valoracion, description, this.product.id);
+=======
+        let comment = new Valoration(this.uService.getNick(this.uService.getIdUserLogued()), valoracion, description,this.product.id);
+        console.log(comment.idProducto);
+>>>>>>> f3_arreglos_carlos2
         this.vService.addComment(comment);
         this.ngOnInit();
       }

@@ -1,10 +1,11 @@
 
 <div class="row login">
-       <div class="col-md-2 text-center" id="registro">
+  <div [class]="classRegistro">
+       <div class="col-md-2 text-center" id="registro" >
            <h4>Foto de perfil</h4>
            <img #imgR alt="perfil" src="http://lorempixel.com/140/140" class="img-circle center-block" />
            <br>
-           <button class="btn btn-default center-block" type="file">Seleccionar</button>
+           <button class="btn btn-default center-block">Seleccionar</button>
            <br>
        </div>
        <div class="col-md-5" id="registro">
@@ -69,8 +70,10 @@
            <br>
 
        </div>
+         </div>
 
        <div class="col-md-5">
+         <div [class]="classInicio">
            <h3 class="text-center">Inicia sesión</h3>
            <form>
                <div class="input-group">
@@ -83,8 +86,13 @@
                </div>
                <div class="input-group">
                    <alert class="alert alert-danger alert-register" *ngIf="failLogin">Usuario y/o contraseña incorrecta</alert>
+<<<<<<< HEAD
                    <button (click)="entrar($event,nick.value,pass.value)" class="btn btn-default center-block">Entrar</button>
+=======
+                   <div (click)="entrar(nick.value,pass.value)" class="div-btn btn btn-default center-block animado">Entrar</div>
+>>>>>>> f3_angular
                </div>
            </form>
+         </div>
        </div>
    </div>

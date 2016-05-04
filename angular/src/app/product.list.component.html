@@ -36,8 +36,7 @@
                     <button (click)="borrar(p.id)" class="btn btn-default glyphicon glyphicon-remove"></button>
                 </div>
                 <div class="text-center col-md-1 botones-prod" *ngIf="contact">
-                    <button (click)="mensaje()" class="btn btn-default glyphicon glyphicon-envelope"></button>
-
+                    <button (click)="mensaje(p.idUser)" class="btn btn-default glyphicon glyphicon-envelope" [disabled]="p.idUser==uService.getIdUserLogued()"></button>
                 </div>
             </div>
             <h4 *ngIf="p == undefined">Actualmente no tienes productos en venta</h4>

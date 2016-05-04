@@ -2,22 +2,27 @@ unificar estilos <= CARLOS
 
 sin loguear:
 	inicio: cuadro busqueda con productos.img
-	quitar novedades y quitar boton busqueda
+	quitar novedades y quitar boton busqueda <= hecho
 
-busqueda hacerla bien <= DAVID
-	que se queden los campos marcados
+	busqueda hacerla bien <= DAVID
+	que se queden los campos marcados  <=hecho
 
 logueado: 
+<<<<<<< HEAD
+
+	comentarios de productos independientes <= hecho
+=======
 	cambiar novedades por busqueda y quitar boton busqueda <= TERMINADO
 	quitar boton favoritos <= TERMINADO
 	añadir control de formulario, cambiar select ubicacion <= TERMINADO
-	mensajeria: indicador de nuevos mensajes <= TERMINADO
-	comentarios de productos independientes <= CARLOS
+	mensajeria: indicador de nuevos mensajes
+	comentarios de productos independientes <= TERMINADO
+>>>>>>> f3_arreglos_carlos2
 	en lista de productos enlazar bien a mensajes/id <= JORGE
 
 
 por amor al arte:
-	añadir animaciones <= CARLOS
+	añadir animaciones <= CARLOS , en el movil es una mierda
 
 
 
@@ -30,7 +35,7 @@ por amor al arte:
  	- que al seleccionar el tipo de producto se tenga en cuenta al crearlo (ahora no lo hace) <= HECHO
  	- para asignar id al nuevo producto usar funcion setId ya que te da un id único (si no se hace asi, no se puede ver el producto) <= HECHO
  	- si el año queda vacio, no se mostrara año (la plantilla lo contempla) indicar que no es necesario rellenarlo <= HECHO
- 	- si en km pones 0 la plantilla dira que es nuevo, indicarlo en el formulario
+ 	- si en km pones 0 la plantilla dira que es nuevo, indicarlo en el formulario hecho pero regular
 
   - En la vista de producto se muestra menos informacion que en el listado de productos de la busqueda
   	- añadir datos como km, año, ubicacion
