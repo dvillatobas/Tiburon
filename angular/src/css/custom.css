@@ -1,3 +1,22 @@
+.inicioSesion{
+  position: relative;
+  -webkit-animation-name: prueba;
+  -webkit-animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes prueba{
+  0% {right: : 0px;}
+  100%  {right: : 350px;}
+}
+@keyframes prueba {
+    0%   {right: 0px;}
+    100% {right: 350px;}
+}
+.registro{
+  visibility: hidden;
+}
+
 body {
     max-width: 1200px;
     margin: auto;

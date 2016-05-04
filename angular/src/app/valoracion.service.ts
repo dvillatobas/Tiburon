@@ -10,7 +10,11 @@ export class Valoration{
     public idUser,
     public valoracion,
     public description,
+<<<<<<< HEAD
     public productId
+=======
+    public idProducto
+>>>>>>> f3_arreglos_carlos2
   ){}
 }
 
@@ -20,8 +24,13 @@ export class ValorationService{
   private comments = [
     new Valoration("Raul","vendedor 100% fiable","Muy puntual y amable.",1),
     new Valoration("Raul","No está mal","Tiene buen aspecto, pero me parece un precio excesivo.",2),
+<<<<<<< HEAD
     new Valoration("David","Buenisimo","¡Me encanta este coche!",1),
     new Valoration("Juan","Buen motor","Nunca había visto este modelo, es increíble.",3)
+=======
+    new Valoration("David","Buenisimo","¡Me encanta este coche!",3),
+    new Valoration("Juan","Buen motor","Nunca había visto este modelo, es increíble.",4)
+>>>>>>> f3_arreglos_carlos2
   ];
 
   constructor(private uService: UserService){}

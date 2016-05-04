@@ -8,8 +8,16 @@ sin loguear:
 	que se queden los campos marcados  <=hecho
 
 logueado: 
+<<<<<<< HEAD
 
 	comentarios de productos independientes <= hecho
+=======
+	cambiar novedades por busqueda y quitar boton busqueda <= TERMINADO
+	quitar boton favoritos <= TERMINADO
+	añadir control de formulario, cambiar select ubicacion <= TERMINADO
+	mensajeria: indicador de nuevos mensajes
+	comentarios de productos independientes <= TERMINADO
+>>>>>>> f3_arreglos_carlos2
 	en lista de productos enlazar bien a mensajes/id <= JORGE
 
 
