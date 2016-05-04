@@ -8,6 +8,7 @@ import org.springframework.data.annotation.Id;
 
 @Entity
 public class Product {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;

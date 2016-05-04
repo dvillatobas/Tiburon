@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 
 import es.tiburon.code.user.User;
 import es.tiburon.code.user.UserRepository;
+import es.tiburon.producto.Product;
+import es.tiburon.producto.ProductRepository;
 
 @Controller
 public class DatabaseInitializer implements CommandLineRunner {
@@ -15,6 +17,7 @@ public class DatabaseInitializer implements CommandLineRunner {
 
 	@Autowired
 	private UserRepository userRepository;
+	private ProductRepository productRepository;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -23,6 +26,8 @@ public class DatabaseInitializer implements CommandLineRunner {
 
 		userRepository.save(new User("user", "", "", "", "", "pass", "", "", "ROLE_USER"));
 		userRepository.save(new User("admin", "", "", "", "", "pass", "", "", "ROLE_ADMIN"));
+		productRepository.save(new Product( "1/1/16","camaro", 210,1965,"Madrid",2500,1,"car","askldfms"));
+		
 	}
 
 }
