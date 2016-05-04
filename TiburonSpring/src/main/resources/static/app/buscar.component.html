@@ -1,9 +1,0 @@
-<div class="row">
-        <div class="col-md-3">
-            <filtros-busqueda></filtros-busqueda>
-        </div>
-        <div class="col-md-9">
-            <product-list *ngIf="prods" [products]="products"></product-list>
-            <user-list *ngIf="!prods" [userList]="users"></user-list>
-        </div>
-    </div>
