@@ -11,10 +11,9 @@ export class User{
     public apellidos,
     public telefono,
     public email,
-    public pass,
     public img,
     public tipo,
-    public rol : string[]
+    public roles
   ){}
 }
 
@@ -30,7 +29,7 @@ export class UserList{
 
 }
 
-const URL = '/users/';
+const URL = 'users/';
 
 @Injectable()
 export class UserService{
@@ -123,54 +122,53 @@ export class UserService{
     }
   }
   getUserListSearch(palabra:string){
-    let list : User[];
-    this.getUserList().subscribe(
-      u => list = u,
-      error => console.log(error)
+    let list = [];
+    this.http.get(URL).subscribe(
+      response => {
+        list = response.json();
+
+        let busq = palabra.split('+');
+        let listFiltrada = [];
+        for (let l of list) {
+          if ((l.nick.indexOf(busq[0])) > -1) {
+            listFiltrada.push(l);
+          }
+        }
+        if(listFiltrada.length===0){
+          return [];
+        }
+        if(busq[6] === 'true' && busq[7] === 'false'){
+          let aux = [];
+          let u : User;
+          for(let u of listFiltrada){
+
+            if(u.tipo == 'particular'){
+              aux.push(u);
+            }
+          }
+          listFiltrada = [];
+          listFiltrada = aux;
+        }
+        if(busq[7] === 'true' && busq[6] === 'false'){
+          let aux = [];
+          let u : User;
+          for(let u of listFiltrada){
+
+            if(u.tipo == 'profesional'){
+              aux.push(u);
+            }
+          }
+          listFiltrada = [];
+          listFiltrada = aux;
+        }
+        if(busq[7] === 'false' && busq[6] === 'false'){
+          return [];
+        }
+        console.log(listFiltrada);
+        return listFiltrada;
+      }
     );
-
-    console.log(list);
-
-    let busq = palabra.split('+');
-    let listFiltrada = [];
-    for (let i = 0; i < list.length; i++) {
-      if ((list[i].nick.indexOf(busq[0])) > -1) {
-        listFiltrada.push(list[i]);
-      }
-    }
-    if(listFiltrada.length===0){
-      return withObserver([]);
-    }
-    if(busq[6] === 'true' && busq[7] === 'false'){
-      let aux = [];
-      let u : User;
-      for(let u of listFiltrada){
-
-        if(u.tipo == 'particular'){
-          aux.push(u);
-        }
-      }
-      listFiltrada = [];
-      listFiltrada = aux;
-    }
-    if(busq[7] === 'true' && busq[6] === 'false'){
-      let aux = [];
-      let u : User;
-      for(let u of listFiltrada){
-
-        if(u.tipo == 'profesional'){
-          aux.push(u);
-        }
-      }
-      listFiltrada = [];
-      listFiltrada = aux;
-    }
-    if(busq[7] === 'false' && busq[6] === 'false'){
-      return withObserver([]);
-    }
-
-
-    return withObserver(listFiltrada);
+    return [];
   }
 
   private handleError(error: any){
