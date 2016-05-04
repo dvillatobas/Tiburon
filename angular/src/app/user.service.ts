@@ -1,6 +1,7 @@
 import {Injectable} from 'angular2/core';
 import {Observable} from 'rxjs/Observable';
 import {withObserver} from './utils';
+import {Http, Headers, RequestOptions} from 'angular2/http';
 
 export class User{
   constructor(
@@ -13,7 +14,7 @@ export class User{
     public pass,
     public img,
     public tipo,
-    public rol
+    public rol : string[]
   ){}
 }
 
@@ -29,17 +30,18 @@ export class UserList{
 
 }
 
+const URL = '/users/';
+
 @Injectable()
 export class UserService{
-  private users = [
-    new User(1,'david','david','villatobas',666888999,'dvd1880@gmail.com','1234','/imagenes/users/foto2.jpg','profesional','admin'),
-    new User(2,'juan','juan','villatobas',653546977,'dvd1880@gmail.com','1234','/imagenes/users/foto1.jpg','particular','normal'),
-    new User(3,'luis','luis','villatobas',653546977,'dvd1880@gmail.com','1234','/imagenes/users/foto1.jpg','profesional','normal'),
-    new User(4,'raul','raul','villatobas',653546977,'dvd1880@gmail.com','1234','/imagenes/users/foto2.jpg','particular','normal')
-  ];
+  private users=[];
   private logueado:boolean = false;
   private idUserLogued:number = 0;
   private lastId:number = 4;
+
+  constructor(
+    private http:Http
+  ){}
 
   getIdUserLogued(){
     return this.idUserLogued;
@@ -56,7 +58,9 @@ export class UserService{
     return this.lastId;
   }
   getUserList(){
-    return withObserver(this.users);
+    return this.http.get(URL)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
   }
 
   getUserByNick(nick){
@@ -119,11 +123,19 @@ export class UserService{
     }
   }
   getUserListSearch(palabra:string){
+    let list : User[];
+    this.getUserList().subscribe(
+      u => list = u,
+      error => console.log(error)
+    );
+
+    console.log(list);
+
     let busq = palabra.split('+');
     let listFiltrada = [];
-    for (let i = 0; i < this.users.length; i++) {
-      if ((this.users[i].nick.indexOf(busq[0])) > -1) {
-        listFiltrada.push(this.users[i]);
+    for (let i = 0; i < list.length; i++) {
+      if ((list[i].nick.indexOf(busq[0])) > -1) {
+        listFiltrada.push(list[i]);
       }
     }
     if(listFiltrada.length===0){
@@ -159,6 +171,11 @@ export class UserService{
 
 
     return withObserver(listFiltrada);
+  }
+
+  private handleError(error: any){
+    console.error(error);
+    return Observable.throw("Server error (" + error.status + "): " + error.text())
   }
 
 

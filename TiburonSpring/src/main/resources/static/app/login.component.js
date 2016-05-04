@@ -91,7 +91,7 @@ System.register(['angular2/core', 'angular2/router', './user.service'], function
                         this.failType = true;
                         return 0;
                     }
-                    var error = this.uService.newUser(new user_service_1.User(this.uService.setId, nickR, nombreR, apellidosR, telR, emailR, passR, imgR, typeR, 'normal'));
+                    var error = this.uService.newUser(new user_service_1.User(this.uService.setId, nickR, nombreR, apellidosR, telR, emailR, passR, imgR, typeR, ['normal']));
                     if (error === 0) {
                         this.userCreated = true;
                         this.classInicio = 'inicioSesion';

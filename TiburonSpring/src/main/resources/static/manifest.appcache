@@ -1,13 +1,13 @@
 CACHE MANIFEST
 # sw.bundle: ng-cli
-# sw.version: 44c397a4d3f47557dd6f1dd4b4b2e4109d21ab45
+# sw.version: 645cde4fa1e7178de5e56d9f9f0f12e629a9e48c
 # sw.file.hash: f496adc80e711631a36a98b9c7092885200cb009
 /app/app.component.html
-# sw.file.hash: 0a51e5591f24eb7e61142e2813670dc5c195b081
+# sw.file.hash: f8616024748df529b6004269d2e910311977b48d
 /app/app.component.js
-# sw.file.hash: 3bb4fd9eab90f147ecdb2793a222b7c9e631e989
+# sw.file.hash: 334e4902e91d2f7671f488b14015ae3ef59a5976
 /app/app.component.js.map
-# sw.file.hash: 09231795580c15c38ed1fbf5afa6febc27f8263f
+# sw.file.hash: 0f9e15ea6908b80e74435d8abe3f41e70c6beb89
 /app/app.component.ts
 # sw.file.hash: 158446e06aba06cad816b57825201e863515dd30
 /app/buscar.component.html
@@ -47,13 +47,13 @@ CACHE MANIFEST
 /app/header.component.js.map
 # sw.file.hash: 258963c2e58631dab24a96d13d1cda57136e9393
 /app/header.component.ts
-# sw.file.hash: 3019edc37ebedbb270f12caad63a73a381eb65e0
+# sw.file.hash: 017c332ca372da88a33bfb77a1c5355f2fa2b89d
 /app/login.component.html
-# sw.file.hash: e0992ddfa12c1056c714377576ad86b71771632e
+# sw.file.hash: 9d512c6592c9d9877a79005ab93d08a1aff7eddf
 /app/login.component.js
-# sw.file.hash: a479c29c8167c21b9c8f26ce3f9bf31303f7c8b7
+# sw.file.hash: a9bb7feac1abe263e75a4a4575b3b3749a672615
 /app/login.component.js.map
-# sw.file.hash: 477b276c1e609749bfdb7aee969cd4e3a2acb0ae
+# sw.file.hash: 66ff72bf2a31229a07280d1bff615e2c22288576
 /app/login.component.ts
 # sw.file.hash: d36e3a0353e386dcf318c0b315b70608674be7db
 /app/main.component.html
@@ -155,11 +155,11 @@ CACHE MANIFEST
 /app/user.list.component.js.map
 # sw.file.hash: 13af0e5bde3e2276277b33e21b7d15d3ab401909
 /app/user.list.component.ts
-# sw.file.hash: 33c1763dfbd0b89da1ff959fa9319ac3cdca7475
+# sw.file.hash: 41a98ff2e0c071cb18042c3f320a9374e999a637
 /app/user.service.js
-# sw.file.hash: 957bbff414566eb3e86a45f971b651927597992c
+# sw.file.hash: a2c68b4c441fbde6ee2ff430e147891b51eccdcd
 /app/user.service.js.map
-# sw.file.hash: 28530a1e8b3c35db1ce9a92445fc80bc4b69eefa
+# sw.file.hash: b8205545e41a1e8fb988cbaea67c707fffc51740
 /app/user.service.ts
 # sw.file.hash: ce736cbcb1d86342a2018f90a6deb9b3ece96bfc
 /app/utils.js

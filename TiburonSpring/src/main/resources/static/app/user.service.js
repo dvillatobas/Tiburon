@@ -1,4 +1,4 @@
-System.register(['angular2/core', './utils'], function(exports_1) {
+System.register(['angular2/core', 'rxjs/Observable', './utils', 'angular2/http'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,15 +8,21 @@ System.register(['angular2/core', './utils'], function(exports_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, utils_1;
-    var User, UserList, UserService;
+    var core_1, Observable_1, utils_1, http_1;
+    var User, UserList, URL, UserService;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
+            function (Observable_1_1) {
+                Observable_1 = Observable_1_1;
+            },
             function (utils_1_1) {
                 utils_1 = utils_1_1;
+            },
+            function (http_1_1) {
+                http_1 = http_1_1;
             }],
         execute: function() {
             User = (function () {
@@ -47,14 +53,11 @@ System.register(['angular2/core', './utils'], function(exports_1) {
                 return UserList;
             })();
             exports_1("UserList", UserList);
+            URL = '/users/';
             UserService = (function () {
-                function UserService() {
-                    this.users = [
-                        new User(1, 'david', 'david', 'villatobas', 666888999, 'dvd1880@gmail.com', '1234', '/imagenes/users/foto2.jpg', 'profesional', 'admin'),
-                        new User(2, 'juan', 'juan', 'villatobas', 653546977, 'dvd1880@gmail.com', '1234', '/imagenes/users/foto1.jpg', 'particular', 'normal'),
-                        new User(3, 'luis', 'luis', 'villatobas', 653546977, 'dvd1880@gmail.com', '1234', '/imagenes/users/foto1.jpg', 'profesional', 'normal'),
-                        new User(4, 'raul', 'raul', 'villatobas', 653546977, 'dvd1880@gmail.com', '1234', '/imagenes/users/foto2.jpg', 'particular', 'normal')
-                    ];
+                function UserService(http) {
+                    this.http = http;
+                    this.users = [];
                     this.logueado = false;
                     this.idUserLogued = 0;
                     this.lastId = 4;
@@ -73,7 +76,10 @@ System.register(['angular2/core', './utils'], function(exports_1) {
                     return this.lastId;
                 };
                 UserService.prototype.getUserList = function () {
-                    return utils_1.withObserver(this.users);
+                    var _this = this;
+                    return this.http.get(URL)
+                        .map(function (response) { return response.json(); })
+                        .catch(function (error) { return _this.handleError(error); });
                 };
                 UserService.prototype.getUserByNick = function (nick) {
                     var user = this.users.filter(function (u) { return u.nick === nick; })[0];
@@ -134,11 +140,14 @@ System.register(['angular2/core', './utils'], function(exports_1) {
                     }
                 };
                 UserService.prototype.getUserListSearch = function (palabra) {
+                    var list;
+                    this.getUserList().subscribe(function (u) { return list = u; }, function (error) { return console.log(error); });
+                    console.log(list);
                     var busq = palabra.split('+');
                     var listFiltrada = [];
-                    for (var i = 0; i < this.users.length; i++) {
-                        if ((this.users[i].nick.indexOf(busq[0])) > -1) {
-                            listFiltrada.push(this.users[i]);
+                    for (var i = 0; i < list.length; i++) {
+                        if ((list[i].nick.indexOf(busq[0])) > -1) {
+                            listFiltrada.push(list[i]);
                         }
                     }
                     if (listFiltrada.length === 0) {
@@ -173,9 +182,13 @@ System.register(['angular2/core', './utils'], function(exports_1) {
                     }
                     return utils_1.withObserver(listFiltrada);
                 };
+                UserService.prototype.handleError = function (error) {
+                    console.error(error);
+                    return Observable_1.Observable.throw("Server error (" + error.status + "): " + error.text());
+                };
                 UserService = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [http_1.Http])
                 ], UserService);
                 return UserService;
             })();

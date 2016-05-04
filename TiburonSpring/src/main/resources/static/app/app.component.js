@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './main.component', 'ng2-bootstrap/ng2-bootstrap', './header.component', './footer.component', './mis-productos.component', './login.component', './mensajes.component', './buscar.component', './user.service', './mensajes.service', './product.service', './follow.service', './producto.component', './product.mod.component', './public.profile.component', './valoracion.service'], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', './main.component', 'ng2-bootstrap/ng2-bootstrap', './header.component', './footer.component', './mis-productos.component', './login.component', './mensajes.component', './buscar.component', './user.service', './mensajes.service', './product.service', './follow.service', './producto.component', './product.mod.component', './public.profile.component', './valoracion.service', 'angular2/http'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', 'angular2/router', './main.component', 'ng2-bo
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, main_component_1, ng2_bootstrap_1, header_component_1, footer_component_1, mis_productos_component_1, login_component_1, mensajes_component_1, buscar_component_1, user_service_1, mensajes_service_1, product_service_1, follow_service_1, producto_component_1, product_mod_component_1, public_profile_component_1, valoracion_service_1;
+    var core_1, router_1, main_component_1, ng2_bootstrap_1, header_component_1, footer_component_1, mis_productos_component_1, login_component_1, mensajes_component_1, buscar_component_1, user_service_1, mensajes_service_1, product_service_1, follow_service_1, producto_component_1, product_mod_component_1, public_profile_component_1, valoracion_service_1, http_1;
     var AppComponent;
     return {
         setters:[
@@ -65,6 +65,9 @@ System.register(['angular2/core', 'angular2/router', './main.component', 'ng2-bo
             },
             function (valoracion_service_1_1) {
                 valoracion_service_1 = valoracion_service_1_1;
+            },
+            function (http_1_1) {
+                http_1 = http_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -80,7 +83,7 @@ System.register(['angular2/core', 'angular2/router', './main.component', 'ng2-bo
                         selector: 'app',
                         templateUrl: 'app/app.component.html',
                         directives: [router_1.ROUTER_DIRECTIVES, ng2_bootstrap_1.Alert, header_component_1.HeaderComponent, footer_component_1.FooterComponent],
-                        providers: [user_service_1.UserService, mensajes_service_1.MensajesService, product_service_1.ProductService, follow_service_1.FollowService, valoracion_service_1.ValorationService]
+                        providers: [http_1.HTTP_PROVIDERS, user_service_1.UserService, mensajes_service_1.MensajesService, product_service_1.ProductService, follow_service_1.FollowService, valoracion_service_1.ValorationService]
                     }),
                     router_1.RouteConfig([
                         { path: '/', name: 'Inicio', component: main_component_1.MainComponent, useAsDefault: true },
