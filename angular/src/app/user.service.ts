@@ -62,6 +62,24 @@ export class UserService{
       .catch(error => this.handleError(error));
   }
 
+  getUserListByNickAndTipo(nick:string, tipo:string){
+    return this.http.get(URL+"nick/"+nick+"/"+tipo)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  }
+
+
+  getUserListByNick(nick:string){
+    return this.http.get(URL+"nick/"+nick)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  }
+  getUserListByTipo(tipo:string){
+    return this.http.get(URL+"tipo/"+tipo)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  }
+
   getUserByNick(nick){
     let user = this.users.filter(u => u.nick === nick)[0]
     return withObserver(user);
