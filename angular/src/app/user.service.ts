@@ -35,15 +35,21 @@ const URL = 'users/';
 export class UserService{
   private users=[];
   private logueado:boolean = false;
-  private idUserLogued:number = 0;
+  private user : User = undefined;
   private lastId:number = 4;
 
   constructor(
     private http:Http
-  ){}
+  ){
+    this.reqIsLogged();
+  }
 
   getIdUserLogued(){
-    return this.idUserLogued;
+    if(this.user === undefined){
+      return 0;
+    }else{
+      return this.user.id;
+    }
   }
   getLogueado(){
     return this.logueado;
@@ -85,15 +91,13 @@ export class UserService{
     return withObserver(user);
   }
 
-  login(id){
-    this.logueado = true;
-    this.idUserLogued = id;
-  }
-
   getUser(id:number){
     return this.http.get(URL+id)
 	      .map(response => response.json())
 	      .catch(error => this.handleError(error));
+  }
+  getUserLogued(){
+    return this.user;
   }
 
 
@@ -105,10 +109,52 @@ export class UserService{
     }
   }
 
+
+  processLogInResponse(response){
+    this.logueado = true;
+    this.user = response.json();
+  }
+
+  login(user: string, pass: string) {
+		let userPass = user + ":" + pass;
+		let headers = new Headers({
+			'Authorization': 'Basic '+utf8_to_b64(userPass),
+			'X-Requested-With': 'XMLHttpRequest'
+		});
+		let options = new RequestOptions({headers});
+		return this.http.get('logIn', options).map(
+			response => {
+				this.processLogInResponse(response);
+				return this.user;
+			}
+		);
+	}
   logout(){
     this.logueado = false;
-    this.idUserLogued = 0;
+    this.user = undefined;
+    return this.http.get('logOut/').map(
+			response => {
+				return response;
+			}
+		);
   }
+
+  reqIsLogged(){
+		let headers = new Headers({
+			'X-Requested-With': 'XMLHttpRequest'
+		});
+		let options = new RequestOptions({headers});
+		this.http.get('logIn', options).subscribe(
+			response => this.processLogInResponse(response),
+			error => {
+				if(error.status != 401){
+					console.error("Error when asking if logged: "+
+						JSON.stringify(error));
+				}
+			}
+		);
+	}
+
 
   nickExist(nick){
     for(let u of this.users){
@@ -193,4 +239,10 @@ export class UserService{
   }
 
 
+}
+
+function utf8_to_b64(str) {
+    return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(match, p1) {
+        return String.fromCharCode(<any>'0x' + p1);
+    }));
 }

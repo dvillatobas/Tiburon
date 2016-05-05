@@ -34,17 +34,12 @@ export class LoginComponent{
   entrar(event:any,nick:string,pass:string){
     event.preventDefault();
     this.resetAlarms();
-    this.uService.getUserByNick(nick).subscribe(
+    this.uService.login(nick,pass).subscribe(
       user => {
-        if (user != undefined && user.nick === nick && user.pass === pass){
-          this.uService.login(user.id);
-          this.router.navigate(['Inicio']);
-        }else{
-          this.failLogin = true;
-        }
+        console.log(user);
       },
       error => {
-        console.log(error)
+        this.failLogin = true;
       }
     );
   }

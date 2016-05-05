@@ -44,20 +44,20 @@
             <div class="text-center">Mis mensajes</div>
           </a>
         </li>
-        <li *ngIf="usr.logueado==false">
+        <li *ngIf="!usr.logueado">
           <a [routerLink]="['Login']" aria-hidden="true">
             <p class="glyphicon glyphicon-plus center-block"></p>
             <div class="text-center">Registrarse</div>
           </a>
         </li>
-        <li *ngIf="usr.logueado==false">
+        <li *ngIf="!usr.logueado">
           <a [routerLink]="['Login']" id="login-nav" aria-hidden="true">
             <p class="glyphicon glyphicon-user center-block"></p>
             <div class="text-center">Iniciar sesión</div>
           </a>
         </li>
         <li *ngIf="usr.logueado">
-          <a [routerLink]="['Inicio']" (click)="logout()" id="logout-nav" aria-hidden="true">
+          <a [routerLink]="['Login']" (click)="logout()" id="logout-nav" aria-hidden="true">
             <p class="glyphicon glyphicon-user center-block"></p>
             <div class="text-center">Cerrar sesión</div>
           </a>

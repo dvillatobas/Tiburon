@@ -12,13 +12,14 @@ import {FollowService} from './follow.service';
 export class UserComponent implements OnInit{
   @Input()
   private user: User;
+
   @Input()
   private uso : string;
 
 
-  private main : boolean;
-  private nFollows : number;
-  private nFollowers : number;
+  private main : boolean = false;
+  private nFollows : number = 0;
+  private nFollowers : number = 0;
   private showFollow : boolean;
   private follow : boolean;
 
@@ -27,19 +28,39 @@ export class UserComponent implements OnInit{
     private uService : UserService,
     private router : Router,
     private routeParams : RouteParams
-  ){}
-  ngOnInit(){
-    let id = +this.routeParams.get('id');
-    this.main = (this.uso==='main');
-    this.showFollow = !(0 === this.user.id);
+  ){
+    let id;
+    this.main = (this.uso === 'main');
+    if(this.main){
+      this.showFollow =false;
+      this.user = this.uService.getUserLogued();
+      this.fService.getListFollow(this.user.id).subscribe(
+        l => {
+          this.nFollows = l.length;
+          this.refreshFollow();
+        },
+        error => console.log(error)
+      );
+    }else{
+      this.showFollow = true;
+      id = +this.routeParams.get('id');
+      this.uService.getUser(id).subscribe(
+        u => {
+          this.user = u;
+          this.fService.getListFollow(this.user.id).subscribe(
+            l => {
+              this.nFollows = l.length;
+              this.refreshFollow();
+            },
+            error => console.log(error)
+          );
+        }
+      );
+    }
 
-    this.fService.getListFollow(this.user.id).subscribe(
-      l => {
-        this.nFollows = l.length;
-        this.refreshFollow();
-      },
-      error => console.log(error)
-    );
+
+  }
+  ngOnInit(){
 
   }
 

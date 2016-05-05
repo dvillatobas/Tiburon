@@ -19,22 +19,10 @@ export class HeaderComponent{
     private usr : UserService,
     private msj : MensajesService
   ){}
-  inicio(){
-    this.router.navigate(['Inicio']);
-  }
-
-  misprod(){
-    this.router.navigate(['MisProductos']);
-  }
-  mensajes(){
-    this.router.navigate(['Mensajes']);
-  }
-  login(){
-    this.router.navigate(['Login']);
-  }
+  
   logout(){
     this.usr.logout();
   }
-  
+
 
 }
