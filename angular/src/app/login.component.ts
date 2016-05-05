@@ -85,7 +85,7 @@ export class LoginComponent{
       return 0;
     }
 
-    let error = this.uService.newUser(new User(this.uService.setId,nickR,nombreR,apellidosR,telR,emailR,passR,imgR,typeR,'normal'));
+    let error = this.uService.newUser(new User(this.uService.setId,nickR,nombreR,apellidosR,telR,emailR,imgR,typeR,['normal']));
     if(error===0){
       this.userCreated=true;
       this.classInicio = 'inicioSesion';

@@ -18,12 +18,14 @@ import {PublicProfileComponent} from './public.profile.component';
 import {UserListComponent} from './user.list.component';
 import {ValorationService} from './valoracion.service';
 import {ProductListComponent} from './product.list.component';
+import {HTTP_PROVIDERS, Http} from 'angular2/http';
+import {ProfileComponent} from './profile.component';
 
 @Component({
   selector: 'app',
   templateUrl: 'app/app.component.html',
   directives: [ROUTER_DIRECTIVES, Alert, HeaderComponent, FooterComponent],
-  providers: [UserService, MensajesService, ProductService, FollowService,ValorationService]
+  providers: [HTTP_PROVIDERS, UserService, MensajesService, ProductService, FollowService,ValorationService]
 })
 @RouteConfig([
   {path: '/', name: 'Inicio', component: MainComponent, useAsDefault:true},
@@ -36,7 +38,8 @@ import {ProductListComponent} from './product.list.component';
   {path: '/producto/:id', name: 'Producto', component: ProductoComponent},
   {path: '/producto/edit/:id', name: 'EditarProducto', component: ProductModComponent},
   {path: '/producto/nuevo', name: 'NuevoProducto', component: ProductModComponent},
-  {path: '/profile/:type/:id', name: 'Profile', component: PublicProfileComponent}
+  {path: '/profile/:type/:id', name: 'Profile', component: PublicProfileComponent},
+  {path: '/pr/:id', name: 'Perfil', component: ProfileComponent},
 ])
 export class AppComponent {
   constructor(

@@ -41,7 +41,6 @@ public class UserRepositoryAuthProvider implements AuthenticationProvider {
 		String password = (String) authentication.getCredentials();
 
 		User user = userRepository.findByNick(nick);
-
 		if (user == null) {
 			throw new BadCredentialsException("User not found");
 		}

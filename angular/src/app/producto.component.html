@@ -24,7 +24,7 @@
           <div class="panel-body">
             <div class="row">
               <div class="col-lg-6 col-md-6">
-                <div class="seller">
+                <div class="seller" *ngIf="user">
                   <a [routerLink]="['Profile',{type: 'profile', id:user.id}]">
                     <img [src]="user.img"  class="img-responsive img-circle center-block" alt="perfilVendedor"> {{user.nick}}
                   </a>

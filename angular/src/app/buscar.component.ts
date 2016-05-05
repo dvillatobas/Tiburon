@@ -43,16 +43,42 @@ export class BuscarComponent implements OnInit{
     }else if(p[1]==='user'){
       this.prods = false;
       let ulist = [];
-      this.uService.getUserListSearch(this.palabra).subscribe(
-        l => ulist = l,
-        error => console.log(error)
-      );
-      for(let u of ulist){
-        this.fService.getUserList(u).subscribe(
-          ul => this.users.push(ul),
-          error => console.log(error)
+      let tipo;
+      if(p[6]==='false' && p[7]==='true'){
+        tipo = 'profesional';
+      }else if(p[6]==='true' && p[7]==='false'){
+        tipo = 'particular';
+      }else{
+        tipo = 'all';
+      }
+      if(p[0]===''){
+        this.uService.getUserListByTipo(tipo).subscribe(
+          l => {
+            ulist = l;
+            console.log(ulist);
+            for(let u of ulist){
+              this.fService.getUserList(u).subscribe(
+                ul => this.users.push(ul),
+                error => console.log(error)
+              );
+            }
+          }
+        );
+      }else{
+        this.uService.getUserListByNickAndTipo(p[0],tipo).subscribe(
+          l => {
+            ulist = l;
+            console.log(ulist);
+            for(let u of ulist){
+              this.fService.getUserList(u).subscribe(
+                ul => this.users.push(ul),
+                error => console.log(error)
+              );
+            }
+          }
         );
       }
+
     }
   }
 

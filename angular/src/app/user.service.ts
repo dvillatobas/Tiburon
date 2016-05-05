@@ -1,6 +1,7 @@
 import {Injectable} from 'angular2/core';
 import {Observable} from 'rxjs/Observable';
 import {withObserver} from './utils';
+import {Http, Headers, RequestOptions} from 'angular2/http';
 
 export class User{
   constructor(
@@ -10,10 +11,9 @@ export class User{
     public apellidos,
     public telefono,
     public email,
-    public pass,
     public img,
     public tipo,
-    public rol
+    public roles
   ){}
 }
 
@@ -29,17 +29,18 @@ export class UserList{
 
 }
 
+const URL = 'users/';
+
 @Injectable()
 export class UserService{
-  private users = [
-    new User(1,'david','david','villatobas',666888999,'dvd1880@gmail.com','1234','/imagenes/users/foto2.jpg','profesional','admin'),
-    new User(2,'juan','juan','villatobas',653546977,'dvd1880@gmail.com','1234','/imagenes/users/foto1.jpg','particular','normal'),
-    new User(3,'luis','luis','villatobas',653546977,'dvd1880@gmail.com','1234','/imagenes/users/foto1.jpg','profesional','normal'),
-    new User(4,'raul','raul','villatobas',653546977,'dvd1880@gmail.com','1234','/imagenes/users/foto2.jpg','particular','normal')
-  ];
+  private users=[];
   private logueado:boolean = false;
   private idUserLogued:number = 0;
   private lastId:number = 4;
+
+  constructor(
+    private http:Http
+  ){}
 
   getIdUserLogued(){
     return this.idUserLogued;
@@ -56,7 +57,27 @@ export class UserService{
     return this.lastId;
   }
   getUserList(){
-    return withObserver(this.users);
+    return this.http.get(URL)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  }
+
+  getUserListByNickAndTipo(nick:string, tipo:string){
+    return this.http.get(URL+"nick/"+nick+"/"+tipo)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  }
+
+
+  getUserListByNick(nick:string){
+    return this.http.get(URL+"nick/"+nick)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  }
+  getUserListByTipo(tipo:string){
+    return this.http.get(URL+"tipo/"+tipo)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
   }
 
   getUserByNick(nick){
@@ -70,12 +91,11 @@ export class UserService{
   }
 
   getUser(id:number){
-    for(let u of this.users){
-      if(u.id===id){
-        return withObserver(u);
-      }
-    }
+    return this.http.get(URL+id)
+	      .map(response => response.json())
+	      .catch(error => this.handleError(error));
   }
+
 
   getNick(id:number | string){
     for(let u of this.users){
@@ -119,46 +139,57 @@ export class UserService{
     }
   }
   getUserListSearch(palabra:string){
-    let busq = palabra.split('+');
-    let listFiltrada = [];
-    for (let i = 0; i < this.users.length; i++) {
-      if ((this.users[i].nick.indexOf(busq[0])) > -1) {
-        listFiltrada.push(this.users[i]);
-      }
-    }
-    if(listFiltrada.length===0){
-      return withObserver([]);
-    }
-    if(busq[6] === 'true' && busq[7] === 'false'){
-      let aux = [];
-      let u : User;
-      for(let u of listFiltrada){
+    let list = [];
+    this.http.get(URL).subscribe(
+      response => {
+        list = response.json();
 
-        if(u.tipo == 'particular'){
-          aux.push(u);
+        let busq = palabra.split('+');
+        let listFiltrada = [];
+        for (let l of list) {
+          if ((l.nick.indexOf(busq[0])) > -1) {
+            listFiltrada.push(l);
+          }
         }
-      }
-      listFiltrada = [];
-      listFiltrada = aux;
-    }
-    if(busq[7] === 'true' && busq[6] === 'false'){
-      let aux = [];
-      let u : User;
-      for(let u of listFiltrada){
-
-        if(u.tipo == 'profesional'){
-          aux.push(u);
+        if(listFiltrada.length===0){
+          return [];
         }
+        if(busq[6] === 'true' && busq[7] === 'false'){
+          let aux = [];
+          let u : User;
+          for(let u of listFiltrada){
+
+            if(u.tipo == 'particular'){
+              aux.push(u);
+            }
+          }
+          listFiltrada = [];
+          listFiltrada = aux;
+        }
+        if(busq[7] === 'true' && busq[6] === 'false'){
+          let aux = [];
+          let u : User;
+          for(let u of listFiltrada){
+
+            if(u.tipo == 'profesional'){
+              aux.push(u);
+            }
+          }
+          listFiltrada = [];
+          listFiltrada = aux;
+        }
+        if(busq[7] === 'false' && busq[6] === 'false'){
+          return [];
+        }
+        return listFiltrada;
       }
-      listFiltrada = [];
-      listFiltrada = aux;
-    }
-    if(busq[7] === 'false' && busq[6] === 'false'){
-      return withObserver([]);
-    }
+    );
+    return [];
+  }
 
-
-    return withObserver(listFiltrada);
+  private handleError(error: any){
+    console.error(error);
+    return Observable.throw("Server error (" + error.status + "): " + error.text())
   }
 
 
