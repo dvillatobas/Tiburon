@@ -19,7 +19,6 @@ import {UserListComponent} from './user.list.component';
 import {ValorationService} from './valoracion.service';
 import {ProductListComponent} from './product.list.component';
 import {HTTP_PROVIDERS, Http} from 'angular2/http';
-import {ProfileComponent} from './profile.component';
 
 @Component({
   selector: 'app',
@@ -38,8 +37,7 @@ import {ProfileComponent} from './profile.component';
   {path: '/producto/:id', name: 'Producto', component: ProductoComponent},
   {path: '/producto/edit/:id', name: 'EditarProducto', component: ProductModComponent},
   {path: '/producto/nuevo', name: 'NuevoProducto', component: ProductModComponent},
-  {path: '/profile/:type/:id', name: 'Profile', component: PublicProfileComponent},
-  {path: '/pr/:id', name: 'Perfil', component: ProfileComponent},
+  {path: '/profile/:type/:id', name: 'Profile', component: PublicProfileComponent}
 ])
 export class AppComponent {
   constructor(

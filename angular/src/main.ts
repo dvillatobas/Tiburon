@@ -3,7 +3,6 @@ import {AppComponent} from './app/app.component';
 import {provide} from 'angular2/core';
 import {UserService} from './app/user.service';
 import {BrowserXhr} from 'angular2/http';
-import {CustomBrowserXhr} from './app/multipart-upload/custom-browser-xhr';
 import {
 	ROUTER_PROVIDERS,
 	RouteConfig,
