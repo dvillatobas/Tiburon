@@ -40,30 +40,41 @@ export class PublicProfileComponent implements OnInit{
     let id = this.routeParams.get('id');
 
     this.uService.getUser(+this.routeParams.get('id')).subscribe(
-      u => this.user = u,
+      u => {
+        this.user = u;
+        if(tipo === 'profile'){
+          this.pService.getProductListUser(this.user.id).subscribe(
+            l => {
+              this.productsUser = l;
+              this.titulo = 'Anuncios de ' + this.user.nick;
+            },
+            error => console.log(error)
+          );
+
+
+        }else if(tipo === 'following'){
+          this.fService.getUserListFollows(this.user.id).subscribe(
+            l => {
+              this.userList = l;
+              this.showFollowers = true;
+            },
+            error => console.log(error)
+          );
+
+        }else if(tipo === 'followers'){
+          this.fService.getUserListFollowers(this.user.id).subscribe(
+            l => {
+              this.userList = l;
+              this.showFollowers = true;
+            },
+            error => console.log(error)
+          );
+        }
+      },
       error => console.log(error)
     );
 
-    if(tipo === 'profile'){
-      this.pService.getProductListUser(this.user.id).subscribe(
-        l => this.productsUser = l,
-        error => console.log(error)
-      );
 
-      this.titulo = 'Anuncios de ' + this.user.nick;
-    }else if(tipo === 'following'){
-      this.fService.getUserListFollows(this.user.id).subscribe(
-        l => this.userList = l,
-        error => console.log(error)
-      );
-      this.showFollowers = true;
-    }else if(tipo === 'followers'){
-      this.fService.getUserListFollowers(this.user.id).subscribe(
-        l => this.userList = l,
-        error => console.log(error)
-      );
-      this.showFollowers = true;
-    }
   }
 
 

@@ -1,4 +1,4 @@
-<div class="thumbnail">
+<div class="thumbnail" *ngIf="user">
   <a [routerLink]="['Profile',{type:'profile',id:user.id}]">
     <img [src]="user.img" alt="perfil">
   </a>

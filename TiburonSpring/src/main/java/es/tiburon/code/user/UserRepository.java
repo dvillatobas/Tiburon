@@ -20,5 +20,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	Collection<User> findByTipo(String tipo);
 	Collection<User> findByNickContainingAndTipo(String nick,String tipo);
 	
+	
 
 }

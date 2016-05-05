@@ -11,9 +11,10 @@ import {FollowService} from './follow.service';
 })
 export class UserComponent implements OnInit{
   @Input()
-  private user;
+  private user: User;
   @Input()
   private uso : string;
+
 
   private main : boolean;
   private nFollows : number;
@@ -24,17 +25,22 @@ export class UserComponent implements OnInit{
   constructor(
     private fService : FollowService,
     private uService : UserService,
-    private router : Router
+    private router : Router,
+    private routeParams : RouteParams
   ){}
   ngOnInit(){
+    let id = +this.routeParams.get('id');
     this.main = (this.uso==='main');
-    this.showFollow = !(this.uService.getIdUserLogued() === this.user.id);
+    this.showFollow = !(0 === this.user.id);
 
     this.fService.getListFollow(this.user.id).subscribe(
-      l => this.nFollows = l.length,
+      l => {
+        this.nFollows = l.length;
+        this.refreshFollow();
+      },
       error => console.log(error)
     );
-    this.refreshFollow();
+
   }
 
   refreshFollow(){

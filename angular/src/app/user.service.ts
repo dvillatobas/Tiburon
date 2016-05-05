@@ -91,12 +91,11 @@ export class UserService{
   }
 
   getUser(id:number){
-    for(let u of this.users){
-      if(u.id===id){
-        return withObserver(u);
-      }
-    }
+    return this.http.get(URL+id)
+	      .map(response => response.json())
+	      .catch(error => this.handleError(error));
   }
+
 
   getNick(id:number | string){
     for(let u of this.users){
@@ -182,7 +181,6 @@ export class UserService{
         if(busq[7] === 'false' && busq[6] === 'false'){
           return [];
         }
-        console.log(listFiltrada);
         return listFiltrada;
       }
     );
