@@ -36,6 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		// Disable CSRF protection (it is difficult to implement with ng2)
 		http.csrf().disable();
+		
 
 		// Use Http Basic Authentication
 		http.httpBasic();
@@ -43,6 +44,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		// Do not redirect when logout
 		http.logout().logoutSuccessHandler((rq, rs, a) -> {
 		});
+		// para poder ver la consola de h2 hace falta esta linea
+		http.headers().frameOptions().sameOrigin();
 	}
 
 	private void configureUrlAuthorization(HttpSecurity http) throws Exception {
