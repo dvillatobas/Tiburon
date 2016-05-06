@@ -22,6 +22,7 @@ export class MainComponent{
   private followProducts = [];
   private follow : number;
   private following : number;
+  private uso = 'main';
   constructor(
     private router:Router,
     private uService : UserService,

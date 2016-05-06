@@ -14,7 +14,7 @@
 <!-- SI ESTA LOGUEADO -->
 <div class="row" *ngIf="uService.logueado">
   <div class="col-sm-4 col-md-3 user">
-    <user [user]="user" [uso]="'main'" *ngIf="user"></user>
+    <user [user]="user" [uso]="uso" *ngIf="user"></user>
   </div>
   <!--ANUNCIOS -->
   <div class="col-sm-8 col-md-9">

@@ -20,7 +20,6 @@ export class UserComponent implements OnInit{
   private main : boolean = false;
   private nFollows : number = 0;
   private nFollowers : number = 0;
-  private showFollow : boolean;
   private follow : boolean;
 
   constructor(
@@ -29,10 +28,15 @@ export class UserComponent implements OnInit{
     private router : Router,
     private routeParams : RouteParams
   ){
+
+
+
+  }
+  ngOnInit(){
     let id;
     this.main = (this.uso === 'main');
     if(this.main){
-      this.showFollow =false;
+      console.log('main '+this.main);
       this.user = this.uService.getUserLogued();
       this.fService.getListFollow(this.user.id).subscribe(
         l => {
@@ -42,7 +46,7 @@ export class UserComponent implements OnInit{
         error => console.log(error)
       );
     }else{
-      this.showFollow = true;
+      console.log('profile '+this.main);
       id = +this.routeParams.get('id');
       this.uService.getUser(id).subscribe(
         u => {
@@ -57,11 +61,6 @@ export class UserComponent implements OnInit{
         }
       );
     }
-
-
-  }
-  ngOnInit(){
-
   }
 
   refreshFollow(){

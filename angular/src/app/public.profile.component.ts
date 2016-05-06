@@ -21,7 +21,7 @@ export class PublicProfileComponent implements OnInit{
   private productsUser = [];
   private titulo : string;
   private userList = [];
-
+  private uso = 'nomain';
 
   constructor(
     private uService:UserService,
