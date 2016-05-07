@@ -23,7 +23,10 @@ export class FollowService{
     private uService: UserService,
     private http:Http
   ){}
-
+  getAll(){
+    return this.http.get(URL)
+      .map(response => response.json());
+  }
 
   getFollow(id:number){
     return this.http.get(URL+id)
@@ -56,13 +59,26 @@ export class FollowService{
       .map(response => response.json());
   }
 
-  isFollowing(seguidor,seguido){
-    this.getFollow(seguidor).subscribe(
-      f => {
-        let user = f.followers.filter(u => u.id === seguido)[0];
-        return (user != undefined);
-      }
-    );
+  isFollowing(f1:Follow, f2:Follow){
+    if(f1){
+      return ((f1.follows.filter(u => u.id === f2.user.id)[0]) != undefined);
+    }else{
+      return false;
+    }
+
+  }
+
+  getFollowsByUsers(ids:number[]){
+    let url = URL + 'byUsers';
+    let body = JSON.stringify(ids);
+    let headers = new Headers({
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+    });
+    let options = new RequestOptions({ headers });
+
+    return this.http.put(url, body, options)
+      .map(response => response.json());
   }
 
 

@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
 import es.tiburon.code.user.User;
@@ -22,10 +22,12 @@ public class Follow {
 	@OneToOne
 	private User user;
 	
-	@OneToMany
+	// ManyToMany porque si no no permite duplicidades
+	
+	@ManyToMany
 	private List<User> follows;
 	
-	@OneToMany
+	@ManyToMany
 	private List<User> followers;
 	
 	public Follow(){}

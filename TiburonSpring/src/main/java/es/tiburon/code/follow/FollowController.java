@@ -1,12 +1,17 @@
 package es.tiburon.code.follow;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
+
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -51,8 +56,6 @@ public class FollowController {
 		if(uSeguido != null && uSeguidor != null){
 			Follow seguidor = fRepo.findByUser(uSeguidor);
 			Follow seguido = fRepo.findByUser(uSeguido);
-			System.out.println(seguidor);
-			System.out.println(seguido);
 			if(seguidor != null ){
 				log.info("1 sigue a 3 (mod)");
 				seguidor.getFollows().add(uSeguido);
@@ -101,6 +104,17 @@ public class FollowController {
 			log.info("usuario/s no validos");
 		}
 	}
+	
+	@RequestMapping(value = "/byUsers", method = RequestMethod.PUT)
+	@ResponseStatus(HttpStatus.OK)
+	public Collection<Follow> getFollowsByUsers(@RequestBody List<Long> users){
+		ArrayList<Follow> lista = new ArrayList<Follow>();
+		for(Long id : users){
+			lista.add(fRepo.findByUser(uRepo.findOne(id)));
+		}
+		return lista;
+	}
+	
 }
 
 

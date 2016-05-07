@@ -18,7 +18,7 @@ import {FollowService} from './follow.service';
 export class BuscarComponent implements OnInit{
 
   private products=[];
-  private users=[];
+  private follows=[];
   private palabra: string;
   private prods : boolean = true;
 
@@ -54,25 +54,29 @@ export class BuscarComponent implements OnInit{
       if(p[0]===''){
         this.uService.getUserListByTipo(tipo).subscribe(
           l => {
-            ulist = l;
-            console.log(ulist);
-            for(let u of ulist){
-              this.fService.getFollow(u.id).subscribe(
-                f => this.users.push(f)
-              );
+            let listaIds = [];
+            for (let u of l){
+              listaIds.push(u.id);
             }
+            this.fService.getFollowsByUsers(listaIds).subscribe(
+              fs => {
+                this.follows = fs;
+              }
+            );
           }
         );
       }else{
         this.uService.getUserListByNickAndTipo(p[0],tipo).subscribe(
           l => {
-            ulist = l;
-            console.log(ulist);
-            for(let u of ulist){
-              this.fService.getFollow(u.id).subscribe(
-                f => this.users.push(f)
-              );
+            let listaIds = [];
+            for (let u of l){
+              listaIds.push(u.id);
             }
+            this.fService.getFollowsByUsers(listaIds).subscribe(
+              fs => {
+                this.follows = fs;
+              }
+            );
           }
         );
       }

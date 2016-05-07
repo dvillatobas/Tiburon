@@ -28,18 +28,36 @@ public class DatabaseInitializer implements CommandLineRunner {
 
 	//	userRepository.save(new User("user", "", "", "", "", "pass", "", "", "ROLE_USER"));
 	//	userRepository.save(new User("admin", "", "", "", "", "pass", "", "", "ROLE_ADMIN"));
+		User david = new User("david","david","villatobas","666777888","david@gmail.com","1234","/imagenes/users/foto2.jpg","profesional","ROLE_USER");
+		User luis = new User("luis","luis","fernandez","666777888","luis@gmail.com","1234","/imagenes/users/foto1.jpg","particular","ROLE_USER");
+		User juan = new User("juan","juan","rodrigued","666777888","juan@gmail.com","1234","/imagenes/users/foto2.jpg","profesional","ROLE_USER");
+		User raul = new User("raul","raul","santos","666777888","raul@gmail.com","1234","/imagenes/users/foto1.jpg","particular","ROLE_USER");
 		
-		userRepository.save(new User("david","david","villatobas","666777888","david@gmail.com","1234","/imagenes/users/foto2.jpg","profesional","ROLE_USER"));
-		userRepository.save(new User("luis","luis","fernandez","666777888","luis@gmail.com","1234","/imagenes/users/foto1.jpg","particular","ROLE_USER"));
-		userRepository.save(new User("juan","juan","rodrigued","666777888","juan@gmail.com","1234","/imagenes/users/foto2.jpg","profesional","ROLE_USER"));
-		userRepository.save(new User("raul","raul","santos","666777888","raul@gmail.com","1234","/imagenes/users/foto1.jpg","particular","ROLE_USER"));
+		userRepository.save(david);
+		userRepository.save(luis);
+		userRepository.save(juan);
+		userRepository.save(raul);
 		
-		Follow f = new Follow(userRepository.findByNick("david"));
-		f.getFollowers().add(userRepository.findByNick("luis"));
-		f.getFollowers().add(userRepository.findByNick("juan"));
-		f.getFollows().add(userRepository.findByNick("raul"));
-		f.getFollows().add(userRepository.findByNick("luis"));
+		
+		Follow f = new Follow(david);
+		f.getFollowers().add(luis);
+		f.getFollowers().add(juan);
+		f.getFollows().add(raul);
+		f.getFollows().add(luis);
 		fRepo.save(f);
+		
+		Follow f1 = new Follow(luis);
+		f1.getFollows().add(david);
+		f1.getFollowers().add(david);
+		fRepo.save(f1);
+		
+		Follow f2 = new Follow(juan);
+		f2.getFollows().add(david);
+		fRepo.save(f2);
+		
+		Follow f3 = new Follow(raul);
+		f3.getFollowers().add(david);
+		fRepo.save(f3);
 	}
 
 }

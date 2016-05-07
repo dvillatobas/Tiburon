@@ -1,4 +1,4 @@
-import {Component,Input, OnInit, Output, EventEmitter}   from 'angular2/core';
+import {Component,Input, OnChanges, OnInit, Output, EventEmitter, SimpleChange}   from 'angular2/core';
 import {ROUTER_DIRECTIVES,RouteParams, Router} from 'angular2/router';
 import {UserService, User } from './user.service';
 import {FollowService, Follow} from './follow.service';
@@ -9,22 +9,21 @@ import {FollowService, Follow} from './follow.service';
   templateUrl: 'app/user.list.component.html'
 })
 
-export class UserAux{
-  constructor(
-    public follow : Follow,
-    public isFollowing : boolean
-  ){}
-}
 
-export class UserListComponent implements OnInit{
+export class UserListComponent implements OnInit, OnChanges{
   @Input()
-  private followList;
-  private list=[];
+  private follows;
+
   @Input()
   private type : string;
   @Output()
   private refresh = new EventEmitter<boolean>();
+
+  private list = [];
+  private actualUser : Follow;
   private id : number;
+  private show = false
+
   constructor(
     private uService : UserService,
     private router : Router,
@@ -33,9 +32,23 @@ export class UserListComponent implements OnInit{
   ){}
 
   ngOnInit(){
-    for(let f of this.followList){
-      this.list.push(new UserAux(f,(this.uService.getIdUserLogued(),f.user.id)));
+    if(this.uService.getLogueado()){
+      this.fService.getFollow(this.uService.getIdUserLogued()).subscribe(
+        f => this.actualUser = f
+      );
+    }else{
+      this.actualUser = undefined;
     }
+
+  }
+  ngOnChanges(){
+    if(this.follows){
+      for(let f of this.follows){
+        this.list.push(new UserAux(f,this.fService.isFollowing(this.actualUser,f)));
+      }
+      console.log(this.list)
+    }
+
   }
 
   refreshList(b:boolean){
@@ -44,7 +57,7 @@ export class UserListComponent implements OnInit{
 
   seguir(id){
     if(this.uService.getIdUserLogued()!=0){
-      this.fService.addFollow(this.uService.getIdUserLogued(),id);
+      this.fService.addFollow(this.actualUser.user.id,id);
       this.refreshList(true);
     }else{
       this.router.navigate(['Login']);
@@ -52,8 +65,16 @@ export class UserListComponent implements OnInit{
 
   }
   noSeguir(id){
-    this.fService.removeFollow(this.uService.getIdUserLogued(),id);
+    this.fService.removeFollow(this.actualUser.user.id,id);
     this.refreshList(true);
   }
 
+}
+
+
+export class UserAux{
+  constructor(
+    public follow : Follow,
+    public isFollowing : boolean
+  ){}
 }
