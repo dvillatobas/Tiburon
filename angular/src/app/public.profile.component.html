@@ -1,13 +1,13 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-4 col-md-3">
-      <user [user]="user" [uso]="uso" *ngIf="user"></user>
+      <user [follow]="follow" [uso]="uso" *ngIf="follow"></user>
     </div>
 
     <!--ANUNCIOS -->
     <div class="col-sm-8 col-md-9">
-      <product-list-img *ngIf="!showFollowers" [titulo]="titulo" [products]="productsUser"></product-list-img>
-      <user-list *ngIf="showFollowers" [userList]="userList" (refresh)='refreshList($event)'></user-list>
+      <product-list-img *ngIf="!showUsers" [titulo]="titulo" [products]="productsUser"></product-list-img>
+      <user-list *ngIf="showUsers" [userList]="userList" (refresh)='refreshList($event)'></user-list>
     </div>
   </div>
 </div>

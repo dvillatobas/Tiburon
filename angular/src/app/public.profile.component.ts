@@ -3,7 +3,7 @@ import {ROUTER_DIRECTIVES,RouteParams, Router} from 'angular2/router';
 import {UserService, User} from './user.service';
 import {ProductService, Product} from './product.service';
 import {ProductListImg} from './product.list.img.component';
-import {FollowService, UserList} from './follow.service';
+import {FollowService, Follow} from './follow.service';
 import {UserComponent} from './user.component';
 import {UserListComponent} from './user.list.component'
 
@@ -16,11 +16,11 @@ import {UserListComponent} from './user.list.component'
 
 export class PublicProfileComponent implements OnInit{
 
-  private user : User;
-  private showFollowers:boolean = false;
+  private follow : Follow;
+  private showUsers:boolean = false;
   private productsUser = [];
   private titulo : string;
-  private userList = [];
+  private followList = [];
   private uso = 'nomain';
 
   constructor(
@@ -37,43 +37,25 @@ export class PublicProfileComponent implements OnInit{
 
   refreshList(r:boolean){
     let tipo = this.routeParams.get('type');
-    let id = this.routeParams.get('id');
+    let id = +this.routeParams.get('id');
 
-    this.uService.getUser(+this.routeParams.get('id')).subscribe(
-      u => {
-        this.user = u;
+    this.fService.getFollow(id).subscribe(
+      f => {
+        this.follow = f;
         if(tipo === 'profile'){
-          this.pService.getProductListUser(this.user.id).subscribe(
-            l => {
-              this.productsUser = l;
-              this.titulo = 'Anuncios de ' + this.user.nick;
-            },
-            error => console.log(error)
+          this.showUsers = false;
+          this.pService.getProductListUser(f.user.id).subscribe(
+            p => this.productsUser = p
           );
-
-
-        }else if(tipo === 'following'){
-          this.fService.getUserListFollows(this.user.id).subscribe(
-            l => {
-              this.userList = l;
-              this.showFollowers = true;
-            },
-            error => console.log(error)
-          );
-
         }else if(tipo === 'followers'){
-          this.fService.getUserListFollowers(this.user.id).subscribe(
-            l => {
-              this.userList = l;
-              this.showFollowers = true;
-            },
-            error => console.log(error)
-          );
+          this.showUsers = true;
+          this.followList = this.follow.followers;
+        }else if(tipo === 'follows'){
+          this.showUsers = true;
+          this.followList = this.follow.follows;
         }
-      },
-      error => console.log(error)
+      }
     );
-
 
   }
 

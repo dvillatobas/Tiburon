@@ -1,39 +1,43 @@
-<div class="thumbnail" *ngIf="user">
-  <a [routerLink]="['Profile',{type:'profile',id:user.id}]">
-    <img [src]="user.img" alt="perfil">
+<div *ngIf="!follow">
+  <h4>Cargando datos de usuario...</h4>
+</div>
+
+<div class="thumbnail" *ngIf="follow">
+  <a [routerLink]="['Profile',{type:'profile',id:follow.user.id}]">
+    <img [src]="follow.user.img" alt="perfil">
   </a>
   <div class="caption text-center">
-    <h3>{{user.nick}}</h3>
+    <h3>{{follow.user.nick}}</h3>
     <div *ngIf="!main">
-      <h4 *ngIf="user.tipo=='profesional'"><span class="perf-icon glyphicon glyphicon-briefcase"></span>Profesional</h4>
-      <h4 *ngIf="user.tipo=='particular'"><span class="perf-icon glyphicon glyphicon-home"></span>Particular</h4>
-      <h4><span class="perf-icon glyphicon glyphicon-earphone"></span>{{user.telefono}}</h4>
-      <h4><span class="perf-icon glyphicon glyphicon-envelope"></span><a href="mailto:{{user.email}}">{{user.email}}</a></h4>
+      <h4 *ngIf="follow.user.tipo=='profesional'"><span class="perf-icon glyphicon glyphicon-briefcase"></span>Profesional</h4>
+      <h4 *ngIf="follow.user.tipo=='particular'"><span class="perf-icon glyphicon glyphicon-home"></span>Particular</h4>
+      <h4><span class="perf-icon glyphicon glyphicon-earphone"></span>{{follow.user.telefono}}</h4>
+      <h4><span class="perf-icon glyphicon glyphicon-envelope"></span><a href="mailto:{{follow.user.email}}">{{follow.user.email}}</a></h4>
     </div>
     <hr>
 
     <h4>
       <div class="row">
-         <a [routerLink]="['Profile',{type:'following',id:user.id}]">
+         <a [routerLink]="['Profile',{type:'following',id:follow.user.id}]">
               <div class="col-md-6 col-sm-6 col-xs-6">
                  <p>Siguiendo</p>
-                  <p>{{nFollows}}</p>
+                  <p>{{follow.follows.length}}</p>
               </div>
           </a>
           <a [routerLink]="['Profile',{type:'followers',id:user.id}]">
               <div class="col-md-6 col-sm-6 col-xs-6">
                  <p>Seguidores</p>
-                  <p>{{nFollowers}}</p>
+                  <p>{{follow.followers.length}}</p>
               </div>
           </a>
       </div>
   </h4>
   <h4 class="" *ngIf="!main">
-    <button (click)="noSeguir(user.id)" *ngIf="follow" id="tick-verde" class="btn btn-success glyphicon glyphicon-ok"></button>
-    <button (click)="seguir(user.id)" *ngIf="!follow" id="cruz-roja" class="btn btn-primary glyphicon glyphicon-check"></button>
+    <button (click)="noSeguir(follow.user.id)" *ngIf="following" id="tick-verde" class="btn btn-success glyphicon glyphicon-ok"></button>
+    <button (click)="seguir(follow.user.id)" *ngIf="!following" id="cruz-roja" class="btn btn-primary glyphicon glyphicon-check"></button>
 
-    <span *ngIf="follow" id="following">Siguiendo</span>
-    <span *ngIf="!follow" id="follow">Seguir</span>
+    <span *ngIf="following" id="following">Siguiendo</span>
+    <span *ngIf="!following" id="follow">Seguir</span>
   </h4>
   </div>
 </div>

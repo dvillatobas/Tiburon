@@ -53,7 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		// APP: This rules have to be changed by app developer
 
 		// URLs that need authentication to access to it
-	//	http.authorizeRequests().antMatchers(HttpMethod.POST, "/users/**").hasRole("USER");
+	//	http.authorizeRequests().antMatchers(HttpMethod.POST, "//**").hasRole("USER");
 	//	http.authorizeRequests().antMatchers(HttpMethod.PUT, "/users/**").hasRole("USER");
 	//	http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/users/**").hasRole("ADMIN");		
 

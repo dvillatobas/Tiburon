@@ -1,7 +1,7 @@
 import {Component,Input, OnInit, Output, EventEmitter}   from 'angular2/core';
 import {ROUTER_DIRECTIVES,RouteParams, Router} from 'angular2/router';
 import {UserService, User } from './user.service';
-import {FollowService, UserList} from './follow.service';
+import {FollowService, Follow} from './follow.service';
 
 @Component({
   selector: 'user-list',
@@ -9,28 +9,32 @@ import {FollowService, UserList} from './follow.service';
   templateUrl: 'app/user.list.component.html'
 })
 
+export class UserAux{
+  constructor(
+    public follow : Follow,
+    public isFollowing : boolean
+  ){}
+}
+
 export class UserListComponent implements OnInit{
   @Input()
-  private userList;
+  private followList;
+  private list=[];
   @Input()
   private type : string;
   @Output()
   private refresh = new EventEmitter<boolean>();
   private id : number;
-  private vacio : boolean = false;
   constructor(
     private uService : UserService,
     private router : Router,
     private routeParams: RouteParams,
     private fService : FollowService
-  ){
-
-
-  }
+  ){}
 
   ngOnInit(){
-    if(this.userList===undefined){
-      this.vacio = true;
+    for(let f of this.followList){
+      this.list.push(new UserAux(f,(this.uService.getIdUserLogued(),f.user.id)));
     }
   }
 
@@ -48,7 +52,7 @@ export class UserListComponent implements OnInit{
 
   }
   noSeguir(id){
-    this.fService.deleteFollow(this.uService.getIdUserLogued(),id);
+    this.fService.removeFollow(this.uService.getIdUserLogued(),id);
     this.refreshList(true);
   }
 

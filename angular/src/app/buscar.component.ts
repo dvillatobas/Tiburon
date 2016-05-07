@@ -57,9 +57,8 @@ export class BuscarComponent implements OnInit{
             ulist = l;
             console.log(ulist);
             for(let u of ulist){
-              this.fService.getUserList(u).subscribe(
-                ul => this.users.push(ul),
-                error => console.log(error)
+              this.fService.getFollow(u.id).subscribe(
+                f => this.users.push(f)
               );
             }
           }
@@ -70,9 +69,8 @@ export class BuscarComponent implements OnInit{
             ulist = l;
             console.log(ulist);
             for(let u of ulist){
-              this.fService.getUserList(u).subscribe(
-                ul => this.users.push(ul),
-                error => console.log(error)
+              this.fService.getFollow(u.id).subscribe(
+                f => this.users.push(f)
               );
             }
           }

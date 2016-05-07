@@ -1,7 +1,7 @@
 import {Component,Input, OnInit}   from 'angular2/core';
 import {ROUTER_DIRECTIVES,RouteParams, Router} from 'angular2/router';
 import {UserService, User } from './user.service';
-import {FollowService} from './follow.service';
+import {FollowService, Follow} from './follow.service';
 
 
 @Component({
@@ -11,16 +11,14 @@ import {FollowService} from './follow.service';
 })
 export class UserComponent implements OnInit{
   @Input()
-  private user: User;
+  private follow: Follow;
 
   @Input()
   private uso : string;
 
 
   private main : boolean = false;
-  private nFollows : number = 0;
-  private nFollowers : number = 0;
-  private follow : boolean;
+  private following : boolean;
 
   constructor(
     private fService : FollowService,
@@ -33,51 +31,30 @@ export class UserComponent implements OnInit{
 
   }
   ngOnInit(){
-    let id;
     this.main = (this.uso === 'main');
-    if(this.main){
-      console.log('main '+this.main);
-      this.user = this.uService.getUserLogued();
-      this.fService.getListFollow(this.user.id).subscribe(
-        l => {
-          this.nFollows = l.length;
-          this.refreshFollow();
-        },
-        error => console.log(error)
-      );
-    }else{
-      console.log('profile '+this.main);
-      id = +this.routeParams.get('id');
-      this.uService.getUser(id).subscribe(
-        u => {
-          this.user = u;
-          this.fService.getListFollow(this.user.id).subscribe(
-            l => {
-              this.nFollows = l.length;
-              this.refreshFollow();
-            },
-            error => console.log(error)
-          );
-        }
-      );
-    }
+    this.refreshFollow();
   }
 
   refreshFollow(){
-    this.follow = this.fService.isFollowing(this.uService.getIdUserLogued(),this.user.id);
-    this.fService.getListFollowers(this.user.id).subscribe(
-      l => this.nFollowers = l.length,
-      error => console.log(error)
+    let id;
+    if (this.main){
+      id = this.uService.getIdUserLogued
+    }else{
+      id = +this.routeParams.get('id');
+    }
+    this.fService.getFollow(id).subscribe(
+      f => this.follow = f
     );
   }
 
-  noSeguir(id){
-    this.fService.deleteFollow(this.uService.getIdUserLogued(),id);
+  noSeguir(){
+    this.fService.removeFollow(this.uService.getIdUserLogued(),this.follow.user.id);
     this.refreshFollow();
   }
-  seguir(id){
-    if(this.uService.getIdUserLogued()!=0){
-      this.fService.addFollow(this.uService.getIdUserLogued(),id);
+  seguir(){
+    let id = this.uService.getIdUserLogued();
+    if(id!=0){
+      this.fService.addFollow(id,this.follow.user.id);
       this.refreshFollow();
     }else{
       this.router.navigate(['Login']);
