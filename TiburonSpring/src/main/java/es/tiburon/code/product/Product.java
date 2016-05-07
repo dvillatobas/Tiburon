@@ -1,17 +1,15 @@
-package es.tiburon.producto;
+package es.tiburon.code.product;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
 @Entity
 public class Product {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private long id;
 	
 	private String publicDate;
 	private String name;
@@ -24,8 +22,11 @@ public class Product {
 	private String type;
 	private String description;
 	
+	public Product(){}
+	
 	public Product(String date,String name,int used, int year,String location, float price,
 			int idUser, String type, String description){
+		super();
 		this.publicDate = date;
 		this.name = name;
 		this.used = used;
@@ -37,63 +38,87 @@ public class Product {
 		this.description = description;
 		
 	}
-	
-	
-	
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	public String getPublicDate() {
 		return publicDate;
 	}
+
 	public void setPublicDate(String publicDate) {
 		this.publicDate = publicDate;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public int getUsed() {
 		return used;
 	}
+
 	public void setUsed(int used) {
 		this.used = used;
 	}
+
 	public int getYear() {
 		return year;
 	}
+
 	public void setYear(int year) {
 		this.year = year;
 	}
+
 	public String getLocation() {
 		return location;
 	}
+
 	public void setLocation(String location) {
 		this.location = location;
 	}
+
 	public float getPrice() {
 		return price;
 	}
+
 	public void setPrice(float price) {
 		this.price = price;
 	}
+
 	public int getIdUser() {
 		return idUser;
 	}
+
 	public void setIdUser(int idUser) {
 		this.idUser = idUser;
 	}
+
 	public String getType() {
 		return type;
 	}
+
 	public void setType(String type) {
 		this.type = type;
 	}
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
 	
-
+	
+	
 }
