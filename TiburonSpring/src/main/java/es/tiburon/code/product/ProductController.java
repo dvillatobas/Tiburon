@@ -25,7 +25,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Product> findProduct(@PathVariable long id){
+	public ResponseEntity<Product> getProduct(@PathVariable long id){
 		Product founded = pRepository.findOne(id);
 		if(founded != null){
 			return new ResponseEntity<>(founded,HttpStatus.OK);
@@ -41,6 +41,33 @@ public class ProductController {
 		
 		pRepository.save(producto);
 		return producto;
+	}
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<Product> updateProduct(@PathVariable long id, @RequestBody Product productoActualizado){
+		
+		Product founded = pRepository.findOne(id);
+		if(founded != null){
+			productoActualizado.setId(founded.getId());
+			pRepository.save(productoActualizado);
+			return new ResponseEntity<>(productoActualizado,HttpStatus.OK);
+			
+		}
+		else{
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<Product> deleteProduct(@PathVariable long id){
+		
+		if(pRepository.exists(id)){
+			pRepository.delete(id);
+			return new ResponseEntity<>(null, HttpStatus.OK);
+		}
+		else{
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 	}
 	
 	
