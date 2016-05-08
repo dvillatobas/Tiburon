@@ -16,7 +16,7 @@ export class UserComponent implements OnInit, OnChanges{
   @Input()
   private uso : string;
 
-
+  private showFollowing:boolean = false;
   private main : boolean = false;
   private following : boolean;
   private id;
@@ -32,14 +32,19 @@ export class UserComponent implements OnInit, OnChanges{
   }
   ngOnInit(){
     this.main = (this.uso === 'main');
+
     if (this.main){
       this.id = this.uService.getUserLogued().id;
     }else{
       this.id = +this.routeParams.get('id');
     }
+
+    this.showFollowing = !(this.id === this.uService.getIdUserLogued());
+
+
   }
   ngOnChanges(){
-    
+
   }
 
   refreshFollow(){

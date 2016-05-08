@@ -32,7 +32,8 @@
           </a>
       </div>
   </h4>
-  <h4 class="" *ngIf="!main">
+  <h4 class="" *ngIf="showFollowing">
+
     <button (click)="noSeguir(follow.user.id)" *ngIf="following" id="tick-verde" class="btn btn-success glyphicon glyphicon-ok"></button>
     <button (click)="seguir(follow.user.id)" *ngIf="!following" id="cruz-roja" class="btn btn-primary glyphicon glyphicon-check"></button>
 
