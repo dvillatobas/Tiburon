@@ -37,6 +37,7 @@ export class LoginComponent{
     this.uService.login(nick,pass).subscribe(
       user => {
         console.log(user);
+        this.router.navigate(['Inicio']);
       },
       error => {
         this.failLogin = true;

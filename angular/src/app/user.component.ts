@@ -1,4 +1,4 @@
-import {Component,Input, OnInit}   from 'angular2/core';
+import {Component,Input, OnInit, OnChanges}   from 'angular2/core';
 import {ROUTER_DIRECTIVES,RouteParams, Router} from 'angular2/router';
 import {UserService, User } from './user.service';
 import {FollowService, Follow} from './follow.service';
@@ -9,7 +9,7 @@ import {FollowService, Follow} from './follow.service';
   directives: [ROUTER_DIRECTIVES],
   templateUrl: 'app/user.component.html'
 })
-export class UserComponent implements OnInit{
+export class UserComponent implements OnInit, OnChanges{
   @Input()
   private follow: Follow;
 
@@ -19,7 +19,7 @@ export class UserComponent implements OnInit{
 
   private main : boolean = false;
   private following : boolean;
-
+  private id;
   constructor(
     private fService : FollowService,
     private uService : UserService,
@@ -32,18 +32,25 @@ export class UserComponent implements OnInit{
   }
   ngOnInit(){
     this.main = (this.uso === 'main');
-    this.refreshFollow();
+    if (this.main){
+      this.id = this.uService.getUserLogued().id;
+    }else{
+      this.id = +this.routeParams.get('id');
+    }
+  }
+  ngOnChanges(){
+    
   }
 
   refreshFollow(){
-    let id;
-    if (this.main){
-      id = this.uService.getIdUserLogued
-    }else{
-      id = +this.routeParams.get('id');
-    }
-    this.fService.getFollow(id).subscribe(
-      f => this.follow = f
+
+    this.fService.getFollow(this.id).subscribe(
+      f => {
+        console.log(f);
+        this.follow = f;
+
+        console.log(this.follow);
+      }
     );
   }
 

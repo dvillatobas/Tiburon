@@ -36,7 +36,11 @@ public class UserController {
 	
 	@RequestMapping(value = "/nick/{nick}/{tipo}", method = RequestMethod.GET)
 	public Collection<User> getUsersListByNickAndTipo(@PathVariable String nick, @PathVariable String tipo) {
-		if(tipo == "ambos"){
+		
+		System.out.println(tipo);
+		
+		if(tipo.contentEquals("all")){
+			System.out.println(uRepo.findByNickContaining(nick));
 			return uRepo.findByNickContaining(nick);
 		}else{
 			return uRepo.findByNickContainingAndTipo(nick, tipo);

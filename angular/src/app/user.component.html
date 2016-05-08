@@ -24,7 +24,7 @@
                   <p>{{follow.follows.length}}</p>
               </div>
           </a>
-          <a [routerLink]="['Profile',{type:'followers',id:user.id}]">
+          <a [routerLink]="['Profile',{type:'followers',id:follow.user.id}]">
               <div class="col-md-6 col-sm-6 col-xs-6">
                  <p>Seguidores</p>
                   <p>{{follow.followers.length}}</p>

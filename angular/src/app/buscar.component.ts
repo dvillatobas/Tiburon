@@ -75,6 +75,7 @@ export class BuscarComponent implements OnInit{
             this.fService.getFollowsByUsers(listaIds).subscribe(
               fs => {
                 this.follows = fs;
+
               }
             );
           }

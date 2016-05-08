@@ -46,7 +46,6 @@ export class UserListComponent implements OnInit, OnChanges{
       for(let f of this.follows){
         this.list.push(new UserAux(f,this.fService.isFollowing(this.actualUser,f)));
       }
-      console.log(this.list)
     }
 
   }
