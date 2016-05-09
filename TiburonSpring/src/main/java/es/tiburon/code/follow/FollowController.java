@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,13 +47,9 @@ public class FollowController {
 	}
 	
 	@RequestMapping(value = "/add/{idSeguidor}/{idSeguido}", method = RequestMethod.PUT)
-	@ResponseStatus(HttpStatus.CREATED)
-	public void addFollow(@PathVariable String idSeguidor, @PathVariable String idSeguido){
+	public ResponseEntity<Follow> addFollow(@PathVariable String idSeguidor, @PathVariable String idSeguido){
 		User uSeguidor = uRepo.findOne(Long.parseLong(idSeguidor));
 		User uSeguido = uRepo.findOne(Long.parseLong(idSeguido));
-		System.out.println(uSeguidor);
-		System.out.println(uSeguido);
-		
 		if(uSeguido != null && uSeguidor != null){
 			Follow seguidor = fRepo.findByUser(uSeguidor);
 			Follow seguido = fRepo.findByUser(uSeguido);
@@ -77,21 +74,24 @@ public class FollowController {
 				seguido.getFollowers().add(uSeguidor);
 				fRepo.save(seguido);
 			}
+			log.info("creada relacion {}-{}",idSeguidor,idSeguido);
+			return new ResponseEntity<>(seguido,HttpStatus.OK);
 		}else{
 			log.info("usuario/s no validos");
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		
 	}
 	
 	@RequestMapping(value = "/remove/{idSeguidor}/{idSeguido}", method = RequestMethod.PUT)
 	@ResponseStatus(HttpStatus.OK)
-	public void removeFollow(@PathVariable String idSeguidor, @PathVariable String idSeguido){
+	public ResponseEntity<Follow> removeFollow(@PathVariable String idSeguidor, @PathVariable String idSeguido){
+		
 		User uSeguidor = uRepo.findOne(Long.parseLong(idSeguidor));
 		User uSeguido = uRepo.findOne(Long.parseLong(idSeguido));
 		if(uSeguido != null && uSeguidor != null){
 			Follow seguidor = fRepo.findByUser(uSeguidor);
 			Follow seguido = fRepo.findByUser(uSeguido);
-			
 			if(seguidor != null && seguido != null){
 				seguidor.getFollows().remove(uSeguido);
 				fRepo.save(seguidor);
@@ -100,8 +100,11 @@ public class FollowController {
 			}else{
 				log.info("error eliminando relacion");
 			}
+			log.info("eliminada relacion {}-{}",idSeguidor,idSeguido);
+			return new ResponseEntity<>(seguido,HttpStatus.OK);
 		}else{
 			log.info("usuario/s no validos");
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
 	

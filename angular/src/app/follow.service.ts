@@ -3,6 +3,7 @@ import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
 import {withObserver} from './utils';
 import {UserService, User} from './user.service';
+import 'rxjs/Rx';
 
 
 export class Follow{
@@ -14,7 +15,7 @@ export class Follow{
 }
 
 
-const URL = 'follow/';
+const URL = 'https://localhost:8443/follow/';
 
 @Injectable()
 export class FollowService{
@@ -33,30 +34,20 @@ export class FollowService{
       .map(response => response.json());
   }
 
-  addFollow(idSeguidor,idSeguido){
-    let url = URL + 'add' + '/' + idSeguidor + '/' + idSeguido;
-    let body = '';
-    let headers = new Headers({
-        'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest'
-    });
-    let options = new RequestOptions({ headers });
+  addFollow(idSeguidor:string,idSeguido:string){
+    let url = URL + 'add'+'/'+idSeguidor+'/'+idSeguido;
 
-    return this.http.put(url, body, options)
-      .map(response => response.json());
+    return this.http.put(url,'')
+        .map(response => response.json())
+        .catch(error => this.handleError(error));
   }
 
   removeFollow(idSeguidor,idSeguido){
     let url = URL + 'remove' + '/'+idSeguidor+'/'+idSeguido;
-    let body = '';
-    let headers = new Headers({
-        'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest'
-    });
-    let options = new RequestOptions({ headers });
 
-    return this.http.put(url, body, options)
-      .map(response => response.json());
+    return this.http.put(url,'')
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
   }
 
   isFollowing(f1:Follow, f2:Follow){
@@ -81,6 +72,9 @@ export class FollowService{
       .map(response => response.json());
   }
 
-
+  private handleError(error: any){
+    console.error(error);
+    return Observable.throw("Server error (" + error.status + "): " + error.text())
+  }
 
 }

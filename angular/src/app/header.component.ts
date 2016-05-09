@@ -19,9 +19,12 @@ export class HeaderComponent{
     private usr : UserService,
     private msj : MensajesService
   ){}
-  
+
   logout(){
-    this.usr.logout();
+    this.usr.logout().subscribe(
+      response => console.log('cerrada sesion'),
+      error => console.log(error)
+    );
   }
 
 

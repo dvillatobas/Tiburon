@@ -9,12 +9,14 @@ import {FollowService, Follow} from './follow.service';
   directives: [ROUTER_DIRECTIVES],
   templateUrl: 'app/user.component.html'
 })
-export class UserComponent implements OnInit, OnChanges{
+export class UserComponent implements OnInit{
   @Input()
   private follow: Follow;
 
   @Input()
   private uso : string;
+
+
 
   private showFollowing:boolean = false;
   private main : boolean = false;
@@ -37,37 +39,40 @@ export class UserComponent implements OnInit, OnChanges{
       this.id = this.uService.getUserLogued().id;
     }else{
       this.id = +this.routeParams.get('id');
+      this.fService.getFollow(this.uService.getIdUserLogued()).subscribe(
+        f => {
+          this.following = (this.fService.isFollowing(f,this.follow));
+        }
+      );
     }
+
 
     this.showFollowing = !(this.id === this.uService.getIdUserLogued());
 
 
   }
-  ngOnChanges(){
 
+  noSeguir(id){
+    if(this.uService.getIdUserLogued()!=0){
+      this.fService.removeFollow(this.uService.getIdUserLogued(),id).subscribe(
+        response => {
+          this.follow = response;
+          this.following = false;
+        }
+      );
+
+    }else{
+      this.router.navigate(['Login']);
+    }
   }
-
-  refreshFollow(){
-
-    this.fService.getFollow(this.id).subscribe(
-      f => {
-        console.log(f);
-        this.follow = f;
-
-        console.log(this.follow);
-      }
-    );
-  }
-
-  noSeguir(){
-    this.fService.removeFollow(this.uService.getIdUserLogued(),this.follow.user.id);
-    this.refreshFollow();
-  }
-  seguir(){
-    let id = this.uService.getIdUserLogued();
-    if(id!=0){
-      this.fService.addFollow(id,this.follow.user.id);
-      this.refreshFollow();
+  seguir(id){
+    if(this.uService.getIdUserLogued()!=0){
+      this.fService.addFollow(this.uService.getIdUserLogued(),id).subscribe(
+        response => {
+          this.follow = response;
+          this.following = true;
+        }
+      );
     }else{
       this.router.navigate(['Login']);
     }
