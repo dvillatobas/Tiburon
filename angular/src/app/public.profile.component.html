@@ -7,7 +7,7 @@
     <!--ANUNCIOS -->
     <div class="col-sm-8 col-md-9">
       <product-list-img *ngIf="!showUsers" [titulo]="titulo" [products]="productsUser"></product-list-img>
-      <user-list *ngIf="showUsers" [userList]="userList" (refresh)='refreshList($event)'></user-list>
+      <user-list *ngIf="showUsers" [follows]="follows" (refresh)='refreshList($event)'></user-list>
     </div>
   </div>
 </div>

@@ -59,9 +59,9 @@ export class FollowService{
 
   }
 
-  getFollowsByUsers(ids:number[]){
+  getFollowsByUsers(users:User[]){
     let url = URL + 'byUsers';
-    let body = JSON.stringify(ids);
+    let body = JSON.stringify(users);
     let headers = new Headers({
         'Content-Type': 'application/json',
         'X-Requested-With': 'XMLHttpRequest'

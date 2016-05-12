@@ -46,22 +46,29 @@ export class UserListComponent implements OnInit, OnChanges{
     }
   }
   ngOnChanges(){
-    this.list = [];
+
     if(this.uService.getLogueado()){
       this.fService.getFollow(this.uService.getIdUserLogued()).subscribe(
         f => {
           this.actualUser = f
           this.idLogged = this.uService.getIdUserLogued();
           if(this.follows){
+            this.list = [];
+            console.log('lista follows')
+            console.log(this.follows)
             for(let f of this.follows){
-              this.list.push(new UserAux(f,this.fService.isFollowing(this.actualUser,f)));
+              console.log('añado',f)
+              console.log(this.list.push(new UserAux(f,this.fService.isFollowing(this.actualUser,f))));
             }
           }
+          console.log('lista logueado')
+          console.log(this.list)
         }
       );
     }else{
       this.actualUser = undefined;
       this.idLogged = 0;
+      this.list = [];
       if(this.follows){
         for(let f of this.follows){
           this.list.push(new UserAux(f,this.fService.isFollowing(this.actualUser,f)));

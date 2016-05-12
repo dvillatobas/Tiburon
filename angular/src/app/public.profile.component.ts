@@ -20,7 +20,7 @@ export class PublicProfileComponent implements OnInit{
   private showUsers:boolean = false;
   private productsUser = [];
   private titulo : string;
-  private followList = [];
+  private follows = [];
   private uso = 'nomain';
 
   constructor(
@@ -39,6 +39,7 @@ export class PublicProfileComponent implements OnInit{
     let tipo = this.routeParams.get('type');
     let id = +this.routeParams.get('id');
 
+    console.log(this.follows)
     this.fService.getFollow(id).subscribe(
       f => {
         this.follow = f;
@@ -49,10 +50,19 @@ export class PublicProfileComponent implements OnInit{
           );
         }else if(tipo === 'followers'){
           this.showUsers = true;
-          this.followList = this.follow.followers;
+          this.follows = [];
+          this.fService.getFollowsByUsers(this.follow.followers).subscribe(
+            list => {
+              this.follows = list
+              console.log(this.follows)
+            }
+          );
         }else if(tipo === 'follows'){
           this.showUsers = true;
-          this.followList = this.follow.follows;
+          this.follows = [];
+          this.fService.getFollowsByUsers(this.follow.follows).subscribe(
+            list => this.follows = list
+          );
         }
       }
     );

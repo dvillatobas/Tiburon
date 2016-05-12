@@ -39,11 +39,17 @@ export class UserComponent implements OnInit{
       this.id = this.uService.getUserLogued().id;
     }else{
       this.id = +this.routeParams.get('id');
-      this.fService.getFollow(this.uService.getIdUserLogued()).subscribe(
-        f => {
-          this.following = (this.fService.isFollowing(f,this.follow));
-        }
-      );
+      let idLogged = this.uService.getIdUserLogued();
+      if(idLogged){
+        this.fService.getFollow(this.uService.getIdUserLogued()).subscribe(
+          f => {
+            this.following = (this.fService.isFollowing(f,this.follow));
+          }
+        );
+      }else{
+        this.following = false;
+      }
+
     }
 
 

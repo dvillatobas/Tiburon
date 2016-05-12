@@ -63,11 +63,11 @@ export class BuscarComponent implements OnInit{
         }else{
           this.uService.getUserListByTipo(tipo).subscribe(
             l => {
-              let listaIds = [];
+              let listaUsers = [];
               for (let u of l){
-                listaIds.push(u.id);
+                listaUsers.push(u);
               }
-              this.fService.getFollowsByUsers(listaIds).subscribe(
+              this.fService.getFollowsByUsers(listaUsers).subscribe(
                 fs => {
                   this.follows = fs;
                 }

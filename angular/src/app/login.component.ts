@@ -25,11 +25,11 @@ export class LoginComponent{
   private classInicio;
   private classRegistro;
 
-
   constructor(
     private router:Router,
     private uService : UserService
   ){}
+
 
   entrar(event:any,nick:string,pass:string){
     event.preventDefault();

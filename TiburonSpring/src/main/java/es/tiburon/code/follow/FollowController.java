@@ -109,10 +109,10 @@ public class FollowController {
 	
 	@RequestMapping(value = "/byUsers", method = RequestMethod.PUT)
 	@ResponseStatus(HttpStatus.OK)
-	public Collection<Follow> getFollowsByUsers(@RequestBody List<Long> users){
+	public Collection<Follow> getFollowsByUsers(@RequestBody List<User> users){
 		ArrayList<Follow> lista = new ArrayList<Follow>();
-		for(Long id : users){
-			lista.add(fRepo.findByUser(uRepo.findOne(id)));
+		for(User u : users){
+			lista.add(fRepo.findByUser(uRepo.findOne(u.getId())));
 		}
 		return lista;
 	}
