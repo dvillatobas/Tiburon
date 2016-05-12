@@ -31,6 +31,10 @@ export class BuscarComponent implements OnInit{
   ){}
 
   ngOnInit(){
+    this.refreshList(true);
+  }
+
+  refreshList(refresh:boolean){
     this.palabra = this.routeParams.get('palabra');
     let p = this.palabra.split('+');
     if(p[1]==='product'){
@@ -48,23 +52,30 @@ export class BuscarComponent implements OnInit{
         tipo = 'profesional';
       }else if(p[6]==='true' && p[7]==='false'){
         tipo = 'particular';
+      }else if(p[6]==='false' && p[7]==='false'){
+        tipo = 'none';
       }else{
         tipo = 'all';
       }
       if(p[0]===''){
-        this.uService.getUserListByTipo(tipo).subscribe(
-          l => {
-            let listaIds = [];
-            for (let u of l){
-              listaIds.push(u.id);
-            }
-            this.fService.getFollowsByUsers(listaIds).subscribe(
-              fs => {
-                this.follows = fs;
+        if(tipo === 'none'){
+          this.follows = [];
+        }else{
+          this.uService.getUserListByTipo(tipo).subscribe(
+            l => {
+              let listaIds = [];
+              for (let u of l){
+                listaIds.push(u.id);
               }
-            );
-          }
-        );
+              this.fService.getFollowsByUsers(listaIds).subscribe(
+                fs => {
+                  this.follows = fs;
+                }
+              );
+            }
+          );
+        }
+
       }else{
         this.uService.getUserListByNickAndTipo(p[0],tipo).subscribe(
           l => {
@@ -84,7 +95,6 @@ export class BuscarComponent implements OnInit{
 
     }
   }
-
 
 
 

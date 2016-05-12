@@ -22,7 +22,8 @@ export class UserListComponent implements OnInit, OnChanges{
   private list = [];
   private actualUser : Follow;
   private id : number;
-  private show = false
+  private show = false;
+  private idLogged = 0;
 
   constructor(
     private uService : UserService,
@@ -34,20 +35,39 @@ export class UserListComponent implements OnInit, OnChanges{
   ngOnInit(){
     if(this.uService.getLogueado()){
       this.fService.getFollow(this.uService.getIdUserLogued()).subscribe(
-        f => this.actualUser = f
+        f => {
+          this.actualUser = f
+          this.idLogged = this.uService.getIdUserLogued();
+        }
       );
     }else{
       this.actualUser = undefined;
+      this.idLogged = 0;
     }
-
   }
   ngOnChanges(){
-    if(this.follows){
-      for(let f of this.follows){
-        this.list.push(new UserAux(f,this.fService.isFollowing(this.actualUser,f)));
+    this.list = [];
+    if(this.uService.getLogueado()){
+      this.fService.getFollow(this.uService.getIdUserLogued()).subscribe(
+        f => {
+          this.actualUser = f
+          this.idLogged = this.uService.getIdUserLogued();
+          if(this.follows){
+            for(let f of this.follows){
+              this.list.push(new UserAux(f,this.fService.isFollowing(this.actualUser,f)));
+            }
+          }
+        }
+      );
+    }else{
+      this.actualUser = undefined;
+      this.idLogged = 0;
+      if(this.follows){
+        for(let f of this.follows){
+          this.list.push(new UserAux(f,this.fService.isFollowing(this.actualUser,f)));
+        }
       }
     }
-
   }
 
   refreshList(b:boolean){
@@ -56,16 +76,23 @@ export class UserListComponent implements OnInit, OnChanges{
 
   seguir(id){
     if(this.uService.getIdUserLogued()!=0){
-      this.fService.addFollow(this.actualUser.user.id,id);
-      this.refreshList(true);
+      this.fService.addFollow(this.uService.getIdUserLogued(),id).subscribe(
+        response => {
+          this.refreshList(true);
+        }
+      );
     }else{
       this.router.navigate(['Login']);
     }
 
   }
   noSeguir(id){
-    this.fService.removeFollow(this.actualUser.user.id,id);
-    this.refreshList(true);
+    this.fService.removeFollow(this.actualUser.user.id,id).subscribe(
+      response => {
+        this.refreshList(true);
+      }
+    );
+
   }
 
 }

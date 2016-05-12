@@ -19,7 +19,7 @@
           <h4>Siguiendo {{f.follow.follows.length}}</h4>
           <h4>Le siguen {{f.follow.followers.length}}</h4>
         </div>
-        <div class="text-center elem-desp col-sm-6 col-md-3">
+        <div class="text-center elem-desp col-sm-6 col-md-3" *ngIf="!(idLogged === f.follow.user.id)">
           <h4 class="">
             <button (click)="noSeguir(f.follow.user.id)" *ngIf="f.isFollowing" id="tick-verde" class="btn btn-success glyphicon glyphicon-ok"></button>
             <button (click)="seguir(f.follow.user.id)" *ngIf="!f.isFollowing" id="cruz-roja" class="btn btn-primary glyphicon glyphicon-check"></button>
@@ -29,7 +29,7 @@
           </h4>
         </div>
 
-        <div class="text-center col-md-1 botones-prod elem-desp">
+        <div class="text-center col-md-1 botones-prod elem-desp" *ngIf="!(idLogged === f.follow.user.id)">
           <button (click)="mensaje()" class="btn btn-default glyphicon glyphicon-envelope"></button>
 
         </div>
