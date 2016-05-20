@@ -18,12 +18,14 @@ import {PublicProfileComponent} from './public.profile.component';
 import {UserListComponent} from './user.list.component';
 import {ValorationService} from './valoracion.service';
 import {ProductListComponent} from './product.list.component';
+import {HTTP_PROVIDERS, Http} from 'angular2/http';
+
 
 @Component({
   selector: 'app',
   templateUrl: 'app/app.component.html',
   directives: [ROUTER_DIRECTIVES, Alert, HeaderComponent, FooterComponent],
-  providers: [UserService, MensajesService, ProductService, FollowService,ValorationService]
+  providers: [UserService, MensajesService, ProductService, FollowService,ValorationService, HTTP_PROVIDERS]
 })
 @RouteConfig([
   {path: '/', name: 'Inicio', component: MainComponent, useAsDefault:true},

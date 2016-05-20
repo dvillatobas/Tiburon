@@ -59,7 +59,7 @@ export class MainComponent{
         this.followProducts = this.followProducts.concat((plist));
       }
     }else{
-      this.pService.getNewestList().subscribe(
+      this.pService.getProductList().subscribe(
         list => this.newProducts = list,
         error => console.log
       );

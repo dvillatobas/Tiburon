@@ -28,7 +28,7 @@ export class ValorationComponent{
     private pService: ProductService
     ) {
     let id = +this.routeParams.get('id');
-    if (this.pService.exist(id)) {
+    //if (this.pService.exist(id)) {
       this.pService.getProductById(+this.routeParams.get('id')).subscribe(
         prod => {
           this.product = prod
@@ -41,9 +41,9 @@ export class ValorationComponent{
         usr => this.user = usr,
         error => console.log(error)
         );
-    } else {
-      this.error = true;
-    }
+  //  } else {
+      //this.error = true;
+
 
   }
 

@@ -24,4 +24,11 @@ export class ProductListImg{
     private router : Router
   ){}
 
+      ngOnInit(){
+        this.pService.getProductList().subscribe(
+          products => this.products = products,
+          error => console.log(error)
+        );
+      }
+
 }

@@ -32,7 +32,7 @@ export class ProductListComponent{
   ngOnInit(){
     if(this.router.hostComponent.name === 'BuscarComponent'){
       if(this.word!=null){
-    //    this.products = this.pService.getProductListSearch(this.word);
+        this.products = this.pService.getProductListSearch(this.word);
       }
       else{
         this.pService.getProductList().subscribe(
@@ -70,10 +70,11 @@ export class ProductListComponent{
   borrar(idProduct:number | string){
     let confirm = window.confirm("¿Estas seguro de que deseas borrar este producto?");
     if (confirm){
-      this.pService.deleteProduct(idProduct).subscribe(
+      this.pService.deleteProduct(idProduct);
+      /*.subscribe(
         _ => this.ngOnInit(),
         error => console.log(error)
-      )
+      )*/
 
     }
 

@@ -25,24 +25,16 @@ export class ProductoComponent implements OnInit {
     private uService: UserService,
     private pService: ProductService
     ) {
-    let id = +this.routeParams.get('id');
-    if (this.pService.exist(id)) {
-      this.pService.getProductById(+this.routeParams.get('id')).subscribe(
-        prod => {
-          this.product = prod
-        },
-        error => {
-          console.log(error);
-        }
+    let id = this.routeParams.get('id');
+
+      this.pService.getProductById(id).subscribe(
+          prod => this.product = prod,
+          error => console.log(error)
         );
-      this.uService.getUser(this.product.idUser).subscribe(
+      /*this.uService.getUser(this.product.idUser).subscribe(
         usr => this.user = usr,
         error => console.log(error)
-        );
-    } else {
-      this.error = true;
-    }
-
+      );*/
   }
   ngOnInit() {
     this.vService.getComments().subscribe(
