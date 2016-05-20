@@ -18,9 +18,10 @@ public class Mensaje {
 	public String mensaje;
 	public String estado;
 	
-	public Mensaje(Long id, Long date, Long idEmisor, Long idReceptor, String mensaje, String estado) {
+	public Mensaje(){};
+	
+	public Mensaje(Long date, Long idEmisor, Long idReceptor, String mensaje, String estado) {
 		super();
-		this.id = id;
 		this.date = date;
 		this.idEmisor = idEmisor;
 		this.idReceptor = idReceptor;
