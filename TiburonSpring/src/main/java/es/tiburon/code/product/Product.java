@@ -16,7 +16,7 @@ public class Product {
 	private int used;
 	private int year;
 	private String location;
-	//private String img;
+	private String img;
 	private float price;
 	private int idUser;
 	private String type;
@@ -24,7 +24,7 @@ public class Product {
 	
 	public Product(){}
 	
-	public Product(String date,String name,int used, int year,String location, float price,
+	public Product(String date,String name,int used, int year,String location,String img, float price,
 			int idUser, String type, String description){
 		super();
 		this.publicDate = date;
@@ -32,6 +32,7 @@ public class Product {
 		this.used = used;
 		this.year = year;
 		this.location = location;
+		this.setImg(img);
 		this.price = price;
 		this.idUser = idUser;
 		this.type = type;
@@ -117,6 +118,14 @@ public class Product {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
 	}
 	
 	

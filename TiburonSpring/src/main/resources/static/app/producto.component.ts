@@ -6,43 +6,40 @@ import {ValorationComponent} from './valoracion.component';
 import {Valoration, ValorationService} from './valoracion.service';
 
 @Component({
-  selector: 'main',
+  selector: 'producto',
   directives: [ROUTER_DIRECTIVES, ValorationComponent],
   templateUrl: 'app/producto.component.html'
 
 
 })
 
-export class ProductoComponent implements OnInit {
-  private product: Product;
+export class ProductoComponent{
+  product: Product;
   private comments: Valoration[] = [];
   private user: User;
   private error: boolean = false;
-  constructor(
-    private vService: ValorationService,
-    private router: Router,
-    private routeParams: RouteParams,
-    private uService: UserService,
-    private pService: ProductService
-    ) {
-    let id = this.routeParams.get('id');
 
-      this.pService.getProductById(id).subscribe(
-          prod => this.product = prod,
-          error => console.log(error)
-        );
+  constructor(private router: Router,private routeParams: RouteParams, private pService: ProductService,
+      private uService: UserService,  private vService: ValorationService) {
+
+
+           let id = this.routeParams.get('id');
+           this.pService.getProductById(id).subscribe(
+               prod => console.log(prod),
+               error => console.error(error)
+           );
+               console.log(this.product);
+            this.vService.getComments().subscribe(
+              comments => this.comments = comments,
+              error => console.log(error)
+            );
+
       /*this.uService.getUser(this.product.idUser).subscribe(
         usr => this.user = usr,
         error => console.log(error)
       );*/
   }
-  ngOnInit() {
-    this.vService.getComments().subscribe(
-      comments => this.comments = comments,
-      error => console.log(error)
-      );
-
-  }
+ //ngOnInit() {}
 
   volver() {
     window.history.back();
@@ -63,7 +60,7 @@ export class ProductoComponent implements OnInit {
       else {
         let comment = new Valoration(this.uService.getNick(this.uService.getIdUserLogued()), valoracion, description);
         this.vService.addComment(comment);
-        this.ngOnInit();
+        //this.ngOnInit();
       }
   }
   else{

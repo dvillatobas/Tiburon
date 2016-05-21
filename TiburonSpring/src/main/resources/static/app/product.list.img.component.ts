@@ -12,9 +12,9 @@ import {ProductService, Product} from './product.service';;
 
 
 export class ProductListImg{
-  @Input()
+
   private products= [];
-  @Input()
+
   private titulo;
 
   constructor(

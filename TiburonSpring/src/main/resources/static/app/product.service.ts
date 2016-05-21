@@ -14,7 +14,7 @@ export interface Product {
   used: number;
   year: number;
   location: string;
-//private String img;
+  img: string;
   price: number;
   idUser: number;
 	type: string;
@@ -44,8 +44,8 @@ export class ProductService {
   getProductById(id: number | string) {
 
     return this.http.get(URL+id)
-      .map(response => response.json());
-      //.catch(error => this.handleError(error));
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
 
   }
 
@@ -209,6 +209,11 @@ export class ProductService {
     return withObserver(listFiltrada);
 
 
+  }
+
+  private handleError(error: any){
+    console.error(error);
+    return Observable.throw("Server error (" + error.status + "): " + error.text())
   }
 
 }
