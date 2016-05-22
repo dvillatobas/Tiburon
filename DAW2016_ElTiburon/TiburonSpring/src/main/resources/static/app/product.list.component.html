@@ -1,0 +1,48 @@
+<div class="row" id="listaVehiculos">
+    <h3 *ngIf="products==undefined" class="text-center center-block">No se han encontrado resultados</h3>
+    <div *ngIf="!products==undefined" class="row" id="filtro-productos" *ngIf="contact">
+        <div class="col-md-4 pull-center">
+            <h3>Filtrar resultados por : </h3>
+        </div>
+        <div class="col-md-5 pull-right"><
+            <div class="btn-group " role="group" aria-label="...">
+                <button type="button" class="btn btn-default">Precio</button>
+                <button type="button" class="btn btn-default">Ubicacion</button>
+                <button type="button" class="btn btn-default">Creacion</button>
+            </div>
+        </div>
+    </div>
+    <ul class="list-group">
+        <div class="elem-list list-group-item" *ngFor="#p of products">
+            <div class="row">
+                <div class="col-sm-12 col-md-3">
+                    <a [routerLink]="['Producto',{id:p.id}]"><img [src]="p.img" class="img-list img-responsive center-block" alt=""></a>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <a *ngIf="contact" [routerLink]="['Producto',{id:p.id}]"><h3>{{p.name}}</h3></a>
+                    <a *ngIf="edit" [routerLink]="['EditarProducto',{id: p.id}]"><h3>{{p.name}}</h3></a>
+                    <h5 *ngIf="p.used!=0">{{p.used}} Km</h5>
+                    <h5 *ngIf="p.used===0">Nuevo</h5>
+                    <h5 *ngIf="p.year!=0">Año {{p.year}}</h5>
+                </div>
+                <div class="text-center elem-desp col-sm-6 col-md-2">
+                    <h3>{{p.location}}</h3>
+                </div>
+                <div class="text-center elem-desp col-sm-6 col-md-3">
+                    <h3>{{p.price}}€</h3>
+                </div>
+                <div class="text-center col-md-1 botones-prod" *ngIf="edit">
+                    <button (click)="editar(p.id)" class="btn btn-default glyphicon glyphicon-edit"></button>
+                    <button (click)="borrar(p.id)" class="btn btn-default glyphicon glyphicon-remove"></button>
+                </div>
+                <div class="text-center col-md-1 botones-prod" *ngIf="contact">
+                    <button (click)="mensaje(p.idUser)" class="btn btn-default glyphicon glyphicon-envelope" [disabled]="p.idUser==uService.getIdUserLogued()"></button>
+                </div>
+            </div>
+            <h4 *ngIf="p == undefined">Actualmente no tienes productos en venta</h4>
+        </div>
+
+
+    </ul>
+
+</div>
