@@ -9,6 +9,8 @@ import es.tiburon.code.follow.Follow;
 import es.tiburon.code.follow.FollowRepository;
 import es.tiburon.code.user.User;
 import es.tiburon.code.user.UserRepository;
+import es.tiburon.code.valoration.Valoration;
+import es.tiburon.code.valoration.ValorationRepository;
 
 @Controller
 public class DatabaseInitializer implements CommandLineRunner {
@@ -17,6 +19,9 @@ public class DatabaseInitializer implements CommandLineRunner {
 
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private ValorationRepository valorationRepository;
 	
 	@Autowired
 	private FollowRepository fRepo;
@@ -32,6 +37,10 @@ public class DatabaseInitializer implements CommandLineRunner {
 		User luis = new User("luis","luis","fernandez","666777888","luis@gmail.com","1234","/imagenes/users/foto1.jpg","particular","ROLE_USER");
 		User juan = new User("juan","juan","rodrigued","666777888","juan@gmail.com","1234","/imagenes/users/foto2.jpg","profesional","ROLE_USER");
 		User raul = new User("raul","raul","santos","666777888","raul@gmail.com","1234","/imagenes/users/foto1.jpg","particular","ROLE_USER");
+		
+		
+		Valoration val = new Valoration(Long.valueOf(1), Long.valueOf(1),"Muy bonito (hecho en spring)"); //creamos
+		valorationRepository.save(val);  //almacenamos
 		
 		userRepository.save(david);
 		userRepository.save(luis);

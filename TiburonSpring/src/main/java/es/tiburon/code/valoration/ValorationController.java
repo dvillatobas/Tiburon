@@ -29,6 +29,7 @@ public class ValorationController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public Collection<Valoration> getValorations() {
+		System.out.println("obteniendo datos");
 		return repository.findAll();
 	}
 
@@ -63,7 +64,7 @@ public class ValorationController {
 			updatedValoration.setId(id);
 			repository.save(updatedValoration);
 
-			return new ResponseEntity<>(updatedBook, HttpStatus.OK);
+			return new ResponseEntity<>(updatedValoration, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}

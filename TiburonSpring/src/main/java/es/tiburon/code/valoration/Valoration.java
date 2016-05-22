@@ -22,11 +22,17 @@ public class Valoration {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	private int User_id;
-	private int Product_id;
+	private Long user_id;
+	private Long product_id;
 	private String text;
 
-
+	public Valoration() {}
+	
+	public Valoration(Long user_id,Long product_id,String text) {
+		this.user_id = user_id;
+		this.product_id = product_id;
+		this.text = text;		
+	}
 
 	public Long getId() {
 		return id;
@@ -36,20 +42,20 @@ public class Valoration {
 		this.id = id;
 	}
 
-	public int getUser_id() {
-		return User_id;
+	public Long getUser_id() {
+		return user_id;
 	}
 
-	public void setUser_id(int user_id) {
-		User_id = user_id;
+	public void setUser_id(Long user_id) {
+		this.user_id = user_id;
 	}
 
-	public int getProduct_id() {
-		return Product_id;
+	public Long getProduct_id() {
+		return product_id;
 	}
 
-	public void setProduct_id(int product_id) {
-		Product_id = product_id;
+	public void setProduct_id(Long product_id) {
+		this.product_id = product_id;
 	}
 
 	public String getText() {
@@ -60,27 +66,9 @@ public class Valoration {
 		this.text = text;
 	}
 
-	public List<String> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(List<String> roles) {
-		this.roles = roles;
-	}
-
-	@ElementCollection(fetch = FetchType.EAGER)
-	private List<String> roles;
 	
 	
 	
 
-	public Valoration() {}
 	
-	public Valoration(int User_id,int Product_id,String text) {
-		this.User_id = User_id;
-		this.Product_id = Product_id;
-		this.text = text;
-		
-	}
-
 }

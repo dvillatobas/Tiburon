@@ -5,16 +5,14 @@ import java.util.Collection;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import es.tiburon.code.valoration.Valoration;
 
 
 
+public interface ValorationRepository extends JpaRepository<Valoration, Long> {
 
-public class ValorationRepository extends JpaRepository<Valoration, Long> {
-
-	Valoration findById(int id);
-	Collection<Valoration> findByProduct(int Product_id);
-	Collection<Valoration> findByNickUser(int User_id);
+	
+	//Collection<Valoration> findByProduct(Long Product_id);
+	//Collection<Valoration> findByNickUser(Long User_id);
 		
 	
 }

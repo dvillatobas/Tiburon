@@ -5,23 +5,21 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 
-import es.tiburon.code.valoracion;
-
 
 @Component
 @Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class ValorationComponent {
 	private Valoration val;
 
-	public Valoration getLoggedUser() {
+	public Valoration getValoration() {
 		return val;
 	}
 
-	public void setLoggedUser(Valoration val) {
+	public void setValoration(Valoration val) {
 		this.val = val;
 	}
 
-	public boolean isLoggedUser() {
+	public boolean isValoration() {
 		return this.val != null;
 	}
 
