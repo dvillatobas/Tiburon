@@ -70,10 +70,10 @@ export class ProductListComponent{
   borrar(idProduct:number | string){
     let confirm = window.confirm("¿Estas seguro de que deseas borrar este producto?");
     if (confirm){
-      this.pService.deleteProduct(idProduct).subscribe(
+      this.pService.deleteProduct(idProduct);/*.subscribe(
         _ => this.ngOnInit(),
         error => console.log(error)
-      )
+      )*/
 
     }
 

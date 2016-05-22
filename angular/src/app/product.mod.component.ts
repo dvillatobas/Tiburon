@@ -37,7 +37,8 @@ export class ProductModComponent{
       this.nuevo = false;
     }
     else{
-      this.product = new Product(undefined,undefined,'',undefined,undefined,'','',undefined,undefined,'','');
+      this.product = {publicDate:'',  name: '', used: undefined, year: undefined, location: '',img:"", price: undefined,
+       idUser: undefined, type: '', description:''};
       this.nuevo = true;
     }
   }
@@ -73,9 +74,9 @@ export class ProductModComponent{
       this.emptyPrice=true;
       return 0;
     }
-    if(this.product.year === undefined){
+    /*if(this.product.year === undefined){
       this.product.year = "Sin indicar";
-    }
+    }*/
     if(this.product.description.length<=10){
       this.emptyDescription = true;
       return 0;
