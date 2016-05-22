@@ -15,7 +15,7 @@ import {Valoration, ValorationService} from './valoracion.service';
 
 export class ProductoComponent{
   product: Product;
-
+  private prodUndefined: boolean;
   private comments: Valoration[] = [];
   private user: User;
   private error: boolean = false;
@@ -34,7 +34,7 @@ export class ProductoComponent{
               comments => this.comments = comments,
               error => console.log(error)
             );
-            
+            this.prodUndefined = this.product==undefined;
 
       /*this.uService.getUser(this.product.idUser).subscribe(
         usr => this.user = usr,
