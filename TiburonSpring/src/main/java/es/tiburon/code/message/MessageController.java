@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import es.tiburon.code.follow.FollowController;
 import es.tiburon.code.user.User;
 import es.tiburon.code.user.UserComponent;
-import es.tiburon.code.user.UserRepository;
 
 @RestController
 @RequestMapping("/message")
@@ -27,9 +26,6 @@ public class MessageController {
 	
 	@Autowired
 	private MessageRepository mRepo;
-	
-	@Autowired
-	private UserRepository uRepo;
 	
 	@Autowired
 	private UserComponent userComponent;

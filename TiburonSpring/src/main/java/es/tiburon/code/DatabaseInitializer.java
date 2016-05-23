@@ -9,8 +9,12 @@ import es.tiburon.code.follow.Follow;
 import es.tiburon.code.follow.FollowRepository;
 import es.tiburon.code.message.Message;
 import es.tiburon.code.message.MessageRepository;
+import es.tiburon.code.product.Product;
+import es.tiburon.code.product.ProductRepository;
 import es.tiburon.code.user.User;
 import es.tiburon.code.user.UserRepository;
+import es.tiburon.code.valoration.Valoration;
+import es.tiburon.code.valoration.ValorationRepository;
 
 @Controller
 public class DatabaseInitializer implements CommandLineRunner {
@@ -26,6 +30,11 @@ public class DatabaseInitializer implements CommandLineRunner {
 	@Autowired
 	private MessageRepository mRepo;
 	
+	@Autowired
+	private ValorationRepository vRepo;
+	
+	@Autowired
+	private ProductRepository pRepo;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -73,6 +82,13 @@ public class DatabaseInitializer implements CommandLineRunner {
 		
 		Message m3 = new Message(222555114,raul,david,"buenas!!", "unread");
 		mRepo.save(m3);
+		
+		Product p1 = new Product("22266655544", "Camaro", 20000, 2010, "Madrid", "imagenes/coches/1.jpg", 46968, 2, "car", "Magnifico coche");
+		pRepo.save(p1);
+		
+		
+		Valoration v1 = new Valoration(david, "Me encanta", "El trato muy bueno, puntual...", p1);
+		vRepo.save(v1);
 	}
 
 }

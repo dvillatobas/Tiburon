@@ -1,28 +1,24 @@
 import {Injectable} from 'angular2/core';
 import {Observable} from 'rxjs/Observable';
 import {withObserver} from './utils';
-import {UserService} from './user.service';
+import {UserService, User} from './user.service';
+import {Product} from './product.service';
 import 'rxjs/Rx';
 
 
 export class Valoration{
   constructor(
-    public idUser,
-    public valoracion,
+    public id,
+    public user:User,
+    public valoration,
     public description,
-    public idProducto
+    public product:Product
   ){}
 }
 
 @Injectable()
 export class ValorationService{
 
-  private comments = [
-    new Valoration("Raul","vendedor 100% fiable","Muy puntual y amable.",1),
-    new Valoration("Raul","No está mal","Tiene buen aspecto, pero me parece un precio excesivo.",2),
-    new Valoration("David","Buenisimo","¡Me encanta este coche!",1),
-    new Valoration("Juan","Buen motor","Nunca había visto este modelo, es increíble.",3)
-  ];
 
   constructor(private uService: UserService){}
 
