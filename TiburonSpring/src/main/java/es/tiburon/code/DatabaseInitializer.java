@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 
 import es.tiburon.code.follow.Follow;
 import es.tiburon.code.follow.FollowRepository;
+import es.tiburon.code.message.Message;
+import es.tiburon.code.message.MessageRepository;
 import es.tiburon.code.user.User;
 import es.tiburon.code.user.UserRepository;
 
@@ -20,6 +22,10 @@ public class DatabaseInitializer implements CommandLineRunner {
 	
 	@Autowired
 	private FollowRepository fRepo;
+	
+	@Autowired
+	private MessageRepository mRepo;
+	
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -58,6 +64,15 @@ public class DatabaseInitializer implements CommandLineRunner {
 		Follow f3 = new Follow(raul);
 		f3.getFollowers().add(david);
 		fRepo.save(f3);
+		
+		Message m1 = new Message(222555111,david,luis,"eeee que pasaaaa", "unread");
+		mRepo.save(m1);
+		
+		Message m2 = new Message(222555114,david,raul,"eeee hola", "unread");
+		mRepo.save(m2);
+		
+		Message m3 = new Message(222555114,raul,david,"buenas!!", "unread");
+		mRepo.save(m3);
 	}
 
 }
