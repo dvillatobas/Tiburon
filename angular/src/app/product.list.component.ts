@@ -66,7 +66,7 @@ export class ProductListComponent{
     }
   }
 
-  editar(idProduct:number | string){
+  editar(idProduct:number){
 
     this.router.navigate(['EditarProducto',{id: idProduct}]);
   }

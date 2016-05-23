@@ -1,6 +1,7 @@
+<div *ngIf="product">
 <div class="row" *ngIf="comment.idProducto == product.id">
 
-  <div class="col-md-2 formUser">
+  <div class="col-md-2 formUser" *ngIf="user">
     <br>
     <img [src]="user.img" class="img-responsive img-circle center-block" alt="perfilVendedor">
 
@@ -14,4 +15,5 @@
   </div>
 
 <br>
+</div>
 </div>

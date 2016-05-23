@@ -1,4 +1,4 @@
-<div class="container-fluid cont">
+<div class="container-fluid cont" *ngIf="product">
   <h2 *ngIf="error" class="text-center center-block">Producto no encontrado</h2>
   <div class="row" *ngIf="!error">
     <div class="col-md-12">
@@ -23,7 +23,7 @@
           </div>
           <div class="panel-body">
             <div class="row">
-              <div class="col-lg-6 col-md-6">
+              <div class="col-lg-6 col-md-6" *ngIf="user">
                 <div class="seller">
                   <a [routerLink]="['Profile',{type: 'profile', id:user.id}]">
                     <img [src]="user.img"  class="img-responsive img-circle center-block" alt="perfilVendedor"> {{user.nick}}
@@ -54,9 +54,9 @@
           <h3>Descripción</h3>
           <p>{{product.description}}</p>
         </div>
-        <div class="valoraciones">
+        <div class="valoraciones" *ngIf="product">
           <h4 class="text-center">Comentarios</h4>
-          <valoration *ngFor="#comment of comments" [comment]="comment"></valoration>
+          <valoration *ngFor="#comment of comments" [comment]="comment" [producto]='product'></valoration>
           <div class="form-group">
             <label for="valoracion">Valoracion:</label>
   					<input #valoracion class="form-control" id="valoracion" placeholder="Bueno, Malo o Regular"/>

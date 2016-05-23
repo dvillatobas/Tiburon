@@ -41,7 +41,7 @@ export class ProductService {
       //.catch(error => this.handleError(error));
   }
 
-  getProductById(id: number | string) {
+  getProductById(id: number) {
 
     return this.http.get(URL+id)
       .map(response => response.json())

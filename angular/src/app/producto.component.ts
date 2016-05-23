@@ -14,6 +14,7 @@ import {Valoration, ValorationService} from './valoracion.service';
 })
 
 export class ProductoComponent{
+  
   product: Product;
 
   private comments: Valoration[] = [];
@@ -24,24 +25,31 @@ export class ProductoComponent{
       private uService: UserService,  private vService: ValorationService) {
 
 
-           let id = routeParams.get('id');
+           let id = Number.parseInt(routeParams.get('id'));
            pService.getProductById(id).subscribe(
                prod => this.product = prod,
                error => console.error(error)
            );
-               console.log(this.product);
-            vService.getComments().subscribe(
-              comments => this.comments = comments,
-              error => console.log(error)
-            );
+           if(this.product){
+           this.uService.getUser(this.product.idUser).subscribe(
+             usr => this.user = usr,
+             error => console.log(error)
+           );
+         }
 
 
-      /*this.uService.getUser(this.product.idUser).subscribe(
-        usr => this.user = usr,
-        error => console.log(error)
-      );*/
+
+
+
   }
- //ngOnInit() {}
+ ngOnInit() {
+
+   this.vService.getComments().subscribe(
+     comments => this.comments = comments,
+     error => console.log(error)
+   );
+
+ }
 
   volver() {
     window.history.back();

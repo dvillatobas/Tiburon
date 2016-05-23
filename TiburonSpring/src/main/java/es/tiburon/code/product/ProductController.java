@@ -26,7 +26,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Product> getProduct(@PathVariable long id){
+	public ResponseEntity<Product> getProductById(@PathVariable long id){
 		Product founded = pRepository.findOne(id);
 		if(founded != null){
 			return new ResponseEntity<>(founded,HttpStatus.OK);

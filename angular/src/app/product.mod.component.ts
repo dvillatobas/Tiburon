@@ -29,7 +29,8 @@ export class ProductModComponent{
 
 
   constructor(private router: Router, routeParams: RouteParams, private pservice: ProductService, private uService: UserService){
-    let id = routeParams.get('id');
+    let id = Number.parseInt(routeParams.get('id'));
+
     if(id){
       pservice.getProductById(id).subscribe(
         product => this.product = product,
