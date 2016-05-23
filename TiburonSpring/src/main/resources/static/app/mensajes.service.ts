@@ -1,7 +1,10 @@
 import {Injectable} from 'angular2/core';
+import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
+import 'rxjs/Rx';
 import {withObserver} from './utils';
 import {UserService, User} from './user.service';
+
 
 export interface Mensaje {
   id?: number;
@@ -23,7 +26,13 @@ export class Contact{
 
 @Injectable()
 export class MensajesService {
+
   constructor(private http: Http) { }
+
+  private handleError(error: any){
+    console.error(error);
+    return Observable.throw("Server error (" + error.status + "): " + error.text())
+  }
 
   getMensajes(){
     return this.http.get(URL)
@@ -106,15 +115,15 @@ export class MensajesService {
   }
 
   nuevo(destino: number, mensaje: string) {
-    let mensaje = new Mensaje(
-      this.setId(),
+    let m = new Mensaje(
+      0,
       Date.now(),
       this.usr.getIdUserLogued(),
       destino,
       mensaje,
       'unread');
-      
-      let body = JSON.stringify(mensaje);
+
+      let body = JSON.stringify(m);
       let headers = new Headers({
           'Content-Type': 'application/json',
           'X-Requested-With': 'XMLHttpRequest'
