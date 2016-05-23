@@ -3,16 +3,16 @@ import {Observable} from 'rxjs/Observable';
 import {withObserver} from './utils';
 import {UserService, User} from './user.service';
 
-export interface Mensaje {
-  id?: number;
-  date: Date;
-  idEmisor: number;
-  idReceptor: number;
-  mensaje: string;
-  estado: string;
+export class Mensaje {
+  constructor(
+    public id,
+    public date,
+    public idEmisor,
+    public idReceptor,
+    public mensaje,
+    public estado
+    ) { }
 }
-
-const URL = 'mensaje/';
 
 export class Contact{
   constructor(
@@ -23,18 +23,21 @@ export class Contact{
 
 @Injectable()
 export class MensajesService {
-  constructor(private http: Http) { }
+  private mensajes = [
+    new Mensaje(1, Date.now(), 1, 2, '¿aceptas cambio por una moto + dinero?', 'unread'),
+    new Mensaje(3, Date.now() + 3, 3, 2, '¿Puedes quedar el viernes por la tarde?', 'unread'),
+    new Mensaje(2, Date.now() + 2, 2, 1, 'No, gracias por tu interes', 'unread'),
+    new Mensaje(4, Date.now() + 4, 4, 1, '¿Cuanto pides por él?', 'unread')
+  ];
+  //sin inicializar seria un 0
+  private lastId: number = 4;
+  constructor(
+    private usr: UserService
+    ) { }
 
-  getMensajes(){
-    return this.http.get(URL)
-      .map(response => response.json())
-      .catch(error => this.handleError(error));
-  }
-
-  getMensaje(id: number | string){
-	    return this.http.get(URL+id)
-	      .map(response => response.json())
-	      .catch(error => this.handleError(error));
+  setId() {
+    this.lastId++;
+    return this.lastId;
   }
 
   getContactList(id: number) {
@@ -106,24 +109,14 @@ export class MensajesService {
   }
 
   nuevo(destino: number, mensaje: string) {
-    let mensaje = new Mensaje(
+    let m = new Mensaje(
       this.setId(),
       Date.now(),
       this.usr.getIdUserLogued(),
       destino,
       mensaje,
       'unread');
-      
-      let body = JSON.stringify(mensaje);
-      let headers = new Headers({
-          'Content-Type': 'application/json',
-          'X-Requested-With': 'XMLHttpRequest'
-      });
-      let options = new RequestOptions({ headers });
-
-      return this.http.post(URL, body, options)
-        .map(response => response.json())
-        .catch(error => this.handleError(error));
-
+    this.mensajes.push(m);
+    return withObserver(m);
   }
 }
