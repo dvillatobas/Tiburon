@@ -47,7 +47,7 @@ public class MensajeController {
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Mensaje> getMensajeByEmisor(@PathVariable long id){
-		log.info("Get contact list {}", id);
+		log.info("Get mensaje by emisor {}", id);
 		Mensaje m = mRepo.findByIdEmisor(id);
 		if(m!=null){
 			return new ResponseEntity<>(m,HttpStatus.OK);
@@ -58,7 +58,7 @@ public class MensajeController {
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Mensaje> getMensajeByReceptor(@PathVariable long id){
-		log.info("Get contact list {}", id);
+		log.info("Get mensaje by receptor {}", id);
 		Mensaje m = mRepo.findByIdEmisor(id);
 		if(m!=null){
 			return new ResponseEntity<>(m,HttpStatus.OK);
@@ -67,6 +67,13 @@ public class MensajeController {
 		}
 	}
 	
-	
-	
+	@RequestMapping(value = "/", method = RequestMethod.POST)
+	@ResponseStatus(HttpStatus.CREATED)
+	public Mensaje mensaje(@RequestBody Mensaje mensaje) {
+
+		mRepo.save(mensaje);
+
+		return mensaje;
+	}
+		
 }
