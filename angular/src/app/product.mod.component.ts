@@ -1,6 +1,7 @@
 import {Component}   from 'angular2/core';
 import {ROUTER_DIRECTIVES,RouteParams, Router} from 'angular2/router';
 import {ProductService, Product} from './product.service';
+import {UserService, User} from './user.service';
 
 @Component({
   selector: 'main',
@@ -27,7 +28,7 @@ export class ProductModComponent{
 
 
 
-  constructor(private router: Router, routeParams: RouteParams, private pservice: ProductService){
+  constructor(private router: Router, routeParams: RouteParams, private pservice: ProductService, private uService: UserService){
     let id = routeParams.get('id');
     if(id){
       pservice.getProductById(id).subscribe(
@@ -38,7 +39,7 @@ export class ProductModComponent{
     }
     else{
       this.product = {publicDate:'',  name: '', used: undefined, year: undefined, location: '',img:"", price: undefined,
-       idUser: undefined, type: '', description:''};
+       idUser: uService.getIdUserLogued(), type: '', description:''};
       this.nuevo = true;
     }
   }
@@ -98,9 +99,12 @@ export class ProductModComponent{
       }
     }
 
-    this.pservice.saveProduct(this.product);
+    this.pservice.saveProduct(this.product).subscribe(
+      prod =>window.history.back(),
+      error => console.log(error)
+    );
     //this.router.navigate(['Inicio']);
-    window.history.back();
+  //  window.history.back();
 
   }
 

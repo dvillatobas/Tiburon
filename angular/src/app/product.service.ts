@@ -69,7 +69,7 @@ export class ProductService {
 	   'X-Requested-With': 'XMLHttpRequest'
 	});
 	let options = new RequestOptions({ headers });
-    this.http.delete(URL+idProduct,options)
+    return this.http.delete(URL+idProduct,options)
       .map(response => undefined);
       //.catch(error => this.handleError(error));
   }
@@ -102,19 +102,11 @@ export class ProductService {
 */
 
 
-  getProductListUser(id: number) {
-    let list = [];
-    let productos = this.getProductList().subscribe(
-      prod => productos = prod,
-      error => console.log(error)
-    );
+  getProductListUser(idUser: number) {
 
-    for (let p of productos) {
-      if (p.idUser === id) {
-        list.push(p);
-      }
-    }
-    return withObserver(list);
+    return this.http.get(URL+"productsUser/"+idUser)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
   }
 
   getProductListSearch(palabra: string) {

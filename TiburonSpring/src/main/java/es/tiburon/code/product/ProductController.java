@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @RestController
 @RequestMapping("/products")
 public class ProductController {
@@ -34,6 +35,13 @@ public class ProductController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
+	
+	@RequestMapping(value="/productsUser/{idUser}", method = RequestMethod.GET)
+	public Collection<Product> getProductUser(@PathVariable int idUser){
+		Collection<Product> products =pRepository.findByIdUser(idUser);
+		return products;
+	}
+	
 	
 	@RequestMapping(value ="/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)

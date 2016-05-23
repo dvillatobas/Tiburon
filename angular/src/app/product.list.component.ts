@@ -11,7 +11,7 @@ import {MensajesService} from './mensajes.service';
 })
 
 export class ProductListComponent{
-  @Input()
+  //@Input()
   private products = [];
 
   private edit : boolean;
@@ -26,6 +26,10 @@ export class ProductListComponent{
     private mService : MensajesService
   ){
     this.word = routeParams.get('palabra');
+    pService.getProductListUser(uService.getIdUserLogued()).subscribe(
+      prod => this.products = prod,
+      error => console.log(error)
+    );
 
   }
 
@@ -70,10 +74,10 @@ export class ProductListComponent{
   borrar(idProduct:number | string){
     let confirm = window.confirm("¿Estas seguro de que deseas borrar este producto?");
     if (confirm){
-      this.pService.deleteProduct(idProduct);/*.subscribe(
+      this.pService.deleteProduct(idProduct).subscribe(
         _ => this.ngOnInit(),
         error => console.log(error)
-      )*/
+      )
 
     }
 

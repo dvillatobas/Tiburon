@@ -24,17 +24,17 @@ export class ProductoComponent{
       private uService: UserService,  private vService: ValorationService) {
 
 
-           let id = this.routeParams.get('id');
-           this.pService.getProductById(id).subscribe(
+           let id = routeParams.get('id');
+           pService.getProductById(id).subscribe(
                prod => this.product = prod,
                error => console.error(error)
            );
                console.log(this.product);
-            this.vService.getComments().subscribe(
+            vService.getComments().subscribe(
               comments => this.comments = comments,
               error => console.log(error)
             );
-            
+
 
       /*this.uService.getUser(this.product.idUser).subscribe(
         usr => this.user = usr,
