@@ -43,7 +43,9 @@ public class DatabaseInitializer implements CommandLineRunner {
 		Valoration val = new Valoration(Long.valueOf(1), Long.valueOf(1),"Muy bonito (hecho en spring)"); //creamos
 		valorationRepository.save(val);  //almacenamos
 		Valoration val2 = new Valoration(Long.valueOf(2), Long.valueOf(2),"puntual (hecho en spring)"); //creamos
-		valorationRepository.save(val);  //almacenamos
+		valorationRepository.save(val2);  //almacenamos
+		Valoration val3 = new Valoration(Long.valueOf(2), Long.valueOf(2),"barato (hecho en spring)"); //creamos
+		valorationRepository.save(val3);  //almacenamos
 		
 		userRepository.save(david);
 		userRepository.save(luis);
