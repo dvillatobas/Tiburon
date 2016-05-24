@@ -127,6 +127,8 @@ public class Product {
 	public void setImg(String img) {
 		this.img = img;
 	}
+
+
 	
 	
 	
