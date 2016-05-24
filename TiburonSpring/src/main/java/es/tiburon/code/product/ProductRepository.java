@@ -32,7 +32,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 	//Nombre precio y ubicacion
 	@Query("SELECT p FROM Product p WHERE p.name = :name AND p.price between :low and :high AND p.location = :location")
 	public Collection<Product> findByNameBetweenPriceAndLocation(@Param("name")String name,@Param("low")double low,
-			@Param("high") double high, @Param("type") String location);
+			@Param("high") double high, @Param("location") String location);
 	
 	//Nombre precio tipo y ubicacion
 	@Query("SELECT p FROM Product p WHERE p.name = :name AND p.price between :low and :high AND p.type = :type AND p.location = :location ")
