@@ -12,14 +12,13 @@ import {UserService,User} from './user.service';
 export class ValorationComponent implements OnInit{
 
   valorations: Valoration[];
-  
+
 
   constructor(private router:Router, private service: ValorationService,
-    		private loginService:LoginService) {}
+    		private loginService:UserService) {}
 
     ngOnInit(){
-
-      this.service.getValorations(product).subscribe(
+      this.service.getValorations().subscribe(
         valorations => this.valorations = valorations,
         error => console.log(error)
       );
