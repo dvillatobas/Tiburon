@@ -195,15 +195,16 @@ export class ProductService {
       .map(response => response.json());
   }
 
-  delete(idProduct: number | string) {
-    let url = URL + idProduct;
+  del(idProduct: number | string) {
+    let url = URL + 'delete';
+    let body = JSON.stringify(idProduct);
     let headers = new Headers({
         'Content-Type': 'application/json',
         'X-Requested-With': 'XMLHttpRequest'
     });
     let options = new RequestOptions({ headers });
 
-    return this.http.delete(url, options)
+    return this.http.put(url,body,options)
       .map(response => response.json());
   }
 

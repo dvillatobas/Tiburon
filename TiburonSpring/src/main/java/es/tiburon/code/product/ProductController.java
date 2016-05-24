@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import es.tiburon.code.follow.FollowController;
 import es.tiburon.code.user.User;
+import es.tiburon.code.valoration.Valoration;
+import es.tiburon.code.valoration.ValorationRepository;
 
 
 @RestController
@@ -28,6 +30,8 @@ public class ProductController {
 
 	@Autowired
 	private ProductRepository pRepo;
+	@Autowired
+	private ValorationRepository vRepo;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET )
 	public Collection<Product> getProducts(){
@@ -74,15 +78,22 @@ public class ProductController {
 		}
 	}
 	
-	@RequestMapping(value = "/delete", method = RequestMethod.DELETE)
-	public ResponseEntity<Product> deleteProduct(@RequestBody Product p){
-		
-		if(pRepo.exists(p.getId())){
-			pRepo.delete(p.getId());
-			return new ResponseEntity<>(null, HttpStatus.OK);
+	@RequestMapping(value = "/delete", method = RequestMethod.PUT)
+	public Product deleteProduct(@RequestBody Long id){
+		List<Valoration> list = vRepo.findAll();
+		Product del = pRepo.findOne(id);
+		if(del != null){
+			for(Valoration v : list){
+				if(v.getProduct().getId() == del.getId()){
+					vRepo.delete(v);
+				}
+			}
+			pRepo.delete(del.getId());
+			log.info("Borrado: {}",del.getId());
+			return del;
 		}
 		else{
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return null;
 		}
 	}
 	

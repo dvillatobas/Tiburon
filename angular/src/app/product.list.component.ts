@@ -1,4 +1,4 @@
-import {Component,Input}   from 'angular2/core';
+import {Component,Input,Output, EventEmitter}   from 'angular2/core';
 import {ROUTER_DIRECTIVES,RouteParams, Router} from 'angular2/router';
 import {Product,ProductService} from './product.service';
 import {UserService} from './user.service';
@@ -13,10 +13,13 @@ import {MensajesService} from './mensajes.service';
 export class ProductListComponent{
   @Input()
   private products = [];
+  @Output()
+  private refresh = new EventEmitter<boolean>();
 
   private edit : boolean;
   private contact : boolean;
   private word = '';
+
 
   constructor(
     private pService : ProductService,
@@ -63,8 +66,10 @@ export class ProductListComponent{
   borrar(idProduct:number | string){
     let confirm = window.confirm("¿Estas seguro de que deseas borrar este producto?");
     if (confirm){
-      this.pService.delete(idProduct).subscribe(
-        _ => this.ngOnInit(),
+      this.pService.del(idProduct).subscribe(
+        resultado => {
+          this.refresh.next(true);
+        },
         error => console.log(error)
       )
 

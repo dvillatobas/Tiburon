@@ -1,4 +1,4 @@
-import {Component}   from 'angular2/core';
+import {Component, OnInit}   from 'angular2/core';
 import {ROUTER_DIRECTIVES,Router} from 'angular2/router';
 import {ProductListComponent} from './product.list.component';
 import {UserService} from './user.service';
@@ -10,7 +10,7 @@ import {ProductService} from './product.service';
     directives: [ROUTER_DIRECTIVES,ProductListComponent]
 })
 
-export class MisProductosComponent{
+export class MisProductosComponent implements OnInit{
 
   private list;
 
@@ -19,6 +19,9 @@ export class MisProductosComponent{
     private pService : ProductService,
     private router : Router
   ){
+
+  }
+  ngOnInit(){
     if(this.uService.getIdUserLogued()===0){
       this.router.navigate(['Login']);
     }else{
@@ -35,6 +38,9 @@ export class MisProductosComponent{
     this.router.navigate(['NuevoProducto']);
   }
 
+  refresh(b){
+    this.ngOnInit();
+  }
 
 
 
