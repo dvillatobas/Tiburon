@@ -132,16 +132,22 @@ public class ProductController {
 		}
 		else if(hayPrecio){
 			if(hayTipo){
-				
+				products = pRepository.findByTypeBetweenPrice(type, Double.parseDouble(lowPrice), Double.parseDouble(highPrice));
 			}else if(hayUbicacion){
-				
+				products = pRepository.findByLocationBetweenPrice(location, Double.parseDouble(lowPrice), Double.parseDouble(highPrice));
 			}else{
 				products = pRepository.findByPriceBetween(Double.parseDouble(lowPrice), Double.parseDouble(highPrice));
 			}
 			
 		}
 		else if(hayTipo){
-			products = pRepository.findByType(type);
+			if(hayUbicacion){
+				products = pRepository.findByTypeAndLocation(type, location);
+			}
+			else{
+				products = pRepository.findByType(type);
+			}
+			
 		}
 		else if(hayUbicacion){
 			products = pRepository.findByLocation(location);
