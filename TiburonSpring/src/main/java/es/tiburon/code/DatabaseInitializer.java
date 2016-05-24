@@ -27,8 +27,8 @@ public class DatabaseInitializer implements CommandLineRunner {
 		userRepository.save(new User("admin", "", "", "", "", "pass", "", "", "ROLE_ADMIN"));
 		
 		//Products
-		productRepository.save(new Product( "1/1/16","camaro", 210,1965,"Madrid","/imagenes/1.jpg",2500,1,"car","Espectacular camaro semi nuevo, con muy poco uso. Precio inmejorable, urge venta"));
-		productRepository.save(new Product( "155","camaro", 210,1965,"Valencia","imagenes/2.jpg",2500,1,"car","askldfms"));
+		productRepository.save(new Product( "1/1/16","camaro", 210,1965,"Madrid","/imagenes/1.jpg",2500,2,"car","Espectacular camaro semi nuevo, con muy poco uso. Precio inmejorable, urge venta"));
+		productRepository.save(new Product( "155","camaro", 210,1965,"Valencia","imagenes/2.jpg",2500,1,"car","Coche para piezas o arreglo. Escucho ofertas coherentes"));
 		
 		
 	}
