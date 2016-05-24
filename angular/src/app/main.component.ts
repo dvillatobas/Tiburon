@@ -47,7 +47,7 @@ export class MainComponent{
       );
 
     }else{
-      this.pService.getNewestList().subscribe(
+      this.pService.getProductList().subscribe(
         list => this.newProducts = list,
         error => console.log
       );

@@ -6,51 +6,50 @@ import {ValorationComponent} from './valoracion.component';
 import {Valoration, ValorationService} from './valoracion.service';
 
 @Component({
-  selector: 'main',
+  selector: 'producto',
   directives: [ROUTER_DIRECTIVES, ValorationComponent],
   templateUrl: 'app/producto.component.html'
 
 
 })
 
-export class ProductoComponent implements OnInit {
-  private product: Product;
+export class ProductoComponent{
+  
+  product: Product;
+
   private comments: Valoration[] = [];
   private user: User;
   private error: boolean = false;
-  constructor(
-    private vService: ValorationService,
-    private router: Router,
-    private routeParams: RouteParams,
-    private uService: UserService,
-    private pService: ProductService
-    ) {
-    let id = +this.routeParams.get('id');
-    if (this.pService.exist(id)) {
-      this.pService.getProductById(+this.routeParams.get('id')).subscribe(
-        prod => {
-          this.product = prod
-        },
-        error => {
-          console.log(error);
-        }
-        );
-      this.uService.getUser(this.product.idUser).subscribe(
-        usr => this.user = usr,
-        error => console.log(error)
-        );
-    } else {
-      this.error = true;
-    }
+
+  constructor(private router: Router,private routeParams: RouteParams, private pService: ProductService,
+      private uService: UserService,  private vService: ValorationService) {
+
+
+           let id = Number.parseInt(routeParams.get('id'));
+           pService.getProductById(id).subscribe(
+               prod => this.product = prod,
+               error => console.error(error)
+           );
+           if(this.product){
+           this.uService.getUser(this.product.idUser).subscribe(
+             usr => this.user = usr,
+             error => console.log(error)
+           );
+         }
+
+
+
+
 
   }
-  ngOnInit() {
-    this.vService.getComments().subscribe(
-      comments => this.comments = comments,
-      error => console.log(error)
-      );
+ ngOnInit() {
 
-  }
+   this.vService.getComments().subscribe(
+     comments => this.comments = comments,
+     error => console.log(error)
+   );
+
+ }
 
   volver() {
     window.history.back();
@@ -71,7 +70,7 @@ export class ProductoComponent implements OnInit {
       else {
         let comment = new Valoration(this.uService.getNick(this.uService.getIdUserLogued()), valoracion, description, this.product.id);
         this.vService.addComment(comment);
-        this.ngOnInit();
+        //this.ngOnInit();
       }
   }
   else{

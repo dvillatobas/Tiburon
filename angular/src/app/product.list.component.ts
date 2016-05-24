@@ -11,7 +11,7 @@ import {MensajesService} from './mensajes.service';
 })
 
 export class ProductListComponent{
-  @Input()
+  //@Input()
   private products = [];
 
   private edit : boolean;
@@ -26,6 +26,10 @@ export class ProductListComponent{
     private mService : MensajesService
   ){
     this.word = routeParams.get('palabra');
+    pService.getProductListUser(uService.getIdUserLogued()).subscribe(
+      prod => this.products = prod,
+      error => console.log(error)
+    );
 
   }
 
@@ -62,7 +66,7 @@ export class ProductListComponent{
     }
   }
 
-  editar(idProduct:number | string){
+  editar(idProduct:number){
 
     this.router.navigate(['EditarProducto',{id: idProduct}]);
   }

@@ -11,7 +11,9 @@ import {UserService,User} from './user.service';
 
 export class ValorationComponent{
   private user: User;
-  private product: Product;
+  @Input()
+  private producto: Product;
+
   private error: boolean = false;
 
   @Input()
@@ -27,24 +29,18 @@ export class ValorationComponent{
     private uService: UserService,
     private pService: ProductService
     ) {
-    let id = +this.routeParams.get('id');
-    if (this.pService.exist(id)) {
-      this.pService.getProductById(+this.routeParams.get('id')).subscribe(
-        prod => {
-          this.product = prod
-        },
-        error => {
-          console.log(error);
-        }
-        );
-      this.uService.getUser(this.product.idUser).subscribe(
+    let id = Number.parseInt(this.routeParams.get('id'));
+    //if (this.pService.exist(id)) {
+      /*this.pService.getProductById(id).subscribe(
+        prod => this.product = prod,
+        error => console.log(error)
+      );*/
+      this.uService.getUser(this.producto.idUser).subscribe(
         usr => this.user = usr,
         error => console.log(error)
         );
-    } else {
-      this.error = true;
-    }
-
-  }
+  //  } else {
+      //this.error = true;
+}
 
 }

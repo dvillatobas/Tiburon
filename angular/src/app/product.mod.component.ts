@@ -1,6 +1,8 @@
 import {Component}   from 'angular2/core';
 import {ROUTER_DIRECTIVES,RouteParams, Router} from 'angular2/router';
 import {ProductService, Product} from './product.service';
+import {UserService, User} from './user.service';
+import {HTTP_PROVIDERS, Http} from 'angular2/http';
 
 @Component({
   selector: 'main',
@@ -10,7 +12,7 @@ import {ProductService, Product} from './product.service';
 
 })
 
-export class ProductModComponent{
+export class ProductModComponent {
 
   private nuevo : boolean=true;
   product : Product;
@@ -25,10 +27,15 @@ export class ProductModComponent{
   private numericPrice:boolean;
   private numericYear:boolean;
 
+  private file: File;
+
+  private images: String;
 
 
-  constructor(private router: Router, routeParams: RouteParams, private pservice: ProductService){
-    let id = routeParams.get('id');
+  constructor(private router: Router, routeParams: RouteParams, private pservice: ProductService,
+    private http: Http, private uService: UserService){
+    let id = Number.parseInt(routeParams.get('id'));
+
     if(id){
       pservice.getProductById(id).subscribe(
         product => this.product = product,
@@ -37,7 +44,8 @@ export class ProductModComponent{
       this.nuevo = false;
     }
     else{
-      this.product = new Product(undefined,undefined,'',undefined,undefined,'','',undefined,undefined,'','');
+      this.product = {publicDate:'',  name: '', used: undefined, year: undefined, location: '',img:"", price: undefined,
+       idUser: uService.getIdUserLogued(), type: '', description:''};
       this.nuevo = true;
     }
   }
@@ -73,9 +81,9 @@ export class ProductModComponent{
       this.emptyPrice=true;
       return 0;
     }
-    if(this.product.year === undefined){
+    /*if(this.product.year === undefined){
       this.product.year = "Sin indicar";
-    }
+    }*/
     if(this.product.description.length<=10){
       this.emptyDescription = true;
       return 0;
@@ -97,9 +105,12 @@ export class ProductModComponent{
       }
     }
 
-    this.pservice.saveProduct(this.product);
+    this.pservice.saveProduct(this.product).subscribe(
+      prod =>window.history.back(),
+      error => console.log(error)
+    );
     //this.router.navigate(['Inicio']);
-    window.history.back();
+  //  window.history.back();
 
   }
 

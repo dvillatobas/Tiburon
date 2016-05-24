@@ -3,9 +3,11 @@
   <div [class]="classRegistro">
        <div class="col-md-2 text-center" id="registro" >
            <h4>Foto de perfil</h4>
+
+           
            <img #imgR alt="perfil" src="http://lorempixel.com/140/140" class="img-circle center-block" />
            <br>
-           <button class="btn btn-default center-block">Seleccionar</button>
+           <button class="btn btn-default center-block" (click)="upload()">Subir</button>
            <br>
        </div>
        <div class="col-md-5" id="registro">

@@ -405,6 +405,10 @@ li>.glyphicon {
     text-align: center;
 }
 
+#imagenPerfil{
+    width: 250px;
+    height: 150px;
+}
 
 /*******************FORMULARIO REGISTRO*************************/
 
@@ -616,6 +620,9 @@ label.star:before {
         width: 100%;
         text-align: center;
         transform: translateY(-50%);
+    }
+    .portfolio-box > img{
+        height: 200px;
     }
 
     .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {
