@@ -1,6 +1,7 @@
 import {Component}   from 'angular2/core';
 import {ROUTER_DIRECTIVES,RouteParams, Router} from 'angular2/router';
 import {ProductService, Product} from './product.service';
+import {UserService} from './user.service';
 
 @Component({
   selector: 'main',
@@ -27,14 +28,22 @@ export class ProductModComponent{
 
 
 
-  constructor(private router: Router, routeParams: RouteParams, private pservice: ProductService){
+  constructor(
+    private router: Router,
+     routeParams: RouteParams,
+     private pservice: ProductService,
+     private uService : UserService
+  ){
     let id = routeParams.get('id');
     if(id){
       pservice.getProductById(id).subscribe(
-        product => this.product = product,
+        product => {
+          this.product = product
+          this.nuevo = false;
+        },
         error => console.log(error)
       );
-      this.nuevo = false;
+
     }
     else{
       this.product = new Product(undefined,undefined,'',undefined,undefined,'','',undefined,undefined,'','');
@@ -97,7 +106,18 @@ export class ProductModComponent{
       }
     }
 
-    this.pservice.saveProduct(this.product);
+    this.product.user = this.uService.getUserLogued();
+
+    if(this.nuevo){
+      this.pservice.add(this.product).subscribe(
+        p => console.log(p)
+      );
+    }else{
+      this.pservice.update(this.product).subscribe(
+        p => console.log(p)
+      );
+    }
+
     //this.router.navigate(['Inicio']);
     window.history.back();
 

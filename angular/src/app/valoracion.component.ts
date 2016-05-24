@@ -15,7 +15,7 @@ export class ValorationComponent{
   private error: boolean = false;
 
   @Input()
-  private comment: Valoration;
+  private valorations;
 
   @Output()
   private remove = new EventEmitter<any>();
@@ -26,25 +26,6 @@ export class ValorationComponent{
     private routeParams: RouteParams,
     private uService: UserService,
     private pService: ProductService
-    ) {
-    let id = +this.routeParams.get('id');
-    if (this.pService.exist(id)) {
-      this.pService.getProductById(+this.routeParams.get('id')).subscribe(
-        prod => {
-          this.product = prod
-        },
-        error => {
-          console.log(error);
-        }
-        );
-      this.uService.getUser(this.product.idUser).subscribe(
-        usr => this.user = usr,
-        error => console.log(error)
-        );
-    } else {
-      this.error = true;
-    }
-
-  }
+    ) {}
 
 }

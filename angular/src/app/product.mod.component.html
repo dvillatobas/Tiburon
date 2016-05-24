@@ -1,5 +1,5 @@
-<div class="text-center"><h2>Producto {{product.id}} - {{product.name}}</h2></div>
-<div class="container-fluid">
+<div class="text-center" *ngIf="product"><h2>{{product.name}}</h2></div>
+<div class="container-fluid" *ngIf="product">
 	<div class="row">
 		<div class="col-md-1">
 		</div>

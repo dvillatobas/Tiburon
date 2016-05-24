@@ -363,6 +363,11 @@ li>.glyphicon {
 .img-circle {
     border: 2px solid;
 }
+.img-val{
+  width: 100px;
+  height: 90px;
+
+}
 
 .prize {
     font-size: 40px;

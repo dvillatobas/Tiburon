@@ -15,7 +15,7 @@ import {Valoration, ValorationService} from './valoracion.service';
 
 export class ProductoComponent implements OnInit {
   private product: Product;
-  private comments: Valoration[] = [];
+  private valoraciones = [];
   private user: User;
   private error: boolean = false;
   constructor(
@@ -25,29 +25,23 @@ export class ProductoComponent implements OnInit {
     private uService: UserService,
     private pService: ProductService
     ) {
-    let id = +this.routeParams.get('id');
-    if (this.pService.exist(id)) {
-      this.pService.getProductById(+this.routeParams.get('id')).subscribe(
-        prod => {
-          this.product = prod
-        },
-        error => {
-          console.log(error);
-        }
-        );
-      this.uService.getUser(this.product.idUser).subscribe(
-        usr => this.user = usr,
-        error => console.log(error)
-        );
-    } else {
-      this.error = true;
-    }
+
 
   }
   ngOnInit() {
-    this.vService.getComments().subscribe(
-      comments => this.comments = comments,
-      error => console.log(error)
+    let id = +this.routeParams.get('id');
+    this.pService.getProductById(id).subscribe(
+      prod => {
+        this.product = prod;
+        this.user = this.product.user;
+        this.vService.get(this.product).subscribe(
+          comments => this.valoraciones = comments,
+          error => console.log(error)
+          );
+      },
+      error => {
+        console.log(error);
+      }
       );
 
   }
@@ -61,17 +55,17 @@ export class ProductoComponent implements OnInit {
     }
   }
   addValoration(valoracion: string, description: string) {
-
+    console.log('add ' + valoracion + ' ' + description)
     if(this.uService.getLogueado()){
-    //  this.router.navigate(['Login']);
-
       if ((valoracion == '') || (description == '')) {
         window.confirm("Debes rellenar todos los campos");
       }
       else {
-        let comment = new Valoration(this.uService.getNick(this.uService.getIdUserLogued()), valoracion, description, this.product.id);
-        this.vService.addComment(comment);
-        this.ngOnInit();
+        let comment = new Valoration(1, this.uService.getUserLogued(), valoracion, description, this.product);
+        this.vService.add(comment).subscribe(
+          ok => this.ngOnInit()
+        );
+
       }
   }
   else{

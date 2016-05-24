@@ -28,6 +28,7 @@ public class ValorationController {
 	
 	@RequestMapping(value="/product",method = RequestMethod.PUT)
 	public Collection<Valoration> getValorationsProduct (@RequestBody Product product){
+		log.info("valoraciones del producto {}",product);
 		return vRepo.findByProduct(product);
 	}
 	
@@ -35,6 +36,7 @@ public class ValorationController {
 	public Valoration addValoration (@RequestBody Valoration valoration){
 		Valoration v = new Valoration(valoration.getUser(),valoration.getValoration(),valoration.getDescription(),valoration.getProduct());
 		vRepo.save(v);
+		log.info("valoracion guardada");
 		return v;
 	}
 	

@@ -1,4 +1,4 @@
-<div class="row no-gutter p-list">
+<div class="row no-gutter p-list" *ngIf="products">
   <h2 class="text-center">{{titulo}}</h2>
   <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 port" *ngFor="#p of products">
     <a [routerLink]="['Producto',{id:p.id}]" class="portfolio-box">

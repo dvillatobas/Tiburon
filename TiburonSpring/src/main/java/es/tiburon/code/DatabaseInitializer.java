@@ -83,12 +83,14 @@ public class DatabaseInitializer implements CommandLineRunner {
 		Message m3 = new Message(222555114,raul,david,"buenas!!", "unread");
 		mRepo.save(m3);
 		
-		Product p1 = new Product("22266655544", "Camaro", 20000, 2010, "Madrid", "imagenes/coches/1.jpg", 46968, 2, "car", "Magnifico coche");
+		Product p1 = new Product(222666544, "Camaro", 20000, 2010, "Madrid", "imagenes/coches/1.jpg", 46968, david, "car", "Magnifico coche");
 		pRepo.save(p1);
 		
 		
 		Valoration v1 = new Valoration(david, "Me encanta", "El trato muy bueno, puntual...", p1);
 		vRepo.save(v1);
+		Valoration v2 = new Valoration(raul, "Me encanta", "El trato muy bueno, puntual...", p1);
+		vRepo.save(v2);
 	}
 
 }

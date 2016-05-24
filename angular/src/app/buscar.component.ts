@@ -37,13 +37,13 @@ export class BuscarComponent implements OnInit{
   refreshList(refresh:boolean){
     this.palabra = this.routeParams.get('palabra');
     let p = this.palabra.split('+');
-    if(p[1]==='product'){
+    if(p[1]==='product'){/*
       this.prods = true;
       this.pService.getProductListSearch(this.palabra).subscribe(
         l => this.products = l,
         error => console.log(error)
       );
-
+      */
     }else if(p[1]==='user'){
       this.prods = false;
       let ulist = [];

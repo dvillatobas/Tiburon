@@ -35,18 +35,11 @@ export class ProductListComponent{
     //    this.products = this.pService.getProductListSearch(this.word);
       }
       else{
-        this.pService.getProductList().subscribe(
-          list => this.products = list,
-          error => console.log(error)
-        );
+
       }
       this.edit = false;
       this.contact = true;
     }else if(this.router.hostComponent.name === 'MisProductosComponent'){
-      this.pService.getProductListUser(this.uService.getIdUserLogued()).subscribe(
-        list => this.products = list,
-        error => console.log(error)
-      );
       this.edit = true;
       this.contact = false;
     }
@@ -70,7 +63,7 @@ export class ProductListComponent{
   borrar(idProduct:number | string){
     let confirm = window.confirm("¿Estas seguro de que deseas borrar este producto?");
     if (confirm){
-      this.pService.deleteProduct(idProduct).subscribe(
+      this.pService.delete(idProduct).subscribe(
         _ => this.ngOnInit(),
         error => console.log(error)
       )
