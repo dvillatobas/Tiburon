@@ -6,7 +6,7 @@ import {ValorationComponent} from './valoracion.component';
 import {Valoration, ValorationService} from './valoracion.service';
 
 @Component({
-  selector: 'producto',
+  selector: 'main',
   directives: [ROUTER_DIRECTIVES, ValorationComponent],
   templateUrl: 'app/producto.component.html'
 
@@ -14,7 +14,7 @@ import {Valoration, ValorationService} from './valoracion.service';
 })
 
 export class ProductoComponent{
-  
+
   product: Product;
 
   private comments: Valoration[] = [];

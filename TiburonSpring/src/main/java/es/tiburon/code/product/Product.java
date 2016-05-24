@@ -17,7 +17,7 @@ public class Product {
 	private int year;
 	private String location;
 	private String img;
-	private float price;
+	private double price;
 	private int idUser;
 	private String type;
 	private String description;
@@ -88,7 +88,7 @@ public class Product {
 		this.location = location;
 	}
 
-	public float getPrice() {
+	public double getPrice() {
 		return price;
 	}
 

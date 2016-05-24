@@ -36,7 +36,20 @@ export class BuscarComponent implements OnInit{
 
   refreshList(refresh:boolean){
     this.palabra = this.routeParams.get('palabra');
-    let p = this.palabra.split('+');
+    let array = this.palabra.split("+")
+    let name = array[0];
+    let userProd = array[1];
+		let lowPrice = Number.parseInt(array[2]);
+		let highPrice = Number.parseInt(array[3]);
+		let type = array[4];
+		let location = array[5];
+    this.pService.getProductSearch(name,userProd,lowPrice,highPrice,type,location).subscribe(
+      products => this.products=products,
+      error => console.log(error)
+    );
+
+
+    /*let p = this.palabra.split('+');
     if(p[1]==='product'){
       this.prods = true;
       this.pService.getProductListSearch(this.palabra).subscribe(
@@ -93,7 +106,7 @@ export class BuscarComponent implements OnInit{
         );
       }
 
-    }
+    }*/
   }
 
 

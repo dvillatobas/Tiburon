@@ -81,4 +81,40 @@ public class ProductController {
 		}
 	}
 	
+	@RequestMapping(value = "/search/{name}/{userProd}/{lowPrice}/{highPrice}/{type}/{location}", method = RequestMethod.GET)
+	public Collection<Product> getSearch(@PathVariable String name,
+			@PathVariable String userProd,
+			@PathVariable String lowPrice,
+			@PathVariable String highPrice,
+			@PathVariable String type,
+			@PathVariable String location){
+		//String[] palabra = word.split("\\+");
+		//String name = palabra[0];
+		System.out.println(name);
+		System.out.println(userProd);
+		System.out.println(lowPrice);
+		System.out.println(highPrice);
+		System.out.println(type);
+		System.out.println(location);
+		
+		
+		Collection<Product> products = null;
+		if(lowPrice != null && !lowPrice.isEmpty() && highPrice != null && !highPrice.isEmpty()){
+			products = pRepository.findByNameBetweenPrice(name, Double.parseDouble(lowPrice), Double.parseDouble(highPrice));
+			System.out.println(products.size());
+		}
+		
+		/*if(name != "undefined" && !name.isEmpty()){
+				products = pRepository.findByNameIgnoreCase(name);
+				if(lowPrice != null && !lowPrice.isEmpty() && highPrice != null && !highPrice.isEmpty()){
+					products = pRepository.findByPriceBetween(Double.parseDouble(lowPrice), Double.parseDouble(highPrice));
+					System.out.println(products.size());
+				}
+		}*/
+		else{
+			products = null;
+		}
+		return products;
+	}
+	
 }
