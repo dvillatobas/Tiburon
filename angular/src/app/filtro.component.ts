@@ -29,8 +29,8 @@ export class FiltroComponent {
     if(this.rParams.get('palabra')===null){
       this.busqueda = undefined;
       this.userProd = 'product';
-      this.desde = -1;
-      this.hasta = -1;
+      this.desde ="";
+      this.hasta = "";
       this.tipo = 'ambos';
       this.ubicacion=undefined;
       this.vendedorP = true;

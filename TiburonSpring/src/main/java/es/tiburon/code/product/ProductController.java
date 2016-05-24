@@ -88,8 +88,6 @@ public class ProductController {
 			@PathVariable String highPrice,
 			@PathVariable String type,
 			@PathVariable String location){
-		//String[] palabra = word.split("\\+");
-		//String name = palabra[0];
 		System.out.println(name);
 		System.out.println(userProd);
 		System.out.println(lowPrice);
@@ -97,24 +95,68 @@ public class ProductController {
 		System.out.println(type);
 		System.out.println(location);
 		
+		boolean hayNombre = (name != null && !name.isEmpty());
+		boolean hayPrecio = (lowPrice != null && !lowPrice.isEmpty() && highPrice != null && !highPrice.isEmpty());
+		boolean hayTipo = type!="ambos";
+		boolean hayUbicacion = (location != null && !location.isEmpty());
 		
 		Collection<Product> products = null;
-		if(lowPrice != null && !lowPrice.isEmpty() && highPrice != null && !highPrice.isEmpty()){
-			products = pRepository.findByNameBetweenPrice(name, Double.parseDouble(lowPrice), Double.parseDouble(highPrice));
-			System.out.println(products.size());
+		
+		if(hayNombre){
+			if(hayPrecio){
+				if(hayTipo){
+					if(hayUbicacion){
+						products = pRepository.findByNameBetweenPriceAndTypeAndLocation(name,Double.parseDouble(lowPrice),
+								Double.parseDouble(highPrice),type,location);
+					}else{
+						products = pRepository.findByNameBetweenPriceAndType(name,Double.parseDouble(lowPrice),
+								Double.parseDouble(highPrice),type);
+					}
+				}
+				else if(hayUbicacion){
+					products = pRepository.findByNameBetweenPriceAndLocation(name,Double.parseDouble(lowPrice),
+							Double.parseDouble(highPrice),location);
+				}
+				else{
+					products = pRepository.findByNameBetweenPrice(name,Double.parseDouble(lowPrice),
+							Double.parseDouble(highPrice));
+				}
+			}else if(hayTipo){
+				products = pRepository.findByNameAndType(name, type);
+			}else if(hayUbicacion){
+				products = pRepository.findByNameAndType(name, location);
+			}else{
+				products = pRepository.findByNameIgnoreCase(name);
+			}
+			
+		}
+		else if(hayPrecio){
+			if(hayTipo){
+				
+			}else if(hayUbicacion){
+				
+			}else{
+				products = pRepository.findByPriceBetween(Double.parseDouble(lowPrice), Double.parseDouble(highPrice));
+			}
+			
+		}
+		else if(hayTipo){
+			products = pRepository.findByType(type);
+		}
+		else if(hayUbicacion){
+			products = pRepository.findByLocation(location);
 		}
 		
-		/*if(name != "undefined" && !name.isEmpty()){
-				products = pRepository.findByNameIgnoreCase(name);
-				if(lowPrice != null && !lowPrice.isEmpty() && highPrice != null && !highPrice.isEmpty()){
-					products = pRepository.findByPriceBetween(Double.parseDouble(lowPrice), Double.parseDouble(highPrice));
-					System.out.println(products.size());
-				}
-		}*/
-		else{
-			products = null;
-		}
+		
+		
+		
 		return products;
+	
+		
+		
+		
+		
+
 	}
 	
 }

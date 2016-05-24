@@ -39,8 +39,8 @@ export class BuscarComponent implements OnInit{
     let array = this.palabra.split("+")
     let name = array[0];
     let userProd = array[1];
-		let lowPrice = Number.parseInt(array[2]);
-		let highPrice = Number.parseInt(array[3]);
+		let lowPrice = array[2];
+		let highPrice = array[3];
 		let type = array[4];
 		let location = array[5];
     this.pService.getProductSearch(name,userProd,lowPrice,highPrice,type,location).subscribe(

@@ -109,7 +109,7 @@ export class ProductService {
       .catch(error => this.handleError(error));
   }
 
-  getProductSearch(name: string,userProd:string,lowPrice:number,highPrice:number,type:string,location:string){
+  getProductSearch(name: string,userProd:string,lowPrice:string,highPrice:string,type:string,location:string){
     return this.http.get(URL+"search/"+name+"/"+userProd+"/"+lowPrice+"/"+highPrice+"/"+type+"/"+location)
       .map(response => response.json())
       .catch(error => this.handleError(error));
