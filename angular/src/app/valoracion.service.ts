@@ -54,6 +54,16 @@ getValoration(idProducto: number | string) {
       .catch(error => this.handleError(error));
 }
 
+getValorations(idProducto: number | string) {
+    return this.http.get(URL+idProducto)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+}
+getValorations() {
+    return this.http.get(URL)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+}
 
 saveValoration(valoration: Valoration) {
 
