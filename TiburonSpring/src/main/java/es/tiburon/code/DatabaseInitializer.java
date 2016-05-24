@@ -21,15 +21,14 @@ public class DatabaseInitializer implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		Image img1 = new Image("imagenes/1.jpg");
 				
 		// Sample users
 		userRepository.save(new User("user", "", "", "", "", "pass", "", "", "ROLE_USER"));
 		userRepository.save(new User("admin", "", "", "", "", "pass", "", "", "ROLE_ADMIN"));
 		
 		//Products
-		productRepository.save(new Product( "1/1/16","camaro", 210,1965,"Madrid",img1.getFileName(),2500,1,"car","askldfms"));
-		productRepository.save(new Product( "155","camaro", 210,1965,"Madrid","imagenes/1.jpg",2500,1,"car","askldfms"));
+		productRepository.save(new Product( "1/1/16","camaro", 210,1965,"Madrid","/imagenes/1.jpg",2500,1,"car","Espectacular camaro semi nuevo, con muy poco uso. Precio inmejorable, urge venta"));
+		productRepository.save(new Product( "155","camaro", 210,1965,"Valencia","imagenes/2.jpg",2500,1,"car","askldfms"));
 		
 		
 	}

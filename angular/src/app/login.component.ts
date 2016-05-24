@@ -1,10 +1,7 @@
-import {Component,OnInit}   from 'angular2/core';
+import {Component}   from 'angular2/core';
 import {ROUTER_DIRECTIVES,RouteParams, Router} from 'angular2/router';
 import {UserService,User} from './user.service';
 import {HTTP_PROVIDERS, Http} from 'angular2/http';
-import {MultipartItem} from "./multipart-upload/multipart-item";
-import {MultipartUploader} from "./multipart-upload/multipart-uploader";
-
 @Component({
   selector: 'main',
   directives: [ROUTER_DIRECTIVES],
@@ -12,7 +9,7 @@ import {MultipartUploader} from "./multipart-upload/multipart-uploader";
 
 })
 
-export class LoginComponent implements OnInit{
+export class LoginComponent{
 
   private failNickFormat:boolean=false;
   private failNickExist:boolean=false;
@@ -27,9 +24,7 @@ export class LoginComponent implements OnInit{
 
   private classInicio;
   private classRegistro;
-  private file: File;
 
-	private images: String;
 
 
   constructor(private router:Router,private uService : UserService,private http: Http){}
@@ -100,51 +95,4 @@ export class LoginComponent implements OnInit{
       this.failEmailExist=true;
     }
   }
-
-  //Subida de imagenes
-  ngOnInit(){
-		this.loadImages();
-	}
-
-	loadImages(){
-
-		this.http.get("/images").subscribe(
-			response => this.images = response.json()
-		);
-	}
-
-  selectFile($event) {
-		this.file = $event.target.files[0];
-		console.debug("Selected file: " + this.file.name + " type:" + this.file.size + " size:" + this.file.size);
-	}
-
-	upload() {
-
-		console.debug("Uploading file...");
-
-		if (this.file == null){
-			console.error("You have to select a file and set a description.");
-			return;
-		}
-
-		let formData = new FormData();
-		formData.append("file",  this.file);
-
-		let multipartItem = new MultipartItem(new MultipartUploader({url: '/image/upload'}));
-
-		multipartItem.formData = formData;
-
-		multipartItem.callback = (data, status, headers) => {
-
-			if (status == 200){
-				console.debug("File has been uploaded");
-				this.loadImages();
-			} else {
-				console.error("Error uploading file");
-			}
-		};
-
-		multipartItem.upload();
-	}
-
 }

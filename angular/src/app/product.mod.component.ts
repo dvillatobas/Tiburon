@@ -1,10 +1,8 @@
-import {Component,OnInit}   from 'angular2/core';
+import {Component}   from 'angular2/core';
 import {ROUTER_DIRECTIVES,RouteParams, Router} from 'angular2/router';
 import {ProductService, Product} from './product.service';
 import {UserService, User} from './user.service';
 import {HTTP_PROVIDERS, Http} from 'angular2/http';
-import {MultipartItem} from "./multipart-upload/multipart-item";
-import {MultipartUploader} from "./multipart-upload/multipart-uploader";
 
 @Component({
   selector: 'main',
@@ -119,54 +117,7 @@ export class ProductModComponent {
   private isNumeric(num:any) {
   return !isNaN(parseFloat(num)) && isFinite(num);
 }
-//subida de imagenes
 
-//Subida de imagenes
-/*ngOnInit(){
-  this.loadImages();
-}
-
-loadImages(){
-
-  this.http.get("/images").subscribe(
-    response => this.images = response.json()
-  );
-}
-
-selectFile($event) {
-  this.file = $event.target.files[0];
-  console.debug("Selected file: " + this.file.name + " type:" + this.file.size + " size:" + this.file.size);
-}
-
-upload() {
-
-  console.debug("Uploading file...");
-
-  if (this.file == null){
-    console.error("You have to select a file and set a description.");
-    return;
-  }
-
-  let formData = new FormData();
-  formData.append("file",  this.file);
-
-  let multipartItem = new MultipartItem(new MultipartUploader({url: '/image/upload'}));
-
-  multipartItem.formData = formData;
-
-  multipartItem.callback = (data, status, headers) => {
-
-    if (status == 200){
-      console.debug("File has been uploaded");
-      this.loadImages();
-    } else {
-      console.error("Error uploading file");
-    }
-  };
-
-  multipartItem.upload();
-}
-*/
 
 
 }
