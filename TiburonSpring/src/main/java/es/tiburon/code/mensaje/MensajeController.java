@@ -40,7 +40,7 @@ public class MensajeController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public Mensaje nuevoAnuncio(@RequestBody Mensaje mensaje) {
+	public Mensaje nuevoMensaje(@RequestBody Mensaje mensaje) {
 		mRepo.save(mensaje);
 		return mensaje;
 	}

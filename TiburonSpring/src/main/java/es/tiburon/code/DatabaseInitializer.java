@@ -30,7 +30,7 @@ public class DatabaseInitializer implements CommandLineRunner {
 		userRepository.save(new User("user", "", "", "", "", "pass", "", "", "ROLE_USER"));
 		userRepository.save(new User("admin", "", "", "", "", "pass", "", "", "ROLE_ADMIN"));
 		
-		mensajeRepository.save(new Mensaje(Long.MIN_VALUE,Long.MIN_VALUE,Long.MIN_VALUE,"que te pasa","read"));
+		mensajeRepository.save(new Mensaje(Long.valueOf(1),Long.valueOf(99),Long.valueOf(2),"que te pasa","read"));
 	}
 
 }

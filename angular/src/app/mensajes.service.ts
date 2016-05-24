@@ -1,18 +1,23 @@
 import {Injectable} from 'angular2/core';
+import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
+import 'rxjs/Rx';
 import {withObserver} from './utils';
 import {UserService, User} from './user.service';
 
+
 export class Mensaje {
   constructor(
-    public id,
-    public date,
-    public idEmisor,
-    public idReceptor,
-    public mensaje,
-    public estado
-    ) { }
+  public id: number,
+  public date: number,
+  public idEmisor: number,
+  public idReceptor: number,
+  public mensaje: string,
+  public estado: string
+){}
 }
+
+const URL = 'mensaje/';
 
 export class Contact{
   constructor(
@@ -23,38 +28,49 @@ export class Contact{
 
 @Injectable()
 export class MensajesService {
-  private mensajes = [
-    new Mensaje(1, Date.now(), 1, 2, '¿aceptas cambio por una moto + dinero?', 'unread'),
-    new Mensaje(3, Date.now() + 3, 3, 2, '¿Puedes quedar el viernes por la tarde?', 'unread'),
-    new Mensaje(2, Date.now() + 2, 2, 1, 'No, gracias por tu interes', 'unread'),
-    new Mensaje(4, Date.now() + 4, 4, 1, '¿Cuanto pides por él?', 'unread')
-  ];
-  //sin inicializar seria un 0
-  private lastId: number = 4;
+
   constructor(
-    private usr: UserService
+    private usr: UserService,
+    private http: Http
     ) { }
 
-  setId() {
-    this.lastId++;
-    return this.lastId;
+  private handleError(error: any){
+    console.error(error);
+    return Observable.throw("Server error (" + error.status + "): " + error.text())
+  }
+
+  getMensajes(){
+    return this.http.get(URL)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  }
+
+  getMensaje(id: number | string){
+	    return this.http.get(URL+id)
+	      .map(response => response.json())
+	      .catch(error => this.handleError(error));
   }
 
   getContactList(id: number) {
     let contactos = [];
     let u;
-    for (let i = 0; i < this.mensajes.length; i++) {
+    let mensajes: Mensaje[];
+    this.getMensajes().subscribe(
+      mensajes => mensajes = mensajes,
+      error => console.log(error)
+    );
+    for (let i = 0; i < mensajes.length; i++) {
 
-      if (id === this.mensajes[i].idEmisor && !this.estaContenido(this.mensajes[i].idReceptor, contactos)) {
+      if (id === mensajes[i].idEmisor && !this.estaContenido(mensajes[i].idReceptor, contactos)) {
 
-        this.usr.getUser(this.mensajes[i].idReceptor).subscribe(
+        this.usr.getUser(mensajes[i].idReceptor).subscribe(
           user => u = user,
           error => console.log(error)
           );
         contactos.push(new Contact(u,this.getUnreadNumber(u.id)));
-      } else if (id === this.mensajes[i].idReceptor && !this.estaContenido(this.mensajes[i].idEmisor, contactos)) {
+      } else if (id === mensajes[i].idReceptor && !this.estaContenido(mensajes[i].idEmisor, contactos)) {
 
-        this.usr.getUser(this.mensajes[i].idEmisor).subscribe(
+        this.usr.getUser(mensajes[i].idEmisor).subscribe(
           user => u = user,
           error => console.log(error)
           );
@@ -73,7 +89,12 @@ export class MensajesService {
 
   getChatList(id: number) {
     let messages = [];
-    for (let m of this.mensajes) {
+    let mensajes: Mensaje[];
+    this.getMensajes().subscribe(
+      mensajes => mensajes = mensajes,
+      error => console.log(error)
+    );
+    for (let m of mensajes) {
       if (id === m.idEmisor && this.usr.getIdUserLogued() === m.idReceptor) {
         messages.push(m);
         this.setMensajeRead(m.id);
@@ -84,14 +105,24 @@ export class MensajesService {
     return withObserver(messages);
   }
   setMensajeRead(id){
+    let mensajes: Mensaje[];
+    this.getMensajes().subscribe(
+      mensajes => mensajes = mensajes,
+      error => console.log(error)
+    );
     if(id){
-      let men = this.mensajes.filter(c => c.id === id)[0];
+      let men = mensajes.filter(c => c.id === id)[0];
       men.estado='read';
     }
   }
   getUnreadNumber(id){
     let cont = 0;
-    for(let m of this.mensajes){
+    let mensajes: Mensaje[];
+    this.getMensajes().subscribe(
+      mensajes => mensajes = mensajes,
+      error => console.log(error)
+    );
+    for(let m of mensajes){
       if(this.usr.getIdUserLogued() === m.idReceptor && m.idEmisor === id && m.estado === 'unread'){
         cont++;
       }
@@ -110,13 +141,23 @@ export class MensajesService {
 
   nuevo(destino: number, mensaje: string) {
     let m = new Mensaje(
-      this.setId(),
+      0,
       Date.now(),
       this.usr.getIdUserLogued(),
       destino,
       mensaje,
       'unread');
-    this.mensajes.push(m);
-    return withObserver(m);
+
+      let body = JSON.stringify(m);
+      let headers = new Headers({
+          'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest'
+      });
+      let options = new RequestOptions({ headers });
+
+      return this.http.post(URL, body, options)
+        .map(response => response.json())
+        .catch(error => this.handleError(error));
+
   }
 }
