@@ -83,7 +83,7 @@ public class DatabaseInitializer implements CommandLineRunner {
 		Message m3 = new Message(222555114,raul,david,"buenas!!", "unread");
 		mRepo.save(m3);
 		
-		Product p1 = new Product(222666544, "Camaro", 20000, 2010, "Madrid", "imagenes/coches/1.jpg", 46968, david, "car", "Magnifico coche");
+		Product p1 = new Product(222666544, "Camaro", 20000, 2010, "Madrid", "imagenes/coches/1.jpg", 46968, david, "piece", "Magnifico coche");
 		pRepo.save(p1);
 		
 		
@@ -91,6 +91,15 @@ public class DatabaseInitializer implements CommandLineRunner {
 		vRepo.save(v1);
 		Valoration v2 = new Valoration(raul, "Me encanta", "El trato muy bueno, puntual...", p1);
 		vRepo.save(v2);
+		
+		pRepo.save(new Product( 155234234,"ford", 210,1965,"Valencia","imagenes/2.jpg",2500,david,"car","Coche para piezas o arreglo. Escucho ofertas coherentes"));
+		pRepo.save(new Product( 234552345,"viper", 210,1965,"Madrid","/imagenes/1.jpg",2501,luis,"car","Espectacular camaro semi nuevo, con muy poco uso. Precio inmejorable, urge venta"));
+		
+		pRepo.save(new Product( 155234234,"ford", 210,1965,"Valencia","imagenes/2.jpg",2500,david,"car","Coche para piezas o arreglo. Escucho ofertas coherentes"));
+		pRepo.save(new Product( 234552345,"viper", 210,1965,"Madrid","/imagenes/1.jpg",2501,luis,"car","Espectacular camaro semi nuevo, con muy poco uso. Precio inmejorable, urge venta"));
+		
+		pRepo.save(new Product( 155234234,"ford", 210,1965,"Valencia","imagenes/2.jpg",2500,david,"car","Coche para piezas o arreglo. Escucho ofertas coherentes"));
+		pRepo.save(new Product( 234552345,"viper", 210,1965,"Madrid","/imagenes/1.jpg",2501,luis,"car","Espectacular camaro semi nuevo, con muy poco uso. Precio inmejorable, urge venta"));
 	}
 
 }

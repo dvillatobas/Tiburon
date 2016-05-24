@@ -84,103 +84,21 @@ export class ProductService {
     return this.http.put(url, body, options)
       .map(response => response.json());
   }
-/*
+
   getProductListSearch(palabra: string) {
-    let busq = palabra.split('+');
+    let url = URL + 'search';
+    let body = palabra;
+    let headers = new Headers({
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+    });
+    let options = new RequestOptions({ headers });
+
+    return this.http.put(url, body, options)
+      .map(response => response.json());
 
 
-    let listFiltrada = [];
-
-    for (let i = 0; i < this.products.length; i++) {
-
-      if ((this.products[i].name.indexOf(busq[0])) > -1) {
-        listFiltrada.push(this.products[i]);
-      }
-    }
-    if(listFiltrada.length===0){
-      return withObserver([]);
-    }
-    if(busq[2] != ''){
-      let aux = [];
-      for(let p of listFiltrada){
-        if(p.price >= +busq[2]){
-          aux.push(p);
-        }
-      }
-      listFiltrada = [];
-      listFiltrada = aux;
-    }
-
-    if(busq[3] != ''){
-      let aux = [];
-      for(let p of listFiltrada){
-        if(p.price <= +busq[3]){
-          aux.push(p);
-        }
-      }
-      listFiltrada = [];
-      listFiltrada = aux;
-    }
-
-    if(busq[4] != 'ambos'){
-      let aux = [];
-      for(let p of listFiltrada){
-        if(p.type == busq[4]){
-          aux.push(p);
-        }
-      }
-      listFiltrada = [];
-      listFiltrada = aux;
-    }
-    if(busq[5] != ''){
-      let aux = [];
-      for(let p of listFiltrada){
-        if(p.location == busq[5]){
-          aux.push(p);
-        }
-      }
-      listFiltrada = [];
-      listFiltrada = aux;
-    }
-    if(busq[6] === 'true' && busq[7] === 'false'){
-      let aux = [];
-      let u : User;
-      for(let p of listFiltrada){
-        this.uService.getUser(p.idUser).subscribe(
-          us => u = us,
-          error => console.log(error)
-        );
-        if(u.tipo == 'particular'){
-          aux.push(p);
-        }
-      }
-      listFiltrada = [];
-      listFiltrada = aux;
-    }
-    if(busq[7] === 'true' && busq[6] === 'false'){
-      let aux = [];
-      let u : User;
-      for(let p of listFiltrada){
-        this.uService.getUser(p.idUser).subscribe(
-          us => u = us,
-          error => console.log(error)
-        );
-        if(u.tipo == 'profesional'){
-          aux.push(p);
-        }
-      }
-      listFiltrada = [];
-      listFiltrada = aux;
-    }
-    if(busq[7] === 'false' && busq[6] === 'false'){
-      return withObserver([]);
-    }
-
-
-    return withObserver(listFiltrada);
-
-
-  }*/
+  }
 
   update(product: Product) {
     let url = URL + 'update';

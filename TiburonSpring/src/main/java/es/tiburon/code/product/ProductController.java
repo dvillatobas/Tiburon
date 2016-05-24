@@ -116,6 +116,73 @@ public class ProductController {
 		return list;
 	}
 	
+	@RequestMapping(value="/search", method = RequestMethod.PUT)
+	public Collection<Product> search(@RequestBody String ruta){
+		String[] opciones = ruta.split("\\+");
+		List<Product> list = new ArrayList<Product>();
+		if(opciones[1].contentEquals("product")){
+			if(opciones[4].contentEquals("ambos")){
+				list.addAll(pRepo.findByNameContainingIgnoreCase(opciones[0]));
+			}else{
+				list.addAll(pRepo.findByNameContainingIgnoreCaseAndType(opciones[0],opciones[4]));
+			}
+			
+			
+			if(opciones[6].contentEquals("false") && !list.isEmpty()){
+				List<Product> aux = new ArrayList<Product>();
+				for(Product p : list){
+					if(!p.getUser().getTipo().contentEquals("particular")){
+						aux.add(p);
+					}
+				}
+				list = aux;
+			}
+			if(opciones[7].contentEquals("false") && !list.isEmpty()){
+				List<Product> aux = new ArrayList<Product>();
+				for(Product p : list){
+					if(!p.getUser().getTipo().contentEquals("profesional")){
+						aux.add(p);
+					}
+				}
+				list=aux;
+			}
+			if(!opciones[2].contentEquals("") && !list.isEmpty()){
+				List<Product> aux = new ArrayList<Product>();
+				float desde = Float.parseFloat(opciones[2]);
+				for(Product p : list){
+					
+					if(p.getPrice()>desde){
+						aux.add(p);
+					}
+				}
+				list=aux;
+			}
+			if(!opciones[3].contentEquals("") && !list.isEmpty()){
+				List<Product> aux = new ArrayList<Product>();
+				float hasta = Float.parseFloat(opciones[3]);
+				for(Product p : list){
+					if(p.getPrice()<hasta){
+						aux.add(p);
+					}
+				}
+				list=aux;
+			}
+			if(!opciones[5].contentEquals("") && !opciones[5].contentEquals("0") && !list.isEmpty()){
+				List<Product> aux = new ArrayList<Product>();
+				for(Product p : list){
+					if(p.getLocation().contentEquals(opciones[5])){
+						aux.add(p);
+					}
+				}
+				list=aux;
+			}
+			
+			
+			return list;
+		}else{
+			return new ArrayList<Product>();
+		}
+	}
 	
 	
 }
