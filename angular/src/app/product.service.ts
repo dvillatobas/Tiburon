@@ -76,7 +76,7 @@ export class ProductService {
 
 
   getNewestList() {
-    this.getProductList();
+    return this.getProductList();
     /*let list = this.products.sort(
       (n1, n2) => {
         if (n1.publicDate > n2.publicDate) { return 1; }

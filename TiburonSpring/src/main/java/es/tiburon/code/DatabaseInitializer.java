@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 
 import es.tiburon.code.follow.Follow;
 import es.tiburon.code.follow.FollowRepository;
-import es.tiburon.code.product.Image;
 import es.tiburon.code.product.Product;
 import es.tiburon.code.product.ProductRepository;
 import es.tiburon.code.user.User;
