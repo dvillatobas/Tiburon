@@ -126,6 +126,10 @@ Estas son algunas capturas de las principales pantallas de la aplicación:
 ![](capturas_pantalla/nuevo_perfil.JPG "Nuevo perfil")
 
 
+Diagrama de clases de la fase4:
+
+![](capturas_pantalla/fase4Clases.png "Diagrama de clases")
+
 
 
 
