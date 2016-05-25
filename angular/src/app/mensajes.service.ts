@@ -1,5 +1,6 @@
 import {Injectable} from 'angular2/core';
 import {Observable} from 'rxjs/Observable';
+import {Http, Headers, RequestOptions} from 'angular2/http';
 import {withObserver} from './utils';
 import {UserService, User} from './user.service';
 
@@ -7,10 +8,10 @@ export class Mensaje {
   constructor(
     public id,
     public date,
-    public idEmisor,
-    public idReceptor,
-    public mensaje,
-    public estado
+    public emisor:User,
+    public receptor:User,
+    public message,
+    public state
     ) { }
 }
 
@@ -21,82 +22,59 @@ export class Contact{
   ){}
 }
 
+const URL = 'https://localhost:8443/message/';
+
 @Injectable()
 export class MensajesService {
-  private mensajes = [
-    new Mensaje(1, Date.now(), 1, 2, '¿aceptas cambio por una moto + dinero?', 'unread'),
-    new Mensaje(3, Date.now() + 3, 3, 2, '¿Puedes quedar el viernes por la tarde?', 'unread'),
-    new Mensaje(2, Date.now() + 2, 2, 1, 'No, gracias por tu interes', 'unread'),
-    new Mensaje(4, Date.now() + 4, 4, 1, '¿Cuanto pides por él?', 'unread')
-  ];
-  //sin inicializar seria un 0
-  private lastId: number = 4;
   constructor(
-    private usr: UserService
+    private uService: UserService,
+    private http:Http
     ) { }
 
-  setId() {
-    this.lastId++;
-    return this.lastId;
+  getContactList() {
+    let url = URL + 'contactList';
+    return this.http.get(url)
+      .map(response => response.json());
   }
 
-  getContactList(id: number) {
-    let contactos = [];
-    let u;
-    for (let i = 0; i < this.mensajes.length; i++) {
+  getChatList(u:User) {
+    let url = URL + 'getChat';
+    let body = JSON.stringify(u);
+    let headers = new Headers({
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+    });
+    let options = new RequestOptions({ headers });
 
-      if (id === this.mensajes[i].idEmisor && !this.estaContenido(this.mensajes[i].idReceptor, contactos)) {
-
-        this.usr.getUser(this.mensajes[i].idReceptor).subscribe(
-          user => u = user,
-          error => console.log(error)
-          );
-        contactos.push(new Contact(u,this.getUnreadNumber(u.id)));
-      } else if (id === this.mensajes[i].idReceptor && !this.estaContenido(this.mensajes[i].idEmisor, contactos)) {
-
-        this.usr.getUser(this.mensajes[i].idEmisor).subscribe(
-          user => u = user,
-          error => console.log(error)
-          );
-        contactos.push(new Contact(u,this.getUnreadNumber(u.id)));
-      }
-    }
-    contactos.sort(
-      (n1, n2) => {
-        if (n1.id > n2.id) { return -1; }
-        if (n1.id < n2.id) { return 1; }
-        return 0;
-      }
-      );
-    return withObserver(contactos);
+    return this.http.put(url, body, options)
+      .map(response => response.json());
   }
 
-  getChatList(id: number) {
-    let messages = [];
-    for (let m of this.mensajes) {
-      if (id === m.idEmisor && this.usr.getIdUserLogued() === m.idReceptor) {
-        messages.push(m);
-        this.setMensajeRead(m.id);
-      } else if (id === m.idReceptor && this.usr.getIdUserLogued() === m.idEmisor) {
-        messages.push(m);
-      }
-    }
-    return withObserver(messages);
+  setMensajeRead(m:Mensaje){
+    let url = URL + 'setRead';
+    let body = JSON.stringify(m);
+    let headers = new Headers({
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+    });
+    let options = new RequestOptions({ headers });
+
+    return this.http.put(url, body, options)
+      .map(response => response.json());
+
   }
-  setMensajeRead(id){
-    if(id){
-      let men = this.mensajes.filter(c => c.id === id)[0];
-      men.estado='read';
-    }
-  }
-  getUnreadNumber(id){
-    let cont = 0;
-    for(let m of this.mensajes){
-      if(this.usr.getIdUserLogued() === m.idReceptor && m.idEmisor === id && m.estado === 'unread'){
-        cont++;
-      }
-    }
-    return cont;
+
+  getUnreadNumber(u:User){
+    let url = URL + 'unreadNumber';
+    let body = JSON.stringify(u);
+    let headers = new Headers({
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+    });
+    let options = new RequestOptions({ headers });
+
+    return this.http.put(url, body, options)
+      .map(response => response.json());
   }
 
   estaContenido(id: number, lista = []) {
@@ -108,15 +86,17 @@ export class MensajesService {
     return false;
   }
 
-  nuevo(destino: number, mensaje: string) {
-    let m = new Mensaje(
-      this.setId(),
-      Date.now(),
-      this.usr.getIdUserLogued(),
-      destino,
-      mensaje,
-      'unread');
-    this.mensajes.push(m);
-    return withObserver(m);
+  nuevo(destino: User, mensaje: string) {
+    let m = new Mensaje(0,Date.now(),this.uService.getUserLogued(),destino,mensaje,'unread');
+    let url = URL + 'add';
+    let body = JSON.stringify(m);
+    let headers = new Headers({
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+    });
+    let options = new RequestOptions({ headers });
+
+    return this.http.post(url, body, options)
+      .map(response => response.json());
   }
 }

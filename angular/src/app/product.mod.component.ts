@@ -1,8 +1,12 @@
 import {Component}   from 'angular2/core';
 import {ROUTER_DIRECTIVES,RouteParams, Router} from 'angular2/router';
 import {ProductService, Product} from './product.service';
+<<<<<<< HEAD
 import {UserService, User} from './user.service';
 import {HTTP_PROVIDERS, Http} from 'angular2/http';
+=======
+import {UserService} from './user.service';
+>>>>>>> f4_entidad_productos
 
 @Component({
   selector: 'main',
@@ -36,12 +40,25 @@ export class ProductModComponent {
     private http: Http, private uService: UserService){
     let id = Number.parseInt(routeParams.get('id'));
 
+<<<<<<< HEAD
+=======
+  constructor(
+    private router: Router,
+     routeParams: RouteParams,
+     private pservice: ProductService,
+     private uService : UserService
+  ){
+    let id = routeParams.get('id');
+>>>>>>> f4_entidad_productos
     if(id){
       pservice.getProductById(id).subscribe(
-        product => this.product = product,
+        product => {
+          this.product = product
+          this.nuevo = false;
+        },
         error => console.log(error)
       );
-      this.nuevo = false;
+
     }
     else{
       this.product = {publicDate:'',  name: '', used: undefined, year: undefined, location: '',img:"", price: undefined,
@@ -105,10 +122,25 @@ export class ProductModComponent {
       }
     }
 
+<<<<<<< HEAD
     this.pservice.saveProduct(this.product).subscribe(
       prod =>window.history.back(),
       error => console.log(error)
     );
+=======
+    this.product.user = this.uService.getUserLogued();
+
+    if(this.nuevo){
+      this.pservice.add(this.product).subscribe(
+        p => console.log(p)
+      );
+    }else{
+      this.pservice.update(this.product).subscribe(
+        p => console.log(p)
+      );
+    }
+
+>>>>>>> f4_entidad_productos
     //this.router.navigate(['Inicio']);
   //  window.history.back();
 
