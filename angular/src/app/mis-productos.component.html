@@ -3,6 +3,4 @@
     <a (click)="nuevoProducto()" class="pull-right"><span class="glyphicon glyphicon-plus"></span> Añadir producto</a>
   </div>
 </div>
-<div *ngIf="list">
-<product-list [products]="list" (refresh)='refresh($event)'></product-list>
-</div>
+<product-list></product-list>

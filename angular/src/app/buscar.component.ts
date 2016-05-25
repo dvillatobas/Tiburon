@@ -39,11 +39,8 @@ export class BuscarComponent implements OnInit{
     let p = this.palabra.split('+');
     if(p[1]==='product'){
       this.prods = true;
-      console.log(this.palabra)
       this.pService.getProductListSearch(this.palabra).subscribe(
-        l => {
-          this.products = l
-        },
+        l => this.products = l,
         error => console.log(error)
       );
 

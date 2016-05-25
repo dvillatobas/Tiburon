@@ -1,4 +1,4 @@
-import {Component, OnInit}   from 'angular2/core';
+import {Component}   from 'angular2/core';
 import {ROUTER_DIRECTIVES,RouteParams, Router} from 'angular2/router';
 import {MensajesService} from './mensajes.service';
 import {UserService} from './user.service';
@@ -12,7 +12,7 @@ import {User} from './user.service';
 
 })
 
-export class MensajesComponent implements OnInit{
+export class MensajesComponent{
   private fecha = Date.now();
   private isCollapsed : boolean = false;
   private chatList = [];
@@ -20,79 +20,63 @@ export class MensajesComponent implements OnInit{
   private yo : User;
   private contactList = [];
   private mostrarChat = false;
-  private mostrarEscritura = false;
-  private borrador='';
   constructor(
     private router:Router,
     private param : RouteParams,
     private mService : MensajesService,
     private uService : UserService
 
-  ){}
-
-  ngOnInit(){
-    this.yo = this.uService.getUserLogued();
+  ){
     if(this.uService.getIdUserLogued()===0){
       this.router.navigate(['Login']);
     }
     this.refreshContactList();
     let id = +this.param.get('id');
     if(id!=0 && this.uService.getIdUserLogued()!=0 && id !=this.uService.getIdUserLogued()){
-      this.uService.getUser(id).subscribe(
-        u => this.selectChat(u)
-      );
+      this.selectChat(id);
 
     }
 
   }
 
 
-  selectChat(user){
+  selectChat(id:number){
     this.chatList = [];
-    this.usuario = user;
-    this.mostrarEscritura = true;
+    this.uService.getUser(id).subscribe(
+      user => this.usuario = user,
+      error => console.log()
+    );
+    this.uService.getUser(this.uService.getIdUserLogued()).subscribe(
+      user => this.yo = user,
+      error => console.log()
+    );
     let lista = [];
-    this.mService.getChatList(user).subscribe(
-      list => {
-        lista = list
-        console.log(lista)
-        for(let w of lista){
-          if(w.emisor.id === user.id){
-            this.chatList.push(new Wisp(user.nick,w.message,w.date,'list-group-item received'));
-          }else{
-            this.chatList.push(new Wisp(this.yo.nick,w.message,w.date,'list-group-item sent'));
-          }
-        }
-        if(lista.length === 0){
-          this.chatList.push(new Wisp('','Nuevo chat con '+ this.usuario.nick,Date.now(),'list-group-item center-block'));
-        }
-        this.refreshContactList();
-      },
+    this.mService.getChatList(id).subscribe(
+      list => lista = list,
       error => console.log(error)
     );
-
+    for(let w of lista){
+      if(w.idEmisor === id){
+        this.chatList.push(new Wisp(this.usuario.nick,w.mensaje,w.date,'list-group-item received'));
+      }else{
+        this.chatList.push(new Wisp(this.yo.nick,w.mensaje,w.date,'list-group-item sent'));
+      }
+    }
+    if(lista.length === 0){
+      this.chatList.push(new Wisp('','Nuevo chat con '+ this.usuario.nick,Date.now(),'list-group-item center-block'));
+    }
+    this.refreshContactList();
 
   }
-  enviar($event){
-    event.preventDefault();
-    console.log(this.borrador)
-    this.mService.nuevo(this.usuario,this.borrador).subscribe(
-      m => {
-        this.borrador ='';
-        this.selectChat(this.usuario);
-      },
-      error => console.log(error)
-    );
-
+  enviar(borrador){
+    this.mService.nuevo(this.usuario.id,borrador);
+    this.selectChat(this.usuario.id);
   }
 
   refreshContactList(){
     this.contactList = [];
-    this.mService.getContactList().subscribe(
-      list => {
-        this.contactList = list;
-        console.log(this.contactList)
-      },
+    this.mService.getContactList(this.uService.getIdUserLogued()).subscribe(
+      list => this.contactList = list,
       error => console.log(error)
     );
   }

@@ -13,7 +13,6 @@ import {Valoration, ValorationService} from './valoracion.service';
 
 })
 
-<<<<<<< HEAD
 export class ProductoComponent{
   
   product: Product;
@@ -41,38 +40,6 @@ export class ProductoComponent{
 
 
 
-=======
-export class ProductoComponent implements OnInit {
-  private product: Product;
-  private valoraciones = [];
-  private user: User;
-  private error: boolean = false;
-  constructor(
-    private vService: ValorationService,
-    private router: Router,
-    private routeParams: RouteParams,
-    private uService: UserService,
-    private pService: ProductService
-    ) {
-
-
-  }
-  ngOnInit() {
-    let id = +this.routeParams.get('id');
-    this.pService.getProductById(id).subscribe(
-      prod => {
-        this.product = prod;
-        this.user = this.product.user;
-        this.vService.get(this.product).subscribe(
-          comments => this.valoraciones = comments,
-          error => console.log(error)
-          );
-      },
-      error => {
-        console.log(error);
-      }
-      );
->>>>>>> f4_entidad_productos
 
   }
  ngOnInit() {
@@ -93,23 +60,17 @@ export class ProductoComponent implements OnInit {
     }
   }
   addValoration(valoracion: string, description: string) {
-    console.log('add ' + valoracion + ' ' + description)
+
     if(this.uService.getLogueado()){
+    //  this.router.navigate(['Login']);
+
       if ((valoracion == '') || (description == '')) {
         window.confirm("Debes rellenar todos los campos");
       }
       else {
-<<<<<<< HEAD
         let comment = new Valoration(this.uService.getNick(this.uService.getIdUserLogued()), valoracion, description, this.product.id);
         this.vService.addComment(comment);
         //this.ngOnInit();
-=======
-        let comment = new Valoration(1, this.uService.getUserLogued(), valoracion, description, this.product);
-        this.vService.add(comment).subscribe(
-          ok => this.ngOnInit()
-        );
-
->>>>>>> f4_entidad_productos
       }
   }
   else{

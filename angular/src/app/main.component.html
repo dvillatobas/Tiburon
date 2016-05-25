@@ -19,6 +19,6 @@
   <!--ANUNCIOS -->
   <div class="col-sm-8 col-md-9" *ngIf="follow">
     <h2 *ngIf="!follow.follows">No se muestran productos porque no sigues a nadie</h2>
-    <product-list-img *ngIf="follow.follows" [titulo]="'Novedades de tus contactos'" [products]="followProducts"></product-list-img>
+    <product-list-img *ngIf="follow.follows" [titulo]="'Novedades de tus contactos (saldran correctamente con pService)'" [products]="followProducts"></product-list-img>
   </div>
 </div>

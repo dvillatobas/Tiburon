@@ -45,7 +45,7 @@ export class PublicProfileComponent implements OnInit{
         this.follow = f;
         if(tipo === 'profile'){
           this.showUsers = false;
-          this.pService.getProductListUser(f.user).subscribe(
+          this.pService.getProductListUser(f.user.id).subscribe(
             p => this.productsUser = p
           );
         }else if(tipo === 'followers'){

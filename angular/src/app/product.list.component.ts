@@ -1,4 +1,4 @@
-import {Component,Input,Output, EventEmitter}   from 'angular2/core';
+import {Component,Input}   from 'angular2/core';
 import {ROUTER_DIRECTIVES,RouteParams, Router} from 'angular2/router';
 import {Product,ProductService} from './product.service';
 import {UserService} from './user.service';
@@ -13,13 +13,10 @@ import {MensajesService} from './mensajes.service';
 export class ProductListComponent{
   //@Input()
   private products = [];
-  @Output()
-  private refresh = new EventEmitter<boolean>();
 
   private edit : boolean;
   private contact : boolean;
   private word = '';
-
 
   constructor(
     private pService : ProductService,
@@ -42,11 +39,18 @@ export class ProductListComponent{
     //    this.products = this.pService.getProductListSearch(this.word);
       }
       else{
-
+        this.pService.getProductList().subscribe(
+          list => this.products = list,
+          error => console.log(error)
+        );
       }
       this.edit = false;
       this.contact = true;
     }else if(this.router.hostComponent.name === 'MisProductosComponent'){
+      this.pService.getProductListUser(this.uService.getIdUserLogued()).subscribe(
+        list => this.products = list,
+        error => console.log(error)
+      );
       this.edit = true;
       this.contact = false;
     }
@@ -70,10 +74,8 @@ export class ProductListComponent{
   borrar(idProduct:number | string){
     let confirm = window.confirm("¿Estas seguro de que deseas borrar este producto?");
     if (confirm){
-      this.pService.del(idProduct).subscribe(
-        resultado => {
-          this.refresh.next(true);
-        },
+      this.pService.deleteProduct(idProduct).subscribe(
+        _ => this.ngOnInit(),
         error => console.log(error)
       )
 

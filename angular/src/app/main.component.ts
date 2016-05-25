@@ -32,27 +32,23 @@ export class MainComponent{
       this.fService.getFollow(id).subscribe(
         f => {
           this.follow = f;
-
-          this.pService.getProductListUsers(this.follow.follows).subscribe(
+          /*
+            // CUANDO ESTE LISTO pService
+          this.pService.getProductByUserList(list).subscribe(
             ps => {
               this.followProducts = ps;
             }
           );
-          
+          */
+          this.pService.getNewestList().subscribe(
+            p => this.followProducts = p
+          );
         }
       );
 
     }else{
-<<<<<<< HEAD
       this.pService.getProductList().subscribe(
         list => this.newProducts = list,
-=======
-      this.pService.getNewestList().subscribe(
-        list => {
-          this.newProducts = list;
-          console.log(list)
-        },
->>>>>>> f4_entidad_productos
         error => console.log
       );
     }

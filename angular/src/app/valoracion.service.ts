@@ -1,58 +1,39 @@
 import {Injectable} from 'angular2/core';
 import {Observable} from 'rxjs/Observable';
 import {withObserver} from './utils';
-import {Http, Headers, RequestOptions} from 'angular2/http';
-import {UserService, User} from './user.service';
-import {Product} from './product.service';
+import {UserService} from './user.service';
 import 'rxjs/Rx';
 
 
 export class Valoration{
   constructor(
-    public id,
-    public user:User,
-    public valoration,
+    public idUser,
+    public valoracion,
     public description,
-    public product:Product
+    public idProducto
   ){}
 }
-
-const URL = 'https://localhost:8443/valoration/';
 
 @Injectable()
 export class ValorationService{
 
+  private comments = [
+    new Valoration("Raul","vendedor 100% fiable","Muy puntual y amable.",1),
+    new Valoration("Raul","No está mal","Tiene buen aspecto, pero me parece un precio excesivo.",2),
+    new Valoration("David","Buenisimo","¡Me encanta este coche!",1),
+    new Valoration("Juan","Buen motor","Nunca había visto este modelo, es increíble.",3)
+  ];
 
-  constructor(
-    private uService: UserService,
-    private http:Http
-  ){}
+  constructor(private uService: UserService){}
 
-  get(p:Product){
-    let url = URL + 'product';
-    let body = JSON.stringify(p);
-    let headers = new Headers({
-        'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest'
-    });
-    let options = new RequestOptions({ headers });
-
-    return this.http.put(url, body, options)
-      .map(response => response.json());
+  getComments(){
+    return withObserver(this.comments);
   }
 
-  add(v:Valoration){
-    let url = URL + 'add';
-    let body = JSON.stringify(v);
-    let headers = new Headers({
-        'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest'
-    });
-    let options = new RequestOptions({ headers });
-
-    return this.http.post(url, body, options)
-      .map(response => response.json());
+  addComment(comment: Valoration){
+    this.comments.push(comment);
   }
+
 
 
 
