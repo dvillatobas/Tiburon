@@ -592,9 +592,10 @@ label.star:before {
         position: relative;
         margin: 0 auto;
         max-width: 650px;
-
         border: 1px solid #432143 ;
+
     }
+  
 
     .port {
         padding-bottom: 15px;
@@ -679,4 +680,11 @@ h5 a{
 }
 .p-list{
   margin-bottom: 40px;
+}
+
+.img-list{
+  height: 200px;
+}
+.hmax{
+  max-height: 180px;
 }

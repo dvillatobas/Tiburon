@@ -83,7 +83,7 @@ public class DatabaseInitializer implements CommandLineRunner {
 		Message m3 = new Message(222555114,raul,david,"buenas!!", "unread");
 		mRepo.save(m3);
 		
-		Product p1 = new Product(222666544, "Camaro", 20000, 2010, "Madrid", "imagenes/coches/1.jpg", 46968, david, "piece", "Magnifico coche");
+		Product p1 = new Product(222666544, "Camaro", 20000, 2010, "Madrid", "imagenes/1.jpg", 46968, david, "car", "Magnifico coche");
 		pRepo.save(p1);
 		
 		
@@ -92,14 +92,16 @@ public class DatabaseInitializer implements CommandLineRunner {
 		Valoration v2 = new Valoration(raul, "Me encanta", "El trato muy bueno, puntual...", p1);
 		vRepo.save(v2);
 		
-		pRepo.save(new Product( 155234234,"ford", 210,1965,"Valencia","imagenes/2.jpg",2500,david,"car","Coche para piezas o arreglo. Escucho ofertas coherentes"));
-		pRepo.save(new Product( 234552345,"viper", 210,1965,"Madrid","/imagenes/1.jpg",2501,luis,"car","Espectacular camaro semi nuevo, con muy poco uso. Precio inmejorable, urge venta"));
 		
-		pRepo.save(new Product( 155234234,"ford", 210,1965,"Valencia","imagenes/2.jpg",2500,david,"car","Coche para piezas o arreglo. Escucho ofertas coherentes"));
-		pRepo.save(new Product( 234552345,"viper", 210,1965,"Madrid","/imagenes/1.jpg",2501,luis,"car","Espectacular camaro semi nuevo, con muy poco uso. Precio inmejorable, urge venta"));
 		
-		pRepo.save(new Product( 155234234,"ford", 210,1965,"Valencia","imagenes/2.jpg",2500,david,"car","Coche para piezas o arreglo. Escucho ofertas coherentes"));
-		pRepo.save(new Product( 234552345,"viper", 210,1965,"Madrid","/imagenes/1.jpg",2501,luis,"car","Espectacular camaro semi nuevo, con muy poco uso. Precio inmejorable, urge venta"));
+		pRepo.save(new Product( 155234234,"Ford", 0,2016,"Valencia","imagenes/2.jpg",2500,david,"car","Coche para piezas o arreglo. Escucho ofertas coherentes"));
+		pRepo.save(new Product( 234552345,"Chevrolet", 210,1965,"Madrid","/imagenes/3.jpg",25001,luis,"car","Espectacular camaro semi nuevo, con muy poco uso. Precio inmejorable, urge venta"));
+		
+		pRepo.save(new Product( 155234234,"Llantas aleacion 17\"", 210,1965,"Ávila","imagenes/p1.jpg",250,david,"piece","Llantas en perfecto estado"));
+		pRepo.save(new Product( 234552345,"Faros delanteros", 210,1965,"Cuenca","/imagenes/p2.jpg",100,luis,"piece","P"));
+		
+		pRepo.save(new Product( 155234234,"Carburador", 210,1965,"Toledo","imagenes/p3.jpg",1200,juan,"piece","Casi nuevo, sin uso"));
+		pRepo.save(new Product( 234552345,"Llantas 16\"", 210,1965,"Murcia","/imagenes/p1.jpg",400,luis,"piece","Pocos arañazos"));
 	}
 
 }

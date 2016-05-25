@@ -113,10 +113,12 @@
 			</form>
 		</div>
 		<div class="col-md-4">
-			<img alt="imagen" src="http://lorempixel.com/350/200/" />
+
       <div class="form-group">
         <br>
-        <input type="file" id="exampleInputFile" />
+				<img [src]="product.img" class="hmax" alt="">
+				<label>Introduce la URL de una imágen:</label>
+        <input [(ngModel)]="product.img" type="text" id="exampleInputFile" placeholder="Introduce ruta de la imágen" />
       </div>
       <br>
       <div>
