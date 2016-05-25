@@ -1,8 +1,5 @@
-<div *ngIf="product">
-
-
-<div class="text-center"><h2>Producto {{product.id}} - {{product.name}}</h2></div>
-<div class="container-fluid">
+<div class="text-center" *ngIf="product"><h2>{{product.name}}</h2></div>
+<div class="container-fluid" *ngIf="product">
 	<div class="row">
 		<div class="col-md-1">
 		</div>
@@ -117,9 +114,12 @@
 		</div>
 		<div class="col-md-4">
 
-		 <input #img placeholder="Url de la imagen"[(ngModel)]="product.img" class="form-control" />
-		 <br>
-		 <img [src]="img.value" id="imagenPerfil" alt="Imagen producto" class="img-rounded center-block"/>
+      <div class="form-group">
+        <br>
+				<img [src]="product.img" class="hmax" alt="">
+				<label>Introduce la URL de una imágen:</label>
+        <input [(ngModel)]="product.img" type="text" id="exampleInputFile" placeholder="Introduce ruta de la imágen" />
+      </div>
       <br>
       <div>
         <button (click)="comprobarGuardar()" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span>Guardar</button>
@@ -131,5 +131,4 @@
 	</div>
   <br>
   <br>
-</div>
 </div>

@@ -1,58 +1,79 @@
 package es.tiburon.code.product;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+import es.tiburon.code.user.User;
 
 @Entity
 public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private Long id;
 	
-	private String publicDate;
+	private float publicDate;
 	private String name;
 	private int used;
 	private int year;
 	private String location;
 	private String img;
 	private float price;
-	private int idUser;
+	
+	@OneToOne
+	private User user;
 	private String type;
 	private String description;
 	
-	public Product(){}
 	
-	public Product(String date,String name,int used, int year,String location,String img, float price,
-			int idUser, String type, String description){
+	
+	
+	public Product(){}
+
+	public Product(float publicDate, String name, int used, int year, String location, String img, float price,
+			User user, String type, String description) {
 		super();
-		this.publicDate = date;
+		this.publicDate = publicDate;
 		this.name = name;
 		this.used = used;
 		this.year = year;
 		this.location = location;
 		this.img = img;
 		this.price = price;
-		this.idUser = idUser;
+		this.user = user;
 		this.type = type;
 		this.description = description;
-		
+	}
+	
+	public Product(Product p){
+		this.publicDate = p.publicDate;
+		this.name = p.name;
+		this.used = p.used;
+		this.year = p.year;
+		this.location = p.location;
+		this.img = p.img;
+		this.price = p.price;
+		this.user = p.user;
+		this.type = p.type;
+		this.description = p.description;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public String getPublicDate() {
+	public float getPublicDate() {
 		return publicDate;
 	}
 
-	public void setPublicDate(String publicDate) {
+	public void setPublicDate(float publicDate) {
 		this.publicDate = publicDate;
 	}
 
@@ -88,6 +109,14 @@ public class Product {
 		this.location = location;
 	}
 
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
 	public float getPrice() {
 		return price;
 	}
@@ -96,12 +125,12 @@ public class Product {
 		this.price = price;
 	}
 
-	public int getIdUser() {
-		return idUser;
+	public User getUser() {
+		return user;
 	}
 
-	public void setIdUser(int idUser) {
-		this.idUser = idUser;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public String getType() {
@@ -119,17 +148,13 @@ public class Product {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-	public String getImg() {
-		return img;
-	}
-
-	public void setImg(String img) {
-		this.img = img;
-	}
-
-
 	
-	
+	public int compareTo(Product p){
+		if(this.publicDate > p.getPublicDate()){
+			return -1;
+		}else{
+			return 1;
+		}
+	}
 	
 }

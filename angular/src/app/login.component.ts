@@ -1,7 +1,7 @@
 import {Component}   from 'angular2/core';
 import {ROUTER_DIRECTIVES,RouteParams, Router} from 'angular2/router';
 import {UserService,User} from './user.service';
-import {HTTP_PROVIDERS, Http} from 'angular2/http';
+
 @Component({
   selector: 'main',
   directives: [ROUTER_DIRECTIVES],

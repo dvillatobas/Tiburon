@@ -363,6 +363,11 @@ li>.glyphicon {
 .img-circle {
     border: 2px solid;
 }
+.img-val{
+  width: 100px;
+  height: 90px;
+
+}
 
 .prize {
     font-size: 40px;
@@ -405,10 +410,6 @@ li>.glyphicon {
     text-align: center;
 }
 
-#imagenPerfil{
-    width: 250px;
-    height: 150px;
-}
 
 /*******************FORMULARIO REGISTRO*************************/
 
@@ -591,9 +592,10 @@ label.star:before {
         position: relative;
         margin: 0 auto;
         max-width: 650px;
-
         border: 1px solid #432143 ;
+
     }
+  
 
     .port {
         padding-bottom: 15px;
@@ -620,9 +622,6 @@ label.star:before {
         width: 100%;
         text-align: center;
         transform: translateY(-50%);
-    }
-    .portfolio-box > img{
-        height: 200px;
     }
 
     .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {
@@ -681,4 +680,11 @@ h5 a{
 }
 .p-list{
   margin-bottom: 40px;
+}
+
+.img-list{
+  height: 200px;
+}
+.hmax{
+  max-height: 180px;
 }

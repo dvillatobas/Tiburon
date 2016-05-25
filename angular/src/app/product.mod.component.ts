@@ -1,8 +1,7 @@
 import {Component}   from 'angular2/core';
 import {ROUTER_DIRECTIVES,RouteParams, Router} from 'angular2/router';
 import {ProductService, Product} from './product.service';
-import {UserService, User} from './user.service';
-import {HTTP_PROVIDERS, Http} from 'angular2/http';
+import {UserService} from './user.service';
 
 @Component({
   selector: 'main',
@@ -12,7 +11,7 @@ import {HTTP_PROVIDERS, Http} from 'angular2/http';
 
 })
 
-export class ProductModComponent {
+export class ProductModComponent{
 
   private nuevo : boolean=true;
   product : Product;
@@ -27,25 +26,27 @@ export class ProductModComponent {
   private numericPrice:boolean;
   private numericYear:boolean;
 
-  private file: File;
-
-  private images: String;
 
 
-  constructor(private router: Router, routeParams: RouteParams, private pservice: ProductService,
-    private http: Http, private uService: UserService){
-    let id = Number.parseInt(routeParams.get('id'));
-
+  constructor(
+    private router: Router,
+     routeParams: RouteParams,
+     private pservice: ProductService,
+     private uService : UserService
+  ){
+    let id = routeParams.get('id');
     if(id){
       pservice.getProductById(id).subscribe(
-        product => this.product = product,
+        product => {
+          this.product = product
+          this.nuevo = false;
+        },
         error => console.log(error)
       );
-      this.nuevo = false;
+
     }
     else{
-      this.product = {publicDate:'',  name: '', used: undefined, year: undefined, location: '',img:"", price: undefined,
-       idUser: uService.getIdUserLogued(), type: '', description:''};
+      this.product = new Product(undefined,undefined,'',undefined,undefined,'','',undefined,undefined,'','');
       this.nuevo = true;
     }
   }
@@ -81,9 +82,9 @@ export class ProductModComponent {
       this.emptyPrice=true;
       return 0;
     }
-    /*if(this.product.year === undefined){
+    if(this.product.year === undefined){
       this.product.year = "Sin indicar";
-    }*/
+    }
     if(this.product.description.length<=10){
       this.emptyDescription = true;
       return 0;
@@ -105,12 +106,20 @@ export class ProductModComponent {
       }
     }
 
-    this.pservice.saveProduct(this.product).subscribe(
-      prod =>window.history.back(),
-      error => console.log(error)
-    );
+    this.product.user = this.uService.getUserLogued();
+
+    if(this.nuevo){
+      this.pservice.add(this.product).subscribe(
+        p => console.log(p)
+      );
+    }else{
+      this.pservice.update(this.product).subscribe(
+        p => console.log(p)
+      );
+    }
+
     //this.router.navigate(['Inicio']);
-  //  window.history.back();
+    window.history.back();
 
   }
 

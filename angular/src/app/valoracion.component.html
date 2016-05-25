@@ -1,19 +1,17 @@
-<div *ngIf="product">
-<div class="row" *ngIf="comment.idProducto == product.id">
+<div class="row" *ngFor="#v of valorations">
 
-  <div class="col-md-2 formUser" *ngIf="user">
+  <div class="col-md-2 formUser">
     <br>
-    <img *ngIf="user" [src]="user.img" class="img-responsive img-circle center-block" alt="perfilVendedor">
+    <img *ngIf="v.user" [src]="v.user.img" class="img-responsive img-circle center-block img-val" alt="perfilVendedor">
 
-    <span class="text-center">{{comment.idUser}}</span>
+
 
   </div>
   <div class="col-md-10 formValoracion">
-    <h3>{{comment.valoracion}}</h3>
-    <p>{{comment.description}}</p>
+    <h3>{{v.valoration}}</h3>
+    <p>{{v.description}}</p>
     <br>
   </div>
 
 <br>
-</div>
 </div>

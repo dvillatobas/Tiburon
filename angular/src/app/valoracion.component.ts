@@ -11,13 +11,11 @@ import {UserService,User} from './user.service';
 
 export class ValorationComponent{
   private user: User;
-  @Input()
-  private producto: Product;
-
+  private product: Product;
   private error: boolean = false;
 
   @Input()
-  private comment: Valoration;
+  private valorations;
 
   @Output()
   private remove = new EventEmitter<any>();
@@ -28,19 +26,6 @@ export class ValorationComponent{
     private routeParams: RouteParams,
     private uService: UserService,
     private pService: ProductService
-    ) {
-    let id = Number.parseInt(this.routeParams.get('id'));
-    //if (this.pService.exist(id)) {
-      /*this.pService.getProductById(id).subscribe(
-        prod => this.product = prod,
-        error => console.log(error)
-      );*/
-      this.uService.getUser(this.producto.idUser).subscribe(
-        usr => this.user = usr,
-        error => console.log(error)
-        );
-  //  } else {
-      //this.error = true;
-}
+    ) {}
 
 }
